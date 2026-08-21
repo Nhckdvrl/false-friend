@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
-GPU=${1:?GPU index required; use only a confirmed-idle GPU}
-CONFIG=${2:-configs/gate1_fast.yaml}
-CONDITION=${3:-shared}
-SEED=${4:-11}
-SCHEDULE=${5:-joint}
+CONFIG=${1:-configs/gate1_fast.yaml}
+CONDITION=${2:-shared}
+SEED=${3:-11}
+SCHEDULE=${4:-joint}
+GPU=${5:-0}
 export CUDA_VISIBLE_DEVICES="$GPU"
-python scripts/train.py --config "$CONFIG" --condition "$CONDITION" --seed "$SEED" --schedule "$SCHEDULE"
+export PYTHONPATH="${PWD}/src${PYTHONPATH:+:${PYTHONPATH}}"
+exec python scripts/train.py --config "$CONFIG" --condition "$CONDITION" --seed "$SEED" --schedule "$SCHEDULE"
