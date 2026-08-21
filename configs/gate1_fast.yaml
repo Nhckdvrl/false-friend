@@ -1,0 +1,31 @@
+experiment:
+  name: gate1_form_meaning_causal
+  output_root: runs/gate1_fast
+
+data:
+  processed_dir: data/processed/en_de
+
+model:
+  block_size: 256
+  n_layer: 6
+  n_head: 6
+  n_embd: 384
+  dropout: 0.0
+
+train:
+  schedule: joint
+  max_steps: 8000
+  per_device_batch_size: 16
+  gradient_accumulation_steps: 1
+  learning_rate: 0.0005
+  warmup_steps: 500
+  weight_decay: 0.1
+  betas: [0.9, 0.95]
+  grad_clip: 1.0
+  mixed_precision: bf16
+  gradient_checkpointing: false
+  log_every: 50
+  save_every: 1000
+  # Used only by en_then_de / de_then_en path-dependence schedules.
+  phase_steps: 4000
+  balanced_tail_steps: 8000
