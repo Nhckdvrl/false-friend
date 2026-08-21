@@ -1,190 +1,66 @@
 # false-friend
 
-Controlled validation of one causal multilingual lexical-learning question:
+> **Status: ARCHIVED — CONCEPTUAL_IDENTIFICATION_FAILURE (2026-08-21)**
+
+This repository investigated one causal multilingual lexical-learning question:
 
 > **When does lexical sharing turn from transfer into interference?**
 
-The first experiment asks whether forcing the *same exact lexical form* in English and German through one shared lexical row can make that form easier to predict while making language-conditioned continuation harder when the two meanings conflict.
+The intended experiment asked whether forcing the same exact lexical form in English and German through one shared lexical representation would improve form prediction while harming language-specific contextual/semantic use when the two languages assign conflicting meanings.
 
-This repository is organized as kill gates. Do **not** proceed to training dynamics, path dependence, or mechanisms unless the preceding behavioral causal gate survives.
+The project is now **archived**. The reason is not a valid negative experimental result. The core causal control — an adequate set of **exactly shared bilingual forms with genuinely aligned semantic distributions in natural corpora** — could not be identified from the available public resource without introducing substantial new manual semantic construction and increasingly elaborate matching gates.
 
-## Canonical documents
+## Read this first
 
-- [`RESEARCH_MAINLINE.md`](RESEARCH_MAINLINE.md): research question, causal estimand, gates, decision rules.
-- [`docs/LITERATURE_AUDIT.md`](docs/LITERATURE_AUDIT.md): literature/open-source boundary.
-- [`docs/SERVER_AGENT_HANDOFF.md`](docs/SERVER_AGENT_HANDOFF.md): server execution handoff with scientific intent and GPU policy.
-- [`docs/IMPLEMENTATION_NOTES.md`](docs/IMPLEMENTATION_NOTES.md): engineering/scientific validation checklist.
-- [`docs/AUDIT_2026-08-21.md`](docs/AUDIT_2026-08-21.md): two-pass algorithm/scientific audit.
+- [`docs/FINAL_ARCHIVE_ZH.md`](docs/FINAL_ARCHIVE_ZH.md) — **final archive decision, complete failure analysis, and lessons**.
+- [`RESEARCH_MAINLINE.md`](RESEARCH_MAINLINE.md) — canonical research history and final stop decision.
+- [`docs/GATE1_STATUS_ZH.md`](docs/GATE1_STATUS_ZH.md) — last frozen-implementation preflight before the final archive decision; historical execution record.
+- [`docs/AUDIT_2026-08-21.md`](docs/AUDIT_2026-08-21.md) — two-pass code/scientific audit of the causal implementation.
+- [`docs/LITERATURE_AUDIT.md`](docs/LITERATURE_AUDIT.md) — literature and open-source audit that motivated the original question.
 
-## Gate 1 in one diagram
+## Final outcome in one paragraph
 
-```text
-Stingray EN-DE false-friend targets + EN-DE common/true-cognate controls
-                              |
-             exact same surface + exact single token
-                              |
-                              v
-                       natural OPUS-100
-                              |
-                exact standalone occurrence mask
-                              |
-          +-------------------+-------------------+
-          |                                       |
-          v                                       v
-       SHARED                                  SPLIT
- EN exact form -> base row              EN exact form -> base row
- DE exact form -> base row              DE exact form -> alias row
-          |                                       |
-          +-------------------+-------------------+
-                              |
-        same seed / same step-0 tensors / same sampled batches
-        same model size / same active softmax cardinality
-                              |
-                              v
-          held-out natural parallel pairs, never seen in training
-                              |
-                  form NLL / pre NLL / post NLL
-                              |
-                              v
-       false-friend effect vs true-cognate sharing control
-```
+The audited implementation itself reached a clean causal intervention: shared/split models could be matched in architecture, parameter count, step-0 tensors, data, sampling, optimizer updates and effective softmax cardinality. The project failed one level earlier: Gate 1 required a false-friend treatment group and a semantic-aligned exact-form control group. Under the frozen pipeline, 24 false friends survived but only 3 nominal true-friend controls survived the exact-form/evidence gate; two of those three (`bar`, `Rock`) are themselves semantically conflicting across English and German. The underlying `en_de_common` resource is suitable for its original sentence-level cognate benchmark, but it does not identify the natural-corpus object required here: `same exact form + matched cross-lingual sense distribution`. Therefore the causal specificity claim is not identifiable with this resource.
 
-## Critical causal invariants
+## Important result-status distinction
 
-1. True-cognate controls come from Stingray's `en_de_common*` source, not by guessing from the false-friend file.
-2. Only **standalone exact lexical occurrences** are remapped. A target token reused as a compound/subword is not manipulated.
-3. A held-out OPUS parallel pair is removed on **both** sides.
-4. Same-seed shared/split step-0 model tensors are exactly identical; every alias row starts as an exact copy of its base row.
-5. Reserved aliases do not change softmax denominator size: shared masks all aliases; split uses strict **one-in/one-out** masking only when the label is an exact German target alias.
-6. `max_updates` means optimizer updates, not microsteps.
-7. Gate-1 training is one GPU per independent run. Cross-node bandwidth is irrelevant.
-8. Inference is paired on the exact same occurrence; inference unit is lexical item × seed, not sentence row.
-9. The primary continuation claim uses `delta_post_local = delta_post - delta_pre`; explicit sense understanding is a later confirmatory test.
-10. Every run records data fingerprint, config hash, Git commit, initialization fingerprint, effective batch and GPU model; the primary analysis refuses mixed provenance.
+There are three different events in the history of this repository:
 
-## Environment
+1. **Old 10-run result — INVALID.** An earlier 5-seed shared/split run used commit `d8d1b18`, which predated the final one-in/one-out softmax hardening, and its true-friend extraction was changed at runtime. Its `KILL_CORE_FORM_ONLY` verdict must not be cited as a scientific result.
+2. **Frozen audit-v2 preflight — VALID STOP.** Commit `d055f1e0976b0b5cc2ef3bf681cdd197c5317c97` passed the algorithmic audit, but strict data preparation returned 24 FF / 3 TF and preflight correctly refused GPU allocation.
+3. **Final project decision — ARCHIVED.** Further work would require constructing and validating a bespoke bilingual semantic-control dataset. That would change the character of the project from a fast natural causal test into a data-construction project and was judged not worth pursuing.
 
-Prefer an existing local virtual/conda environment. Do not create a new environment unless dependencies are missing or conflicting.
+So the project did **not** establish either:
 
-The scripts work after either an editable install:
+- “lexical sharing causes semantic interference”, or
+- “lexical sharing does not cause semantic interference”.
 
-```bash
-pip install -e .
-```
+It established that the proposed experiment, as naturally formulated with the available EN-DE resource, lacks an identifiable semantic-aligned control.
 
-or explicit local package path:
+## What remains useful
 
-```bash
-export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
-```
+The repository preserves reusable infrastructure for future controlled lexical-sharing experiments:
 
-## Data preparation and preflight
+- exact standalone lexical-occurrence masking;
+- pair-level parallel holdout;
+- shared/split step-0 tensor identity;
+- alias/base one-in-one-out softmax normalization;
+- optimizer-update semantics;
+- deterministic paired sampling;
+- word × seed crossed bootstrap;
+- frozen data/config/code/init provenance;
+- fail-fast preflight design;
+- no-Slurm, one-idle-GPU-per-independent-run execution.
 
-```bash
-export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
-python scripts/prepare.py \
-  --output data/processed/en_de \
-  --max-pairs 1000000 \
-  --min-target-occurrences 20 \
-  --min-eval-contexts-per-word-lang 1
+The code is retained as a historical research artifact. **Do not resume Gate 1 / Gate 2 / Gate 3 from the existing plan unless the project is explicitly reopened under the conditions in `docs/FINAL_ARCHIVE_ZH.md`.**
 
-python scripts/preflight.py --data data/processed/en_de
-PYTHONPATH=src pytest -q
-```
-
-A preflight failure is a stop signal. Do not weaken thresholds merely to make the experiment run.
-
-## No Slurm: GPU policy
-
-Candidate hosts are only:
-
-`fvcrc10 fvcrc11 fvcrc12 fvcrc13 fvcrc15 fvcrc20 fvcrc21`
-
-Not every GPU is free. Inspect first:
-
-```bash
-bash scripts/check_candidate_gpus.sh
-```
-
-Use **only actually idle cards**. Never kill or interfere with another process. One scientific run uses one exposed GPU:
-
-```bash
-bash scripts/run_one_gpu.sh configs/smoke.yaml shared 11 joint 0
-bash scripts/run_one_gpu.sh configs/smoke.yaml split  11 joint 0
-```
-
-The last argument is the physical GPU index on the current host. Across hosts, dispatch independent `(condition, seed)` jobs to whichever listed cards are genuinely idle. Same-seed shared/split runs should use the same GPU model.
-
-## Mandatory smoke before Gate 1
-
-Run both 50-update smoke conditions, then verify exact step-0 identity:
-
-```bash
-python scripts/verify_step0_identity.py \
-  runs/smoke/shared/seed_11/joint/checkpoint-0000000 \
-  runs/smoke/split/seed_11/joint/checkpoint-0000000
-
-python scripts/evaluate.py --checkpoint runs/smoke/shared/seed_11/joint/checkpoint-0000050 --data data/processed/en_de
-python scripts/evaluate.py --checkpoint runs/smoke/split/seed_11/joint/checkpoint-0000050  --data data/processed/en_de
-```
-
-Smoke is engineering validation only; one seed cannot pass the scientific gate.
-
-## Gate-1 scientific grid
-
-Five paired seeds: `11, 22, 33, 44, 55`.
-
-For every seed run `shared` and `split` at the same config. Example:
-
-```bash
-bash scripts/run_one_gpu.sh configs/gate1_fast.yaml shared 11 joint 0
-bash scripts/run_one_gpu.sh configs/gate1_fast.yaml split  11 joint 0
-```
-
-After all ten terminal checkpoints are evaluated:
-
-```bash
-python scripts/analyze.py \
-  --inputs 'runs/gate1_fast/*/seed_*/joint/checkpoint-0008000/eval_contexts.csv' \
-  --output-dir results/gate1
-```
-
-The analysis refuses mixed steps/configs/data fingerprints/Git commits/effective batches, refuses imperfect shared/split occurrence coverage, and will not PASS if paired hardware types differ.
-
-## Repository layout
+## Final decision
 
 ```text
-RESEARCH_MAINLINE.md
-configs/
-  smoke.yaml
-  gate1_fast.yaml
-  gate1_full.yaml
-  path_fast.yaml
-  gate1_matrix.tsv
-  path_matrix.tsv
-docs/
-  LITERATURE_AUDIT.md
-  IMPLEMENTATION_NOTES.md
-  SERVER_AGENT_HANDOFF.md
-  AUDIT_2026-08-21.md
-scripts/
-  prepare.py
-  preflight.py
-  train.py
-  evaluate.py
-  analyze.py
-  analyze_trajectory.py
-  analyze_path.py
-  verify_step0_identity.py
-  check_candidate_gpus.sh
-  run_one_gpu.sh
-src/false_friend_lab/
-  remap.py
-  sampling.py
-tests/
-  test_remap.py
+ARCHIVED — CONCEPTUAL_IDENTIFICATION_FAILURE
+Gate 1: no valid scientific adjudication; stopped at causal-control preflight
+Gate 2: cancelled
+Gate 3: cancelled
+Mechanism/probe work: cancelled
+Further GPU budget: 0
 ```
-
-## Current status
-
-**ACTIVE — audited Gate-1 implementation prepared; no scientific result has been claimed.**
