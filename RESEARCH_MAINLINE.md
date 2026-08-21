@@ -1,28 +1,34 @@
 # Research Mainline — When Does Lexical Sharing Turn from Transfer into Interference?
 
-_Last audited: 2026-08-21_
+_Last updated: 2026-08-21_  
+_Final status: **ARCHIVED — CONCEPTUAL_IDENTIFICATION_FAILURE**_
 
-This is the canonical research record. The project is a sequence of falsifiable gates. A later gate must not be used to rescue failure of an earlier one.
+This file is the canonical research record. The full postmortem is in [`docs/FINAL_ARCHIVE_ZH.md`](docs/FINAL_ARCHIVE_ZH.md).
 
-## 1. Core question
+---
 
-> When two languages reuse the same exact lexical form, does forcing them through one shared lexical representation improve prediction of that form while making language-specific contextual use harder when the meanings conflict? If so, when does that transfer become interference, and can early learning history leave a persistent bias?
+## 1. Original core question
 
-The paper is **not** about the already-established main effect “false friends are difficult.” The causal object is **lexical sharing itself**.
+> When two languages reuse the same exact lexical form, does forcing them through one shared lexical representation improve prediction of that form while making language-specific contextual use harder when the meanings conflict? If so, when does transfer become interference, and can early learning history leave a persistent bias?
 
-## 2. Literature tension that motivates the question
+The intended contribution was not the already-established observation that false friends can be difficult. The intended causal object was **lexical sharing itself**.
 
-Existing work measures different outcomes:
+The motivating literature tension was real:
 
-- StingrayBench / related false-friend benchmarks: local language-specific semantic disambiguation can fail.
-- Kallini et al. (Findings EMNLP 2025): vocabulary overlap, including low-semantic-similarity overlap, can improve global cross-lingual transfer.
-- CMCL 2026 Dutch-English controlled models: shared false friends can show surprisal facilitation, much of it frequency-related.
+- false-friend / cross-lingual homograph benchmarks show local semantic-disambiguation failures;
+- vocabulary-overlap work shows that lexical sharing can improve global cross-lingual transfer;
+- controlled bilingual-model work shows shared forms can have lower surprisal, often strongly affected by frequency.
 
-These results need not conflict. The same sharing operation may help form prediction while making conflicting language-specific use harder. This project tests that possibility causally rather than comparing unrelated pretrained models.
+The project therefore asked whether the same sharing operation could simultaneously produce:
 
-## 3. Gate 1 causal estimand
+1. a **form benefit**, and
+2. a **conflict-specific contextual/semantic cost**.
 
-For the same real lexical targets and same natural EN-DE training corpus:
+---
+
+## 2. Intended Gate-1 causal intervention
+
+For the same target lexical form and same natural EN-DE corpus:
 
 ### Shared
 
@@ -34,215 +40,413 @@ For the same real lexical targets and same natural EN-DE training corpus:
 
 `EN exact target -> base row`
 
-`DE exact target -> reserved alias row`
+`DE exact target -> reserved language-specific alias row`
 
-Everything else should be held fixed.
+The primary causal estimand was:
 
-The estimand is `effect of lexical sharing = shared - split`, not simply `false_friend - ordinary_word`.
+`effect of lexical sharing = shared - split`
 
-### Step-0 identity
+rather than a simple observational `false_friend - ordinary_word` comparison.
 
-Every alias row exists in both conditions and is copied exactly from its paired base row before training. For a paired seed, every model tensor at checkpoint 0 must be bit-identical. If that invariant fails, no scientific run is valid.
+The final audit-v2 implementation hardened the intervention so that paired shared/split runs had:
 
-### Equal softmax normalization
+- identical model architecture;
+- identical parameter count and vocabulary size;
+- identical step-0 model tensors;
+- alias rows copied exactly from paired base rows;
+- identical natural training data;
+- identical deterministic per-language sample streams;
+- optimizer time defined by optimizer updates, not microsteps;
+- pair-level held-out parallel data;
+- exact standalone lexical-occurrence masks rather than raw token-id replacement;
+- strict one-in/one-out output masking so reserved aliases did not change active softmax cardinality;
+- frozen data/config/code/init provenance;
+- paired lexical-item × seed inference.
 
-Merely allocating the same vocabulary size is insufficient because unused alias rows could still steal probability mass.
+The final audited implementation was frozen at:
 
-At every prediction position exactly `base_vocab_size` output rows are active:
+`d055f1e0976b0b5cc2ef3bf681cdd197c5317c97`
 
-- shared: all aliases masked;
-- split ordinary position: all aliases masked;
-- split exact-DE target label: the correct alias is activated and its paired base row is masked.
+Algorithmic audit before server execution:
 
-This is strict one-in/one-out normalization. The intervention is therefore the identity of the lexical row that receives DE gradients, not a change in softmax cardinality.
+- 8/8 core unit tests passed;
+- all Python files compiled;
+- synthetic end-to-end analysis recovered a known injected positive Gate-1 pattern.
 
-## 4. Lexical target definition
+So the final project failure should not be described as “we could not implement the intervention cleanly.”
 
-Primary language pair: EN-DE.
+---
 
-Targets come from two actual Stingray sources:
+## 3. What Gate 1 actually needed to identify
 
-- false friends: EN-DE false-friend file/config;
-- true-cognate controls: EN-DE `common` file/config.
+A positive paper-level claim required more than a shared/split effect among false friends.
 
-Do **not** infer true friends by looking for a `Both` answer in the false-friend file.
+The central specificity claim was:
 
-Primary targets must satisfy all of:
+> **semantic conflict changes the consequence of lexical sharing.**
 
-1. exactly the same written form across EN and DE;
-2. one identical tokenizer id sentence-initially and after whitespace;
-3. unique tokenizer id among retained target types;
-4. sufficient exact standalone occurrences in both languages;
-5. at least one natural held-out context in both languages.
+Therefore Gate 1 needed two naturally identifiable lexical populations:
 
-The tokenizer is an implementation device, not the scientific object. If strict filtering leaves too few lexical items, the result is inconclusive and the tokenizer/language pair must be reconsidered before training; thresholds must not be relaxed post hoc merely to obtain power.
+### Conflict group
 
-## 5. Exact lexical occurrence intervention
+`same exact written form + different cross-lingual meanings`
 
-A token id alone is not enough. The same SentencePiece id may occur as part of a compound or derivative.
+### Non-conflict control
 
-During corpus preparation, fast-tokenizer offsets are used to mark only occurrences whose character span equals the target surface and whose left/right boundaries are standalone word boundaries.
+`same exact written form + sufficiently aligned cross-lingual meanings`
 
-Only those marked German positions are aliased in split. Non-exact subword reuse remains unchanged.
+The planned strong result was roughly:
 
-After evidence filtering, masks for dropped candidate targets are explicitly cleared. Preflight recomputes masked occurrence counts and requires exact agreement with `targets.csv`.
+- FF: sharing improves form prediction but worsens localized continuation;
+- true-friend control: sharing improves form prediction without the same continuation cost;
+- therefore FF-minus-control interaction isolates conflict-specific interference.
 
-## 6. Natural data and leakage control
+This design only works if the control category is a valid approximation to:
 
-Training corpus: `Helsinki-NLP/opus-100`, `de-en`, up to 1,000,000 parallel pairs.
+`same exact form + no relevant semantic conflict in natural usage`.
 
-Evaluation contexts are natural OPUS sentences. No new Gate-1 sentences are generated.
+That assumption ultimately failed.
 
-Holdout is deterministic at the **parallel-pair level**. If a target-containing pair is assigned to evaluation, neither EN nor DE side enters training. This prevents the translation counterpart of an evaluation sentence from remaining in the training stream.
+---
 
-A held-out evaluation sentence may contain multiple occurrences of one retained target, but not multiple retained target types. Multiple occurrences in one sentence are averaged at context level so the sentence does not gain extra statistical weight.
+## 4. Frozen preflight result
 
-## 7. Gate 1 measurements
+Using the final frozen implementation without modifying scientific code:
 
-For target token position `j`, with fixed primary windows `k_pre = k_post = 8`:
+```text
+strict Stingray targets before corpus filters:
+  false_friend = 65
+  true_friend  = 5
 
-- `form_nll = -log P(x_j | x_<j)`
-- `post_nll = mean NLL(x_{j+1:j+k})`
-- `pre_nll = mean NLL(x_{j-k:j-1})`
+targets after natural-corpus evidence gate:
+  false_friend = 24
+  true_friend  = 3
+```
 
-Evaluation keeps only occurrences with the complete pre and post window available.
+The preregistered support requirement was at least 10 lexical types in each relation.
 
-Paired causal deltas are shared minus split: `delta_form`, `delta_post`, `delta_pre`.
+Preflight therefore correctly returned:
 
-To localize continuation effects against general run divergence:
+```text
+FAIL: only 3 lexical items for true_friend (<10)
+PRECHECK FAIL: do not allocate GPUs until fixed
+```
 
-`delta_post_local = delta_post - delta_pre`
+No GPU scientific training was launched under the final frozen implementation.
 
-`delta_form_local = delta_form - delta_pre` is diagnostic; the primary form-prediction quantity remains raw `delta_form`.
+The three surviving nominal true-friend controls were:
 
-Interpretation:
+| Surface | Approximate resource gloss | Assessment for this project |
+|---|---|---|
+| `bar` | bar / in cash | semantically conflicting in natural EN/DE usage |
+| `Rock` | rock / skirt | semantically conflicting in natural EN/DE usage |
+| `intelligent` | intelligent | clean aligned control |
 
-- `delta_form < 0`: shared lexical row improves form prediction.
-- `delta_post_local > 0`: after removing pre-target divergence, sharing makes the natural continuation harder.
+Thus the support problem was actually worse than “3 < 10”: only about one surviving item clearly matched the intended semantic-aligned control object.
 
-Post-target continuation is **meaning-sensitive contextual integration**, not direct proof that the model selected the wrong dictionary sense. Explicit Stingray sense likelihood is confirmatory only after this causal behavioral gate survives.
+---
 
-## 8. Statistical unit and bootstrap
+## 5. Why this is not ordinary insufficient sample size
 
-Raw sentence rows are not independent evidence.
+If the issue were merely that a valid control category had 7 or 8 items instead of 10, the natural response might be to obtain a larger corpus or expand a resource.
 
-Aggregation order:
+That is not what happened.
 
-1. exact shared/split occurrence pairing;
-2. multiple occurrences -> base sentence/context;
-3. contexts -> word × seed × language;
-4. EN and DE are equal-weighted -> word × seed;
-5. inference uses a crossed bootstrap over lexical words and random seeds.
+The deeper issue is that the available category label does not identify the variable required by the causal claim.
 
-This prevents a high-frequency word or a word with many contexts from dominating the result.
+StingrayBench is designed for sentence-level cross-lingual semantic / cognate evaluation. For EN-DE it permits orthographic variation such as capitalization differences. That is appropriate for its benchmark task.
 
-Frequency is a prespecified confound/moderator because CMCL 2026 shows it explains much of form facilitation. FF-vs-true-cognate specificity is reported both unadjusted and after lexical-level adjustment for `log1p(total EN+DE frequency)` and absolute EN/DE log-frequency ratio.
+Our intervention, however, required the **exact same surface form / token row** in both languages.
 
-## 9. Gate 1 preregistered decision
+For example, a benchmark pair such as:
 
-Fast grid: 2 conditions × 5 paired seeds (`11,22,33,44,55`).
+`English arm` ↔ `German Arm`
 
-A strong PASS requires all of:
+can express the same “arm” sense in the intended benchmark sentence. But converting this into an exact-surface natural-corpus target `arm` changes the German lexical object: lower-case German `arm` is an adjective meaning “poor”.
 
-1. at least 10 false-friend lexical types and 10 true-cognate lexical types survive;
-2. all five paired seeds are complete;
-3. FF `delta_form` 95% crossed-bootstrap CI is entirely below 0;
-4. FF raw `delta_post` CI is entirely above 0;
-5. FF `delta_post_local` CI is entirely above 0;
-6. FF-minus-true-cognate `delta_post_local` interaction CI is entirely above 0;
-7. the frequency-adjusted FF coefficient CI is entirely above 0;
-8. at least 80% of paired seeds show the expected FF form and localized-post directions;
-9. absolute FF pre-target divergence is no more than half the raw post-target effect;
-10. each same-seed shared/split pair used the same GPU model;
-11. one data fingerprint, one config hash, one Git commit, one effective batch, one terminal update, identical paired initialization fingerprint, and exact evaluation-row coverage are used throughout.
+Therefore orthographic normalization can transform a benchmark true cognate into the exact kind of semantic collision that was supposed to define the treatment group.
 
-Machine verdicts include:
+The problem is conceptual, not a parser bug.
 
-- `PASS_CAUSAL_FORM_CONTEXT_DISSOCIATION`
-- `KILL_CORE_FORM_ONLY`
-- `WEAK_INTERFERENCE_ONLY`
-- `KILL_NO_SPECIFIC_CAUSAL_DISSOCIATION`
-- `INCONCLUSIVE_INSUFFICIENT_LEXICAL_OR_SEED_SUPPORT`
-- `INCONCLUSIVE_PAIRED_HARDWARE_MISMATCH`
-- `INCONCLUSIVE_GLOBAL_DIVERGENCE_NEGATIVE_CONTROL_FAILED`
+---
 
-A failed Gate 1 must not be rescued by hidden-state probes, steering, language tags, or checkpoint cherry-picking.
+## 6. Resource-semantic mismatch
 
-## 10. Fast and confirmation scales
+The frozen execution also inspected `en_de_common_words.csv` and found that its meaning fields cannot be used as independent semantic-distribution labels for our purpose.
 
-`configs/smoke.yaml`: 2L/128D, 50 optimizer updates. Engineering only.
+Observed facts recorded in [`docs/GATE1_STATUS_ZH.md`](docs/GATE1_STATUS_ZH.md):
 
-`configs/gate1_fast.yaml`: 6L/384D, context 256, 8,000 optimizer updates. Primary kill experiment.
+- all 98 rows have identical `Meaning in L1` and `Meaning in L2` strings;
+- several rows contain union-like glosses such as `arm, poor`, `rock, skirt`, `bar, in cash`, `log, lied`, `costs, taste`.
 
-`configs/gate1_full.yaml`: 12L/768D, context 512, 30,000 optimizer updates. Confirmation only after fast evidence is convincing.
+This is compatible with a benchmark designed around common/cognate word usage, but it does not certify:
 
-Configuration uses **optimizer updates**, never ambiguous microsteps. Effective batch = `micro_batch_size × gradient_accumulation_steps` because one scientific run is one GPU.
+`P(sense | word, EN) ≈ P(sense | word, DE)`
 
-## 11. Compute strategy — no Slurm
+in natural corpora.
 
-There is no Slurm.
+That distinction is decisive because our model is trained on all natural occurrences of a form, not on one selected benchmark sense.
 
-Candidate hosts: `fvcrc10 fvcrc11 fvcrc12 fvcrc13 fvcrc15 fvcrc20 fvcrc21`.
+A resource can validly mark that two languages share a sense in a controlled sentence while still failing to provide the **matched full lexical-semantic distribution** needed for a no-conflict training control.
 
-Not every GPU on these hosts is available. Always inspect live state first with `scripts/check_candidate_gpus.sh` / `nvidia-smi` and use only cards that are genuinely idle. Never kill or displace another process.
+Hence:
 
-One independent `(condition, seed, schedule)` run uses one exposed GPU. Parallelism is across independent runs, not DDP. This both avoids cross-node communication and maximizes useful parallelism when only some cards are free.
+> **benchmark category ≠ causal control.**
 
-Same-seed shared/split should use the same GPU model. If not, Gate-1 analysis refuses PASS.
+---
 
-## 12. Environment policy
+## 7. Why the earlier 10-run result is invalid
 
-Prefer an existing local virtual/conda environment.
+Before the final frozen preflight, an earlier branch ran 5 paired seeds × shared/split and produced:
 
-First inspect Python, PyTorch, CUDA, Transformers and datasets versions. Reuse an environment if compatible. Only create a new project environment if dependencies are absent/conflicting or the existing environment cannot safely be modified.
+`KILL_CORE_FORM_ONLY`
 
-Expose the local package with either editable install or `export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"`.
+That verdict is permanently invalid for two independent reasons.
 
-## 13. Mandatory execution order
+### 7.1 Wrong implementation version
 
-1. Pull and record frozen commit SHA.
-2. Select/reuse compatible existing environment.
-3. Prepare data with `scripts/prepare.py`.
-4. Run `scripts/preflight.py`. Any failure stops GPU allocation.
-5. Run unit tests.
-6. Inventory actual free GPUs on the seven candidate hosts.
-7. Run shared and split smoke seed 11 on a free GPU.
-8. Run `verify_step0_identity.py` on the two checkpoint-0 directories.
-9. Reload/evaluate both final smoke checkpoints and confirm exact shared/split row pairing.
-10. Dispatch ten Gate-1 fast jobs to available idle cards; queue the rest rather than changing batch size.
-11. Evaluate the exact same terminal update for all ten runs.
-12. Run `scripts/analyze.py` exactly once on the frozen primary data.
-13. Record all results/deviations here before any new experiment.
+The runs used:
 
-## 14. Gate 2 — learning dynamics
+`d8d1b18cf2aa0d2718218775b780adc84f9470a1`
 
-Only if Gate 1 survives. Use the same held-out contexts at saved checkpoints and track `delta_form(t)`, `delta_post_local(t)`, and true-cognate controls.
+This branch diverged from an earlier base and did not contain the final audit-v2 one-in/one-out causal output normalization.
 
-Competing trajectories include early transfer -> interference -> recovery/separation; immediate interference; persistent facilitation without contextual cost; or no target-specific effect. The desired contribution is behavioral acquisition dynamics, not merely embedding similarity over time.
+The old split condition let base and alias rows coexist as softmax competitors, introducing an extra repulsive training signal between the two lexical rows.
 
-## 15. Gate 3 — path dependence
+This contaminates the intended sharing intervention.
 
-Only after Gates 1–2 justify it.
+### 7.2 Runtime modification of the control definition
 
-Compare EN -> DE -> identical balanced tail vs DE -> EN -> identical balanced tail.
+The first strict preparation had too few true-friend controls. The runtime execution then widened the target extraction by treating capitalization variants as independent surface candidates.
 
-The two paths must consume the same deterministic per-language sample sequences. This is enforced with independent EN and DE RNGs. After equal first/second phases, both RNG states are identical before the tail; the balanced-tail language plan also starts from the same RNG state.
+This changed the scientific object and admitted semantically conflicting forms into the nominal control group.
 
-Path config additionally uses constant learning rate, zero warmup, and optimizer reset at the common-tail boundary. These controls remove LR-stage and Adam-momentum explanations.
+Therefore the old FF-vs-TF interaction cannot be interpreted.
 
-The claim is not simply “training order matters.” The core later estimand is:
+### 7.3 Old FF-only diagnostic
 
-`(EN->DE - DE->EN)_shared - (EN->DE - DE->EN)_split`
+The invalid implementation produced, among 24 FFs:
 
-measured after the common tail. A generic order effect in both conditions is ordinary sequential-learning/forgetting, not lexical-sharing hysteresis.
+- `Δpost = -0.011`, CI `[-0.049, +0.025]`, expected direction in 0/5 seeds;
+- `Δlocal_post = -0.014`, CI `[-0.064, +0.033]`, expected direction in 1/5 seeds.
 
-## 16. Specificity gate
+These numbers lower confidence in the hypothesis but remain **diagnostic only**. They are not a valid negative scientific finding.
 
-If needed after the causal effect exists, compare false friends against public matched monolingual homonyms / language-unique controls. Do not build a large hand-crafted dataset merely to save the story.
+---
 
-## 17. Results log
+## 8. Why we do not build a new matched control dataset
 
-- 2026-08-21: literature audit and initial implementation created.
-- 2026-08-21: two-pass code/scientific audit hardened target sources, exact occurrence masks, pair-level holdout, step-0 identity, one-in/one-out softmax, optimizer-update semantics, crossed word×seed inference, frozen code/data/config provenance, and path-dependence controls. No scientific result yet.
+A technically possible rescue is to manually construct a semantic-aligned exact-form control set.
 
-**Current status: ACTIVE — Gate 1 audited implementation ready for server runtime smoke; no positive claim has been made.**
+To make that control credible, we would need to inspect or match at least:
+
+- exact orthography;
+- tokenizer identity;
+- part of speech;
+- dominant sense;
+- secondary senses / polysemy;
+- sense-frequency distribution by language;
+- total lexical frequency;
+- EN/DE frequency imbalance;
+- contextual diversity;
+- potentially semantic distance and morphology.
+
+At that point the project is no longer a fast natural causal experiment. It becomes a bespoke bilingual lexical-semantic dataset-construction project.
+
+This is precisely the warning sign identified in earlier failed topics:
+
+> When the gate and kill-line structure keeps expanding because every claimed effect must first be distinguished from many neighboring explanations, the underlying research question may not be naturally identifiable.
+
+The controls here are not growing because of ordinary rigor around a clean object. They are growing because the supposedly simple “non-conflicting shared form” is not directly available as a stable natural category.
+
+Therefore we do not rescue the topic by manual control construction.
+
+---
+
+## 9. Why we do not run FF-only Gate 1
+
+The 24 strict false friends are themselves a viable treatment set.
+
+One could run only:
+
+`shared vs split on FF`
+
+and ask whether `Δpost^FF > 0`.
+
+This can falsify a necessary condition. But if positive, it cannot establish the intended claim that **semantic conflict specifically** causes interference, because there is no matched non-conflict sharing baseline.
+
+The possible result would therefore be asymmetric:
+
+- negative: potentially informative kill signal;
+- positive: insufficient to support the paper story.
+
+Given that the main causal specificity contrast has already failed identification, and the invalid older run already provided an unfavorable diagnostic signal, this one-sided experiment is not worth further GPU budget.
+
+---
+
+## 10. Why we do not immediately change language pair
+
+A language pair with more exact orthographic overlap, such as Indonesian-Malay, may improve the form side of the problem.
+
+But exact orthographic overlap does not automatically solve the deeper requirement:
+
+`same form + sufficiently matched natural sense distribution`.
+
+Changing language pair would require a new corpus, new lexical inventory, new semantic-control audit, new tokenization study, new frequency analysis and a new preregistration.
+
+That should be evaluated as a separate future candidate topic, not treated as a patch to this project.
+
+Current project: stop.
+
+---
+
+## 11. Final failure classification
+
+### Correct classification
+
+`ARCHIVED — CONCEPTUAL_IDENTIFICATION_FAILURE`
+
+### Incorrect classifications
+
+Not `HYPOTHESIS_REJECTED`:
+
+- no valid final Gate-1 scientific run occurred.
+
+Not `ENGINEERING_FAILURE`:
+
+- the audited intervention and analysis pipeline passed local algorithmic checks;
+- the frozen preflight stopped before scientific GPU allocation exactly as designed.
+
+Not merely `INSUFFICIENT_SAMPLE_SIZE`:
+
+- the nominal control category itself does not reliably correspond to the required semantic-aligned causal object.
+
+The central failure is:
+
+> The intervention was identifiable, but the semantic specificity contrast was not.
+
+---
+
+## 12. Lessons for future topic selection
+
+### 12.1 Run an identifiability preflight before implementation
+
+Before writing training code, ask:
+
+1. Does the treatment object actually exist in the data?
+2. Does the control object actually exist in the data?
+3. Does the public label operationalize the variable required by the claim?
+4. Can 10–20 randomly selected examples survive manual inspection under the exact causal definition?
+
+If not, kill before coding.
+
+This project should likely have ended after inspecting examples such as `bar`, `Rock`, and `arm/Arm`.
+
+### 12.2 Separate paper labels from causal variables
+
+For every reused benchmark category, explicitly write:
+
+`literature label -> operational definition -> causal variable`
+
+and verify all arrows.
+
+“True cognate” sounded close enough to “semantic-aligned exact-form control” that the distinction was initially skipped. That was the key mistake.
+
+### 12.3 Audit the control arm before the treatment arm
+
+A visually compelling treatment phenomenon is easy to find. A causal paper is often limited by whether the counterfactual/control is clean.
+
+Future candidate topics should inspect the control resource first.
+
+### 12.4 Treat increasing gate complexity as a topic-quality alarm
+
+Additional controls are justified when they isolate a well-defined causal object.
+
+They are a bad sign when they are needed to manufacture the object itself.
+
+If a simple claim requires custom annotation of POS, polysemy, sense frequency, orthography, context, morphology and frequency before the basic comparison exists, reconsider the question rather than continuing to harden it.
+
+### 12.5 Distinguish three failure types
+
+- **Valid negative**: a valid experiment rejects the hypothesis.
+- **Invalid experiment**: an implementation/data deviation makes results uninterpretable.
+- **Identification failure**: the experiment cannot naturally instantiate the causal comparison required by the claim.
+
+This project ended in the third category. The old 10-run result belongs to the second.
+
+### 12.6 Preflight was successful even though the project failed
+
+The final preflight did exactly what a good kill system should do:
+
+- stopped before GPU allocation;
+- exposed insufficient control support;
+- triggered semantic inspection;
+- prevented another misleading “result”.
+
+So the methodological takeaway is not “preflight failed”.
+
+It is:
+
+> **preflight successfully killed an invalid research path before additional compute was spent.**
+
+---
+
+## 13. Reusable engineering assets
+
+The following remain technically useful:
+
+- exact lexical occurrence masking;
+- pair-level parallel holdout;
+- step-0 paired initialization identity;
+- one-in/one-out softmax normalization;
+- optimizer-update semantics;
+- deterministic per-language sampling;
+- paired occurrence coverage checks;
+- word × seed crossed bootstrap;
+- frequency-adjusted specificity analysis;
+- frozen data/config/code/init provenance;
+- single-idle-GPU independent-run orchestration without Slurm;
+- fail-fast preflight structure.
+
+They are retained as historical infrastructure, not as an active experiment plan.
+
+---
+
+## 14. Reopen conditions
+
+Default: **do not reopen**.
+
+Reconsider only if a future public resource provides, without substantial bespoke annotation:
+
+1. enough exact same-surface bilingual lexical controls;
+2. independently verified semantic alignment appropriate to natural-corpus training;
+3. sufficient natural frequency in both languages;
+4. a small manual audit that confirms the causal category before implementation;
+5. new evidence that materially increases the prior probability of conflict-specific sharing interference.
+
+Otherwise this project remains closed.
+
+---
+
+## 15. Final results log
+
+- 2026-08-21: literature audit identified a possible form-benefit / semantic-cost tension.
+- 2026-08-21: initial EN-DE shared/split causal pipeline implemented.
+- 2026-08-21: two-pass algorithm/scientific audit fixed exact-occurrence masking, pair-level holdout, step-0 identity, one-in/one-out output normalization, optimizer-update semantics, deterministic sampling and crossed lexical-item × seed inference.
+- 2026-08-21: an earlier 10-run `KILL_CORE_FORM_ONLY` result was invalidated because it used pre-final code and a runtime-modified control definition.
+- 2026-08-21: final frozen implementation `d055f1e...` was executed through data preparation and preflight only. Result: 24 FF / 3 nominal TF; preflight FAIL; no scientific GPU run launched.
+- 2026-08-21: semantic audit showed the nominal true-friend resource does not identify the required exact-form matched semantic-distribution control. Two of three surviving nominal controls were themselves semantically conflicting.
+- 2026-08-21: project archived as `CONCEPTUAL_IDENTIFICATION_FAILURE`.
+
+## Final decision
+
+```text
+ARCHIVED — CONCEPTUAL_IDENTIFICATION_FAILURE
+Gate 1: no valid scientific adjudication; stopped at causal-control preflight
+Gate 2: CANCELLED
+Gate 3: CANCELLED
+Mechanism / hidden-state probes: CANCELLED
+Full-scale confirmation: CANCELLED
+Further GPU allocation: 0
+Old KILL_CORE_FORM_ONLY: INVALID, DO NOT CITE
+```
