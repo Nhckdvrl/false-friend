@@ -75,13 +75,21 @@ python scripts/prepare.py \
   --min-target-occurrences 20
 ```
 
-Run tests:
+Run tests and the data preflight:
 
 ```bash
 PYTHONPATH=src pytest -q
+python scripts/preflight.py --data data/processed/en_de
 ```
 
-Run one 4-GPU node:
+Run the 50-step shared/split engineering smoke test before the scientific grid:
+
+```bash
+bash scripts/run_local_one.sh configs/smoke.yaml shared 11 joint
+bash scripts/run_local_one.sh configs/smoke.yaml split 11 joint
+```
+
+Run one 4-GPU Gate-1 node:
 
 ```bash
 bash scripts/run_local_one.sh configs/gate1_fast.yaml shared 11 joint
@@ -117,6 +125,7 @@ The analysis emits a machine-readable verdict in `results/gate1/summary.json` an
 ```text
 RESEARCH_MAINLINE.md              canonical research question + gates + decisions
 configs/
+  smoke.yaml                     50-step runtime/checkpoint smoke test
   gate1_fast.yaml                fast kill experiment
   gate1_full.yaml                confirmation scale, only after fast pass
   path_fast.yaml                 equal-count + common-tail curriculum test
@@ -127,6 +136,7 @@ docs/
   IMPLEMENTATION_NOTES.md        run/debug checklist
 scripts/
   prepare.py                     Stingray targets + OPUS natural corpus + vocab compaction
+  preflight.py                   fail-fast data/invariant checks before GPUs
   train.py                       controlled bilingual causal LM training
   evaluate.py                    form/post/pre natural-context metrics
   analyze.py                     paired item-cluster bootstrap + Gate-1 verdict
@@ -150,6 +160,7 @@ tests/test_remap.py              core intervention invariants
 - target-only sharing manipulation;
 - exact natural-context pairing at evaluation;
 - lexical item, not sentence, is the bootstrap unit;
+- frequency-adjusted FF-vs-true-friend specificity check;
 - pre-target NLL is a negative control for global run divergence.
 
 ## Current status
