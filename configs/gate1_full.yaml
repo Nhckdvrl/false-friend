@@ -1,7 +1,6 @@
 experiment:
   name: gate1_form_context_causal_full
   output_root: runs/gate1_full
-
 data:
   processed_dir: data/processed/en_de
 model:
@@ -16,12 +15,12 @@ train:
   micro_batch_size: 8
   gradient_accumulation_steps: 2
   learning_rate: 0.0003
-  warmup_updates: 1000
   lr_schedule: cosine
+  warmup_updates: 1000
   weight_decay: 0.1
   betas: [0.9, 0.95]
   grad_clip: 1.0
   mixed_precision: bf16
   gradient_checkpointing: true
-  log_every: 50
+  log_every_updates: 50
   save_every_updates: 2500
