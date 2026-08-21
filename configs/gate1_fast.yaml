@@ -1,7 +1,6 @@
 experiment:
-  name: gate1_form_context_causal
+  name: gate1_form_context_causal_fast
   output_root: runs/gate1_fast
-
 data:
   processed_dir: data/processed/en_de
 model:
@@ -13,15 +12,15 @@ model:
 train:
   schedule: joint
   max_updates: 8000
-  micro_batch_size: 32
+  micro_batch_size: 16
   gradient_accumulation_steps: 1
   learning_rate: 0.0005
-  warmup_updates: 500
   lr_schedule: cosine
+  warmup_updates: 500
   weight_decay: 0.1
   betas: [0.9, 0.95]
   grad_clip: 1.0
   mixed_precision: bf16
   gradient_checkpointing: false
-  log_every: 50
+  log_every_updates: 50
   save_every_updates: 1000

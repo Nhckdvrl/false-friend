@@ -1,7 +1,6 @@
 experiment:
   name: smoke_runtime
   output_root: runs/smoke
-
 data:
   processed_dir: data/processed/en_de
 model:
@@ -16,12 +15,12 @@ train:
   micro_batch_size: 8
   gradient_accumulation_steps: 1
   learning_rate: 0.001
-  warmup_updates: 5
   lr_schedule: cosine
+  warmup_updates: 5
   weight_decay: 0.0
   betas: [0.9, 0.95]
   grad_clip: 1.0
   mixed_precision: bf16
   gradient_checkpointing: false
-  log_every: 10
+  log_every_updates: 10
   save_every_updates: 50
