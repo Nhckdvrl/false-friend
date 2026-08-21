@@ -1,63 +1,61 @@
 # false-friend
 
-Controlled validation of a multilingual lexical-learning question:
+Controlled validation of:
 
 > **When does lexical sharing turn from transfer into interference?**
 
-The first experiment asks whether sharing the *same lexical representation* across English and German can make a real false-friend surface form easier to predict while making the natural language-specific continuation harder to predict.
+The project is organized as kill gates. We do **not** move to dynamics, path dependence, or mechanisms unless the preceding causal behavioral result survives.
 
-This repository is intentionally designed as a sequence of kill gates. We do not proceed to training dynamics, curriculum/path dependence, or mechanisms unless the preceding behavioral causal result survives.
+## Canonical documents
 
-## Canonical research document
+- [`RESEARCH_MAINLINE.md`](RESEARCH_MAINLINE.md): research question, estimands, gates, kill lines, execution order.
+- [`docs/LITERATURE_AUDIT.md`](docs/LITERATURE_AUDIT.md): literature/open-source audit.
+- [`docs/SERVER_AGENT_HANDOFF.md`](docs/SERVER_AGENT_HANDOFF.md): server-agent handoff with scientific intent and runtime rules.
+- [`docs/AUDIT_2026-08-21.md`](docs/AUDIT_2026-08-21.md): two-pass code/scientific audit and hardening changes.
 
-Read **[`RESEARCH_MAINLINE.md`](RESEARCH_MAINLINE.md)** first. It contains:
+## Gate 1
 
-- the core question and subquestions;
-- exact shared-vs-split intervention;
-- preregistered metrics and kill lines;
-- Gate 1 → dynamics → path-dependence order;
-- multi-node execution strategy;
-- failure/confound checklist.
+For the same real EN-DE false-friend / true-friend targets and the same natural OPUS-100 data, compare:
 
-Literature/open-source audit: [`docs/LITERATURE_AUDIT.md`](docs/LITERATURE_AUDIT.md).
+- **shared**: EN and DE exact lexical occurrences train one token row;
+- **split**: DE exact lexical occurrences use a language-specific alias row.
 
-## Experiment in one diagram
+Model shape, parameter count, seed, initial tensors, data, batch sequence, optimizer configuration, and update count are matched.
 
-```text
-Stingray EN-DE targets
-        |
-        v
-single-token + natural-frequency filter
-        |
-        +-------------------------------+
-        |                               |
-        v                               v
- SHARED target row                SPLIT target row
- EN word -> t                     EN word -> t
- DE word -> t                     DE word -> alias(t)
-        |                               |
-        +---------------+---------------+
-                        |
-              same OPUS-100 corpus
-              same model / vocab size
-              same seed / training steps
-                        |
-                        v
-         held-out natural target contexts
-                        |
-           +------------+------------+
-           |                         |
-           v                         v
- target form surprisal      post-target continuation NLL
-           |                         |
-           +------------+------------+
-                        v
-     false-friend vs true-friend interaction
+Primary measurements:
+
+- `surface_nll`: probability of the observed surface string, summing base+alias mass;
+- `lexical_nll`: probability of the condition-specific lexical row (diagnostic);
+- `post_nll`: next-k natural-token NLL after the target;
+- `pre_nll`: previous-k NLL negative control;
+- `local_surface = surface_nll - pre_nll`;
+- `local_post = post_nll - pre_nll`.
+
+The strong result requires shared FFs to be easier at the surface level **and** worse after the target, both raw and localized, with an FF-vs-true-friend interaction that survives frequency adjustment and paired-seed robustness.
+
+## No Slurm
+
+There is no Slurm workflow. One scientific run uses **one explicitly selected idle GPU**.
+
+Candidate hosts:
+
+`fvcrc10 fvcrc11 fvcrc12 fvcrc13 fvcrc15 fvcrc20 fvcrc21`
+
+Only GPUs confirmed idle with `nvidia-smi` may be used. Never assume an entire node is free and never kill other users' processes.
+
+```bash
+bash scripts/check_candidate_gpus.sh
 ```
 
-## Quick start
+## Environment
 
-Use an existing local environment if it already contains the dependencies. Otherwise:
+Prefer an existing local environment. Only create a new virtual environment if the existing environment is missing/conflicting dependencies.
+
+```bash
+python -c "import torch, transformers, datasets, pandas, numpy; print(torch.__version__, torch.version.cuda)"
+```
+
+If a new environment is actually required:
 
 ```bash
 python -m venv .venv
@@ -66,103 +64,66 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-Prepare data once on shared storage:
+## Data preparation and hard preflight
 
 ```bash
-python scripts/prepare.py \
-  --output data/processed/en_de \
-  --max-pairs 1000000 \
-  --min-target-occurrences 20
-```
-
-Run tests and the data preflight:
-
-```bash
+python scripts/prepare.py --output data/processed/en_de --max-pairs 1000000 --min-target-occurrences 20
 PYTHONPATH=src pytest -q
 python scripts/preflight.py --data data/processed/en_de
 ```
 
-Run the 50-step shared/split engineering smoke test before the scientific grid:
+Do **not** allocate scientific GPUs if preflight fails.
+
+The hardened data pipeline uses strict exact lexical occurrences, not arbitrary matching subword IDs, and holds out complete OPUS parallel pairs.
+
+## Runtime smoke
+
+Choose one confirmed-idle GPU index, e.g. `2`:
 
 ```bash
-bash scripts/run_local_one.sh configs/smoke.yaml shared 11 joint
-bash scripts/run_local_one.sh configs/smoke.yaml split 11 joint
+bash scripts/run_one_gpu.sh 2 configs/smoke.yaml shared 11 joint
+bash scripts/run_one_gpu.sh 2 configs/smoke.yaml split 11 joint
 ```
 
-Run one 4-GPU Gate-1 node:
+Then evaluate both final smoke checkpoints and verify paired initialization fingerprints, checkpoint reload, non-empty evaluation, and exact context matching.
+
+## Gate 1 fast grid
+
+Five paired seeds: `11 22 33 44 55`, conditions `shared/split`.
+
+Each run is independent and should be placed on any **confirmed-idle** GPU among the candidate nodes. Pair shared/split of the same seed on the same GPU model whenever possible.
 
 ```bash
-bash scripts/run_local_one.sh configs/gate1_fast.yaml shared 11 joint
-bash scripts/run_local_one.sh configs/gate1_fast.yaml split 11 joint
+bash scripts/run_one_gpu.sh 1 configs/gate1_fast.yaml shared 11 joint
 ```
 
-Submit the full fast matrix on Slurm (one node per condition/seed, no cross-node DDP):
+Evaluation:
 
 ```bash
-bash scripts/submit_gate1.sh configs/gate1_fast.yaml configs/gate1_matrix.tsv
+CUDA_VISIBLE_DEVICES=1 python scripts/evaluate.py --checkpoint runs/gate1_fast/shared/seed_11/joint/checkpoint-0008000 --data data/processed/en_de
 ```
 
-Evaluate matched checkpoints:
+Final Gate-1 analysis must use the same update for every paired run:
 
 ```bash
-python scripts/evaluate.py \
-  --checkpoint runs/gate1_fast/shared/seed_11/joint/checkpoint-0008000 \
-  --data data/processed/en_de
+python scripts/analyze.py --inputs 'runs/gate1_fast/*/seed_*/joint/checkpoint-0008000/eval_contexts.csv' --output-dir results/gate1
 ```
 
-After all paired runs at the same step:
+`summary.json` contains the machine-readable verdict.
 
-```bash
-python scripts/analyze.py \
-  --inputs 'runs/gate1_fast/*/seed_*/joint/checkpoint-0008000/eval_contexts.csv' \
-  --output-dir results/gate1
-```
+## Important causal invariants
 
-The analysis emits a machine-readable verdict in `results/gate1/summary.json` and a short `summary.md`.
-
-## Repository layout
-
-```text
-RESEARCH_MAINLINE.md              canonical research question + gates + decisions
-configs/
-  smoke.yaml                     50-step runtime/checkpoint smoke test
-  gate1_fast.yaml                fast kill experiment
-  gate1_full.yaml                confirmation scale, only after fast pass
-  path_fast.yaml                 equal-count + common-tail curriculum test
-  gate1_matrix.tsv               2 conditions x 5 paired seeds
-  path_matrix.tsv                later path-dependence grid
-docs/
-  LITERATURE_AUDIT.md            papers, datasets, repositories, novelty boundary
-  IMPLEMENTATION_NOTES.md        run/debug checklist
-scripts/
-  prepare.py                     Stingray targets + OPUS natural corpus + vocab compaction
-  preflight.py                   fail-fast data/invariant checks before GPUs
-  train.py                       controlled bilingual causal LM training
-  evaluate.py                    form/post/pre natural-context metrics
-  analyze.py                     paired item-cluster bootstrap + Gate-1 verdict
-  analyze_trajectory.py          checkpoint dynamics
-  analyze_path.py                persistent order effect after common tail
-  run_local_one.sh               one 4-GPU node
-  submit_gate1.sh                Slurm array submission
-slurm/train_one.sbatch           exactly one node per run
-src/false_friend_lab/remap.py    fixed-vocab target sharing intervention
-tests/test_remap.py              core intervention invariants
-```
-
-## Primary causal controls
-
-- same natural corpus;
-- same tokenizer base;
-- same compact background vocabulary;
-- same model architecture;
-- same total vocabulary size and parameter count;
-- paired random seeds;
-- target-only sharing manipulation;
-- exact natural-context pairing at evaluation;
-- lexical item, not sentence, is the bootstrap unit;
-- frequency-adjusted FF-vs-true-friend specificity check;
-- pre-target NLL is a negative control for global run divergence.
+1. exact lexical occurrences only;
+2. pair-level holdout;
+3. same vocabulary size / parameter count;
+4. alias rows copied from base rows at step 0 in both conditions;
+5. same per-language sampled chunk sequences for paired seeds;
+6. optimizer **updates**, not microsteps, define training time;
+7. surface-form probability sums base+alias mass, avoiding a one-class-vs-two-class artifact;
+8. contexts are averaged within word×seed×language, then EN/DE are equal-weighted;
+9. inference uses crossed bootstrap over lexical items and seeds;
+10. paired shared/split runs must match init fingerprint, effective batch, code commit, data schema, and GPU model.
 
 ## Current status
 
-**Gate 1 code ready; no result has been claimed yet.**
+**ACTIVE — hardened Gate 1 implementation committed; scientific result not yet claimed.**

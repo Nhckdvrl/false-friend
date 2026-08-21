@@ -4,30 +4,27 @@ experiment:
 
 data:
   processed_dir: data/processed/en_de
-
 model:
   block_size: 256
   n_layer: 6
   n_head: 6
   n_embd: 384
   dropout: 0.0
-
 train:
   schedule: en_then_de
-  # 4k EN-only + 4k DE-only + identical 8k balanced tail.
-  # de_then_en sees exactly the same total EN/DE tokens, in reversed early order,
-  # followed by the same-duration balanced regime.
-  phase_steps: 4000
-  balanced_tail_steps: 8000
-  max_steps: 16000
-  per_device_batch_size: 16
+  phase_updates: 4000
+  balanced_tail_updates: 8000
+  max_updates: 16000
+  micro_batch_size: 32
   gradient_accumulation_steps: 1
   learning_rate: 0.0005
-  warmup_steps: 500
+  warmup_updates: 0
+  lr_schedule: constant
+  reset_optimizer_at_balanced_tail: true
   weight_decay: 0.1
   betas: [0.9, 0.95]
   grad_clip: 1.0
   mixed_precision: bf16
   gradient_checkpointing: false
   log_every: 50
-  save_every: 1000
+  save_every_updates: 1000
