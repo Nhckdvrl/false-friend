@@ -1,147 +1,176 @@
-# Server Agent Handoff
+# Server-agent handoff — false-friend causal validation
 
 Repository: `https://github.com/Nhckdvrl/false-friend`
 
-You are not a shell-script executor. Preserve the **causal meaning** of the experiment while making it run correctly on the real server.
+You are not a command runner. You are taking over a causal research validation. Understand the estimand before changing code.
 
-## Goal
+## Scientific objective
 
-Not “are false friends hard?” The question is:
+The question is whether **sharing one exact lexical row across EN and DE** can simultaneously:
 
-> Does sharing one lexical representation across languages causally make the shared surface easier to predict while making language-specific continuation/meaning harder when the meanings conflict?
+1. improve prediction of the shared form; and
+2. harm language-conditioned contextual integration specifically when the meanings conflict.
 
-Shared vs split is the causal intervention. Everything else should be matched.
+This is not a benchmark asking whether false friends are hard.
 
-Desired strong FF result:
+For an exact retained target:
 
-- shared improves total surface-form probability;
-- shared worsens natural continuation after the target;
-- both remain after subtracting a pre-target baseline;
-- continuation cost is larger for false friends than true friends;
-- FF-specific effect survives frequency controls and seed resampling.
+- shared: EN and DE exact lexical occurrences use the base row;
+- split: EN uses base; exact standalone DE occurrences use an initially-identical alias row.
 
-If this pattern does not occur, do not rescue it by changing metrics or adding probes.
+Same-seed shared/split checkpoint 0 must be bit-identical.
 
-## Why each invariant exists
+Reserved alias rows must not alter softmax normalization. Shared masks every alias. Split normally masks every alias; only when the gold next token is an exact DE target alias does it activate that alias and mask the paired base row. Thus exactly one row is exchanged.
 
-### Exact lexical mask
-Split changes only the standalone target word in German. A matching SentencePiece id inside a compound/derivative is not the experimental object.
+Primary paired effects (shared - split):
 
-### Pair-level holdout
-If an OPUS pair is selected for evaluation, neither language side may remain in training.
+- `delta_form = form_nll_shared - form_nll_split`
+- `delta_post = post_nll_shared - post_nll_split`
+- `delta_pre = pre_nll_shared - pre_nll_split`
+- `delta_post_local = delta_post - delta_pre`
 
-### Identical update-0 model
-Every alias row is copied from its base row in both conditions. Same-seed shared/split `init_sha256` must match.
+Strong Gate-1 pattern:
 
-### Surface probability
-In split, the same visible word can correspond to base/alias lexical rows. `surface_nll` therefore sums both probability masses. `lexical_nll` is only diagnostic.
+- FF `delta_form < 0`;
+- FF `delta_post_local > 0`;
+- FF localized cost > true-cognate localized cost;
+- survives frequency adjustment and crossed word×seed bootstrap.
 
-### Pre-target control
-`pre_nll` estimates global drift. `local_surface` and `local_post` subtract it. A PASS still requires raw directions.
+Post-target NLL is meaning-sensitive contextual integration, not by itself proof of wrong dictionary-sense selection. Explicit Stingray sense likelihood is confirmatory only after Gate 1 survives.
 
-### Optimizer updates
-`max_updates` means real optimizer updates, not accumulation microsteps.
+## Data logic you must preserve
 
-### Path dependence
-For Gate 3, EN/DE use independent deterministic sample RNGs; paths consume the same per-language samples, only reordered. Path runs use constant LR and reset optimizer state at common-tail start.
+- False friends come from Stingray EN-DE false-friend source.
+- True controls come from Stingray EN-DE `common`/true-cognate source.
+- Require exact same written form and exact single-token identity.
+- Split only exact standalone German occurrences using tokenizer offsets; subword/compound reuse is not manipulated.
+- A selected OPUS evaluation parallel pair is removed on both EN and DE sides.
+- Retained words require training evidence and natural held-out evidence in both languages.
+- Preflight recomputes lexical-mask counts and must exactly match target frequency metadata.
 
-## Environment
+If any of these fail, do not run the scientific grid.
 
-**First preference: reuse an existing compatible virtual/conda environment.**
+## Environment policy
+
+**Prefer existing local virtual/conda environments.** First inspect:
+
+- `which python`
+- `python --version`
+- PyTorch/CUDA availability
+- `transformers`, `datasets`, `pandas`, `numpy`, `sentencepiece`, `safetensors`
+
+Reuse a compatible existing environment. Only create a new environment if dependencies are missing/conflicting or modifying the existing one is unsafe.
+
+Expose this repository's package either with `pip install -e .` or:
 
 ```bash
-which python
-python --version
-python -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available())"
-python -c "import transformers, datasets, pandas, numpy, sentencepiece; print('deps ok')"
+export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
 ```
 
-Only create a new environment if the existing one is missing/conflicting dependencies or cannot be safely modified:
+Do not overwrite shared environments casually.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-pip install -e .
-```
+## GPU policy — absolutely no Slurm
 
-Do not damage shared environments.
-
-## GPU resources
-
-Candidate nodes only:
+Candidate hosts only:
 
 `fvcrc10 fvcrc11 fvcrc12 fvcrc13 fvcrc15 fvcrc20 fvcrc21`
 
-Not all cards are free. Inspect `nvidia-smi` before use. Use only GPUs with no meaningful memory/process occupancy. Never kill another user's process. Never assume all cards on a node are available.
+Not every card is free. Before dispatch, run:
 
 ```bash
 bash scripts/check_candidate_gpus.sh
 ```
 
-One scientific run uses exactly one visible GPU:
+or equivalent `ssh HOST nvidia-smi`.
+
+Use **only GPUs that are actually idle at that moment**. Do not kill, preempt, or interfere with another user's process.
+
+One scientific run = one GPU. Parallelize by independent `(condition, seed)` jobs. If six cards are free, run six jobs and queue four. Do not change batch size simply to use a different card.
+
+For the same seed, shared and split should use the same GPU model whenever possible; final Gate-1 analysis refuses a PASS when paired GPU names differ.
+
+## Required execution order
+
+1. Pull the frozen audited `main` and record commit SHA.
+2. Reuse an existing compatible environment if possible.
+3. `export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"`.
+4. Prepare data once:
 
 ```bash
-CUDA_VISIBLE_DEVICES=<idle-index> python scripts/train.py ...
+python scripts/prepare.py --output data/processed/en_de --max-pairs 1000000 --min-target-occurrences 20 --min-eval-contexts-per-word-lang 1
 ```
 
-The trainer intentionally refuses multiple visible GPUs.
-
-Run as many of the 10 Gate-1 jobs concurrently as there are truly idle GPUs, then queue the rest. Pair shared/split of the same seed on the same GPU model whenever possible.
-
-## Before scientific GPU work
+5. Run:
 
 ```bash
-python scripts/prepare.py --output data/processed/en_de --max-pairs 1000000 --min-target-occurrences 20
-PYTHONPATH=src pytest -q
 python scripts/preflight.py --data data/processed/en_de
+PYTHONPATH=src pytest -q
 ```
 
-Understand the report. If strict filtering leaves too few words, that is a data/design outcome. Do not silently relax exact-surface/token rules.
+A preflight failure is a stop signal. Diagnose whether it is an engineering bug, insufficient data, or a failed design assumption. Do not weaken thresholds just to proceed.
 
-## Smoke
-
-Use one confirmed-idle GPU:
+6. Inventory free GPUs on the seven allowed nodes.
+7. Run 50-update smoke shared+split seed 11 on one actually free GPU (sequentially is fine):
 
 ```bash
-bash scripts/run_one_gpu.sh <gpu> configs/smoke.yaml shared 11 joint
-bash scripts/run_one_gpu.sh <gpu> configs/smoke.yaml split 11 joint
+bash scripts/run_one_gpu.sh configs/smoke.yaml shared 11 joint GPU_INDEX
+bash scripts/run_one_gpu.sh configs/smoke.yaml split  11 joint GPU_INDEX
 ```
 
-Evaluate both final checkpoints. Confirm same `init_sha256`, same effective batch/code/data schema, checkpoint reload, non-empty exactly paired evaluation, and no remapping assertions.
-
-## Gate 1 jobs
-
-Seeds: `11 22 33 44 55`; each has `shared` and `split`, `configs/gate1_fast.yaml`, `joint`.
+8. Verify checkpoint-0 identity:
 
 ```bash
-bash scripts/run_one_gpu.sh <idle-gpu> configs/gate1_fast.yaml shared 11 joint
+python scripts/verify_step0_identity.py \
+  runs/smoke/shared/seed_11/joint/checkpoint-0000000 \
+  runs/smoke/split/seed_11/joint/checkpoint-0000000
 ```
 
-Do not change batch size across jobs to fit different GPUs. If a GPU cannot fit the frozen config, use another GPU or report it.
+This also checks seed, schedule, config hash, data fingerprint, effective batch, frozen Git commit and initialization fingerprint. If it fails, stop. Do not interpret any dynamics.
 
-## Evaluation and decision
+9. Evaluate both 50-update smoke checkpoints and confirm non-empty, exactly paired rows.
+10. Only then dispatch Gate 1: seeds `11,22,33,44,55`, each shared+split, using idle cards.
+11. Evaluate exactly checkpoint `0008000` for every Gate-1 fast run.
+12. Run `scripts/analyze.py` on all ten CSVs.
+13. Update `RESEARCH_MAINLINE.md` with commit, environment, data counts, GPU assignments, deviations, effects/CIs and machine verdict.
 
-Evaluate identical final updates and run:
+## Runtime bug triage
 
-```bash
-python scripts/analyze.py --inputs 'runs/gate1_fast/*/seed_*/joint/checkpoint-0008000/eval_contexts.csv' --output-dir results/gate1
-```
+### Engineering bug — fix if estimand is unchanged
 
-A positive result is allowed only when the code returns `PASS_CAUSAL_FORM_CONTEXT_DISSOCIATION` with all gate components true.
+Examples: import/path issue, CUDA/PyTorch compatibility, checkpoint I/O, OOM caused by an implementation mistake.
 
-If KILL, treat it as a scientific outcome unless an actual invariant failed.
+### Scientific-logic bug — affected runs are invalid
 
-## Classify failures
+Examples: different sampled data across a paired run, lexical-mask misalignment, wrong true-control source, alias-init mismatch, output-softmax cardinality mismatch, pair leakage, unequal effective batch, evaluation pairing loss, mixed checkpoint steps/config hashes/data fingerprints/Git commits.
 
-**Engineering bug**: import/version, OOM, path, serialization. Fix without changing causal design; rerun affected jobs.
+Fix and rerun affected experiments. A run that did not crash can still be scientifically invalid.
 
-**Scientific logic bug**: different data batches, alias init mismatch, bad exact mask, leakage, mixed updates, unmatched config/hardware. Fix first; invalidate affected runs.
+### Negative scientific result — not a bug
 
-**Negative scientific result**: surface benefit absent, continuation cost absent, FF/TF interaction absent, frequency adjustment removes effect. Do not rewrite the experiment to force positive results.
+Examples: no form benefit; no localized continuation cost; true friends show the same cost; effect disappears after frequency adjustment.
 
-## Recordkeeping
+Do not modify code to obtain a positive result. Apply the preregistered kill verdict.
 
-Update `RESEARCH_MAINLINE.md` after each gate with date/git commit, environment, retained FF/TF counts, nodes/GPU indices/models actually used, exact config/seeds, invalidated runs, estimates/CIs/verdict, and continue/kill/inconclusive decision.
+## Gate 1 meaning
 
-Commit any scientific code change before mixing its outputs with other runs.
+A PASS requires the complete conjunction in `RESEARCH_MAINLINE.md`; one significant p-value is insufficient. The analysis bootstraps lexical words and random seeds, gives EN/DE equal weight, and rejects missing paired coverage.
+
+If Gate 1 fails, do not immediately add hidden-state probes, steering, tags or cherry-picked checkpoints.
+
+## Later path gate
+
+Only if Gate 1/2 survive. `en_then_de` and `de_then_en` use independent deterministic EN and DE RNGs, constant LR, zero warmup, and reset Adam at the identical balanced tail. The later claim requires a **sharing-specific order effect** after that tail, not a generic curriculum/forgetting effect.
+
+## Deliverables back to the user
+
+Report:
+
+- frozen commit SHA;
+- environment and Python/PyTorch/CUDA/Transformers versions;
+- live GPU inventory for `fvcrc10/11/12/13/15/20/21` and exact cards used;
+- retained FF/true-cognate counts, compact vocab size, context cells, preflight result;
+- smoke logs and exact checkpoint-0 identity result;
+- host/GPU/model/seed/condition/status for every Gate-1 run;
+- Gate-1 form, pre, post, localized-post effects, FF-vs-control interactions, frequency-adjusted effect, crossed bootstrap CIs, seed consistency, final verdict;
+- every runtime/scientific bug found, fix commit, and which runs were invalidated/repeated;
+- recommendation PASS / FAIL / INCONCLUSIVE without story rescue.
