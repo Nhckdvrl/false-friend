@@ -62,8 +62,14 @@ def validate_item(row: dict, *, allow_illustrative: bool = False) -> dict:
     if row["condition"] != "paraphrase":
         if exact_occurrence is None:
             raise DataError("target_form must occur as an exact lexical form in context")
-    elif exact_occurrence is not None:
-        raise DataError("paraphrase control must remove the ambiguous target_form")
+    else:
+        if exact_occurrence is not None:
+            raise DataError("paraphrase control must remove the ambiguous target_form")
+        focus = row.get("focus_form")
+        if not isinstance(focus, str) or not focus.strip() or focus == row["target_form"]:
+            raise DataError("paraphrase requires a distinct nonambiguous focus_form")
+        if not re.search(r"(?<!\w)" + re.escape(focus) + r"(?!\w)", context):
+            raise DataError("focus_form must occur as an exact lexical word in paraphrase context")
     return dict(row)
 
 

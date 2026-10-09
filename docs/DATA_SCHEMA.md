@@ -20,6 +20,8 @@ A single row represents a **contextual sense-choice observation**, not a lexical
 | source_ref | string | dictionary/corpus URL, stable ID, or citation |
 | explicit_language | boolean | whether the prompt explicitly names language |
 
+Required for paraphrase condition: §focus_form§ — nonambiguous replacement lexical expression present as a whole word in §context§. The original §target_form§ remains an analysis identifier only and must **never appear in the actual prompt** for a paraphrase control.
+
 Optional field: reviewers — list of independently assigned reviewer IDs; **verified requires at least two unique reviewers**. Add POS, original source sentence, language pair, source licenses, tokenization checks, gloss paraphrase IDs, review notes, and sense-frequency estimates when material. Any other fields are retained by validator.
 
 Rows marked illustrative (including data/examples/illustrative.jsonl) are **blocked by default**. To test code, use --allow-illustrative; the preflight explicitly reports scientific_claims_permitted=false. Do not promote sample rows to verified without human review.

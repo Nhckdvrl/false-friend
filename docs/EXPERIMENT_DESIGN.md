@@ -31,7 +31,7 @@ Potential problems: English gloss comprehension; translation competence; prompt-
 
 Construct pilot item families (not an inflated sentence benchmark). Required per-family comparisons:
 - Ambiguous cross-lingual surface in natural context.
-- Same intended proposition rendered without cross-lingual surface collision; document lexical-substitution costs.
+- Same intended proposition rendered without cross-lingual surface collision; document lexical-substitution costs. Ensure §target_form§ is absent from the **entire paraphrase prompt**, not only the sentence; use §focus_form§ to identify the replacement.
 - Analogous within-language ambiguous word matched in syntax / sense frequency where feasible.
 - Free-form translation compared with binary meaning selection; count copying separately.
 

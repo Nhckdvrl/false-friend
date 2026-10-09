@@ -6,6 +6,8 @@ from .schema import LANGUAGES
 
 def make_prompt(item: dict, *, correct_is_a: bool) -> str:
     correct, foil = item["gloss_correct"], item["gloss_competitor"]
+    # Never reintroduce the ambiguous original into a paraphrase control prompt.
+    focus = item.get("focus_form", item["target_form"])
     a, b = (correct, foil) if correct_is_a else (foil, correct)
     language = LANGUAGES[item["language"]]
     hint = f"The sentence is written in {language}.\n" if item["explicit_language"] else ""
@@ -14,7 +16,7 @@ def make_prompt(item: dict, *, correct_is_a: bool) -> str:
         + hint
         + "Choose between the two meanings. Reply with A or B only.\n"
         + f"Sentence: {item['context']}\n"
-        + f"Highlighted word: {item['target_form']}\n"
+        + f"Highlighted word: {focus}\n"
         + f"A) {a}\nB) {b}\nAnswer:"
     )
 

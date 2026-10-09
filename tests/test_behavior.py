@@ -16,6 +16,13 @@ def test_implicit_language_cue():
     assert "written in Dutch" not in p
 
 
+def test_paraphrase_prompt_does_not_leak_original():
+    item = example(condition="paraphrase", context="De kok voegde kookroom toe.", focus_form="kookroom")
+    prompt = make_prompt(item, correct_is_a=True)
+    assert "Highlighted word: room" not in prompt
+    assert "Highlighted word: kookroom" in prompt
+
+
 def test_balanced_margin():
     def fake_scorer(prompt, continuation):
         correct_label = " A" if "A) cream" in prompt else " B"

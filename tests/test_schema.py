@@ -44,9 +44,11 @@ def test_target_exact_and_gloss_distinct():
 def test_paraphrase_must_remove_surface():
     with pytest.raises(DataError, match="remove"):
         validate_item(example(condition="paraphrase"), allow_illustrative=True)
-    validate_item(example(condition="paraphrase", context="De kok voegde zuivel toe."), allow_illustrative=True)
-    # Subword occurrence inside a compound is not the exact lexical target.
-    validate_item(example(condition="paraphrase", context="De kok voegde slagroom toe."), allow_illustrative=True)
+    with pytest.raises(DataError, match="focus_form"):
+        validate_item(example(condition="paraphrase", context="De kok voegde zuivel toe."), allow_illustrative=True)
+    validate_item(example(condition="paraphrase", context="De kok voegde zuivel toe.", focus_form="zuivel"), allow_illustrative=True)
+    # A compound containing the sequence is not the exact ambiguous lexical word.
+    validate_item(example(condition="paraphrase", context="De kok voegde kookroom toe.", focus_form="kookroom"), allow_illustrative=True)
 
 
 def test_load_duplicate_id_and_line_diagnostics(tmp_path):
