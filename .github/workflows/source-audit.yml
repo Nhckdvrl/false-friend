@@ -49,6 +49,8 @@ jobs:
               counts=row["counts"]
               assert counts["items"]==280
               assert counts["sentence_observational_equivalences"]==4*counts.get("exact_forms",0)
+              if row["language_pair"]=="en-de":
+                  assert counts["exact_ff_german_noun_lowercase_risk"]==22
               assert counts["host_and_strength_comparisons"]==4*counts["items"]
           print("Pinned author-source audit PASS; NO language-model findings")
           PY

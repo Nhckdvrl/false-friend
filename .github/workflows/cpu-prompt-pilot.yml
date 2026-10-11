@@ -9,7 +9,7 @@ on:
 jobs:
   pilot:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     env:
       HF_HUB_DISABLE_TELEMETRY: "1"
       HF_HUB_DISABLE_XET: "1"
@@ -43,6 +43,14 @@ jobs:
             --model-id Qwen/Qwen2.5-0.5B-Instruct --model-revision main \
             --max-new-tokens 80 \
             --output outputs/very_small_cpu_pilot.jsonl
+      - name: Balanced gloss pilot on three source adjectives — Qwen2.5-1.5B CPU
+        run: |
+          python scripts/pilot_tanwar_gloss_margins.py \
+            --context-tsv /tmp/tanwar/data/task3_en_de.csv \
+            --lexicon-csv /tmp/tanwar/data/en_de_dataset.csv \
+            --ids 261,264,272 --strengths high --cues none,q1_host,q1_other \
+            --model-id Qwen/Qwen2.5-1.5B-Instruct \
+            --output outputs/adjective_gloss_margins.jsonl
       - uses: actions/upload-artifact@v4
         if: always()
         with:

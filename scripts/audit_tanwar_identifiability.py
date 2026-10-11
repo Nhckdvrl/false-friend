@@ -55,6 +55,11 @@ def audit_one(path: Path, l2: str) -> dict:
         if exact:
             counter["exact_forms"] += 1
             counter["exact_type_"+label] += 1
+            if (l2 == "de" and label == "FALSE COGNATE" and
+                    r["lexical_category"] == "N" and other.islower()):
+                # German common nouns conventionally require initial uppercase.
+                # This is a risk flag, not an automatic grammar verdict.
+                counter["exact_ff_german_noun_lowercase_risk"] += 1
         elif casefold_same:
             counter["case_only_forms"] += 1
             counter["case_only_type_"+label] += 1

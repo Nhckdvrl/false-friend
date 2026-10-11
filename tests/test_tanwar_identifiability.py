@@ -33,6 +33,7 @@ def test_identical_form_has_four_sentence_equivalences(tmp_path):
     write_source(f, "gift", "gift", "FALSE COGNATE")
     r = audit_one(f, "de")
     assert r["counts"]["exact_type_FALSE COGNATE"] == 1
+    assert r["counts"]["exact_ff_german_noun_lowercase_risk"] == 1
     assert r["counts"]["sentence_observational_equivalences"] == 4
     assert r["counts"]["host_and_strength_comparisons"] == 4
 
