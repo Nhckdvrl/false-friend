@@ -1,6 +1,6 @@
 # HISTORICAL SNAPSHOT (2026-10-09)
 
-**This table is superseded as an active knowledge base.** Go to [knowledge/PAPERS_INDEX.md](../knowledge/PAPERS_INDEX.md), [structured deep notes](../knowledge/papers/), [concept map](../knowledge/CONCEPT_MAP.md), [theory cards](../knowledge/theories/) and [route reassessment](../knowledge/ideas/ROUTE_REASSESSMENT.md). Entries below may show older, less reliable reading-completeness claims; newer per-paper note statuses govern. This snapshot is retained for provenance, not as the only source of paper understanding.
+**Historical catalog (2026-10-09), NOT active research triage. The former A/B/C idea queue was discontinued 2026-10-12.** Go to [knowledge/PAPERS_INDEX.md](../knowledge/PAPERS_INDEX.md), [structured deep notes](../knowledge/papers/), [concept map](../knowledge/CONCEPT_MAP.md), [theory cards](../knowledge/theories/) and [route reassessment](../knowledge/ideas/ACTIVE_QUESTION.md). Entries below may show older, less reliable reading-completeness claims; newer per-paper note statuses govern. This snapshot is retained for provenance, not as the only source of paper understanding.
 
 # Literature map — verified links, claims covered, and plausible open questions
 

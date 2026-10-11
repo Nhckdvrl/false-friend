@@ -1,20 +1,14 @@
-# Research agent operating rules (2026-10)
+# False Friend Lab local-agent policy (2026-10-12)
 
-You are maintaining an **active hypothesis-development repo**, not optimizing a benchmark or rescuing a rejected result.
-
-1. Read RESEARCH_MAINLINE.md, knowledge/README.md, knowledge/PAPERS_INDEX.md, knowledge/RESEARCH_AGENT_PROTOCOL.md and docs/LEGACY_RECORD.md first. The knowledge base is the authoritative research context.
-2. **No claims that the hypothesis is confirmed.** Keep observations, prior literature, hypotheses and guesses separate.
-3. Preserve the old full state via archive/lexical-sharing-2026-08; never copy old Gate 1 scripts back without explicit new scientific protocol.
-4. Data review before GPU: proper language/sense/POS, verified independent reviewers, provenance, matched controls and no capitalization-normalized fake cognates.
-5. Illustrative data never become published evidence. Do not bypass preflight or silently relabel illustrative -> verified.
-6. Do not equate surprisal or continuation NLL with sense comprehension; do not equate probing with causal use.
-7. For every proposed experiment, list competing hypotheses, differing predictions, necessary invariant, negative control, decisive failure result and incremental knowledge gained.
-8. Do not use gold-dependent softmax masks or change answer alternatives as a function of the label being evaluated.
-9. Verify nearest paper novelty, especially Körner EACL 2026 and Dumas ACL 2025, before patching.
-10. No GPU allocation, model downloads, publishing, or large-data collection by default; perform only after explicit user request and verified resources.
-11. Test pure logic with pytest and run scripts/preflight.py before new work; record code and model/tokenizer hashes for actual experiments.
-12. Prefer deleting obsolete code rather than leaving confusing inactive executables on main. Git history is the archive.
-
-13. New papers require a structured knowledge/papers note recording exact sources and reading depth, FACT vs INFERENCE, possible idea genesis, innovation scale, nearest-paper distance, experiment chain and falsifiers.
-14. Before adopting an idea, read knowledge/ideas/ROUTE_REASSESSMENT.md and EXPERIMENT_KILL_TABLE.md. E0–E5 is conditional; A0/B0 may fail; do not default to A.
-15. Keep knowledge/PAPERS_INDEX.md and CITATION_LEDGER.md in sync. A source checked at abstract level cannot be promoted to deep-read in order to justify novelty.
+1. There is **one active research question**, in RESEARCH_MAINLINE.md: explain multilingual sense choice under competing language/semantic evidence. Read knowledge/ideas/ACTIVE_QUESTION.md and experiments/FIRST_PASS.md before implementing anything.
+2. The old A/B/C routes, B0 wrong-anchor training, C learning order, mandatory E0–E5 experiment ladder and late-context "persistent wrong sense" theory are **retired**. Read knowledge/ideas/RETIRED_HYPOTHESES.md. Do not resurrect from Git history without NEW data requiring the mechanism.
+3. Research is not a benchmark leaderboard. Existing Tanwar high/low context, Doppelganger contextual/translation and Stingray local FF errors are the nearest baseline, NOT novel findings. Reproduce their original task/metric before inventing more experiments.
+4. The deepest contribution should distinguish competing accounts: cue-additive/graded choice, conditional cue selection, output copying, language proficiency / generic WSD. Be willing to accept a simple explanation. Every new experiment must have an alternative prediction and a result that would cancel the preferred story.
+5. Follow Cho-inspired constructive vs observational vs causal vs predictive evidence distinctions; a trained intervention can demonstrate sufficiency without proving the natural mechanism; a probe is decodability not causal use; a full activation patch may transmit answer tokens.
+6. Data source labels are not causal categories. Exact surface forms, target sentence direction, native language, POS/inflection, sense frequency, naturalness, pair family, license and reviewer provenance must be independently audited. Source annotation "same sense in context" DOES NOT mean same natural sense distribution.
+7. Report word-typed uncertainty and protect lexeme-disjoint held-out trials. Do not treat many prompts from one word as independent lexical evidence. Do not leak answer-format or original ambiguous word into a paraphrase control.
+8. No gold-label-dependent active softmax class changes; for candidate likelihood use one properly normalized distribution per prefix. Record model/tokenizer SHA, prompts, source revision and analysis code before any model inference.
+9. Do not allocate GPU, build giant human annotation datasets, or run a full hidden-state head screen to fill an incomplete story. Fix the causal estimand first. Use the old training code only as an audit of what NOT to repeat.
+10. For every **relevant** paper, use knowledge/PAPER_NOTE_TEMPLATE.md and record research community background, inferred idea genesis, exact nearest related work, research innovation scale, key experiments and what each rules out. Maintain reading-status honesty and citations; do not infer a mechanism from abstracts.
+11. If strongest competing explanation is already sufficient, conclude so and stop. If new nearest literature already contains the proposed explanation, change the idea rather than hide the prior.
+12. Run python -m pytest -q and python scripts/check_knowledge.py; passing CI is engineering validation, NOT an empirical finding.

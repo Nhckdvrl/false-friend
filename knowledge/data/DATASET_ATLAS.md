@@ -31,3 +31,20 @@ SemCog tree contains data/false_friend_corpus/false_friend_corpus.json, data/mer
 - Dataset does not substitute for an independent **late-evidence correction** design.
 
 **Missing from all currently inspected datasets:** a ready, human-audited, fixed-final-sense, initially misleading → late correction, within-language ambiguity-matched sequence. This must be designed and audited as a new condition, not presumed to exist in a WiC label.
+
+
+## Source code and exact-word audit (2026-10-12, not model output)
+
+ACL2026 Romance [six source TSVs](https://github.com/mrtva/false-friends-vs-cognates), source main a87b73e387a6ef86d0cef7ffe703150905e75d7a, were programmatically checked for exact Unicode whole-word occurrence:
+- 704 total word-pair records, 332 W1==W2 lemma spellings, 189 context R=0 and 143 context R=1.
+- Of identical lemma pairs, 69 R0 and 64 R1 have the exact case-sensitive same form in BOTH context strings.
+- 69 R0 rows cover 58 distinct language-pair + form units; repetitions across auto/human are correlated.
+- 52 R0 rows have no slash in source POS, **not a substitute for review**.
+- W1/C1 ordering is not reliably inferable from language pair in filename; do not assign language side without a sentence-language check.
+- Many inflected forms produce W1==W2 even though either C1/C2 does not show the exact lexical form.
+
+Reproduce with scripts/audit_romance_wic.py; source data is not vendored into this repo.
+
+Tanwar [official author data](https://github.com/EshaanT/Bilingual_processing_LLMs) includes Task3 files data/task3_en_de.csv, task3_en_es.csv, task3_en_fr.csv with masked low/high semantic-constraint sentences. Reproduce its original task metric before claiming that introducing stronger context is novel. Inspect with scripts/audit_tanwar_baseline.py.
+
+**Data availability != scientifically validated contrast.** All exact-source candidates require lexeme/POS/semantic annotation review and ordinary ambiguity controls to support a model-mechanism explanation.

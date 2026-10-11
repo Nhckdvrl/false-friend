@@ -1,99 +1,47 @@
-# Research Mainline — Cross-Lingual Sense Selection and Revision
+# False Friend Lab — Lexical Sense Resolution Under Competing Evidence
 
-*Reset 2026-10-09, literature/idea reassessment 2026-10-11. State: competing candidate hypotheses; NOT a confirmed explanatory gap or experiment result. See [knowledge/README.md](knowledge/README.md), [paper index](knowledge/PAPERS_INDEX.md), [route reassessment](knowledge/ideas/ROUTE_REASSESSMENT.md).*
+**Active question (2026-10-12):** How do multilingual language models combine lexical familiarity, language identity and contextual semantic evidence when they suggest different interpretations of the same word form?
 
-## 0. The one question
+Status: exploration only. **No model experiment or mechanism discovered in this reset.** This supersedes the old A/B/C research queues and the predetermined E0–E5 mechanistic pipeline.
 
-**How does an LLM choose among competing language-specific meanings of a shared form, and when does subsequent context revise that choice rather than merely changing a final output string?**
+## Why this is a natural, important, nonempty question
 
-False friends are a *stress test* of this question, not necessarily its cause. The project must survive the possibility that a model has no enduring semantic conflict at all.
+- Stingray and Tanwar establish word-meaning failures and language/context effects.
+- Doppelganger-JC shows word meaning, contextual meaning and translation/copy are different behaviors.
+- Kallini and Škrjanec analyze global lexical transfer and target-form predictability, which are NOT measures of conditional sense selection.
+- Dumas, Körner and Ravisankar demonstrate causal interchange of concept/language/task representations, including misleading answer-copy confounds.
+- Human BIA+ and Good-Enough theories motivate competing explanations; they are not proofs of LLM mechanisms.
 
-### Why this is not already answered
+We do **not** claim cue conflict has never been studied. Tanwar already tests high/low semantic constraints; merely testing a new factorial matrix has weak novelty. We seek **an explanatory account that predicts new conflicting-cue cases**, including a result that might be explained by ordinary frequency and skill.
 
-StingrayBench establishes cross-lingual sense-disambiguation failures. Kallini et al. establish that vocabulary overlap usually aids **global** transfer, and Škrjanec et al. find form-level surprisal facilitation, strongly related to frequency. Dumas and Körner et al. show that multilingual concepts/output language can be causally manipulated, and Körner et al. already find homograph copying and polysemy artifacts in apparent patching gains. These findings measure different dependent variables. None alone identifies the causal locus of *a specific contextual correction after an initially misleading cross-lingual reading*. But this is a **candidate explanatory gap**, not a claim of proven novelty.
+## Competing explanations
 
-## 1. Competing hypotheses (non-exclusive)
+**M0: Predictable evidence integration.** Lexical sense familiarity, the actual language of the sentence, task/output language and independently calibrated semantic evidence combine approximately additively. A simple model predicts the result on unseen word types.
 
-| H | Mechanism | Distinctive prediction | What would count against it |
-|---|---|---|---|
-| K — Knowledge deficit | No sufficiently reliable representation of the intended sense | Explicit target-language sense identification fails even in strong unambiguous contexts | The model robustly identifies the intended sense under matched explicit-language prompts |
-| P — Prior competition | Both senses available; dominant language/lexeme prior overwhelms local cue | A language cue changes meaning selection even with near-fixed sentence semantics; lexical frequency moderates | Controlled language cues leave sense decisions unchanged once competence is matched |
-| R — Incomplete revision | An initially preferred sense persists after decisive late evidence | Position-matched late evidence leaves a residual competitor-sense effect in a downstream *meaning* test, not only in free translation | Once final semantic evidence is matched, any apparent residual vanishes in meaning-only and matched controls |
-| O — Output/copy artifact | Sense selection is adequate; generation lexicalizes/copies a misleading form | Controlled sense-choice succeeds while free-form translation fails; output-sensitive interventions change strings without changing sense judgments | Stable sense-decision failures survive label swaps and no-copy controls |
+**M1: Conditional cue selection/routing.** One cue changes how strongly another cue is used; a robust interaction makes M0 fail on held-out words, after ordinary WSD, lexical frequency, syntax, cue strength and response format are controlled. This describes a behavioral hypothesis, NOT a discovered internal language-gating module.
 
-H1–H4 are **diagnostic possibilities**; avoid introducing a separate experiment family for each before establishing an anomaly. Multiple mechanisms can coexist.
+**M2: Output copying or verbalizer artifact.** Internal/behavioral semantics are adequate; translation string or answer tokens are wrong. Must compare with independent, non-copy semantic entailment questions.
 
-## 2. Sequential experiment logic — each link answers a missing inference
+**M3: Missing lexical knowledge or ordinary ambiguity.** Model doesn't know target sense in explicit-language unambiguous context, or same-language polysemy matches the entire effect.
 
-### E0. Item validity and phenomenon existence — cheap, before GPU
+## High-information, adaptable discovery program
 
-Independently inspect language, exact form, lexical senses, POS, naturalness, morphology, sense dominance and source license. First compare a few existing open models under a balanced gloss-choice task. Include (i) genuine cross-language false friends, (ii) ordinary within-language polysemy, (iii) unambiguous/paraphrase controls. Primary unit is lexical type, not repeated templates.
+1. **Source and instrument preflight.** Reuse published Tanwar word meaning and high/low semantic-constraint sentences, Doppelganger-JC word/context/translation tasks, and source-filtered Romance WiC. Audit exact surface form vs lemma, linguistic provenance and held-out lexical families. Audit scripts and source counts are in [experiments/FIRST_PASS.md](experiments/FIRST_PASS.md). No forced new benchmark or large annotation campaign.
+2. **Reproduce nearest existing baselines first**, with authors' prompts and scores rather than our separate pilot instrument. Record model and tokenizer revisions; one fixed accessible multilingual model first.
+3. **Make new, independently testable predictions.** On validated items, independently calibrate language and semantic cues, compare each alone versus aligned/conflicting combinations. Freeze a simple M0 prediction on training lexemes, test unseen word types; compare M1 only with held-out generalization and meaningful effect size. Include same-language polysemy, unambiguous paraphrase, free translation and independent semantic consequence tasks.
+4. **Only if M0/M2/M3 fail predictively**, follow the observation: isolate source-language versus semantic positions; conduct paired reciprocal activation patches including Ravisankar-style same-answer-label different-content donors and unrelated-task checks. If a broad patch can trivially rewrite answers, that is not a mechanism claim.
+5. **Generalize or stop.** Freeze the smallest explanation on new lexemes, model families or languages. A simple sufficient account closes the question; a surprising interaction demands discriminating follow-up, not instant neuron hunting.
 
-**Stop** if high-quality matched items or reproducible excess error do not exist. Do not manufacture true-friend controls simply to fill sample quotas.
+At each stage, specify two models that make **different predictions**, decide what would falsify them, and let data choose the next experiment. Avoid treating the figure order as a mandatory pipeline.
 
-### E1. Is the apparent mistake actually semantic?
+## Immediate verified data result
 
-On the same context/lexeme, compare (a) counterbalanced forced-choice sense judgment, (b) optional paraphrase/inference consistency, (c) free translation / copying behavior. Difference between (a) and (c) diagnoses an output confound; it is not itself causal proof of distinct modules.
+The ACL 2026 Romance WiC source has 704 word-pair rows; 332 identical lemma spellings, 189 of which are context-level different-meaning pairs. Only 69 different-meaning rows contain the identical case-sensitive word form as a whole word in **both** contexts (58 distinct language-pair/form keys). These are candidate objects only; orientation/POS/meaning still require human review, and the source's same-sense labels do NOT certify matched full lexical sense distributions.
 
-**Stop** if order/template sensitivity alone explains the supposed semantic mistakes.
+The author's Tanwar Task 3 EN-DE/ES/FR high/low cue CSV files are public; no reason to reinvent a context-strength benchmark to claim novelty.
 
-### E2. Competing evidence: language cue × context strength × evidence position
+## Discontinued hypothesis programs
 
-Build *human-audited* minimal pairs, factorial when feasible. Crucially hold the final interpretation constant while varying whether decisive information is present before or only after the ambiguity. For post-target revision, evaluate prefixes and final sequences as separate tasks; Transformer layer index is **not** psycholinguistic time.
+The predetermined lasting late-context semantic trace, incorrect-anchor graph/topology training and language-order hysteresis plans are **removed from the active research program**, not parked as work queues. Why they were rejected and when their historical motivation remains relevant: [knowledge/ideas/RETIRED_HYPOTHESES.md](knowledge/ideas/RETIRED_HYPOTHESES.md). Old source papers remain in the scientific knowledge base.
 
-Counterbalance item direction, answer order, prompt framing, semantic plausibility, lengths and language proficiency. Compare equivalent non-homographic replacement, ordinary polysemy, and translation vs sense-choice tasks.
-
-**Key contrast:** a late-evidence residual competitor effect that exceeds corresponding generic revision effects, not merely lower accuracy on late cues.
-
-### E3. Is the competing sense represented, selected, or output-only?
-
-First use intervention-free diagnostics on matched correct/error trials. Separate information *decodability* from *causal use*. If no robust E2 effect, E3 is forbidden. Probe results alone do not justify representation mechanism claims.
-
-### E4. Targeted causal intervention: necessity, specificity, mediation
-
-Only after E2/E3 produce discriminating predictions: paired activation patching of language cues vs sense evidence vs output context, with reciprocal directions, unrelated-position and random-vector controls, semantic invariance checks, prompt-token alignment, and no global linguistic collapse. Avoid claiming localization from broad residual-stream patching.
-
-A strong outcome is **double dissociation** of meaning judgments and output form; a simpler full-activation correction is already close to Körner et al. 2026 and has weak novelty.
-
-### E5. Out-of-sample prediction
-
-Freeze theory, predictors, thresholds and control set. Predict which *held-out lexical types/context families* will show (i) correction, (ii) persistent competition, (iii) copy-only errors. Evaluate on different models and ideally another language pair. A theory that only describes hand-picked patched examples fails.
-
-## 3. Metrics — no substitution
-
-Primary pilot: within-item, label-order-balanced log probability margin
-
-  m_i = 1/2 [(log p(A | prompt[A=correct]) - log p(B | prompt[A=correct])) +
-             (log p(B | prompt[B=correct]) - log p(A | prompt[B=correct]))].
-
-Positive m means greater *conditional model preference* for the intended gloss, not a calibrated sense probability and not a hidden-state measurement.
-
-For revision, define an independently audited final-context contrast, e.g. m_late - m_early, only where the semantic gold remains unchanged and matched controls exist. An uncorrected direction-specific effect is not sufficient. Keep task-conditional margins distinct from generation string accuracy and form surprisal.
-
-Cluster at lexical type (and context family/model where relevant). No sentence-level pseudo-replication. Preregister effect thresholds based on reliability, not post hoc significance. The current scripts produce **descriptive** summaries only.
-
-## 4. Why not reuse the old shared/split training pipeline?
-
-Archived Gate 1 was *not* a negative scientific result. Its semantic-aligned natural control could not be identified; the 10 older runs were invalid. There is also a separate unresolved likelihood-design concern: the final one-in/one-out mask switches the candidate normalization according to the **gold next token**, which does not define a standard common next-token distribution for comparing alternative candidate outcomes. See docs/LEGACY_RECORD.md.
-
-From-scratch training returns only if natural behavior reveals a specific causal question for which controlled training changes a prediction. Synthetic form–meaning mapping experiments may help internal validity, but must be distinguished from natural-language evidence.
-
-## 5. No predetermined success story
-
-- If most errors are **copy-only**, write that, then ask whether the output mechanism offers a nontrivial new explanation beyond Körner.
-- If language cue solves everything, a failure of context-free language identification may be the simple explanation.
-- If semantic competition is no greater than ordinary polysemy, the cross-lingual-specific hypothesis dies.
-- If the discrepancy is not robust to choices of task and lexical items, stop.
-- If E4 patching corrects everything indiscriminately, it does **not** demonstrate selective mechanism.
-- If E5 cannot predict held-out cases, claims stay descriptive.
-
-Novelty is measured by *excluded rival explanations and successful novel predictions*, not the number of experiments, model sizes or probes.
-
-## 6. Research assets and next real actions
-
-- Complete an independent literature novelty audit, prioritizing Körner 2026 and Dumas 2025, plus explicit late-evidence/revision works. See docs/LITERATURE_MATRIX.md.
-- Create ~50–100 **candidate** lexical items (not a target quota to force), then check 10–20 randomly drawn entries and two independent annotators. Existing resources are discovery aids; their category tags are not gold causal objects.
-- Pilot one open multilingual causal LM only after E0 review. Keep held-out lexical families sealed.
-- Commit only empirical results with model SHA, tokenizer SHA, prompts, code hash, raw scores and failures. No claim before rerun.
-
-**Decision (revised 2026-10-11):** The above E0–E5 protocol remains a *conditional hypothesis design*, not a selected paper outline. A0 is only a cheap behavior-identification preflight; B0 (controlled false-anchor identifiability) runs in parallel on paper/CPU. Route C remains parked. Do not allocate GPU or claim novelty until A0/B0 resolve their competing identification risks. Details: knowledge/ideas/ROUTE_REASSESSMENT.md and EXPERIMENT_KILL_TABLE.md.
+Start at [knowledge/README.md](knowledge/README.md), [knowledge/ideas/ACTIVE_QUESTION.md](knowledge/ideas/ACTIVE_QUESTION.md), and [experiments/FIRST_PASS.md](experiments/FIRST_PASS.md). The [AGENTS.md](AGENTS.md) protocol is compulsory for local agents.

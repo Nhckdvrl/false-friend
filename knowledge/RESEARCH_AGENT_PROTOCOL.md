@@ -1,45 +1,31 @@
-# Local Agent Research Protocol — mandatory for this repository
+# Research Agent Protocol — question-first science
 
-The knowledge base is a **research instrument**, not a memory dump. Current repo is hypothesis development without empirical discovery. A polished figure cannot make a weak question strong.
+**Current only active topic:** competing language identity versus contextual evidence in multilingual lexical sense choice. Read RESEARCH_MAINLINE.md, knowledge/ideas/ACTIVE_QUESTION.md and experiments/FIRST_PASS.md. Retired A/B/C should not be suggested as live branches without new observations.
 
-## Before touching code
+## Deep-reading process
 
-1. Read RESEARCH_MAINLINE.md and knowledge/README.md, then select relevant branches in knowledge/PAPERS_INDEX.md.
-2. Open **full relevant core paper notes and source URLs**, especially the nearest two works; S3 references remain *unread for mechanism claims*. Any assertion of novelty needs a 2026-aware re-search.
-3. Separate FACT, INFERENCE and PROPOSAL. Authors' motivations not stated explicitly can only be reconstructed and labeled INFERENCE.
-4. Read knowledge/CONCEPT_MAP.md to catch metric category mistakes, theories for human analogy, and knowledge/ideas/EXPERIMENT_KILL_TABLE.md before proposing a new experiment.
-5. Write, *before implementation*, the rival-generating mechanism, mutually differentiating predictions, operational data definition, required control, exact result that would change the conclusion, and the nearest literature's coverage.
+For each paper, use knowledge/PAPER_NOTE_TEMPLATE.md. Record author question and its background, key prior explanation, smallest novelty over nearest work, datasets and controls, reconstructed **inferred** idea genesis, experimental step-by-step *why*, limitations and most valuable next falsifier. FACT and INFERENCE must be separate. Register citations and note S1/S2/S3 honestly; do not claim a 19MB PDF was read if only its abstract was accessible.
 
-## When reading a new paper
+Compare studies using exact dependent variables: token surprisal, contextual meaning recognition, word translation/copying, multilingual transfer, hidden-feature decoding, mechanistic patch. These cannot be identified with each other.
 
-Create knowledge/papers/<slug>.md using PAPER_NOTE_TEMPLATE.md. Register it in PAPERS_INDEX.md, CITATION_LEDGER.md (for strong claims), concept map and idea-genesis graph as appropriate. Mark S0/S1/S2/S3 honestly based on accessed content; never promote reading level merely due to a paper's fame. Include page/figure references and specific unresolved verification tasks.
+## Before scientific experiments
 
-**What matters most:** explicitly reconstruct plausible idea sources and *scale*. Was it a new question, a new error isolation, a causal manipulation, a hidden-variable control, a stronger baseline, a predictive theory, or merely additional examples? Which existing paper does it most resemble, and what is the shortest nontrivial step forward? Avoid irrelevant dense summaries.
+- Reproduce original Tanwar/Doppelganger metrics/prompt as baseline when appropriate. Our binary gloss runner is a different metric.
+- Validate language side explicitly; filename language pair is insufficient. Check lexical surface, inflection, POS, naturally correct usage, error-injection, relation label scope, source copyright.
+- Require word-level holdout and meaningful ordinary WSD / unambiguous controls; label-order swapping and multi-phrase semantics.
+- Predetermine which rival accounts make different predictions, which variables are fixed, and what outcome would change the theory. A merely nonzero main effect is not mechanistic evidence.
+- No gold-dependent softmax, no interpreting probe decodability as information use, no unselective patch interpreted as a special module.
+- Do not automatically progress from baseline to probing or training. Only a strong residual from a simple account justifies additional complexity.
 
-## During experiment construction
+## Required research handoff
 
-- The data label must operationalize the exact causal variable, not a similarly named resource category.
-- Validate source license, semantic object, sentence naturalness, POS, case, morphological identity, tokenizer segmentation; do not use surname/category as a shortcut.
-- Never use target-label-conditioned softmax normalization to compare alternative outputs. If two candidates change the output probability denominator by their ground truth, probability design is invalid.
-- Do not collapse form surprisal, selected sense, downstream semantic consequence, free translation, global transfer, and activation decodability into one metric.
-- Never infer causal *use* of information from a linear probe. Never claim a unique module from indiscriminate patching.
-- For each analysis report cross-item variation, model/prompt dependence, uncertainty and failures; avoid sentence pseudo-replication.
-- Record precise data revision, sample IDs, model/tokenizer commit and prompt text.
-- Do not run GPU until cheaply verifying sample/control identifiability. Reuse the archival branch only for historical lessons; not its old Gate 1 as new scientific evidence.
+1. What naturally important problem are we explaining?
+2. Which nearest paper almost already answers it, and what claim is occupied?
+3. Which two simplest distinct explanations predict different behavior, in what unit?
+4. What source data and task can distinguish them without manufacturing an object?
+5. Exact stop/failure criterion and output that would be surprising.
+6. Is this a **code preflight**, a reproduced existing finding, a new observed result, or a causal proof? Never conflate.
 
-## Direction change
+## Reset discipline
 
-A failed clean test can be an important fact; record it without rescuing the story. Failed data identification is not evidence for or against the hypothesis. If a strong new paper already makes the same claim, **downgrade novelty and update docs**, don't invent artificial conditions to make the original wording novel.
-
-## Required research handoff format
-
-- Current strongest question and why important independent of machinery.
-- Exact strongest neighboring paper and what it has **already** proven.
-- Up to three live rival hypotheses with different predictions.
-- Minimal valid discriminating experiment and stop condition.
-- What remains unknown after a result in either direction.
-- Source and degree of verification for every empirical assertion.
-
-## Review cadence
-
-Update paper notes when experiments reveal new confounds. Reopen the novelty audit before writing an abstract and after a major new result; do not treat 2026-10-11 index as permanent coverage.
+When evidence is inconsistent with the old picture, rewrite the picture rather than rescue it through more metrics, custom data or unconstrained interaction terms. A clear negative or simple explanation can be a scientifically useful endpoint. If there is no valid data contrast, stop before allocating GPUs.

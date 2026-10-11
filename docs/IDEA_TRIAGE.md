@@ -1,11 +1,7 @@
-# Idea triage — navigation / historical snapshot
+# Former route triage — retired
 
-**Updated 2026-10-11. The complete active reassessment is now in** [knowledge/ideas/ROUTE_REASSESSMENT.md](../knowledge/ideas/ROUTE_REASSESSMENT.md). Read its nearest-neighbor threats, separate predictions, identifiability and explicit kill conditions. This file is a concise signpost only.
+**A/B/C route ranking was discontinued 2026-10-12.** No active parallel A/B/C queue exists. The former late reanalysis, wrong-anchor topology and training-order hysteresis ideas are documented **only as decisions to stop**, at [knowledge/ideas/RETIRED_HYPOTHESES.md](../knowledge/ideas/RETIRED_HYPOTHESES.md). Source documents remain in Git history.
 
-**Route A — sense selection and contextual revision:** not “totally new.” Tanwar, Doppelganger, Körner, Amouyal and human Good-Enough work already cover much of its behavior. Run only a cheap, independently reviewed A0 interaction test before any mechanism claims.
+Current ONE question: [RESEARCH_MAINLINE.md](../RESEARCH_MAINLINE.md). Nearest-paper review: [knowledge/PAPERS_INDEX.md](../knowledge/PAPERS_INDEX.md). Actual feasible first tests: [experiments/FIRST_PASS.md](../experiments/FIRST_PASS.md).
 
-**Route B — misleading lexical anchors and global transfer:** Kallini’s low-similarity overlap benefit is potentially a theory opportunity, not a proved contradiction to sense errors. B0 must formalize proper equal-probability models and parameter/frequency controls before training.
-
-**Route C — learning order/hysteresis:** parked until A/B reveals a meaning-specific, nonrecency phenomenon. Generic forgetting or path dependence is not a contribution.
-
-Evidence categories, idea genealogy, and future work are in [knowledge/](../knowledge/). The old default “A active; B reserve” ranking is superseded.
+A well-studied problem is acceptable. An unexplained effect or causal competition with valid measurements matters. Do not invent an entirely unstudied space, or protect a favorite story by adding fake controls.

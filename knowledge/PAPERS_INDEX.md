@@ -1,4 +1,4 @@
-# Paper and theory index (as of 2026-10-11)
+# Paper and theory index (updated 2026-10-12)
 
 **Reading status is honest and content-dependent**: S1 main methods/results/figures inspected, not full appendices; S2 targeted or partial methods; S3 abstract/metadata or earlier audit only; S0 navigation. **This index is not a claim that all listed papers were fully read.** Link to individual structured note if available. Each note must distinguish paper evidence from reconstructed idea origins.
 
@@ -29,7 +29,7 @@
 | [Inaba et al., How a Bilingual LM Becomes Bilingual, Findings EMNLP 2025](https://aclanthology.org/2025.findings-emnlp.725/) | bilingual SAE/representation dynamics | S3 | concept map only |
 | [Goworek & Dubossarsky, Multilinguality Does not Make Sense, EMNLP 2025](https://aclanthology.org/2025.emnlp-main.1773/) | sense-aware transfer confounds | S3 | concept map only |
 | [Conneau et al., Emerging Cross-lingual Structure, ACL 2020](https://aclanthology.org/2020.acl-main.536/) | transfer without shared vocabulary | S3 | [idea genealogy](ideas/IDEA_GENESIS_GRAPH.md) |
-| [Limisiewicz et al., Findings ACL 2023](https://aclanthology.org/2023.findings-acl.350/) | task-sensitive vocabulary overlap | S3 | [route B](ideas/ROUTE_REASSESSMENT.md) |
+| [Limisiewicz et al., Findings ACL 2023](https://aclanthology.org/2023.findings-acl.350/) | task-sensitive vocabulary overlap | S3 | [route B](ideas/RETIRED_HYPOTHESES.md) |
 | [Shao et al., ACL 2026](https://aclanthology.org/2026.acl-long.1706/) | bilingual mixture and parallel data contributions | S3 | needs paper note |
 
 ## 3. Human bilingual / garden-path / updating
@@ -50,10 +50,10 @@
 
 | Work | Core issue | Reading | Asset |
 |---|---|---|---|
-| [Elhady, Agirre & Artetxe, 2025](https://arxiv.org/abs/2506.00288) | continual language adaptation, English replay, forgetting | S3 | [route C](ideas/ROUTE_REASSESSMENT.md) |
-| [Arnett et al., ACL 2025](https://aclanthology.org/2025.acl-long.1010/) | bilingual priming / learning schedule | S3 | [route C](ideas/ROUTE_REASSESSMENT.md) |
+| [Elhady, Agirre & Artetxe, 2025](https://arxiv.org/abs/2506.00288) | continual language adaptation, English replay, forgetting | S3 | [route C](ideas/RETIRED_HYPOTHESES.md) |
+| [Arnett et al., ACL 2025](https://aclanthology.org/2025.acl-long.1010/) | bilingual priming / learning schedule | S3 | [route C](ideas/RETIRED_HYPOTHESES.md) |
 | [Cho et al., Revisiting In-context Learning Inference Circuit, ICLR 2025](https://proceedings.iclr.cc/paper_files/paper/2025/hash/22d4f952efa13970f0b1ffb22170d416-Abstract-Conference.html) | multi-operation ICL explanation and bypass | S3 | [joint design note](papers/cho-2025-2026-method-genesis.md) |
-| [Cho et al., Mechanism of Task-oriented Information Removal, ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/105112d52254f86d5854f3da734a52b4-Abstract-Conference.html) | information filtering constructive → natural measures → ablation | S3 | [joint design note](papers/cho-2025-2026-method-genesis.md), [official code](https://github.com/hc495/Verb_subspace) |
+| [Cho et al., Mechanism of Task-oriented Information Removal, ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/105112d52254f86d5854f3da734a52b4-Abstract-Conference.html) | information filtering constructive → natural measures → ablation | S1 | [joint design note](papers/cho-2025-2026-method-genesis.md), [official code](https://github.com/hc495/Verb_subspace) |
 | [Yang, Cho et al., Task Vectors, Learned Not Extracted, ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/79ada0f9bc4e41192ad5a80d13c8ca7e-Abstract-Conference.html) | train vectors rather than opaque extraction; OV-mediated mechanism | S3 | future Cho-method audit |
 | [Yang, Cho et al., Localizing Task Recognition and Task Learning, ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/974726d56a6ddfac48486e57d5e798e4-Abstract-Conference.html) | TR/TL decomposition and causal controls | S3 | future Cho-method audit |
 | [Tsujimura et al., Belief Consistency, ACL 2026](https://aclanthology.org/2026.acl-long.1860/) | persistent consistency in incremental reasoning independent of task correctness | S3 | candidate *neighbor* for A; deep read needed before formal novelty claim |
@@ -62,4 +62,7 @@
 
 Earlier [docs/LITERATURE_MATRIX.md](../docs/LITERATURE_MATRIX.md) was a succinct pre-2026-10-11 map. It is now a pointer only; this index controls current reading completeness. [docs/LEGACY_RECORD.md](../docs/LEGACY_RECORD.md) is the retrospective of the invalid EN-DE matching study, not literature evidence for lexical interference.
 
-**Reading debt, highest priority**: full 2025/2026 Cho PDFs (our official abstracts and 2026 GitHub are insufficient for page-level experiment claims), Dumas/Körner detailed patch donor confounds, human lingering misinterpretation full texts, Tanwar v1→v2 changes, Ravisankar same-answer donor analysis, SemCog/Tanwar released dataset fields, new late-2026 evidence-consistency papers.
+**Reading debt, highest priority**: ICLR 2025 Cho full paper beyond official abstract (ICLR 2026 full 87-page methods, main results and Appendix controls independently reviewed in user-supplied original PDF), Dumas/Körner detailed patch donor confounds, human lingering misinterpretation full texts, Tanwar v1→v2 changes, Ravisankar same-answer donor analysis, SemCog/Tanwar released dataset fields, new late-2026 evidence-consistency papers.
+
+
+**2026-10-12 update:** main mechanistic reference [Cho ICLR 2026 detailed full-paper reconstruction](notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md). Older route B/C references are to [retired research reasoning](ideas/RETIRED_HYPOTHESES.md), **not** active plans. Only [one current research question](ideas/ACTIVE_QUESTION.md).

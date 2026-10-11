@@ -1,44 +1,28 @@
-# Research Knowledge Base / 研究知识库
+# False Friend research knowledge base
 
-**研究资产，不是论文清单。** 最后审计：2026-10-11。此仓库仍处于 *hypothesis-development*；尚无新项目的科学实验结果。
+**Updated 2026-10-12.** The purpose is to teach a local agent *why* an idea is interesting, how it derives from related work, what each experiment rules out, and when to stop. It is NOT an excuse to keep all previously suggested directions.
 
-## 学术工作流
+## Current knowledge navigation
 
-阅读 → 分离作者主张与我们的推理 → 逆向重建 idea 生成 → 对照最近邻文献 → 解释每一个实验解决的缺口 → 提取可复用的设计原则 → 产生候选问题 → 事先写下足以否决自己的实验 → 才考虑实现。
+- [PAPERS_INDEX.md](PAPERS_INDEX.md): paper list, verified depth, structured paper assets.
+- [papers/](papers/): paper genesis and contribution scale, baselines, causal/surprisal/task distinctions.
+- [notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md](notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md): actual 87-page study read for its experiment-to-claim logic.
+- [CONCEPT_MAP.md](CONCEPT_MAP.md): research variables and their non-equivalences.
+- [CITATION_LEDGER.md](CITATION_LEDGER.md): claims tied to sources, methods and limiting assumptions.
+- [theories/](theories/): bilingual recognition, Good-Enough, explanatory measurement ladder.
+- [ideas/ACTIVE_QUESTION.md](ideas/ACTIVE_QUESTION.md): **one** open explanatory problem with live rivals.
+- [ideas/RETIRED_HYPOTHESES.md](ideas/RETIRED_HYPOTHESES.md): why we discarded the old A/B/C ideas.
+- [data/DATASET_ATLAS.md](data/DATASET_ATLAS.md): real dataset objects and audited available controls.
+- [RESEARCH_AGENT_PROTOCOL.md](RESEARCH_AGENT_PROTOCOL.md): mandatory scope and stopping instructions.
 
-**不把阅读量、笔记长度、实验数量当作科学贡献。**
+## Reading confidence
 
-## 入口
+S1: main work methods, results, key figures and relevant appendices actually inspected (NOT code/experiment reproduced). S2: targeted methods or sections. S3: abstract / metadata only, never described as deep read. Full ICLR 2026 Cho recovered and S1 reviewed; his earlier ICLR 2025 paper remains a background citation with limited independently available text, so it is **not an unresolved blocking precondition for the current False Friend experiment**. Full literature can never be finished by declaring 36 indexed papers "read".
 
-- [PAPERS_INDEX.md](PAPERS_INDEX.md) — **所有相关论文的索引、实际核验深度和笔记链接**。文献索引 != 全部精读。
-- [CONCEPT_MAP.md](CONCEPT_MAP.md) — 跨论文的命题、证据张力、认识空白及其反例。
-- [CITATION_LEDGER.md](CITATION_LEDGER.md) — 核心断言对应具体论文、章节、页码；历史错误纠正。
-- [PAPER_NOTE_TEMPLATE.md](PAPER_NOTE_TEMPLATE.md) — 必须分析 idea 起源、尺度、related-work 距离、可证伪的区分性实验。
-- [theories/](theories/) — BIA+ / Good-Enough / measurement vs causal identification：不是照搬人类理论。
-- [papers/](papers/) — 阅读后独立的论文资产；结论和 **我们推测的作者思路**明确分开。
-- [ideas/](ideas/) — 三条路线的重新定标、实验缺口与反证对照。
-- [data/DATASET_ATLAS.md](data/DATASET_ATLAS.md) — 真实数据资源、标签语义和适用任务。
-- [RESEARCH_AGENT_PROTOCOL.md](RESEARCH_AGENT_PROTOCOL.md) — 给后续本地 Agent 的检索、建模和停止协议。
+## Use cycle
 
-## 阅读标记（强制）
+Choose a natural question → read the nearest papers → reconstruct possible idea genesis (labeled INFERENCE) → state the **smallest extra explanation** beyond predecessors → compare parsimonious rival models → preflight actual lexical object → reproduce strongest source baseline → run a focused, discriminating test → update the question from data, including negative findings → only then contemplate causal patching.
 
-- **S1 methods/results inspected**：本轮核对过论文正文关键的引言、方法、重要实验或表/图、讨论/局限；**不代表通读每个附录**。可写明确的实验分析笔记。
-- **S2 targeted/partial**：核对过正文/部分方法/结果或网页全文，仍有关键段落未核实；未核实处必须逐条标记。
-- **S3 metadata/abstract**：只确认摘要、书目信息或历史注记；**不可写作精读，不可推出未验证的机制结论**。
-- **S0 to-read**：尚待查阅，只有导航作用。
+An apparent contradiction between **global transfer**, **surface surprisal** and **contextual meaning** is not a real contradiction until all use the *same item and outcome*. All relevant notes must keep label semantics and alternative explanations visible.
 
-所有重建的 idea 来源均标为 **INFERENCE（我们的推测）**，不能假装作者亲口解释了自己的创意来源。每份 S1/S2 笔记需标清“已查证的证据 / 推测 / 反例 / 比最近邻多走的一步 / 下次要验证什么”。从不把相关性自动解释为因果。
-
-## 使用规则
-
-1. 讨论词汇共享，先读 Kallini + Škrjanec + 本仓库 2026-08 历史失败记录。
-2. 讨论局部同形词错误，先读 Stingray + Tanwar + Doppelganger-JC + Abuín。
-3. 讨论激活与机制，先读 Dumas + Körner + Ravisankar，以及对 patching 替代解释的控制。
-4. 讨论后文纠正，必须同时读 Good-Enough / garden-path 的人类与 LLM 工作；**不是新领域**。
-5. 设计新实验先填写最强竞争解释与失败条件；测试不同任务的输出不可以混为同一个“语义正确率”。
-6. 文献发现新近先例时，主动撤销或降低当前 idea 的 novelty claim。改结论，不做防御性修补。
-7. 历史精读笔记不得凭空补齐：在索引中诚实标记未充分查阅。
-
-## 这次重构没有做的事情
-
-没有下载或再分发大篇幅论文 PDF；仅链接原始论文。没有做真实模型推理或跑训练；没有生成新实验发现。持续扩充笔记时应使用合法原文来源并避免长段直接复制。
+The previous A/B/C triage can be recovered from old Git commits but should not drive future code.

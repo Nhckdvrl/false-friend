@@ -1,41 +1,43 @@
-# Hakaze Cho et al. 2025/2026 — 从常见 ICL 困惑到机制区分的实验逻辑
+# Hakaze Cho et al. 2025/2026 — Experimental design from a small ICL counterexample
 
-- **ICLR 2025**: https://proceedings.iclr.cc/paper_files/paper/2025/hash/22d4f952efa13970f0b1ffb22170d416-Abstract-Conference.html
-- **ICLR 2026**: https://proceedings.iclr.cc/paper_files/paper/2026/hash/105112d52254f86d5854f3da734a52b4-Abstract-Conference.html
-- **ICLR 2026 arXiv**: https://arxiv.org/abs/2509.21012
-- **2026 Official code**: https://github.com/hc495/Verb_subspace
-- **Reading**: this entry **S3** (official conference abstract and 2026 code README; full 87-page paper presently inaccessible to verified complete reading in this session; method-level discussion is therefore explicitly bounded). **Do not label S1**. Prior discussion of the PDF is not a substitute for page-specific current review.
+- ICLR 2025: [Revisiting In-context Learning Inference Circuit](https://proceedings.iclr.cc/paper_files/paper/2025/hash/22d4f952efa13970f0b1ffb22170d416-Abstract-Conference.html). Reading: S3 official abstract and relevant citations in the 2026 full paper; the 2025 complete PDF is too large for the current public tool, so **do not claim its every experiment has been independently verified**.
+- ICLR 2026: [Mechanism of Task-oriented Information Removal in ICL](https://proceedings.iclr.cc/paper_files/paper/2026/hash/105112d52254f86d5854f3da734a52b4-Abstract-Conference.html), official [code](https://github.com/hc495/Verb_subspace). **Reading S1: full 87-page manuscript recovered from previous user-provided Library file, read complete main text, appendix methods, critical tables and all figure captions; individual supplemental plot traces are not all independently replotted.** Not an empirical reproduction.
+- Additional detailed experiment-chain and boundary note: [CHO_FULL_PAPER_RECONSTRUCTION_2026.md](../notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md).
 
-## 研究共同体的根本矛盾
+## Important problem (fact)
 
-ICL 可被解释为任务向量、label copying、induction, task recognition/learning。若仅给几个 input-output examples，模型如何在不更新参数的情况下选择正确任务？这不是完全空白的问题：许多路线在相同现象上提供部分解释。
+The dominant induction/label-copy account of ICL predicts failure if demonstration labels never contain the correct output token. But in a real unseen-label condition, some nonzero ICL performance survives. A good mechanism paper asks **what extra operation is needed** rather than declaring all induction work wrong.
 
-ICLR 2025 的 *Revisiting In-context Learning Inference Circuit* 为 ICL 提出 Encode/Merge/Retrieve-Copy 等操作，并承认有 bypass 路径。它的科学尺度：由单一注意机制叙事升级为**多操作 + 可替代路径**的机制假说，而不是发明一个全新 benchmark。
+## Idea genesis — our INFERENCE, not an author autobiographical claim
 
-## 2026 论文 idea 是怎样由矛盾驱动的？（INFERENCE）
+Notice zero-shot last-query vector contains several plausible task attributes, e.g. Donald Trump can be encoded with President, Human, Male; arbitrary plausible completion may emerge without specifying which task. The interesting intervention is not adding evidence but **removing all dimensions not useful for the selected task**. A trained low-rank task-verbalization subspace (TVS) can prove such filtering is constructively sufficient. But this *cannot* prove ordinary model ICL does it. Hence novel measurements of spontaneous few-shot state ensembles; those are observational, so proceed to selective targeted ablation. Then examine cases where low-rank information removal should be insufficient.
 
-如果主流 ICL 视角主要是 demos 带来新的 label/content，为什么**few-shot demonstrations 不包含正确标签时仍可能有效**？这不是“模型很厉害”或“这个 prompt 好用”，而是产生替代理论需求。候选机制：示例不只是添加任务信息，可能通过**移除不相关表征成分**使已有的信息更可访问。
+This inference chain is what we should emulate, not attention head hunts or making every experiment complex.
 
-## 重要的实验逻辑（基于作者官方摘要，FACT / INFERENCE 分开）
+## Actual experimental design and role of each step
 
-1. **初始反例**（FACT）零样本 query 的多任务信息混在表征里，使 intended task 难以选定；label missing condition 在若干任务中使简单 copying 解释困难。
-2. **构造性充分性**（FACT）用低秩滤波器从表征中选择性移除信息，可以令零样本模型向指定任务输出偏移。**不表示自然模型必然用了这个 filter。**
-3. **自然观测**（FACT）用特制几何指标比较实际 few-shot ICL 的表征变化，发现与 task-oriented removal 相容的迹象。
-4. **因果必要性**（FACT）识别 Denoising Heads 并消融，干预阻断信息移除后 ICL accuracy 下降，正确标签不在示例中的情况尤为明显。
-5. **逆推链条（INFERENCE）** 每层实验都专门弥补上个环节：人工 filter 可行≠LM 自然使用→补自然 measurements；相关表征≠计算必要→做定向消融；最终的机制解释仍有架构/任务边界，并非全部 ICL 解释。
+**Step 1: Explicit filtering, Fig.1–3, §3, §4.2.** Freeze backbone, insert trained WencWdec low-rank filter into query's zero-shot residual state at a selected layer; optimize filter to output target label, mask preceding-token dependencies beyond that point; evaluate **full vocabulary open-end greedy output**, not an artificially restricted pair of labels. Appendix documents approx. 2048 training and 512 validation examples, multiple ranks and layers. Fig.3 successful even with small rank. Check covariance retained outside top-r to address rival "filter doesn't actually remove information."
 
-## 为什么这比“多做实验”重要？
+**Factor perturbation, Table 1.** Recombine/freeze encoder/decoder factors under symbolic replacement labels; differing results show the task-feature orientation and output verbalization are not identical effects. The decomposition of a *fitted filter* still does not imply native unique modularity.
 
-作者 **不是为了证明所有实验有正信号而堆更多任务**。先找到已有解释无法充分处理的最小反例，然后构造可分离的因果测量；实验不能支持更强主张时，只保留较弱主张。
+**Step 2: Natural observational analog, Fig.4–6, §4.3.** Eccentricity = variance fraction along first PC of query-hidden-state ensemble; covariance flux = fraction through identified TVS. Vary number of demonstrations, instructions, random demonstration labels, missing true label. Few-shot representations exhibit selective information concentration in mid-to-late layers. **Crucial subtlety**: missing-label condition can display stronger compression while having worse accuracy; therefore neither compression nor anisotropy is an unconditional proxy for correct ICL. Random labels differ from missing labels. Spontaneous geometry resembling the constructive filter remains correlation, not proof of same algorithm.
 
-可迁移的高阶思路：寻找 **某个旧理论推断所不允许/预测错误的现象**，而不是完全新话题。在本文实例是 label-absence，可能对应我们领域的 global transfer vs local sense collision，但后者还是不同指标、尚不是真正可证伪矛盾。
+**Step 3: Targeted disruption, Figs.7–11, Table 2 / Appendix Table 7.** Head-by-head covariance-flux ablations identify Denoising Heads (DH); compare their joint ablation to count-matched random heads; examine induction strength vs flux effects, attention maps, and DH overlap between tasks. Many DH effects differ from induction heads; some cross-task heads are common, many task-specific. On Llama3.2-1B six-task average, 8-shot unseen-label approx. 14.54% → 1.06% when DH ablated; matched random-head control 10.65%. This supports causal relevance **under these tasks and models**, not uniqueness of an information-removal circuit.
 
-## 我们下一步必须学习的具体设计而非论文结构（INFERENCE）
+**Boundary/failure, §5, Figs.12–13, Appendix H.** A learned low-rank filter aids many classification and some many-to-one fact mapping (people-profession), but is not a general solution for one-to-one country–capital mapping or complex generative translation. Eccentricity may change even in generative cases without a valid linear TVS/covariance flux explanation. This **negative boundary** makes the mechanism scientifically sharper: not a general theory that every ICL step is dimensionality reduction.
 
-若走 A：找到已学会词义、能正确选择终极意义、却在下游后续推断仍受错误来源影响的匹配反例（如果不存在就停止）；先验证是否普通 ambiguity 也有相同残余，再决定是否做内部 patch。**不能**先规定“语言—语义—输出”三个模块，再去找 3 个 probes。
+## The nearest-work distance
 
-若走 B：找到“错误语义锚点也有收益”的真正对照；设计可实现错误对齐而不改变频次/有效容量的人工干预。构造性成功与自然模型机制必须分开。
+ICLR 2025 explains Encode → Merge → Retrieve-Copy and admits bypass paths; ICLR 2026 responds to a concrete missing-label counterexample with **task-oriented information removal**. This is a complementary and broader hypothesis with constructive, observational and ablation evidence, not "nobody studied ICL". Its strength depends on keeping the cases where it fails.
 
-## 留给下次的正式精读
+The 2026 authors still rely on a task-specific trained linear filter/metric and attention-head ablation with collateral effects. The resulting evidence is substantial but should not be paraphrased as discovering a uniquely identifiable natural low-rank filter in every Transformer.
 
-2026 87-page paper（尤其训练 low-rank filter 的 supervised objective、metric 的几何与可识别性、ablation 可能的 collateral effect、跨模型效果）；2025 full paper 每阶段反事实对照。官方 GitHub main_experiments.py/encoding_magnitude 文件可帮助追源，但本轮没有跑这些代码；不能从 README 把具体实验描述扩写成未核验“事实”。
+## Transferring to our false-friend question
+
+Old measurements (Stingray FF error, Škrjanec word surprisal, Kallini transfer) are not in logical conflict because they have different outcomes. We have NOT yet found a Cho-style sharp counterexample. A plausible search is: a word whose target sense is reliably known, whose language cue alone and semantic cue alone favor intended interpretation, but whose combination unexpectedly favors an unrelated-language sense. This would challenge a calibrated additive model, IF task and lexicalization confounds are excluded. Then use predictive held-out contrast, targeted intervention only if warranted.
+
+We must **permit the simple additive model to win**, just as Cho reports boundary cases where low-rank filtering fails. The scientific work is discriminating existing explanations, not forcing a headline.
+
+## No fake reading completeness
+
+ICLR 2026 was examined through main text, appendices and figure catalog. ICLR 2025 remains referenced for the already confirmed high-level operations and bypass, not misrepresented as a full-paper line-by-line independent replication. Full 2025 pdf inaccessible via current web (about 19 MB exceeds tool cap). This is a bounded background source, not an excuse to invent more experiments.

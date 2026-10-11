@@ -1,3 +1,7 @@
+# Historical idea genealogies — NOT active research directions (2026-10-12)
+
+The original Route A/B/C proposals were discontinued after nearest-paper, identifiability and source-data review. Arrows below are scientific idea-genesis exercises **only**; active work is now [multilingual evidence-based sense arbitration](ACTIVE_QUESTION.md), with [rejected alternatives](RETIRED_HYPOTHESES.md).
+
 # Idea genealogy — how mature-domain papers grow from earlier questions
 
 All arrows marked **INFERENCE**: conceptual reconstruction of possible idea formation, not a quote about authors' thought processes. This is a practical idea-generation asset, not a historical assertion about anyone's mind.

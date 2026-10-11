@@ -1,3 +1,7 @@
+# Current research direction update — 2026-10-12
+
+The current problem is not a logical contradiction across form surprisal, global transfer and word-sense accuracy. Those measures are different. The live explanatory target is **whether independently calibrated language evidence and contextual semantic evidence suffice to predict sense choice on held-out false-friend words**, or whether an identified cue interaction remains after copy/proficiency/ordinary-ambiguity controls. [Active question](ideas/ACTIVE_QUESTION.md). Old A/B/C candidate interpretations are historical only.
+
 # 概念、主张和认识空白的交叉索引（2026-10-11）
 
 ## 一张图概括不同论文为何似乎互相矛盾
