@@ -1,6 +1,6 @@
 # Tanwar Task3 measurement and method audit: source labels, answer order, and word senses
 
-**Sources:** [arXiv v2 `4.3](https://arxiv.org/html/2501.09127v2); [data implementation](https://github.com/EshaanT/Bilingual_processing_LLMs/blob/281a67eac6ddbe5445e1c10277e5833d40d72125/src/data.py), especially `Task3.get_test_prompts`; [generation runner](https://github.com/EshaanT/Bilingual_processing_LLMs/blob/281a67eac6ddbe5445e1c10277e5833d40d72125/task-gen.py) and `src/llm.py`. Main paper v2 methods/results and actual repo code checked. **No new model trial yet**.
+**Sources:** [arXiv v2 §4.3](https://arxiv.org/html/2501.09127v2); [data implementation](https://github.com/EshaanT/Bilingual_processing_LLMs/blob/281a67eac6ddbe5445e1c10277e5833d40d72125/src/data.py), especially `Task3.get_test_prompts`; [generation runner](https://github.com/EshaanT/Bilingual_processing_LLMs/blob/281a67eac6ddbe5445e1c10277e5833d40d72125/task-gen.py) and `src/llm.py`. Main paper v2 methods/results and actual repo code checked. **No new model trial yet**.
 
 ## Existing empirical puzzle (FACT, not our new result)
 
@@ -36,3 +36,14 @@ This is not an accusation of implementation error: it is a scientific **measurem
 If asymmetry vanishes after removing Q1 self-conditioning or under non-copy sense measurements, the conclusion should be narrower: output/prompt effects, not a hidden semantic gate. If it survives **validated source labels** and matched language ability on unseen word types, it offers a genuine candidate question about direction-specific contextual meaning arbitration.
 
 This is Cho-like because we start from an existing published anomaly and challenge the smallest assumption needed to interpret it. The experiment is designed to REFUTE a preferred explanation, not manufacture a new benchmark.
+
+
+## 2026-10-12 material grammar preflight (SOURCE ONLY)
+
+Of 29 exact-spelling EN–DE source FALSE COGNATE entries, **22 are lexicon category N and written lowercase** in the released source. German common nouns normally require capitalization. Substitution of lowercase 'brand', 'gift', 'kind' into German noun contexts can therefore create a grammatical/case anomaly that contaminates any semantic-source judgement. It is a **risk flag**, not a proof every stimulus is grammatically impossible; metalinguistic quotes and unusual spellings require native adjudication.
+
+The first Qwen2.5-0.5B CPU smoke sampled source ID 180 'brand'. For English-source word in a German-host context, answer-to-meaning-only incorrectly targeted *Holz* rather than the highlighted word 'brand'. That six-generation test is **inadequate evidence of a sense-selection mechanism** and the material is risky due to noun casing. [Unreviewed raw six generations](https://github.com/Nhckdvrl/false-friend/actions/runs/38158541047/artifacts/11709752090). The pilot is retained transparently as a methodological failure.
+
+For the next code smoke, source ADJ forms IDs 261 'genial', 264 'blank', 272 'stark' were preselected for relatively natural EN and DE contexts **after the failed first smoke**; they are NOT a preregistered scientific sample, and definitions/collocations still need independent human review. Use a contrastive **A/B logprob** with swapped gloss order and externally stated Q1 answer; candidate scoring is not a latent-sense posterior.
+
+This source preflight is necessary before attempting a faithful reproduction of original paper's 70/34 directional claim, which might include many invalid/linguistically inequivalent material cells.

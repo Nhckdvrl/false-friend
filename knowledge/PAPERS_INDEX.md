@@ -21,6 +21,8 @@
 | [Östling & Kurfalı, Language Bias under Conflicting Information, arXiv v2 2026](https://arxiv.org/html/2604.07123v2) | multilingual evidence-language preference under conflicting facts (NOT homograph senses) | S1 | [source-language-swap methodology](papers/ostling-kurfali-2026-conflicting-language.md) |
 | [Dijkstra, van Hell & Brenders, Bilingualism 2015](https://doi.org/10.1017/S1366728914000388) | human sentence language × semantic-constraint × target-language asymmetry | S2 | [human factorial predecessor](papers/dijkstra-van-hell-brenders-2015-sentence-context.md) |
 
+| [Biloushchenko, Dijkstra & Sandra, Bilingualism 2026](https://www.cambridge.org/core/journals/bilingualism-language-and-cognition/article/effects-of-list-composition-and-task-demands-on-interlingual-homograph-processing-in-unbalanced-trilinguals/4920AF0BB80130ACC9AB4D7388965015) | human homograph inhibition; task schema × list composition | S1 | [task and decision contribution](papers/biloushchenko-dijkstra-sandra-2026-task-list-homographs.md) |
+
 ## 2. Representation, concept and causal mechanism
 
 | Work | Core issue | Reading | Asset |
@@ -48,6 +50,8 @@
 | [Yoshida et al., Existence Proof for Garden-Path Surprisal, ACL 2026](https://aclanthology.org/2026.acl-long.1694/) | off-the-shelf model limitation vs impossibility of a theory | S1 | [experimental logic note](papers/yoshida-2026-gardenpath-surprisal.md) |
 | [Clark, Levy & Gibson, targeted regressions in noisy-channel GP, CoNLL 2026](https://aclanthology.org/2026.conll-main.25/) | location-specific reanalysis behavior | S1 | [theory-to-measurement note](papers/clark-2026-noisy-channel.md) |
 | [Paape & Vasishth, JML 2026](https://doi.org/10.1016/j.jml.2026.104748) | latent-process garden-path effects | S3 | [theory card](theories/GOOD_ENOUGH_AND_REVISION.md) |
+
+| [Ok & Lee, Lost in the Prompt Order, Findings ACL 2026](https://aclanthology.org/2026.findings-acl.1921/) | disentangle prompt order, training bias, option recall vs causal attention via selective patch | S1 | [mechanistic experiment chain](papers/ok-lee-2026-prompt-order.md) |
 
 ## 4. Learning history and Cho as scientific-design case studies
 

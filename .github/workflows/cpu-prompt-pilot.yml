@@ -1,9 +1,6 @@
 name: CPU-only exploratory Tanwar prompt-order smoke
 
 on:
-  push:
-    branches:
-      - research/tanwar-identifiability-2026-10-12
   workflow_dispatch:
 
 jobs:
