@@ -28,6 +28,10 @@
 - S1 指核心章节与表图核查，不暗示完整逐页精读所有 17–32 页附录；未核查处保留 debt。
 
 
+## 新增 2026-10-12 机制/方法引用（非新实验结论）
+
+| id | 来源支持的主张 | 源文件 | 不应推导 |
+|---|---|---|---|
 | C18 | Formally identical EN/DE source word indices cannot be recovered solely from fixed displayed sentence; German common nouns lowercased create linguistic risk | [Tanwar Task3 source code](https://github.com/EshaanT/Bilingual_processing_LLMs/blob/281a67eac6ddbe5445e1c10277e5833d40d72125/src/data.py), [our pinned-source audit](https://github.com/Nhckdvrl/false-friend/actions/runs/38158254706) | Internal meaning selection errors or invalidity of all original sentences |
 | C19 | Context-question-option vs question-option-context causes ~14.7pp gap in 21 decoder LMs; architecture and targeted option-activation tests favor causal-attention explanation | [Ok & Lee Findings ACL 2026](https://aclanthology.org/2026.findings-acl.1921.pdf), Figs 1–6, Tables 1–2 | Tanwar Q1-generated-response self-conditioning is the same mechanism |
 | C20 | Mixed list, task type and source-language dominance affect human interlingual homograph latency and errors | [Biloushchenko et al., Bilingualism 2026](https://doi.org/10.1017/S1366728926101916), experiments 1–6 and Tables 2–4 | Equivalent Transformer lexical architecture or identical automatic sense decisions |
