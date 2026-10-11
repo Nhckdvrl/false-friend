@@ -16,9 +16,9 @@ def write_source(tmp_path):
         w=csv.DictWriter(f,fieldnames=cfields);w.writeheader()
         for i,x in enumerate(words,1):
             w.writerow(dict(ID=i,en=x,de=x,type="FALSE COGNATE",
-                lexical_category="ADJ",high_en=f"A {x} guest arrived.",
-                low_en=f"It was {x}.",high_de=f"Die Idee war {x}.",
-                low_de=f"Das war {x}."))
+                lexical_category="ADJ",high_en="A <MASK> guest arrived.",
+                low_en="It was <MASK>.",high_de="Die Idee war <MASK>.",
+                low_de="Das war <MASK>."))
     with lex.open("w",encoding="utf-8",newline="") as f:
         w=csv.DictWriter(f,fieldnames=lfields);w.writeheader()
         for i,x in enumerate(words,1):
