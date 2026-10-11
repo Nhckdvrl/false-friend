@@ -1,6 +1,6 @@
 # Research Mainline — Cross-Lingual Sense Selection and Revision
 
-*Reset: 2026-10-09. State: candidate mechanism problem / behavior preflight, not established scientific result.*
+*Reset 2026-10-09, literature/idea reassessment 2026-10-11. State: competing candidate hypotheses; NOT a confirmed explanatory gap or experiment result. See [knowledge/README.md](knowledge/README.md), [paper index](knowledge/PAPERS_INDEX.md), [route reassessment](knowledge/ideas/ROUTE_REASSESSMENT.md).*
 
 ## 0. The one question
 
@@ -96,4 +96,4 @@ Novelty is measured by *excluded rival explanations and successful novel predict
 - Pilot one open multilingual causal LM only after E0 review. Keep held-out lexical families sealed.
 - Commit only empirical results with model SHA, tokenizer SHA, prompts, code hash, raw scores and failures. No claim before rerun.
 
-**Decision:** Active question = sense selection and revision. Alternative hypothesis = false anchors/global transfer as a later independently scoped project. Training-order path dependence = parked. Do not conflate them.
+**Decision (revised 2026-10-11):** The above E0–E5 protocol remains a *conditional hypothesis design*, not a selected paper outline. A0 is only a cheap behavior-identification preflight; B0 (controlled false-anchor identifiability) runs in parallel on paper/CPU. Route C remains parked. Do not allocate GPU or claim novelty until A0/B0 resolve their competing identification risks. Details: knowledge/ideas/ROUTE_REASSESSMENT.md and EXPERIMENT_KILL_TABLE.md.

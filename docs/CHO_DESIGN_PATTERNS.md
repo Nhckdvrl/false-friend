@@ -1,3 +1,7 @@
+# Reading fidelity note (2026-10-11)
+
+For a deeper reverse reconstruction and source/read-status caveats, see [knowledge/papers/cho-2025-2026-method-genesis.md](../knowledge/papers/cho-2025-2026-method-genesis.md), [knowledge/ideas/IDEA_GENESIS_GRAPH.md](../knowledge/ideas/IDEA_GENESIS_GRAPH.md), and [knowledge/theories/MEASUREMENT_LADDER.md](../knowledge/theories/MEASUREMENT_LADDER.md). The ICLR 2026 complete 87-page manuscript was **not independently read throughout this session**: the conference abstract and official repository support the high-level chain, not page-specific claims. Our paper design must therefore avoid false citation precision.
+
 # What we actually borrow from Hakaze Cho: an indispensable experimental chain
 
 **Not**: more experiments, more probes, more training, longer appendix, or an attractive causal diagram.

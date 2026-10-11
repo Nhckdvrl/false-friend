@@ -1,28 +1,11 @@
-# Direction triage — why one mainline, not three projects at once
+# Idea triage — navigation / historical snapshot
 
-Updated 2026-10-09. A topic is not publishable merely because no one used exactly its terminology.
+**Updated 2026-10-11. The complete active reassessment is now in** [knowledge/ideas/ROUTE_REASSESSMENT.md](../knowledge/ideas/ROUTE_REASSESSMENT.md). Read its nearest-neighbor threats, separate predictions, identifiability and explicit kill conditions. This file is a concise signpost only.
 
-## A. Current active: semantic selection and genuine revision
+**Route A — sense selection and contextual revision:** not “totally new.” Tanwar, Doppelganger, Körner, Amouyal and human Good-Enough work already cover much of its behavior. Run only a cheap, independently reviewed A0 interaction test before any mechanism claims.
 
-The known contradiction: local sense-disambiguation errors (Stingray), form predictability gain (Škrjanec), overall transfer gain (Kallini), and concept/output manipulation (Dumas / Körner) do not by themselves locate **the specific failure when late evidence ought to revise the wrong reading**.
+**Route B — misleading lexical anchors and global transfer:** Kallini’s low-similarity overlap benefit is potentially a theory opportunity, not a proved contradiction to sense errors. B0 must formalize proper equal-probability models and parameter/frequency controls before training.
 
-A strong end result: distinguish initial language-prior bias, failure to revise meaning, and surface-copy errors, then predict which holdout items are affected. A weak end result: another false-friend prompt-accuracy leaderboard, or patching homographs to fix translations.
+**Route C — learning order/hysteresis:** parked until A/B reveals a meaning-specific, nonrecency phenomenon. Generic forgetting or path dependence is not a contribution.
 
-Minimum next investment: native-speaker item audit, one open-weight pilot and explicit matched within-language polysemy baselines.
-
-## B. Reserve only: paradox of helpful false anchors
-
-Why can low-similarity token overlap still help global multilingual transfer? Requires controlled synthetic bilingual mapping with fixed token count / capacity / frequency and independently evaluated global alignment vs local sense success. The original natural same-form matched-sense control was invalid. Do not enter B until A motivates its importance, or B is scoped as a separately preregistered topic.
-
-## C. Parked: historical order dependence
-
-EN-first vs DE-first curriculum and persistent path bias are close to extensive continual pretraining/curriculum work. Needs matched final exposure, stronger novelty and a direct sense-selection account; not a default extra gate.
-
-## Anti-patterns
-
-- Building a bespoke control resource solely to obtain a hoped-for significant interaction.
-- Reporting post-target LM NLL as if it directly measured which meaning was understood.
-- Calling A/B classification a latent sense posterior.
-- Using large-scale activation patching as the first experiment.
-- Calling any successful intervention a novel mechanism without nearest-paper comparison.
-- Diluting a single research question into model training, benchmark construction and metric design at the same time.
+Evidence categories, idea genealogy, and future work are in [knowledge/](../knowledge/). The old default “A active; B reserve” ranking is superseded.

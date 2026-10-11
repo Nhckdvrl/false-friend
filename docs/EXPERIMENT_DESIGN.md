@@ -1,3 +1,7 @@
+# Conditional protocol: research decision first (2026-10-11)
+
+The E0–E5 sequence below is **a contingency plan for Route A**, not a fixed funded experiment program. Nearest papers Tanwar/Doppelganger/Körner/Amouyal already cover much of the intended behavior; first run A0 to test cross-language-specific interaction beyond ordinary ambiguity and output copying. In parallel, B0 checks whether controlled false-anchor transfer can be identified cleanly (without models). See [route reassessment](../knowledge/ideas/ROUTE_REASSESSMENT.md), [experiment kill table](../knowledge/ideas/EXPERIMENT_KILL_TABLE.md), and [paper index](../knowledge/PAPERS_INDEX.md). No automatic transition from E1 to patching; downstream semantic inference, prefix/final discrimination, and honest interpretation are mandatory.
+
 # Experimental protocol v0.1 — from behavioral anomaly to falsifiable mechanism
 
 This protocol defines **what must be observed before more expensive work**, not a commitment to find a particular effect.

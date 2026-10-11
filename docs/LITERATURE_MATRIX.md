@@ -1,3 +1,7 @@
+# HISTORICAL SNAPSHOT (2026-10-09)
+
+**This table is superseded as an active knowledge base.** Go to [knowledge/PAPERS_INDEX.md](../knowledge/PAPERS_INDEX.md), [structured deep notes](../knowledge/papers/), [concept map](../knowledge/CONCEPT_MAP.md), [theory cards](../knowledge/theories/) and [route reassessment](../knowledge/ideas/ROUTE_REASSESSMENT.md). Entries below may show older, less reliable reading-completeness claims; newer per-paper note statuses govern. This snapshot is retained for provenance, not as the only source of paper understanding.
+
 # Literature map — verified links, claims covered, and plausible open questions
 
 Reviewed 2026-10-09. **Scope note:** Papers whose full PDFs were inspected are distinguished from bibliographic / abstract-level checks. Neither establishes priority over unsearched work; refresh before writing a novelty claim.
@@ -24,7 +28,7 @@ Reviewed 2026-10-09. **Scope note:** Papers whose full PDFs were inspected are d
 - [Inaba et al., How a Bilingual LM Becomes Bilingual, Findings EMNLP 2025](https://aclanthology.org/2025.findings-emnlp.725/): language representation development across training already studied.
 - [Goworek & Dubossarsky, Multilinguality Does not Make Sense, EMNLP 2025](https://aclanthology.org/2025.emnlp-main.1773/): warns about sense-aware multilingual transfer confounds.
 - [Conneau et al., Emerging Cross-lingual Structure in Pretrained Language Models, ACL 2020](https://aclanthology.org/2020.acl-main.536/): transfer without shared vocabulary; overlap is not a necessary explanation.
-- [Dijkstra & van Heuven, The architecture of the bilingual word recognition system, BIA+, 2002](https://doi.org/10.1017/S1366728902003019): bilingual word identification and task decision are conceptually distinct, nonselective activation; analogy for hypotheses, not evidence that LLMs instantiate human BIA+ stages.
+- [Dijkstra & van Heuven, The architecture of the bilingual word recognition system, BIA+, 2002](https://doi.org/10.1017/S1366728902003012): bilingual word identification and task decision are conceptually distinct, nonselective activation; analogy for hypotheses, not evidence that LLMs instantiate human BIA+ stages.
 - [Tarin et al., When sentence meaning biases another language, Bilingualism: Language and Cognition 2026](https://doi.org/10.1017/S1366728925000380): eye-tracking shows late cross-language interference and frequency moderators; late contextual homograph interference is **not** a new human discovery.
 
 ## Cho as experimental-design references (different substantive domain)

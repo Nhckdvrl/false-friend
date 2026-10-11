@@ -15,3 +15,11 @@
 **Re-evaluate after E0:** if no reproducible and matched sense-specific anomaly survives, this direction should be stopped or reframed, even though a polished pipeline exists.
 
 **Engineering caveat:** source code is a pilot. GitHub CI tests deterministic logic only; model-dependent tokenizer and inference behavior requires a real smoke run on chosen open weights.
+
+## 2026-10-11 — Literature KB and route correction
+
+**Decision:** Build a real paper-centered knowledge base with per-paper idea-origin reconstruction, reading confidence, nearest-neighbor distance, experiment logic and cross-paper concept/causal graphs. Historical literature matrix is kept but superseded.
+
+**Scientific course correction:** Tanwar's context tests, Doppelganger's three tasks, Körner's polysemy/copy patching, and Amouyal's garden paths directly threaten A novelty. A now means only A0 cheap identification. B is independently assessed through a formal/synthetic B0 intervention preflight; C remains parked. Neither A nor B has experimental evidence in this repository. Reference: knowledge/ideas/ROUTE_REASSESSMENT.md.
+
+**Verification discipline:** mark unread paper/appendix and inferred author ideation accurately; a bibliographic catalog is not equivalent to full deep reading. All current paper records have traceable source URLs and separate fact/inference claims.
