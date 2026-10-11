@@ -1,0 +1,54 @@
+name: Published source-data audit
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Obtain pinned Abuín ACL 2026 sources
+        run: |
+          git clone --quiet https://github.com/mrtva/false-friends-vs-cognates.git /tmp/romance
+          git -C /tmp/romance checkout --quiet a87b73e387a6ef86d0cef7ffe703150905e75d7a
+      - name: Obtain pinned Tanwar bilingual-processing sources
+        run: |
+          git clone --quiet https://github.com/EshaanT/Bilingual_processing_LLMs.git /tmp/tanwar
+          git -C /tmp/tanwar checkout --quiet 281a67eac6ddbe5445e1c10277e5833d40d72125
+      - name: Audit actual released data (not model evaluation)
+        run: |
+          python scripts/audit_romance_wic.py --source-dir /tmp/romance --output outputs/romance_source.json
+          python scripts/audit_tanwar_baseline.py --source-dir /tmp/tanwar/data --output outputs/tanwar_source.json
+      - name: Check fixed source identity and expected preflight units
+        run: |
+          python - <<'PY'
+          import json
+          d = json.load(open("outputs/romance_source.json", encoding="utf-8"))
+          expected = {
+              "rows":704,
+              "exact_lemma":332,
+              "exact_lemma_ff":189,
+              "exact_lemma_same_sense_context":143,
+              "exact_form_in_both_contexts":133,
+              "context_ff":69,
+              "context_same_sense":64,
+          }
+          for key,value in expected.items():
+              assert d["totals"].get(key) == value, (key,d["totals"].get(key),value)
+          assert d["unique_candidate_language_pair_form"] == 58
+          t = json.load(open("outputs/tanwar_source.json", encoding="utf-8"))
+          assert {r["file"] for r in t} == {"task3_en_de.csv","task3_en_es.csv","task3_en_fr.csv"}
+          assert all(row["rows"]>0 for row in t)
+          print("Pinned author-source audit PASS; NO language-model findings")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: published-source-preflight
+          path: |
+            outputs/romance_source.json
+            outputs/tanwar_source.json
+          retention-days: 30
