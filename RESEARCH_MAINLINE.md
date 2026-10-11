@@ -2,7 +2,7 @@
 
 **Active question (2026-10-12):** How do multilingual language models combine lexical familiarity, language identity and contextual semantic evidence when they suggest different interpretations of the same word form?
 
-Status: exploration only. **No model experiment or mechanism discovered in this reset.** This supersedes the old A/B/C research queues and the predetermined E0–E5 mechanistic pipeline.
+Status: exploration only. **Two small CPU exploratory model tests completed, with instrument/stimulus failures; no confirmed semantic mechanism or published-baseline replication.** This supersedes the old A/B/C research queues and the predetermined E0–E5 mechanistic pipeline.
 
 ## Published sharp anomaly and first methodological test (2026-10-12)
 
@@ -51,3 +51,8 @@ The author's Tanwar Task 3 EN-DE/ES/FR high/low cue CSV files are public; no rea
 The predetermined lasting late-context semantic trace, incorrect-anchor graph/topology training and language-order hysteresis plans are **removed from the active research program**, not parked as work queues. Why they were rejected and when their historical motivation remains relevant: [knowledge/ideas/RETIRED_HYPOTHESES.md](knowledge/ideas/RETIRED_HYPOTHESES.md). Old source papers remain in the scientific knowledge base.
 
 Start at [knowledge/README.md](knowledge/README.md), [knowledge/ideas/ACTIVE_QUESTION.md](knowledge/ideas/ACTIVE_QUESTION.md), and [experiments/FIRST_PASS.md](experiments/FIRST_PASS.md). The [AGENTS.md](AGENTS.md) protocol is compulsory for local agents.
+
+
+## Actual empirical program status (2026-10-12)
+
+[First CPU pilot report](experiments/PILOT_FINDINGS_2026-10-12.md): 0.5B free generation on 1 source item (invalid German casing and poor target identification); 1.5B language-statement prefills with 3 human-unreviewed source adjectives (36 logp trials, 18 balanced pairs); 7/18 single-order sign reversals. These are **measurement issues**, not grounds to assert any language/sense gate. They justify validating question-order, response labels and lexical naturalness BEFORE broad model/circuit scans.

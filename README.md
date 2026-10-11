@@ -1,6 +1,6 @@
 # False Friend Lab — Explanatory Research on Multilingual Word Sense
 
-> **2026-10-12 ACTIVE EXPLORATION. No new scientific-model results.** The prior A/B/C idea queue and old E0–E5 promise have been discontinued, not preserved as parallel plans.
+> **2026-10-12 ACTIVE EXPLORATION. Two small CPU model instrument probes completed; **no confirmed scientific effect or reproduced baseline**.** The prior A/B/C idea queue and old E0–E5 promise have been discontinued, not preserved as parallel plans.
 
 **Scientific question:** When a word form suggests competing language-specific senses, can the decision be explained by learned lexical familiarity plus independently measured language and contextual-semantic evidence, or does combining those cues reveal a distinct, reproducible phenomenon that simpler explanations cannot predict?
 
@@ -34,7 +34,11 @@ python scripts/audit_romance_wic.py --source-dir false-friends-vs-cognates --out
 python scripts/audit_tanwar_baseline.py --source-dir Bilingual_processing_LLMs/data --output outputs/tanwar.json
 ~~~
 
-No model weights downloaded or GPU work performed by the new scripts; CI only validates tests and synthetic examples. A previous optional binary-gloss model runner remains exploratory and must not be misrepresented as an author's published baseline.
+Open-weight Qwen 0.5B/1.5B CPU pilots were executed via optional GitHub Actions. No user GPU was used; these are **instrument smoke tests**, not paper-baseline replications. See [actual observations and warnings](experiments/PILOT_FINDINGS_2026-10-12.md).
+
+## Newly executed experiments (still exploratory)
+
+[Raw pilot interpretations, model revision and A/B measurement-instability audit](experiments/PILOT_FINDINGS_2026-10-12.md). First 0.5B generated answers often failed to identify even the target word. In the larger 1.5B balanced-label pilot, 7/18 experimental cells flipped raw semantic-preference direction under option order; candidate scoring needs validation before mechanism claims.
 
 ## Legacy science
 

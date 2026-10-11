@@ -47,3 +47,8 @@ The first Qwen2.5-0.5B CPU smoke sampled source ID 180 'brand'. For English-sour
 For the next code smoke, source ADJ forms IDs 261 'genial', 264 'blank', 272 'stark' were preselected for relatively natural EN and DE contexts **after the failed first smoke**; they are NOT a preregistered scientific sample, and definitions/collocations still need independent human review. Use a contrastive **A/B logprob** with swapped gloss order and externally stated Q1 answer; candidate scoring is not a latent-sense posterior.
 
 This source preflight is necessary before attempting a faithful reproduction of original paper's 70/34 directional claim, which might include many invalid/linguistically inequivalent material cells.
+
+
+## Executed but inconclusive open-model pilots (2026-10-12)
+
+[Detailed interpretation](../../experiments/PILOT_FINDINGS_2026-10-12.md): tiny Qwen2.5-0.5B outputs failed target interpretation on a case-risk item; Qwen2.5-1.5B on 3 preselected adjectives revealed substantial A/B option-order sensitivity. These were NOT original paper baseline replications, and do not yet show Q1 self-conditioning or a multilingual semantic gate.

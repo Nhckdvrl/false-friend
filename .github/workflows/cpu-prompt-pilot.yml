@@ -48,6 +48,11 @@ jobs:
             --ids 261,264,272 --strengths high --cues none,q1_host,q1_other \
             --model-id Qwen/Qwen2.5-1.5B-Instruct \
             --output outputs/adjective_gloss_margins.jsonl
+      - name: Report paired A/B answer-order measurement instability
+        run: |
+          python scripts/analyze_gloss_order_bias.py \
+            --input outputs/adjective_gloss_margins.jsonl \
+            --output outputs/adjective_label_order_diagnostics.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

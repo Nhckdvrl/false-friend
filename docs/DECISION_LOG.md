@@ -41,3 +41,8 @@
 ## 2026-10-12 follow-up — sharpen test from published asymmetry and source-code observation
 
 Read Tanwar §4.3, original Task3 prompt creation and generation, and Östling–Kurfalı 2026 language-swapped conflicting-fact method. First priority is to test whether the published 70/34 direction difference reflects independently elicited semantic interpretation or **output-cascade effects/hidden source-label conventions**. Created strict-source identifiability audit, its unit tests, and an upstream pinned-source CI replay. This is a methodological finding about task **design**, not a model score. Maintain one explanatory sense-arbitration problem, no return to old A/B/C.
+
+
+## 2026-10-12 — CPU pilot correctly downgrades evidence
+
+After pinned source audit, executed Qwen2.5-0.5B free-response program test and Qwen2.5-1.5B two-order 3-word gloss scoring. Raw archived GitHub Actions artifacts and descriptive data are documented at experiments/PILOT_FINDINGS_2026-10-12.md. The first stimulus had German noun capitalization risk and target-extraction failures; second had 7/18 raw option-order preference flips. **Decision:** instrument not yet qualified, no latent-gating or correction-asymmetry paper claim, no general GPU scale-up. Do alternative verbalizer/semantic inference validation before testing network mechanisms.

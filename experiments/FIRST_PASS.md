@@ -1,6 +1,6 @@
 # First Pass — a study with decisions, not a preset mechanism story
 
-**Status (2026-10-12): source-data inspection completed; no inference/model training results.** The primary value of this project is its explanation of previously studied behavior, not the construction of another false-friend benchmark.
+**Status (2026-10-12): source data inspected and two exploratory CPU model-inference pilots completed; still no full published-baseline replication or scientifically validated mechanism result.** The primary value of this project is its explanation of previously studied behavior, not the construction of another false-friend benchmark.
 
 ## An actual prioritized decision, not an open-ended benchmark
 
@@ -77,3 +77,8 @@ The external published-source audit job cloned and checked out:
 [Source-data audit logs](https://github.com/Nhckdvrl/false-friend/actions/runs/38155507571) · [JSON output artifact](https://github.com/Nhckdvrl/false-friend/actions/runs/38155507571/artifacts/11707823643).
 
 These are validated **data structures and case-sensitive surface filters only**, not model-performance findings or independent reannotation of semantic labels. Baseline language-model runs and original paper metrics are pending access to a suitable model environment.
+
+
+### Pilot results and next measurement gate (2026-10-12)
+
+See [instrument pilot findings](PILOT_FINDINGS_2026-10-12.md): 0.5B generated 6 outputs on risky German lowercase noun, 1.5B scored 36 standard A/B gloss likelihoods on source adjectives. Large answer-order effects remain even with paired option swap (7/18 conditions changed single-order sign). Next **validate alternative answer labels and non-copy semantic inference** before fitting a gating function to this data. No historical 70/34 LLaMA3.1 replication is claimed.

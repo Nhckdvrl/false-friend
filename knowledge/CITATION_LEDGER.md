@@ -26,3 +26,8 @@
 - 旧归档中的“true cognate”并不能实现「自然同 form + matched sense distribution」的因果对照。不是 Stingray 原设计的错误，是研究对象错位。
 - “semantic confusion” “copying” “surprisal facilitation” 和 “wrong MCQA answer” 是四种不同证据；不能互相引用为同一个 mechanism claim。
 - S1 指核心章节与表图核查，不暗示完整逐页精读所有 17–32 页附录；未核查处保留 debt。
+
+
+| C18 | Formally identical EN/DE source word indices cannot be recovered solely from fixed displayed sentence; German common nouns lowercased create linguistic risk | [Tanwar Task3 source code](https://github.com/EshaanT/Bilingual_processing_LLMs/blob/281a67eac6ddbe5445e1c10277e5833d40d72125/src/data.py), [our pinned-source audit](https://github.com/Nhckdvrl/false-friend/actions/runs/38158254706) | Internal meaning selection errors or invalidity of all original sentences |
+| C19 | Context-question-option vs question-option-context causes ~14.7pp gap in 21 decoder LMs; architecture and targeted option-activation tests favor causal-attention explanation | [Ok & Lee Findings ACL 2026](https://aclanthology.org/2026.findings-acl.1921.pdf), Figs 1–6, Tables 1–2 | Tanwar Q1-generated-response self-conditioning is the same mechanism |
+| C20 | Mixed list, task type and source-language dominance affect human interlingual homograph latency and errors | [Biloushchenko et al., Bilingualism 2026](https://doi.org/10.1017/S1366728926101916), experiments 1–6 and Tables 2–4 | Equivalent Transformer lexical architecture or identical automatic sense decisions |
