@@ -60,3 +60,14 @@ Output status is SOURCE_DATA_PREFLIGHT_NOT_SCIENTIFIC_RESULT, with manifest anno
 ## Baseline implementation boundary
 
 No model weights or user GPU server are mounted through this conversation. Source audits and Python unit tests have been implemented; actual LLM baseline running is a future separate execution on an accessible machine. GitHub CI only validates code / synthetic fixture behavior, not experimental results.
+
+
+## Pinned-source GitHub Actions replay (2026-10-12, VERIFIED source-only)
+
+The external published-source audit job cloned and checked out:
+- Tanwar: 281a67eac6ddbe5445e1c10277e5833d40d72125; Task3 EN-DE/EN-FR/EN-ES each **280** rows (140 COGNATE + 140 FALSE COGNATE) and 0 rows with missing <MASK> across the four low/high language context fields.
+- Abuín Romance: a87b73e387a6ef86d0cef7ffe703150905e75d7a; 704 paired records, 69 R0 strict-context rows covering 58 language-pair+form units.
+
+[Source-data audit logs](https://github.com/Nhckdvrl/false-friend/actions/runs/38155507571) · [JSON output artifact](https://github.com/Nhckdvrl/false-friend/actions/runs/38155507571/artifacts/11707823643).
+
+These are validated **data structures and case-sensitive surface filters only**, not model-performance findings or independent reannotation of semantic labels. Baseline language-model runs and original paper metrics are pending access to a suitable model environment.
