@@ -15,7 +15,7 @@ def test_context_mask_audit(tmp_path):
             "ID": 1, "en": "angel", "de": "Angel", "type": "FALSE COGNATE",
             "lexical_category": "N", "low_en": "The <MASK> is here.",
             "high_en": "The <MASK> helped us.",
-            "low_de": "Der <MASK> liegt da.", "high_de": "Er warf die Angelrute, und der <MASK> liegt dort."
+            "low_de": "Der <MASK> liegt da.", "high_de": "Er warf die Angelrute, und der Angel liegt dort."
         })
     out = audit(path, "de")
     assert out["rows"] == 1
