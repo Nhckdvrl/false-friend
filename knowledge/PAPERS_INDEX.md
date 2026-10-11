@@ -18,6 +18,9 @@
 | [Marecka et al., False friends or real friends?, Cognition 2021](https://doi.org/10.1016/j.cognition.2020.104477) | form vs meaning learning in human L2 | S3 | theory background; needs full read |
 | [Winther et al., Cumulative Frequency Can Explain Cognate Facilitation, CogSci 2021](https://repositories.cdlib.org/uc/item/5d39q2k1) | form frequency explanation | S3 | appears in Škrjanec/Kallini genealogy |
 
+| [Östling & Kurfalı, Language Bias under Conflicting Information, arXiv v2 2026](https://arxiv.org/html/2604.07123v2) | multilingual evidence-language preference under conflicting facts (NOT homograph senses) | S1 | [source-language-swap methodology](papers/ostling-kurfali-2026-conflicting-language.md) |
+| [Dijkstra, van Hell & Brenders, Bilingualism 2015](https://doi.org/10.1017/S1366728914000388) | human sentence language × semantic-constraint × target-language asymmetry | S2 | [human factorial predecessor](papers/dijkstra-van-hell-brenders-2015-sentence-context.md) |
+
 ## 2. Representation, concept and causal mechanism
 
 | Work | Core issue | Reading | Asset |
@@ -66,3 +69,5 @@ Earlier [docs/LITERATURE_MATRIX.md](../docs/LITERATURE_MATRIX.md) was a succinct
 
 
 **2026-10-12 update:** main mechanistic reference [Cho ICLR 2026 detailed full-paper reconstruction](notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md). Older route B/C references are to [retired research reasoning](ideas/RETIRED_HYPOTHESES.md), **not** active plans. Only [one current research question](ideas/ACTIVE_QUESTION.md).
+
+**Source-method audit:** [Tanwar source-label identifiability and autoregressive Q1→Q2 self-conditioning](notes/TANWAR_IDENTIFIABILITY_AUDIT.md) — key caution before any sense routing inference.

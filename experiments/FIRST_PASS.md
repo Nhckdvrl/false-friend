@@ -2,6 +2,12 @@
 
 **Status (2026-10-12): source-data inspection completed; no inference/model training results.** The primary value of this project is its explanation of previously studied behavior, not the construction of another false-friend benchmark.
 
+## An actual prioritized decision, not an open-ended benchmark
+
+**P-FIRST:** Tanwar Task3 was designed with **Q1 word language, Q2 word meaning, Q3 coherence** in a single generation. Published report has roughly 70% nonEnglish-word/English-context correction vs 34% the reverse, but this is a **joint answer-label annotation**. First replicate it and test *same-item answer-order/self-conditioning* and *whether the target word's source language can be known from the exact sentence surface*. This is a sharper question than another generic context-strength bar plot. [Audit note](../knowledge/notes/TANWAR_IDENTIFIABILITY_AUDIT.md).
+
+A second closest neighboring paper, [Östling & Kurfalı 2026](../knowledge/papers/ostling-kurfali-2026-conflicting-language.md), already demonstrates language bias in conflicting facts under swapped evidence languages; don't claim language-conditioned conflict is new.
+
 ## Closest published baselines to reproduce
 
 1. [Tanwar et al. bilingual word processing](https://github.com/EshaanT/Bilingual_processing_LLMs) contains task1 word-sense discrimination, task2 semantic judgement, and task3 high/low semantic constraint for EN-DE/ES/FR. Reuse their original prompts, targets and code for a true baseline. Task3 is masked-word prediction in **prior context**, NOT late-evidence revision.

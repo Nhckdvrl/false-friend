@@ -15,6 +15,10 @@ We learn from Hakaze Cho's method: use the simplest important counterexample to 
 5. [Data atlas](knowledge/data/DATASET_ATLAS.md) — semantic labels and whether they identify our actual experiment object.
 6. [Retired research hypotheses](knowledge/ideas/RETIRED_HYPOTHESES.md) — why the previous late-revision, wrong-anchor topology and training-order theories are no longer active.
 
+## Sharpened first mechanism candidate
+
+A source-code reread of [Tanwar et al. Task3](knowledge/notes/TANWAR_IDENTIFIABILITY_AUDIT.md) identified **two high-information rival explanations** for a published ~70% vs ~34% directional "correction" result: (i) strictly identical homograph surfaces cannot reveal a hidden inserted-word source-language index; (ii) the generation prompt asks Q1 word language before Q2 meaning, so model's Q1 text conditions Q2. These are scientific identification/measurement questions, **not newly observed LLM behavior**. We now prioritize original-prompt reproduction plus Q2-only/order controls before any activation patching.
+
 ## Verified data-source discovery, not a model discovery
 
 Using source TSVs from [Abuín et al., ACL 2026](https://github.com/mrtva/false-friends-vs-cognates), checked 704 contextual word-pair records; 332 identical lemma forms; 189 same-lemma contextually different-sense pairs; only 69 of those contain the exact same case-sensitive whole form in BOTH contexts (58 distinct language-pair+form units). No linguistic reannotation has been performed, and these are not 69 independent semantic experiment cases. Tanwar original EN-DE/FR/ES low/high constraint CSVs also exist and will be the nearest baseline before any new manipulated contrast.

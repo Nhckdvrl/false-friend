@@ -4,6 +4,12 @@
 
 Status: exploration only. **No model experiment or mechanism discovered in this reset.** This supersedes the old A/B/C research queues and the predetermined E0–E5 mechanistic pipeline.
 
+## Published sharp anomaly and first methodological test (2026-10-12)
+
+Tanwar et al. arXiv v2 report around **70% vs 34%** asymmetry in contextual "correction" when a non-English homograph appears in English context versus the reverse. This is our **first concrete empirical anchor from existing literature**, not a newly measured effect. Their Task3 source code shows two rival accounts needing tests BEFORE adding new mechanisms: for **identical written forms**, source-language labels may be unobservable from the sentence (normal vs cross can produce identical text), and their Q1-language then Q2-meaning then Q3-coherence free-text output lets the earlier generated answer influence later ones. [Precise source-code audit](knowledge/notes/TANWAR_IDENTIFIABILITY_AUDIT.md).
+
+**Immediate priority:** replicate original authors' task/inference format (or clearly label nonmatching model deviation); then perform a same-item Q2-only versus Q1-first / Q2-first response-order control and a separately validated meaning-only outcome. Ask if the *directional asymmetry remains*. Only residual unaccounted asymmetry motivates calibrated-cue or mechanistic experiments. The strongest nearest papers already include [multilingual conflicting-fact language swaps](knowledge/papers/ostling-kurfali-2026-conflicting-language.md) and [human sentence language × constraint factorial studies](knowledge/papers/dijkstra-van-hell-brenders-2015-sentence-context.md).
+
 ## Why this is a natural, important, nonempty question
 
 - Stingray and Tanwar establish word-meaning failures and language/context effects.

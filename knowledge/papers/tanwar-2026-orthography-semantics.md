@@ -43,3 +43,12 @@ Stingray：多语类别化与语言 bias；Tanwar：词义、语义判断、cont
 ## 8. 待做
 
 拿作者数据做 schema/annotation 审查，与 Stingray 和 Doppelganger 去重（防止假独立复现）；详查 high/low 构造是否充分匹配语法、长度与语言优先级。v2 与 v1 的实验和结论差异待核对。
+
+
+## Deep source-audit correction (2026-10-12)
+
+A close read of the actual Tanwar Task3 code reveals a more subtle problem than a high/low context effect. The authors report approximately **70% vs 34%** context-based "correction" for non-English homographs in English vs English homographs in non-English host sentences. But in the `cross` condition, source language is assigned by a hidden **row index** while the host sentence is from the opposite language. When EN/L2 word strings are case-sensitive identical, ordinary and cross word **sentence surfaces are exactly the same** for that host. The complete prompts differ (explicit "code-mix" instruction), so any inference about true source may reflect **prompt pragmatics**, not word-form recognition.
+
+Furthermore the original generation always asks **Q1 source language → Q2 meaning → Q3 sentence coherence** in a single 512-token autoregressive response. Q2 sees Q1's generated text, introducing a possible self-conditioning pathway. Four "correction" categories are annotated from this **joint verbal response**, not from separately randomized and independently elicited latent senses or temporally observed revisions.
+
+This is not proof the paper is wrong. It is the cheapest high-information **identification test**: reproduce the original prompts, then compare isolated meaning, original Q1-first, Q2-first and externally fixed language answers on **identical items**, with controls and non-copy semantic judgments. See [source audit protocol](../notes/TANWAR_IDENTIFIABILITY_AUDIT.md). If asymmetry vanishes, do not invent a special semantic gate. New model trials have NOT run.

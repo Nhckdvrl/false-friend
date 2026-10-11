@@ -23,6 +23,7 @@ jobs:
         run: |
           python scripts/audit_romance_wic.py --source-dir /tmp/romance --output outputs/romance_source.json
           python scripts/audit_tanwar_baseline.py --source-dir /tmp/tanwar/data --output outputs/tanwar_source.json
+          python scripts/audit_tanwar_identifiability.py --source-dir /tmp/tanwar/data --output outputs/tanwar_identifiability.json
       - name: Check fixed source identity and expected preflight units
         run: |
           python - <<'PY'
@@ -43,6 +44,12 @@ jobs:
           t = json.load(open("outputs/tanwar_source.json", encoding="utf-8"))
           assert {r["file"] for r in t} == {"task3_en_de.csv","task3_en_es.csv","task3_en_fr.csv"}
           assert all(row["rows"]>0 for row in t)
+          identity = json.load(open("outputs/tanwar_identifiability.json", encoding="utf-8"))
+          for row in identity:
+              counts=row["counts"]
+              assert counts["items"]==280
+              assert counts["sentence_observational_equivalences"]==4*counts.get("exact_forms",0)
+              assert counts["host_and_strength_comparisons"]==4*counts["items"]
           print("Pinned author-source audit PASS; NO language-model findings")
           PY
       - uses: actions/upload-artifact@v4
@@ -51,4 +58,5 @@ jobs:
           path: |
             outputs/romance_source.json
             outputs/tanwar_source.json
+            outputs/tanwar_identifiability.json
           retention-days: 30

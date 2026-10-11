@@ -2,6 +2,10 @@
 
 This is the **only active question**, and its mechanism remains UNKNOWN (2026-10-12).
 
+## New first falsifier from published asymmetric correction
+
+The nearest source actually reports ≈70% vs 34% opposite contextual-correction directions. But if a true word's *language source* is hidden for identical written forms and the prompt forces **language answer before meaning answer**, this directional difference may arise from **unidentifiable source labels or response self-conditioning**. Reproduce and falsify these simple accounts first, before interpreting a meaning-selection interaction as internal multilingual gating. See [Tanwar source audit](../notes/TANWAR_IDENTIFIABILITY_AUDIT.md). This result is published and has NOT been independently reproduced with a model in our repo.
+
 ## Scientific origin (our INFERENCE, not an author quote)
 
 BIA+ distinguishes lexical identification and task decision. Stingray/Tanwar quantify cross-lingual sense errors and high/low semantic context effects. Doppelganger disambiguates word, context and translation copying. Kallini/Škrjanec show frequency/overlap changes form/global transfer, not item-level semantic fidelity. Dumas/Körner/Ravisankar causally manipulate multilingual content but their results can mix concept selection, answer strings and language output.

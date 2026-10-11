@@ -36,3 +36,8 @@
 **Cho source:** recovered and read 87-page 2026 ICLR original from user's previous uploaded PDF and updated detailed experimental genesis/limitations, including low-rank constructive success, natural covariance evidence, selective ablation, and negative task boundaries. Earlier ICLR2025 complete work remains bibliographic background, not essential for immediate experiment identification.
 
 **Policy:** Before paper writing, recheck nearest works and frozen predictive tests; do not protect retired routes as sunk-cost stories.
+
+
+## 2026-10-12 follow-up — sharpen test from published asymmetry and source-code observation
+
+Read Tanwar §4.3, original Task3 prompt creation and generation, and Östling–Kurfalı 2026 language-swapped conflicting-fact method. First priority is to test whether the published 70/34 direction difference reflects independently elicited semantic interpretation or **output-cascade effects/hidden source-label conventions**. Created strict-source identifiability audit, its unit tests, and an upstream pinned-source CI replay. This is a methodological finding about task **design**, not a model score. Maintain one explanatory sense-arbitration problem, no return to old A/B/C.
