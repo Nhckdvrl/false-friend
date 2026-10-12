@@ -1,48 +1,31 @@
-# Decision record
+# 当前研究决策记录
 
-## 2026-10-09 — Mainline reset
+## 2026-10-12 — 统一知识地基与本地Agent交接
 
-**Decision:** Replace the failed shared/split lexical-row experiment with a sense-selection/revision question. Keep full prior snapshot as branch archive/lexical-sharing-2026-08. Clean old execution scripts/configs from main; create only a lightweight validated pilot and research documents.
+**状态**：明确且开放的科学空间，尚无充分验证的新机制。旧记录完整保存在 `knowledge/history/DECISIONS_BEFORE_FOUNDATION.txt`，原始实验和代码可追溯Git历史。
 
-**Rationale:**
-- Old natural semantic-aligned control was unidentifiable; invalid ten-run results must not be rescued.
-- Nearest papers already occupy vocabulary overlap benefit, false-friend benchmark errors, concept-language representation separation, and homograph-copy corrections.
-- A possible gap remains in **separating post-evidence sense revision from output-only lexicalization and generic ambiguity** through matched controls and out-of-sample predictions.
-- Cho's transferable feature is a chain of distinguishable predictions and interventions, not quantity of analyses.
+### 改变了哪些决定
 
-**Non-decisions:** no claim of established novelty, no experimental result, no choice of final language pair, no approved human-labeled corpus, no training, no patching architecture, no predetermined main conclusion.
+将原本分散在主分支和未合并研究分支的知识/试跑统一到当前workbench。当前中心问题是**语言特定词义知识何时无法成为语境/任务中的正确使用或表达**；不再围绕唯一Q1顺序异常、三个词小模型输出或预设cue gate。
 
-**Re-evaluate after E0:** if no reproducible and matched sense-specific anomaly survives, this direction should be stopped or reframed, even though a polished pipeline exists.
+撤销“必须有跨语言特有交互”“简单模型解释好就没有价值”“已有相近论文即没有空间”等过高或过窄停止规则。数据无效、机制主张被证伪、整个研究空间不值得做是不同判断。允许共同结构、简单解释、重要阴性结果和条件边界成为有意义的成果。
 
-**Engineering caveat:** source code is a pilot. GitHub CI tests deterministic logic only; model-dependent tokenizer and inference behavior requires a real smoke run on chosen open weights.
+本地Agent在用户批准的资源范围内可自主复现、设计/替换实验、追加文献和并行探索，不必机械执行初始卡片；记录变更理由。切换领域、长期昂贵训练、付款和破坏性操作仍需确认。
 
-## 2026-10-11 — Literature KB and route correction
+### 实际交付
 
-**Decision:** Build a real paper-centered knowledge base with per-paper idea-origin reconstruction, reading confidence, nearest-neighbor distance, experiment logic and cross-paper concept/causal graphs. Historical literature matrix is kept but superseded.
+登记56个来源，历史40条覆盖完整；28份论文/联合笔记和理论/方法资产，区分本轮新读、继承阅读与有限导航。补读两综述、最新NeurIPS Task Operators、ABX、SAE双语发展、sense-aware迁移控制、Wang/Sun访问与表达、PriDe和patching方法，并从BIA+原文更新理论卡。
 
-**Scientific course correction:** Tanwar's context tests, Doppelganger's three tasks, Körner's polysemy/copy patching, and Amouyal's garden paths directly threaten A novelty. A now means only A0 cheap identification. B is independently assessed through a formal/synthetic B0 intervention preflight; C remains parked. Neither A nor B has experimental evidence in this repository. Reference: knowledge/ideas/ROUTE_REASSESSMENT.md.
+结构化笔记必须留idea来源推测、尺度、最近邻距离和每项实验的认识作用。生成索引/来源卡和本地查询帮助Agent调用知识，不取代原文判断。没有声称56项全部逐页精读，受限项不补造事实。
 
-**Verification discipline:** mark unread paper/appendix and inferred author ideation accurately; a bibliographic catalog is not equivalent to full deep reading. All current paper records have traceable source URLs and separate fact/inference claims.
+持久保存旧36个模型分数与6个生成输出、来源/代码/模型版本和哈希。用原始数值重新计算原试跑统计，防止只剩会过期的Action附件。未在此轮新增模型推理。
 
+### 完成检查
 
-## 2026-10-12 — Retire old A/B/C and switch to data-led sense arbitration
+整合快照在本地运行47个测试全部通过；56来源登记、原40条覆盖、纸本资产注册、生成文件一致性和本地链接检查通过。测试校验研究资产与软件，不证明论文结论、标注语义或独创性。
 
-**Decision:** There are no three standing candidate research tracks. Discontinue mandatory late-sense-revision experiments (too close to Good-Enough, Tanwar and Amouyal; contextual copying confound), discontinue wrong-anchor graph-topology training (Kallini covers overlap, global/form endpoints not a strict contradiction, invalid old controls), discontinue early-language-order training hysteresis (ordinary forgetting and recency plausible). Remove them from active docs; preserve historical reasoning as a rejection record only.
+最终移除仅用于这次离线审计的临时snapshot/write workflow。正常CI仍检查代码和知识；CPU模型试跑保持手动触发，不自动占用研究资源。
 
-**Open question:** how do lexical familiarity, language identity and contextual meaning evidence combine to determine a word's selected sense? Do not assume a literal gating circuit. Compare additivity, conditional routing, output copying, and ordinary WSD/lexical knowledge accounts; first reproduce the relevant Tanwar/Doppelganger original experiments and audit released lexical objects.
+### 下一轮实验方向
 
-**Exploratory verified evidence:** source-level audit of 704 ACL2026 Romance WiC records found 69 exact-context different-sense rows, 58 distinct pair/form types. Source audit is NOT a model result. Two data preflight scripts and synthetic tests added to repo; actual model inference not run.
-
-**Cho source:** recovered and read 87-page 2026 ICLR original from user's previous uploaded PDF and updated detailed experimental genesis/limitations, including low-rank constructive success, natural covariance evidence, selective ablation, and negative task boundaries. Earlier ICLR2025 complete work remains bibliographic background, not essential for immediate experiment identification.
-
-**Policy:** Before paper writing, recheck nearest works and frozen predictive tests; do not protect retired routes as sunk-cost stories.
-
-
-## 2026-10-12 follow-up — sharpen test from published asymmetry and source-code observation
-
-Read Tanwar §4.3, original Task3 prompt creation and generation, and Östling–Kurfalı 2026 language-swapped conflicting-fact method. First priority is to test whether the published 70/34 direction difference reflects independently elicited semantic interpretation or **output-cascade effects/hidden source-label conventions**. Created strict-source identifiability audit, its unit tests, and an upstream pinned-source CI replay. This is a methodological finding about task **design**, not a model score. Maintain one explanatory sense-arbitration problem, no return to old A/B/C.
-
-
-## 2026-10-12 — CPU pilot correctly downgrades evidence
-
-After pinned source audit, executed Qwen2.5-0.5B free-response program test and Qwen2.5-1.5B two-order 3-word gloss scoring. Raw archived GitHub Actions artifacts and descriptive data are documented at experiments/PILOT_FINDINGS_2026-10-12.md. The first stimulus had German noun capitalization risk and target-extraction failures; second had 7/18 raw option-order preference flips. **Decision:** instrument not yet qualified, no latent-gating or correction-asymmetry paper claim, no general GPU scale-up. Do alternative verbalizer/semantic inference validation before testing network mechanisms.
+按照 [HANDOFF](../HANDOFF.md) 和 [实验组合](../experiments/EXPLORATION_PORTFOLIO.md)，现场确认可用缓存模型与GPU，选择原任务忠实复现和同义项的覆盖—使用—表达交叉对照。先有可信新观察再选择机制工具；不要求本地Agent服从我们此刻的最终解释，因为尚未有最终解释。
