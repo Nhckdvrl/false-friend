@@ -1,28 +1,36 @@
-# False Friend research knowledge base
+# 当前工作空间的研究知识库
 
-**Updated 2026-10-12.** The purpose is to teach a local agent *why* an idea is interesting, how it derives from related work, what each experiment rules out, and when to stop. It is NOT an excuse to keep all previously suggested directions.
+**位置固定：Nhckdvrl/false-friend/knowledge/**。没有向外部Library或别的workbench写入这些资产。更新2026-10-12。
 
-## Current knowledge navigation
+## 读什么、为什么
 
-- [PAPERS_INDEX.md](PAPERS_INDEX.md): paper list, verified depth, structured paper assets.
-- [papers/](papers/): paper genesis and contribution scale, baselines, causal/surprisal/task distinctions.
-- [notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md](notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md): actual 87-page study read for its experiment-to-claim logic.
-- [CONCEPT_MAP.md](CONCEPT_MAP.md): research variables and their non-equivalences.
-- [CITATION_LEDGER.md](CITATION_LEDGER.md): claims tied to sources, methods and limiting assumptions.
-- [theories/](theories/): bilingual recognition, Good-Enough, explanatory measurement ladder.
-- [ideas/ACTIVE_QUESTION.md](ideas/ACTIVE_QUESTION.md): **one** open explanatory problem with live rivals.
-- [ideas/RETIRED_HYPOTHESES.md](ideas/RETIRED_HYPOTHESES.md): why we discarded the old A/B/C ideas.
-- [data/DATASET_ATLAS.md](data/DATASET_ATLAS.md): real dataset objects and audited available controls.
-- [RESEARCH_AGENT_PROTOCOL.md](RESEARCH_AGENT_PROTOCOL.md): mandatory scope and stopping instructions.
+先读 [领域画像](FIELD_GUIDE.md) 和 [实验设计的来源与尺度](EXPERIMENT_DESIGN_LESSONS.md)，再按 [分类论文索引](PAPERS_INDEX.md) 找到与下一实验最近的两三篇。机器可检索原始登记为 [sources.tsv](sources.tsv)，历史40条索引的不可静默漏收快照在 `history/INDEX_BASELINE_2026-10-12.txt`。
 
-## Reading confidence
+精读笔记在 `papers/`、理论在 `theories/`；每份区分作者事实和我们的来源推演 INFERENCE、具体基线/对照、尚成立的竞争解释、相邻研究与最小非平凡增量。仅检索/摘要了解的资料也全部登记在 [有边界的来源卡](catalogue/SOURCE_CARDS.md)，**不是伪装成已精读论文**。
 
-S1: main work methods, results, key figures and relevant appendices actually inspected (NOT code/experiment reproduced). S2: targeted methods or sections. S3: abstract / metadata only, never described as deep read. Full ICLR 2026 Cho recovered and S1 reviewed; his earlier ICLR 2025 paper remains a background citation with limited independently available text, so it is **not an unresolved blocking precondition for the current False Friend experiment**. Full literature can never be finished by declaring 36 indexed papers "read".
+[最新会议检索审计](SEARCH_AUDIT_2026-10-12.md)区分NeurIPS目录确认、真正读到原文、仅题名候选和奖项。ABX的SAC Highlight可核验；其他未证实的oral/best paper不标注。
 
-## Use cycle
+## 状态的真实含义
 
-Choose a natural question → read the nearest papers → reconstruct possible idea genesis (labeled INFERENCE) → state the **smallest extra explanation** beyond predecessors → compare parsimonious rival models → preflight actual lexical object → reproduce strongest source baseline → run a focused, discriminating test → update the question from data, including negative findings → only then contemplate causal patching.
+- S1：主方法/结果与相应关键图表有阅读记录，不等于所有附录重算或实验复现。
+- S2：定向正文/综述/方法教程阅读，明确使用范围。
+- S3：只到摘要、元数据、公开资源或历史导航，不能支持细致机制断言。
+- S0：仅题名/目录候选，不知道的内容不猜。
 
-An apparent contradiction between **global transfer**, **surface surprisal** and **contextual meaning** is not a real contradiction until all use the *same item and outcome*. All relevant notes must keep label semantics and alternative explanations visible.
+登记 `origin=current` 是本轮新读/补读，`inherited` 是前轮已存在资产，本轮整理并不假称全部重新读；`catalogue` 是受限导航。按版本和实际证据升级，不按笔记字数或模型自信升级。
 
-The previous A/B/C triage can be recovered from old Git commits but should not drive future code.
+## 地基与探索分工
+
+[HANDOFF](../HANDOFF.md)和[实验组合](../experiments/EXPLORATION_PORTFOLIO.md)给本地 Agent 一个可研究的问题和多种高信息量操作，而不是预设唯一发现。Agent应持续读论文、用结果更新领域图谱、主动替换更好的实验。数据审核和prompt偏置控制不要挤占整个科学主轴。
+
+所有具体数值主张应追到原文或不可覆盖的本仓库证据；原模型试跑的持久化数值和哈希在 [evidence/](../evidence/README.md)。失效的A/B/C故事保留历史但不再构成工作队列。
+
+## 一致性维护
+
+```bash
+python scripts/build_knowledge_index.py
+python scripts/check_knowledge.py
+python scripts/query_knowledge.py --query 'word sense' --limit 8
+```
+
+新增/改读一篇后更新 sources.tsv、笔记和必要的领域画像；生成索引与受限来源卡。自动检查只保证条目覆盖、路径/来源/状态一致，不宣称文章真实或idea好。严肃的质量判断仍需对照原文和实验。

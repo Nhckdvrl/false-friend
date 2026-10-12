@@ -1,58 +1,64 @@
-# False Friend Lab — Lexical Sense Resolution Under Competing Evidence
+# 稳定探索空间：多语言词义知识何时能被正确使用？
 
-**Active question (2026-10-12):** How do multilingual language models combine lexical familiarity, language identity and contextual semantic evidence when they suggest different interpretations of the same word form?
+更新：2026-10-12。**这是研究问题与探索预算的组织方式，不是预先确定的论文结论。** 最新文件优先于历史文件中的固定闯关或停止命令。
 
-Status: exploration only. **Two small CPU exploratory model tests completed, with instrument/stimulus failures; no confirmed semantic mechanism or published-baseline replication.** This supersedes the old A/B/C research queues and the predetermined E0–E5 mechanistic pipeline.
+## 1. 为什么值得探索
 
-## Published sharp anomaly and first methodological test (2026-10-12)
+False-friend 研究已有语义判断、上下文约束、翻译复制及词汇共享证据；跨语言可解释性研究已有语言/概念表示、知识可访问性和输出语言转换证据。仍值得具体研究的是：**在同一词义、同一语境、同一模型上，这些层次如何联系？什么条件下“能答出或表示目标意义”不足以保证“当前任务实际使用该意义”？**
 
-Tanwar et al. arXiv v2 report around **70% vs 34%** asymmetry in contextual "correction" when a non-English homograph appears in English context versus the reverse. This is our **first concrete empirical anchor from existing literature**, not a newly measured effect. Their Task3 source code shows two rival accounts needing tests BEFORE adding new mechanisms: for **identical written forms**, source-language labels may be unobservable from the sentence (normal vs cross can produce identical text), and their Q1-language then Q2-meaning then Q3-coherence free-text output lets the earlier generated answer influence later ones. [Precise source-code audit](knowledge/notes/TANWAR_IDENTIFIABILITY_AUDIT.md).
+这不是宣称首次发现 knowledge–use gap。Dumas/Körner 的概念与输出干预、Wang 的事实一致性、Sun 的多跳知识访问，都是必须对话的近邻。我们的增量必须落实到语言特定意义、语境条件和可检验预测，不能只说“模型知道但不用”。见 [领域画像](knowledge/FIELD_GUIDE.md)。
 
-**Immediate priority:** replicate original authors' task/inference format (or clearly label nonmatching model deviation); then perform a same-item Q2-only versus Q1-first / Q2-first response-order control and a separately validated meaning-only outcome. Ask if the *directional asymmetry remains*. Only residual unaccounted asymmetry motivates calibrated-cue or mechanistic experiments. The strongest nearest papers already include [multilingual conflicting-fact language swaps](knowledge/papers/ostling-kurfali-2026-conflicting-language.md) and [human sentence language × constraint factorial studies](knowledge/papers/dijkstra-van-hell-brenders-2015-sentence-context.md).
+“中低热度”这里只是相对于通用 Agent/RL/推理赛道的定性判断，不是已做文献计量。选此空间因自然现象、可复用数据和多种竞争解释，而非因检索结果少。
 
-## Why this is a natural, important, nonempty question
+## 2. 工作对象与术语
 
-- Stingray and Tanwar establish word-meaning failures and language/context effects.
-- Doppelganger-JC shows word meaning, contextual meaning and translation/copy are different behaviors.
-- Kallini and Škrjanec analyze global lexical transfer and target-form predictability, which are NOT measures of conditional sense selection.
-- Dumas, Körner and Ravisankar demonstrate causal interchange of concept/language/task representations, including misleading answer-copy confounds.
-- Human BIA+ and Good-Enough theories motivate competing explanations; they are not proofs of LLM mechanisms.
+- **知识覆盖/可访问性**：在若干独立、清楚的原语言条件下能否表达目标意义；probe 可解码只构成另一个证据，不等同模型决策使用。
+- **语境选义/使用**：对词的释义、指称和后续命题判断是否一致地依赖正确意义。
+- **最终表达**：正确意义是否在目标语言和指定输出形式下被正确词汇化；复制原词可能让表达错但理解未错。
+- **测量路径**：选项位置、任务指令、来源标签与先生成的回答，可能改变被测行为。
 
-We do **not** claim cue conflict has never been studied. Tanwar already tests high/low semantic constraints; merely testing a new factorial matrix has weak novelty. We seek **an explanatory account that predicts new conflicting-cue cases**, including a result that might be explained by ordinary frequency and skill.
+分层是诊断假说，不是假设模型真的有四个独立模块。具体数据集的 cognate、false cognate、R=0/1 等标签必须按原论文定义解释。完全相同字串与形近/大小写/屈折相似是不同对比；**只有研究声明要求 exact identity 时才严格筛选**，不把 exact identity 当所有实验的准入教条。
 
-## Competing explanations
+## 3. 几种值得竞争的解释
 
-**M0: Predictable evidence integration.** Lexical sense familiarity, the actual language of the sentence, task/output language and independently calibrated semantic evidence combine approximately additively. A simple model predicts the result on unseen word types.
+**覆盖/频次解释**：目标语言意义不够熟悉，或语言能力整体较弱；强语境仍失败不需要新“冲突机制”。
 
-**M1: Conditional cue selection/routing.** One cue changes how strongly another cue is used; a robust interaction makes M0 fail on held-out words, after ordinary WSD, lexical frequency, syntax, cue strength and response format are controlled. This describes a behavioral hypothesis, NOT a discovered internal language-gating module.
+**可组合证据解释**：词义先验、句子语言和语义约束以相对简单的函数共同预测选择。真正成果可能是一个在未见词上可靠的简单解释，而不是寻找门控。
 
-**M2: Output copying or verbalizer artifact.** Internal/behavioral semantics are adequate; translation string or answer tokens are wrong. Must compare with independent, non-copy semantic entailment questions.
+**条件选择/使用解释**：语言或任务条件改变某些语义信息的实际利用。需要超出纯可解码、输出偏置和普通歧义的证据，但不要求必然出现仅有 false friends 才有的机制。
 
-**M3: Missing lexical knowledge or ordinary ambiguity.** Model doesn't know target sense in explicit-language unambiguous context, or same-language polysemy matches the entire effect.
+**表达与任务解释**：意义已能被行为任务一致支持，错误主要出现在翻译/复制或问答级联。原始 Tanwar Q1→Q2 协议是检查它的一个方便切口，不是整个研究的唯一中心。
 
-## High-information, adaptable discovery program
+**共享一般结构解释**：跨语言和同语言歧义可能遵循相同的选择规律。若一个机制统一预测两者并解释以往不同结果，这可能比“找出跨语言特有异常”更有价值。
 
-1. **Source and instrument preflight.** Reuse published Tanwar word meaning and high/low semantic-constraint sentences, Doppelganger-JC word/context/translation tasks, and source-filtered Romance WiC. Audit exact surface form vs lemma, linguistic provenance and held-out lexical families. Audit scripts and source counts are in [experiments/FIRST_PASS.md](experiments/FIRST_PASS.md). No forced new benchmark or large annotation campaign.
-2. **Reproduce nearest existing baselines first**, with authors' prompts and scores rather than our separate pilot instrument. Record model and tokenizer revisions; one fixed accessible multilingual model first.
-3. **Make new, independently testable predictions.** On validated items, independently calibrate language and semantic cues, compare each alone versus aligned/conflicting combinations. Freeze a simple M0 prediction on training lexemes, test unseen word types; compare M1 only with held-out generalization and meaningful effect size. Include same-language polysemy, unambiguous paraphrase, free translation and independent semantic consequence tasks.
-4. **Only if M0/M2/M3 fail predictively**, follow the observation: isolate source-language versus semantic positions; conduct paired reciprocal activation patches including Ravisankar-style same-answer-label different-content donors and unrelated-task checks. If a broad patch can trivially rewrite answers, that is not a mechanism claim.
-5. **Generalize or stop.** Freeze the smallest explanation on new lexemes, model families or languages. A simple sufficient account closes the question; a surprising interaction demands discriminating follow-up, not instant neuron hunting.
+## 4. 初始研究组合，而非固定 E0→E5
 
-At each stage, specify two models that make **different predictions**, decide what would falsify them, and let data choose the next experiment. Avoid treating the figure order as a mandatory pipeline.
+详见 [EXPLORATION_PORTFOLIO](experiments/EXPLORATION_PORTFOLIO.md)。可以在条件满足时独立并行：
 
-## Immediate verified data result
+A. 复现最近邻作者的原任务与分数，记录材料与协议差异；识别可重复的现象，而不是只审计代码。
 
-The ACL 2026 Romance WiC source has 704 word-pair rows; 332 identical lemma spellings, 189 of which are context-level different-meaning pairs. Only 69 different-meaning rows contain the identical case-sensitive word form as a whole word in **both** contexts (58 distinct language-pair/form keys). These are candidate objects only; orientation/POS/meaning still require human review, and the source's same-sense labels do NOT certify matched full lexical sense distributions.
+B. 建立同一词义的知识覆盖—语境使用—输出表达图谱：独立定义、释义、语义后果、翻译等少量互补任务，留出词汇类型；报告整个样本与覆盖通过子集，防止成功条件筛选偏差。
 
-The author's Tanwar Task 3 EN-DE/ES/FR high/low cue CSV files are public; no reason to reinvent a context-strength benchmark to claim novelty.
+C. 对语言线索、语义证据、指令/回答语言进行受控干预，检验简单预测与条件交互；使用普通同语言歧义和非冲突词作为参照，而非把它们只当“必须显著差异”的陪衬。
 
-## Discontinued hypothesis programs
+D. 仅针对已确定的行为差距，联系表征测量与双向干预；ABX/SAE/patching 是备选工具，应由竞争解释决定，而不是先选工具再找现象。
 
-The predetermined lasting late-context semantic trace, incorrect-anchor graph/topology training and language-order hysteresis plans are **removed from the active research program**, not parked as work queues. Why they were rejected and when their historical motivation remains relevant: [knowledge/ideas/RETIRED_HYPOTHESES.md](knowledge/ideas/RETIRED_HYPOTHESES.md). Old source papers remain in the scientific knowledge base.
+E. 检验当前解释的推广和边界：新词、新释义、新任务/语言、能力更强模型；有效阴性结果可能推翻解释，也可能给出边界。
 
-Start at [knowledge/README.md](knowledge/README.md), [knowledge/ideas/ACTIVE_QUESTION.md](knowledge/ideas/ACTIVE_QUESTION.md), and [experiments/FIRST_PASS.md](experiments/FIRST_PASS.md). The [AGENTS.md](AGENTS.md) protocol is compulsory for local agents.
+## 5. 怎样判断“继续、改问、停止”
 
+四层分别记录：**空间**是否重要且未充分解释；**线索**是否可信且可被下一实验区分；**主张**现在排除了什么、没有排除什么；**贡献**若最可靠结论成立，同行会改变什么认识或选择。
 
-## Actual empirical program status (2026-10-12)
+停止无效对照、泄漏实验、不可解释的分数；撤销被证伪的**具体机制主张**。不因已有相似论文、不因没有跨语言特有交互、不因一个简单模型拟合良好，就机械关闭整个领域。反过来，也不能拿“重要领域仍开放”无限延长一个没有信息增益的实验。
 
-[First CPU pilot report](experiments/PILOT_FINDINGS_2026-10-12.md): 0.5B free generation on 1 source item (invalid German casing and poor target identification); 1.5B language-statement prefills with 3 human-unreviewed source adjectives (36 logp trials, 18 balanced pairs); 7/18 single-order sign reversals. These are **measurement issues**, not grounds to assert any language/sense gate. They justify validating question-order, response labels and lexical naturalness BEFORE broad model/circuit scans.
+复现/适配已经有人做的实验，属于建立地基，并非需要主动回避的低价值工作；但将其作为论文贡献必须增加认识。新方法若有效但只改善几个分数，先找出真实瓶颈再评估是否值得发展。
+
+## 6. 既有结论的正确权重
+
+两个小 CPU 试跑只是测量烟雾测试。三个词、一个小模型的选项顺序变化不构成一般性结论；平衡选项可能消除固定位置偏置，不能看到单顺序翻转就否定平衡估计。原论文约 70/34 的校正类别来自原协议，尚未在本地按原模型/人工评分完成忠实复现。来源标签不可识别与德语名词小写是应分层处理的材料风险，不能直接宣布整篇论文错误。
+
+所有已保存输出与局限见 [evidence](evidence/README.md)；后续独立运行不得覆盖这些记录。
+
+## 7. 本地 Agent 的自主权
+
+优先完成能改变判断的工作，不必按上面顺序执行。允许更好的数据/模型/指标与新干预，但先说明改变了什么因果对象和如何保持可比较。允许重新研究历史候选中的某变量，条件是新证据明确需要，而不是恢复原有故事。主轴转向新的应用/学科、昂贵长期训练、无许可大规模数据再发布或破坏性删除实证资产，需用户确认。

@@ -10,13 +10,16 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Snapshot tracked files only (no git credentials or environment)
+      - name: Generate deterministic browseable assets
+        run: python scripts/build_knowledge_index.py
+      - name: Snapshot tracked files and generated index only
         run: |
           python - <<'PY'
           import pathlib, subprocess, zipfile
           files=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          files += ['knowledge/PAPERS_INDEX.md','knowledge/catalogue/SOURCE_CARDS.md']
           with zipfile.ZipFile('/tmp/false-friend-tracked.zip','w',zipfile.ZIP_DEFLATED) as z:
-              for name in files:
+              for name in sorted(set(files)):
                   if name and pathlib.Path(name).is_file():
                       z.write(name,name)
           PY

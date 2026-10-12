@@ -1,31 +1,27 @@
-# Research Agent Protocol — question-first science
+# 研究 Agent：自主推理与知识闭环
 
-**Current only active topic:** competing language identity versus contextual evidence in multilingual lexical sense choice. Read RESEARCH_MAINLINE.md, knowledge/ideas/ACTIVE_QUESTION.md and experiments/FIRST_PASS.md. Retired A/B/C should not be suggested as live branches without new observations.
+当前正式交接：[HANDOFF.md](../HANDOFF.md)。当前探索：[RESEARCH_MAINLINE.md](../RESEARCH_MAINLINE.md)。不要把最初 A/B/C、Q1 顺序审计或两个小模型 smoke 当作不可更改的科研目标。
 
-## Deep-reading process
+## 阅读之后留下什么
 
-For each paper, use knowledge/PAPER_NOTE_TEMPLATE.md. Record author question and its background, key prior explanation, smallest novelty over nearest work, datasets and controls, reconstructed **inferred** idea genesis, experimental step-by-step *why*, limitations and most valuable next falsifier. FACT and INFERENCE must be separate. Register citations and note S1/S2/S3 honestly; do not claim a 19MB PDF was read if only its abstract was accessible.
+依 [模板](PAPER_NOTE_TEMPLATE.md) 写：共同体原来关心的问题；上一代解释缺口；文章实际数据/基线/测量与干预；推测 idea 如何由先例发展（明确 INFERENCE）；每个实验前仍成立的竞争解释与之后剩下的缺口；贡献尺度；本项目可借鉴的区分性操作；证据不能支持的强说法。更新索引和 source registry，保存具体 source locator 与阅读范围。
 
-Compare studies using exact dependent variables: token surprisal, contextual meaning recognition, word translation/copying, multilingual transfer, hidden-feature decoding, mechanistic patch. These cannot be identified with each other.
+**“没有人做过”不是评价尺度。** 注意作者是否重新定义测量、修正过强推断、预测新的失败边界、统一分散现象，或从一个已有现象深入到计算过程。负结果必须对一个重要且可识别的问题有意义，不是某次跑分没成功。
 
-## Before scientific experiments
+## 实验选择与更新
 
-- Reproduce original Tanwar/Doppelganger metrics/prompt as baseline when appropriate. Our binary gloss runner is a different metric.
-- Validate language side explicitly; filename language pair is insufficient. Check lexical surface, inflection, POS, naturally correct usage, error-injection, relation label scope, source copyright.
-- Require word-level holdout and meaningful ordinary WSD / unambiguous controls; label-order swapping and multi-phrase semantics.
-- Predetermine which rival accounts make different predictions, which variables are fixed, and what outcome would change the theory. A merely nonzero main effect is not mechanistic evidence.
-- No gold-dependent softmax, no interpreting probe decodability as information use, no unselective patch interpreted as a special module.
-- Do not automatically progress from baseline to probing or training. Only a strong residual from a simple account justifies additional complexity.
+先读相关领域地图与最近两三篇方法/结果，不必为了完成一个总书单无限延迟实验。结合本地环境，选择能让至少两个竞争解释产生不同预测的探索组合；主动改进我们给的方案。复现与新实验分别标注，探索阶段与确认阶段区分，失败和后验选择保留。
 
-## Required research handoff
+每个实验在执行前写最小卡片：问题、来源/最近邻、假说分歧、数据对象、变动与不变量、输出与测量风险、相反结果怎样改变下一步、资源上限。卡片不是行政文档；无法填写就检查问题或改实验，不用更多代码掩盖它。
 
-1. What naturally important problem are we explaining?
-2. Which nearest paper almost already answers it, and what claim is occupied?
-3. Which two simplest distinct explanations predict different behavior, in what unit?
-4. What source data and task can distinguish them without manufacturing an object?
-5. Exact stop/failure criterion and output that would be surprising.
-6. Is this a **code preflight**, a reproduced existing finding, a new observed result, or a causal proof? Never conflate.
+## 不越界、不局部优化
 
-## Reset discipline
+数据/选项/概率审计出现问题，修到足以支持当前判断；不要一直把预检做成另一个项目。若本地 Agent 找到更重要的突破，允许在同一问题轴内转向并记录；换应用领域或长周期训练需先确认。不要默认“没有特殊跨语言交互 = 没有科学价值”。共同机制的解释和简单规律同样可能改变认识。
 
-When evidence is inconsistent with the old picture, rewrite the picture rather than rescue it through more metrics, custom data or unconstrained interaction terms. A clear negative or simple explanation can be a scientifically useful endpoint. If there is no valid data contrast, stop before allocating GPUs.
+## 每轮总结的四层
+
+**空间**：重要未知是什么，已有工作解释到哪；**线索**：新观察有多可信，值得哪一步；**主张**：当前排除/未排除哪些解释；**贡献**：即使结论为真，同行会因它改变什么。没有足够证据时保留假说，不抬高措辞。一个孤立潜变量/头的异常只是一条线索。
+
+## 安全资源与复现
+
+使用用户批准的本地资源，先确认空闲和环境，不假设聊天中的拓扑仍准确。记录模型、tokenizer、来源和代码 revision，按词汇/语境族配对及留出。按数据授权保存原文；无权再发布时只保存可重建清单、哈希和许可说明。任何断言都必须可追到原论文或不可覆盖的 run record。

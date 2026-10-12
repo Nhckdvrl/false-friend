@@ -1,47 +1,39 @@
-# False Friend Lab — Explanatory Research on Multilingual Word Sense
+# False Friend Lab — 从拥有词义知识到在语境中正确使用
 
-> **2026-10-12 ACTIVE EXPLORATION. Two small CPU model instrument probes completed; **no confirmed scientific effect or reproduced baseline**.** The prior A/B/C idea queue and old E0–E5 promise have been discontinued, not preserved as parallel plans.
+**研究状态：开放探索；尚无得到充分验证的机制性发现。** 本项目的工作空间就是 `Nhckdvrl/false-friend`，持久知识资产统一存放在本仓库 `knowledge/`，不写入外部 Library，也不分散到另一仓库。
 
-**Scientific question:** When a word form suggests competing language-specific senses, can the decision be explained by learned lexical familiarity plus independently measured language and contextual-semantic evidence, or does combining those cues reveal a distinct, reproducible phenomenon that simpler explanations cannot predict?
+我们研究一个已经有研究基础、但不同证据仍未连成完整解释的问题：**多语言模型在什么条件下，能够识别或表示语言特定的词义，却不能在当前语境和任务中正确使用它？这种差距主要来自知识覆盖、语义选择、信息使用，还是最终表达与测量方式？** False friends 是诊断窗口，不是必须证明的唯一病因。
 
-We learn from Hakaze Cho's method: use the simplest important counterexample to an existing explanation, force competitors to predict DIFFERENT results, separate constructive/observational/causal evidence, and study informative negative boundary conditions. We **do not** require an untouched field or insist on a hidden gating mechanism.
+## 开始工作前读这些
 
-## Research status and start here
+| 入口 | 实际作用 |
+|---|---|
+| [研究主线](RESEARCH_MAINLINE.md) | 稳定的探索空间、竞争解释、贡献尺度；不预设“语言门控”答案 |
+| [知识库](knowledge/README.md) | 论文资产、阅读证据、概念与相关工作导航 |
+| [领域画像](knowledge/FIELD_GUIDE.md) | 从综述到近邻工作的整体理解，不把不同指标误当矛盾 |
+| [实验构思来源](knowledge/EXPERIMENT_DESIGN_LESSONS.md) | Cho、Task Operators、ABX、跨语言负结果等工作的 idea 来源与实验逻辑 |
+| [本地 Agent 交接](HANDOFF.md) | 工作边界、资源使用、自主探索、数据和复现入口 |
+| [初始实验组合](experiments/EXPLORATION_PORTFOLIO.md) | 多个互补的高信息量实验；可重排、替换，不是机械闯关 |
+| [既有试跑证据](evidence/README.md) | 持久化的小模型数值、出处和局限；不能冒充原论文复现 |
 
-1. [RESEARCH_MAINLINE.md](RESEARCH_MAINLINE.md) — the **only active question**, competing explanations, conditional discovery experiments and kill conditions.
-2. [experiments/FIRST_PASS.md](experiments/FIRST_PASS.md) — reproducible source-data preflight and concrete baseline-reproduction protocol. Actual LLM baseline experiments are **not yet run**.
-3. [knowledge/README.md](knowledge/README.md) + [PAPERS_INDEX.md](knowledge/PAPERS_INDEX.md) — structured paper-centered knowledge including idea genesis, nearest related work, experimental chain, actual reading levels and falsifiers.
-4. [Cho 2026 full-paper reconstruction](knowledge/notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md) — detailed methods, controlled evidence sequence and limitations after reading the actual 87-page paper.
-5. [Data atlas](knowledge/data/DATASET_ATLAS.md) — semantic labels and whether they identify our actual experiment object.
-6. [Retired research hypotheses](knowledge/ideas/RETIRED_HYPOTHESES.md) — why the previous late-revision, wrong-anchor topology and training-order theories are no longer active.
+## 目前真正知道什么
 
-## Sharpened first mechanism candidate
+旧的自然 EN–DE shared/split 训练实验因对照对象无法识别而结束；旧十次运行不能用作有效阴性结果，见 [历史记录](docs/LEGACY_RECORD.md)。后来的数据与程序审计暴露了词条/屈折词形混淆、隐含来源语言不可观察、问答顺序可能自我条件化，以及选择项偏好等测量风险。它们是**解释数据前应排查的问题**，不是已经证明的模型内部机制。
 
-A source-code reread of [Tanwar et al. Task3](knowledge/notes/TANWAR_IDENTIFIABILITY_AUDIT.md) identified **two high-information rival explanations** for a published ~70% vs ~34% directional "correction" result: (i) strictly identical homograph surfaces cannot reveal a hidden inserted-word source-language index; (ii) the generation prompt asks Q1 word language before Q2 meaning, so model's Q1 text conditions Q2. These are scientific identification/measurement questions, **not newly observed LLM behavior**. We now prioritize original-prompt reproduction plus Q2-only/order controls before any activation patching.
+两个 CPU 试跑分别使用 Qwen2.5-0.5B 和 1.5B，仅涉及一个词的六次生成、三个词的三十六次选项评分。这些试跑不能判定研究空间成立或关闭，也不能据此决定以后只做提示词偏差研究。后续科学实验由本地 Agent 在经过确认的资源上，用有实际多语言能力的模型、已知来源的数据和配对设计推进。
 
-## Verified data-source discovery, not a model discovery
+## 研究原则
 
-Using source TSVs from [Abuín et al., ACL 2026](https://github.com/mrtva/false-friends-vs-cognates), checked 704 contextual word-pair records; 332 identical lemma forms; 189 same-lemma contextually different-sense pairs; only 69 of those contain the exact same case-sensitive whole form in BOTH contexts (58 distinct language-pair+form units). No linguistic reannotation has been performed, and these are not 69 independent semantic experiment cases. Tanwar original EN-DE/FR/ES low/high constraint CSVs also exist and will be the nearest baseline before any new manipulated contrast.
+已有论文提出过问题，不是放弃理由；已有解释充分覆盖我们的**确切主张**，才是缩小贡献的理由。一个显著差异不是好 idea；一个简单解释也不必然平庸。重要的是它是否改变对问题的认识、测量、预测或研究选择。
 
-## Executable source checks
+此前 A/B/C 被撤销的是三套预先写死的论文故事和预算承诺，而不是禁止以后在新证据支持下研究其中的变量。本地 Agent 可以在当前科学空间内修改实验、补读跨领域方法、提出更高信息量的替代方案；变更须说明原因并保存反例，详见 [AGENTS.md](AGENTS.md)。
 
-~~~bash
+## 最小工程验证
+
+```bash
 python -m pip install -e '.[dev]'
 python -m pytest -q
 python scripts/check_knowledge.py
-# After fetching the external data sources as explained in experiments/FIRST_PASS.md:
-python scripts/audit_romance_wic.py --source-dir false-friends-vs-cognates --output outputs/romance.json
-python scripts/audit_tanwar_baseline.py --source-dir Bilingual_processing_LLMs/data --output outputs/tanwar.json
-~~~
+```
 
-Open-weight Qwen 0.5B/1.5B CPU pilots were executed via optional GitHub Actions. No user GPU was used; these are **instrument smoke tests**, not paper-baseline replications. See [actual observations and warnings](experiments/PILOT_FINDINGS_2026-10-12.md).
-
-## Newly executed experiments (still exploratory)
-
-[Raw pilot interpretations, model revision and A/B measurement-instability audit](experiments/PILOT_FINDINGS_2026-10-12.md). First 0.5B generated answers often failed to identify even the target word. In the larger 1.5B balanced-label pilot, 7/18 experimental cells flipped raw semantic-preference direction under option order; candidate scoring needs validation before mechanism claims.
-
-## Legacy science
-
-The 2026-08 lexical-sharing training project ended in **conceptual identification failure**, not a hypothesis rejection; its old ten-run verdict was scientifically invalid. Full source lives at [archive/lexical-sharing-2026-08](https://github.com/Nhckdvrl/false-friend/tree/archive/lexical-sharing-2026-08). Original idea triage survives in Git history for reproducibility, but is NOT an active plan.
-
-**Agent rules:** read [AGENTS.md](AGENTS.md) and [knowledge/RESEARCH_AGENT_PROTOCOL.md](knowledge/RESEARCH_AGENT_PROTOCOL.md) before modifying or extending experiments.
+CI 检查代码、来源结构和知识资产一致性，不验证论文结论，也不自动批准大规模实验。原始论文和第三方数据按来源许可使用；没有把论文 PDF 或未经许可的数据集整包复制进仓库。

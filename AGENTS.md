@@ -1,14 +1,16 @@
-# False Friend Lab local-agent policy (2026-10-12)
+# 本仓库研究 Agent 的工作协议
 
-1. There is **one active research question**, in RESEARCH_MAINLINE.md: explain multilingual sense choice under competing language/semantic evidence. Read knowledge/ideas/ACTIVE_QUESTION.md and experiments/FIRST_PASS.md before implementing anything.
-2. The old A/B/C routes, B0 wrong-anchor training, C learning order, mandatory E0–E5 experiment ladder and late-context "persistent wrong sense" theory are **retired**. Read knowledge/ideas/RETIRED_HYPOTHESES.md. Do not resurrect from Git history without NEW data requiring the mechanism.
-3. Research is not a benchmark leaderboard. Existing Tanwar high/low context, Doppelganger contextual/translation and Stingray local FF errors are the nearest baseline, NOT novel findings. Reproduce their original task/metric before inventing more experiments.
-4. The deepest contribution should distinguish competing accounts: cue-additive/graded choice, conditional cue selection, output copying, language proficiency / generic WSD. Be willing to accept a simple explanation. Every new experiment must have an alternative prediction and a result that would cancel the preferred story.
-5. Follow Cho-inspired constructive vs observational vs causal vs predictive evidence distinctions; a trained intervention can demonstrate sufficiency without proving the natural mechanism; a probe is decodability not causal use; a full activation patch may transmit answer tokens.
-6. Data source labels are not causal categories. Exact surface forms, target sentence direction, native language, POS/inflection, sense frequency, naturalness, pair family, license and reviewer provenance must be independently audited. Source annotation "same sense in context" DOES NOT mean same natural sense distribution.
-7. Report word-typed uncertainty and protect lexeme-disjoint held-out trials. Do not treat many prompts from one word as independent lexical evidence. Do not leak answer-format or original ambiguous word into a paraphrase control.
-8. No gold-label-dependent active softmax class changes; for candidate likelihood use one properly normalized distribution per prefix. Record model/tokenizer SHA, prompts, source revision and analysis code before any model inference.
-9. Do not allocate GPU, build giant human annotation datasets, or run a full hidden-state head screen to fill an incomplete story. Fix the causal estimand first. Use the old training code only as an audit of what NOT to repeat.
-10. For every **relevant** paper, use knowledge/PAPER_NOTE_TEMPLATE.md and record research community background, inferred idea genesis, exact nearest related work, research innovation scale, key experiments and what each rules out. Maintain reading-status honesty and citations; do not infer a mechanism from abstracts.
-11. If strongest competing explanation is already sufficient, conclude so and stop. If new nearest literature already contains the proposed explanation, change the idea rather than hide the prior.
-12. Run python -m pytest -q and python scripts/check_knowledge.py; passing CI is engineering validation, NOT an empirical finding.
+优先级：当前用户要求 → RESEARCH_MAINLINE.md 与 HANDOFF.md → knowledge/FIELD_GUIDE.md 和 EXPLORATION_PORTFOLIO → 历史文档。不要从旧文件里复活已经撤销的强制 A/B/C 闯关，也不要把旧的过度停止规则当命令。
+
+1. 本工作空间是 Nhckdvrl/false-friend。所有精读、理论、方法与实验知识写入当前 knowledge/，不输出到外围 Library 或另一仓库。
+2. 你不是机械执行者。持续读最近邻及跨领域方法，结合实测更新理解；可以自主改进或替换探索实验，记录理由与因果对象变化。主轴变化及大额资源承诺需用户确认。
+3. 选题标准是重要的解释空白，不是完全无人研究。旧论文/人类理论迁移到 LLM 可以有价值；同类现象有人见过不等于解释充分。强组或好会议提高先验，不能替代逐实验判断。
+4. 论文笔记必须区分作者事实、我们的 idea 生成推测（INFERENCE）、主张边界和新实验建议。记录最近邻与最小非平凡增量，不编造原作者心理、实验、页码、录用/奖项或完整精读状态。
+5. 先复现强基线和检查测量，再围绕问题铺开少量互补高信息量实验；不是先写唯一故事然后靠复杂控制制造现象。已有 baseline 复现是地基而非需要回避的“缺乏新意”。
+6. 原始公开数据的已发表标签可支持原任务复现，保留 provenance；新修改语境/语义题需新的局部审核。不得伪造 reviewer，不要求无关的 exact-form/全词义分布控制阻断所有实验。
+7. 始终区分词形预测、词义知识、语境语义使用、自由输出和表征可解码性。来源标签不可观察、选项位置偏置、Q1自我条件化是测量竞争解释，不是预定论文题目。
+8. 后续状态可读取先前信息，但不能把因果 decoder 的后文叫作反向改写旧位置 hidden state。构造性修复不证明自然机制；普通 patch 可能传答案或其他因素。选用方法须指向一个具体不同预测。
+9. 条件失败杀死该主张，不自动杀死研究空间。普通单语与跨语有共同机制、或简单模型解释好，可能是成果；是否继续取决于新增认识与预测价值，而不是必须发现独特异常。
+10. 资源在本地实查、使用已批准空闲设备，优先缓存可胜任多语任务的模型、单节点和独立并行；不抢资源、不擅改共享环境、不无授权支付。小模型 smoke 不用于最终科学判断。
+11. 原始结果、词汇分组、prompt、版本、预算、置信度和未成功条件必须保存。探索后挑例/选阈值明示，确认集按词汇家族留出，不做伪重复；失败复現不是定论。
+12. 用 python -m pytest -q 与 python scripts/check_knowledge.py 检查软件和知识结构；自动测试不能证明事实正确或论文贡献成立。报告必须区分代码验证、原结果复现、新观察、因果解释四层。

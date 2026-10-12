@@ -1,28 +1,27 @@
-# BIA+：从词形识别到任务决定的分离（理论卡）
+# BIA+原文理论卡：语言身份未必是先行门控信号
 
-**Primary**: Dijkstra & van Heuven, *The architecture of the bilingual word recognition system: From identification to decision*, *Bilingualism: Language and Cognition*, 2002. [Publisher / DOI](https://doi.org/10.1017/S1366728902003012). **阅读深度**：S3（官方摘要、背景论文讨论；原文全文本轮未获取），不得冒充作者原文全部细节。
+**原作者**：Dijkstra & van Heuven，2002，The architecture of the bilingual word recognition system: From identification to decision。
+**主出处**：[DOI10.1017/S1366728902003012](https://doi.org/10.1017/S1366728902003012)。本轮实际阅读的[原文扫描合刊](https://scispace.com/pdf/modeling-bilingual-word-recognition-past-present-and-future-44jpgpkpb7.pdf)开头是该文，之后有同行评论和回应；封装文件标题不同，不能把评论作者当原作者。
+**阅读S1**：原文主要§§3–4.7，Fig2（合刊PDF第9页、期刊p182）及相关作者回应；不是所有51页评论穷尽分析。更新2026-10-12，替代之前仅摘要S3卡片。
 
-## 为什么会出现 BIA+？（INFERENCE，结合摘要与 BIA 历史）
+## 理论从哪里发展而来（INFERENCE）
 
-旧 BIA 描述跨语言非选择性词形激活，但仅有字形竞争不能解释语音/语义、任务规则和句子上下文所造成的种类不同的效应。BIA+ 通过拓展多层 lexical representation，同时**区分 identification system 与 task/decision system**，避免把“按哪种语言作答”的任务控制直接等同于词汇识别。
+旧BIA把语言节点兼作语言归属与词汇识别控制。不同任务、语言切换和语境结果不能简单用一个抑制机制解释，因此BIA+区分词汇识别系统和task/decision系统，并加入语音、语义等表征。创新是**改变因果解释架构以容纳不同现象**，不是第一次发现双语相互作用。
 
-**尺度**：这是对已有双语词汇识别理论的理论结构扩展，非一个评测指标。它重要的是拆解解释，非预言所有同形异义词都会慢。
+## 原文中对我们最重要的事实
 
-## 对当前模型研究启发
+BIA+弱化了旧模型语言节点向词汇识别施加全局自上而下抑制的解释。词汇形式/意义识别可先于可靠的语言成员判断；语言性上下文和非语言任务说明被赋予不同作用位置。图2把task schema与identification分开；后者包含形式、语音、语义和语言成员信息。部分扩展当时属于理论方案，不是全部已实现的数值模拟。
 
-- 实验上区分：语言归属识别；当前上下文中的 sense recognition；按照指定目标语言生成词形/翻译。
-- 错误可能停在识别层，也可能发生在答案/任务选择层；仅终端正确率无法识别。
-- 语言文字本身提供的句法/语义约束和外部任务说明是不同可操纵变量。
-- 可以设计同一句子、同一个目标意义，在不同输出任务（sense MCQA / paraphrase / translation）下的 crossed contrasts。
+## 这为何改变我们的实验设计
 
-## 重要的拒绝推论
+不能拿“模型先报告语言，然后报告对应词义”作为“自然计算先选语言再激活词义”的证据。它也可能先识别了某sense后报告语言，或者任务提示改变了报告规则。Q1生成文本还会成为Q2的自回归输入，这是人类BIA+并没有直接建模的LLM路径。
 
-BIA+ 是关于**人类读词过程**，有真实反应时与神经行为数据；标准 decoder-only Transformer 不等于级联的人类词汇识别网络。不能凭 probe 出来某个语言 logit 就命名“language node”，也不能称模型内部竞争是人类眼动干扰的同构。
+**竞争预测**：若语言报告只是事后标签，独立语义任务在改变语言报告指令时可以稳定；若指令改变实际语义使用，非复制语义后果也应改变。两者都需避免把不可观察的词条来源当“真实语言”。
 
-## 可转成竞争假设的测试
+## 非等价与保留边界
 
-H-identification：同一个目标语境在不用生成目标词、只做二选一意义任务时也经常出错。
-H-decision：意义任务稳定正确，只有要求改变输出语言/复制原词时错误。
-**强对照**：多种任务验证语义；不是用输出 “room/cream” 单个 verbalizer 定性。
+这是人类双语词汇识别理论，反应时、词频、语言熟练度、任务响应与decoder层深不等价。不能把Transformer某个latent命名language node就宣布BIA+得到验证。旧L1/L2接触频次导致的时间延迟解释可以作为候选，但须在模型可用测量上重新定义。
 
-**Related work 距离**：Tanwar 已继承双语 lexical access 框架，Doppelganger 已做多任务，Dumas/Körner 已能分别改变概念与输出语言。要新颖，须再提出被这些论文忽略的、可预测的**内部/任务阶段关系**。这是 S1/S2 论文阅读的来源追踪，不是空白声明。
+## 与近邻及贡献尺度
+
+Tanwar继承了类似的词义/语境任务，Doppelganger区分词义与翻译，Dumas/Körner可操纵概念和输出语言，Biloushchenko研究任务/清单组合。我们的增量应是：同一语言特意义在不同任务中的**可访问与使用是否可区分、何时可预测**。不要求发明一个人类理论从未问过的题目，也不预设模型与人类不同才有意义。

@@ -1,75 +1,94 @@
 #!/usr/bin/env python3
-"""Research-KB structural integrity, not scientific truth or full-paper verification."""
+"""Check source coverage, registry provenance, generated indexes and local links.
+
+No arbitrary paper-count or note-length quality threshold. Software cannot certify
+that a paper was deeply read, that its claims are true, or that an idea is worthwhile.
+"""
 from __future__ import annotations
 
+from pathlib import Path
 import re
 import sys
-from pathlib import Path
 from urllib.parse import unquote
 
+try:
+    from .build_knowledge_index import load_registry, expected_outputs
+except ImportError:
+    from build_knowledge_index import load_registry, expected_outputs
+
 ROOT = Path(__file__).resolve().parent.parent
-LOCAL_MD_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
-PAPER_STATUS = re.compile(r"\bS[123]\b")
+LOCAL_LINK = re.compile(r'(?<!!)\[[^\]]+\]\(([^)]+)\)')
+OLD_FIRST_SOURCE = re.compile(r'^\|\s*\[[^\]]+\]\((https://[^)]+)\)', re.MULTILINE)
+
+
+def _without_fences(text: str) -> str:
+    return re.sub(r'(?ms)^(```|~~~).*?^\1[^\n]*$', '', text)
+
+
+def coverage_missing(old_index: str, rows: list[dict[str, str]]) -> list[str]:
+    present = {r['url'].rstrip('/') for r in rows}
+    return sorted({u.rstrip('/') for u in OLD_FIRST_SOURCE.findall(old_index)} - present)
 
 
 def audit(root: Path = ROOT) -> list[str]:
-    kb = root / "knowledge"
+    root = root.resolve()
     problems: list[str] = []
-    if not kb.exists():
-        return ["missing knowledge directory"]
-    index = kb / "PAPERS_INDEX.md"
-    if not index.exists():
-        return ["missing knowledge/PAPERS_INDEX.md"]
-    notes = sorted((kb / "papers").glob("*.md"))
-    if len(notes) < 12:
-        problems.append(f"only {len(notes)} individual/pair paper notes; expected at least 12")
-
-    index_text = index.read_text(encoding="utf-8")
-    for paper in notes:
-        body = paper.read_text(encoding="utf-8")
-        rel = paper.relative_to(kb).as_posix()
-        if f"({rel})" not in index_text:
-            problems.append(f"unregistered paper note: {rel}")
-        if len(body) < 900:
-            problems.append(f"paper note too short for a structured research asset: {rel}")
-        if not PAPER_STATUS.search(body):
-            problems.append(f"no verified reading-depth marker: {rel}")
-        if "INFERENCE" not in body:
-            problems.append(f"paper lacks separate reconstructed idea-origin inference: {rel}")
-        if "https://" not in body:
-            problems.append(f"paper lacks a verifiable primary source link: {rel}")
-
-    # Check all local Markdown references, including future note crosslinks.
-    candidates = [root / "README.md", root / "RESEARCH_MAINLINE.md", root / "AGENTS.md"]
-    candidates += sorted((root / "docs").glob("*.md"))
-    candidates += sorted(kb.rglob("*.md"))
-    checked = 0
-    for doc in candidates:
-        if not doc.exists():
+    try:
+        rows = load_registry(root / 'knowledge/sources.tsv')
+    except (ValueError, OSError) as error:
+        return [str(error)]
+    kb = root / 'knowledge'
+    registered = set()
+    for row in rows:
+        name, _, anchor = row['asset'].partition('#')
+        path = (kb / name).resolve()
+        registered.add(path)
+        if not path.is_relative_to(kb.resolve()) or not path.is_file():
+            problems.append(f'{row["id"]}: missing or out-of-scope asset {row["asset"]}')
             continue
-        for raw in LOCAL_MD_LINK.findall(doc.read_text(encoding="utf-8")):
-            dest = raw.strip().split("#", 1)[0]
-            if not dest or dest.startswith(("http:", "https:", "mailto:", "data:")):
+        body = path.read_text(encoding='utf-8')
+        if anchor and f'id="{anchor}"' not in body:
+            problems.append(f'{row["id"]}: missing explicit catalogue anchor {anchor}')
+        if row['stage'] in {'S1', 'S2'} and not any(word in body for word in ('INFERENCE', '推测', '推演')):
+            problems.append(f'{row["id"]}: structured reading asset lacks separated idea-origin inference')
+    notes = sorted((kb / 'papers').glob('*.md'))
+    for note in notes:
+        if note.resolve() not in registered:
+            problems.append(f'unregistered paper note: {note.relative_to(kb)}')
+    baseline = kb / 'history/INDEX_BASELINE_2026-10-12.txt'
+    if not baseline.is_file():
+        problems.append('missing immutable pre-integration index coverage record')
+    else:
+        for url in coverage_missing(baseline.read_text(encoding='utf-8'), rows):
+            problems.append(f'previously indexed source silently omitted: {url}')
+    for path, expected in expected_outputs(root).items():
+        if not path.is_file() or path.read_text(encoding='utf-8') != expected:
+            problems.append(f'stale generated asset: {path.relative_to(root)}')
+    links = 0
+    documents = [root / n for n in ('README.md', 'RESEARCH_MAINLINE.md', 'AGENTS.md', 'HANDOFF.md')]
+    for folder in ('knowledge', 'docs', 'experiments', 'evidence'):
+        documents.extend((root / folder).rglob('*.md'))
+    for document in documents:
+        if not document.is_file():
+            continue
+        for raw in LOCAL_LINK.findall(_without_fences(document.read_text(encoding='utf-8'))):
+            dest = raw.split('#', 1)[0].strip()
+            if not dest or dest.startswith(('https:', 'http:', 'mailto:', 'data:')):
                 continue
-            # Plain relative paths are used in this repo; no markdown link titles.
-            target = (doc.parent / unquote(dest)).resolve()
-            checked += 1
-            if not target.is_relative_to(root.resolve()):
-                problems.append(f"link escapes repo root: {doc.relative_to(root)} -> {raw}")
-            elif not target.exists():
-                problems.append(f"broken local link: {doc.relative_to(root)} -> {raw}")
-
-    summary = f"knowledge audit: {len(notes)} paper notes, {checked} local crosslinks, {len(problems)} problems"
-    print(summary)
+            path = (document.parent / unquote(dest)).resolve()
+            links += 1
+            if not path.is_relative_to(root) or not path.exists():
+                problems.append(f'broken/outside local link: {document.relative_to(root)} -> {raw}')
+    print(f'knowledge audit: {len(rows)} source entries, {len(notes)} paper notes, {links} local links, {len(problems)} problems')
     return problems
 
 
 def main() -> int:
     problems = audit()
     for problem in problems:
-        print(f"ERROR: {problem}", file=sys.stderr)
-    return 1 if problems else 0
+        print(f'ERROR: {problem}', file=sys.stderr)
+    return int(bool(problems))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     raise SystemExit(main())
