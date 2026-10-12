@@ -1,44 +1,30 @@
-# Execution and preflight (2026 reset)
+# 本地执行：原研究复现与新诊断工具分开
 
-## Dependency policy
+主交接：[HANDOFF.md](../HANDOFF.md)。科学实验组合：[EXPLORATION_PORTFOLIO.md](../experiments/EXPLORATION_PORTFOLIO.md)。本文件不是GPU禁止令或必须等人逐步授权的队列；使用用户已批准的空闲资源，先检查实际环境。
 
-Scientific dry-run validation needs Python >= 3.10 and pytest only. The actual open-weight model pilot uses optional PyTorch + Transformers and must run only on properly approved/local resources.
+## 软件验证
 
 ```bash
 python -m pip install -e '.[dev]'
-pytest -q
-python scripts/preflight.py --data data/examples/illustrative.jsonl --allow-illustrative
+python scripts/build_knowledge_index.py --check
+python scripts/check_knowledge.py
+python -m pytest -q
 ```
 
-This preflight should report 3 rows, 1 lexical type and scientific_claims_permitted=false. **Passing does not make the example scientifically valid.**
+知识检查可保证来源登记、路径和持久试跑数据一致，不能确认实验语义或论文价值。
 
-## First verified pilot
+## 复现原研究
 
-Create your own human-audited data/verified/items.jsonl following DATA_SCHEMA.md, with independent provenance. Do not change flags to circumvent reviewer checks.
+由本地Agent选择最接近当前问题的Tanwar/Doppelganger/Abuín任务，核查作者prompt、metric、模型/tokenizer版本。源数据可支持其原任务，不必伪造两个新reviewer；缺少源评估规则时报告范围，不能自建一个似然分数就称原文复现。
 
-```bash
-python scripts/preflight.py --data data/verified/items.jsonl
-python -m pip install -e '.[pilot]'
-python scripts/run_behavior.py --data data/verified/items.jsonl \
-  --model /path/to/open-weight-causal-lm \
-  --revision PINNED_MODEL_COMMIT --device cuda:0 \
-  --output outputs/pilot.jsonl
-python scripts/summarize.py --input outputs/pilot.jsonl \
-  --output outputs/pilot_summary.json --bootstrap 2000
-```
+## 仓库现有二选一工具的界限
 
-The runner scores **both A/B candidate orders**. It explicitly refuses cases where adding an answer changes tokenizer prefix segmentation or either answer-label continuation uses more than one token. For unsupported tokenizers, modify the format transparently with new tests; do not silently force a score.
+`scripts/run_behavior.py` 与JSONL schema是**自建诊断工具**，只适配部分语言和单token回答方案，不是整个科研项目唯一入口。示例需 `--allow-illustrative` 且不作科学结论；真实派生题需来源和针对性验证。source已有标签与derived新标签应分开，不要为兼容schema篡改source类别或虚构审查记录。
 
-The summary first averages within lexical types then provides a lexeme-level exploratory bootstrap and descriptive *family-paired* differences from baseline. **It is not a confirmatory statistical test**: heterogeneous model / prompt effects and joint uncertainty have not been modeled.
+候选追加导致前缀重新分词时不可直接按旧prefix长度计算概率；当前工具会拒绝，改格式须记录新协议并测试。答案相同、分母不同的gold依赖mask不是标准预测概率。
 
-### Failure triage
+## 探索环境选择
 
-- DataError: revise the scientific item, never weaken the semantic rule to make a gate pass.
-- TokenBoundaryError: revise prompt delimiter/verbalizers or choose another model, then rerun all conditions.
-- OOM: choose a feasible local model/device, not reduced conditions selected after seeing outputs.
-- Meaning-task near chance: check data quality and instruction following before interpreting semantic mechanism.
-- Output-copy mismatch: record as separate mode; do not label it internal sense confusion.
+优先本地缓存、目标语言能力足够且可取logits/hidden states的开放模型；一台节点多组独立实验可并行。精确型号与预算由现场资源、模型语言覆盖及研究目标决定，保存版本。不能以0.5B烟雾测试推断32B模型或整个理论。
 
-### What's deliberately absent
-
-No old Gate 1 training code, no remote GPU inventory scripts, no automatic corpus scraping, no patching/probing before a behavior anomaly, no claims from a handful of template examples, and no fixed target performance numbers. Reintroduce tools only for an experiment with a causal estimand and failure criterion.
+实际运行逐例结果、失败、分组、协议变化和资源使用保存到独立run目录；本仓库[evidence](../evidence/README.md)的既有记录不得覆盖。原脚本若不满足当前设计，可主动重写更好实现，只需保持估计对象和复现差异清楚。

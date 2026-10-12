@@ -1,84 +1,25 @@
-# First Pass — a study with decisions, not a preset mechanism story
+# 已完成的第一轮来源/程序审计，以及当前交接边界
 
-**Status (2026-10-12): source data inspected and two exploratory CPU model-inference pilots completed; still no full published-baseline replication or scientifically validated mechanism result.** The primary value of this project is its explanation of previously studied behavior, not the construction of another false-friend benchmark.
+**2026-10-12：本文件是历史 sprint 摘要，不是必须执行的研究队列。** 当前自主实验组合见 [EXPLORATION_PORTFOLIO.md](EXPLORATION_PORTFOLIO.md)，正式交接见 [HANDOFF](../HANDOFF.md)。原全文保存在 `knowledge/history/FIRST_PASS_BEFORE_FOUNDATION.txt`，其停止/优先级建议以新主线为准。
 
-## An actual prioritized decision, not an open-ended benchmark
+## 原始材料与结果
 
-**P-FIRST:** Tanwar Task3 was designed with **Q1 word language, Q2 word meaning, Q3 coherence** in a single generation. Published report has roughly 70% nonEnglish-word/English-context correction vs 34% the reverse, but this is a **joint answer-label annotation**. First replicate it and test *same-item answer-order/self-conditioning* and *whether the target word's source language can be known from the exact sentence surface*. This is a sharper question than another generic context-strength bar plot. [Audit note](../knowledge/notes/TANWAR_IDENTIFIABILITY_AUDIT.md).
+Tanwar源版本 `281a67eac6ddbe5445e1c10277e5833d40d72125` 的三组语言Task3各280行（140/140），上下文标记存在性检查通过。源代码以先回答语言、再解释意义、再判断连贯性的方式生成回答；这可能引入回答级联，尚非其效应的已验证解释。
 
-A second closest neighboring paper, [Östling & Kurfalı 2026](../knowledge/papers/ostling-kurfali-2026-conflicting-language.md), already demonstrates language bias in conflicting facts under swapped evidence languages; don't claim language-conditioned conflict is new.
+Romance WiC源版本 `a87b73e387a6ef86d0cef7ffe703150905e75d7a`：704行，332词条字串完全相同，其中189为给定上下文R=0；严格逐字同形且两句中均以独立词出现的R=0为69行、58个语言对/词形单位。这是**源对象结构**，不是全部需要该筛选，也不是69个已独立标注的有效新实验。
 
-## Closest published baselines to reproduce
+原作者70/34等输出类别统计尚未用原模型与原人工分类完成忠实复现。自建二选一英语定义读出不同于作者自由生成协议；不可替代后仍说复现。
 
-1. [Tanwar et al. bilingual word processing](https://github.com/EshaanT/Bilingual_processing_LLMs) contains task1 word-sense discrimination, task2 semantic judgement, and task3 high/low semantic constraint for EN-DE/ES/FR. Reuse their original prompts, targets and code for a true baseline. Task3 is masked-word prediction in **prior context**, NOT late-evidence revision.
-2. [Doppelganger-JC](https://github.com/0017-alt/Doppelganger-JC) contains isolated meaning, contextual meaning and translation of Chinese/Japanese same/near form. Its word/context/translation task contrast is already a substantial contribution; a naive reproduction is not new.
-3. [Abuín et al., Romance WiC](https://github.com/mrtva/false-friends-vs-cognates) commit a87b73e387a6ef86d0cef7ffe703150905e75d7a: six original TSVs with contextual same/different meaning labels. Use only as source inventory and task-level semantic relationship measurement; no causal whole-distribution aligned-control claims.
+## 历史试跑
 
-Our existing run_behavior.py (label-order-balanced two-gloss score) is **different from the original published metrics**. Keep original and additional results separate. A positive forced-choice score is not the posterior of latent sense.
+0.5B的一词六次生成有目标误认和德语名词大小写风险；1.5B的三词36次分数有选项顺序敏感性。详见 [原报告](PILOT_FINDINGS_2026-10-12.md) 和 [本仓库持久证据](../evidence/README.md)。这些小试跑不能选择或否决一个大研究方向。
 
-## Executable source-only preflights (no GPU or network inside scripts)
+## 仍可使用的工具
 
-Clone the two published data repositories locally, or supply previously downloaded originals:
+```bash
+python scripts/audit_romance_wic.py --source-dir SOURCE_DIR --output outputs/romance.json
+python scripts/audit_tanwar_baseline.py --source-dir SOURCE_DATA_DIR --output outputs/tanwar.json
+python scripts/audit_tanwar_identifiability.py --source-dir SOURCE_DATA_DIR --output outputs/identity.json
+```
 
-~~~bash
-git clone https://github.com/mrtva/false-friends-vs-cognates.git
-python scripts/audit_romance_wic.py \
-  --source-dir false-friends-vs-cognates \
-  --output outputs/romance_audit.json
-
-git clone https://github.com/EshaanT/Bilingual_processing_LLMs.git
-python scripts/audit_tanwar_baseline.py \
-  --source-dir Bilingual_processing_LLMs/data \
-  --output outputs/tanwar_audit.json
-
-python -m pytest -q
-~~~
-
-Rome data strict **case-sensitive whole word** filter (actual checked from GitHub source):
-- 704 total word-pair rows; 332 word-pairs have identical W1/W2 strings.
-- 189 exactly identical word-pairs with R=0 contextual different-meaning; 143 with R=1 contextual same-meaning.
-- Of these, **69 R=0 and 64 R=1** have that identical lexical form appearing exactly as a standalone whole word in both C1 and C2.
-- The 69 R=0 records cover **58 unique (language pair, lexical form)** candidate types.
-- 52 R=0 rows lack a POS slash; this does not mean a valid POS match.
-- Some items use inflection in actual contexts even if W1==W2; many human and auto subsets share lexemes. Neither row number nor form count equals independent scientific lexical observations.
-- The language pair from a filename does not guarantee W1/C1 corresponds to the first named language for every row; audit orientation independently.
-
-Output status is SOURCE_DATA_PREFLIGHT_NOT_SCIENTIFIC_RESULT, with manifest annotation_verified_for_new_experiment=false. **Do not publish numerical claims about LLM performance from these counts.**
-
-## Proposed initial scientific experiments — NOT YET EXECUTED
-
-**T1 — published baseline fidelity first:** run original Tanwar Task 3 with fixed model and authors' metric and original prompts, record exact base model/tokenizer SHAs, per-word and per-language result distribution, available source vs target language usage. Do the same for Doppelganger-JC three tasks. Avoid treating paper's isolated word meaning item as an automatically valid contextual sense judgment.
-
-**T2 — do apparent errors survive a meaning-only task?** Compare the same lexical senses on context judgement, independent referent/entailment questions and translation/copy outcome, using native-verified gold. If semantic reasoning is correct but translation copies the form, no evidence for hidden sense competition.
-
-**T3 — independent cue calibration and conflict:** for prequalified words, separately rate contextual evidence and model prior under language-only, semantic-only, congruent and conflicting evidence. Freeze simple additive predictions from nonconflict cue cells and test on lexeme-disjoint held-out conflict cells, compare with an interaction/routing predictor and an ordinary same-language ambiguity baseline. Avoid arbitrary code-mixing that yields unnatural sentences.
-
-**T4 — conditional causal intervention only on diagnostic residuals:** if T3 shows reproducible, held-out non-additivity in non-copy semantic inference, identify one precise contradiction; compare selective semantic- and language-cue patches with wrong-semantic/same-answer-label controls. If broad patching merely supplies answer strings, stop.
-
-## What is a negative result?
-
-- No lexical competence even in clear target-language sentence: knowledge-deficit, no competition claim.
-- Wrong outputs only in translation strings: copying/output artifact, no sense-selection mechanism claim.
-- Generic within-language ambiguity fully predicts differences: no false-friend-specific effect.
-- Additive model predicts held-out cases and interacts no worse than complexity-penalized models: no fancy internal gating story necessary.
-- Unable to create grammatical, matched and independently valid cross-cue cases: invalid contrast; stop, don't handcraft favorable data.
-
-## Baseline implementation boundary
-
-No model weights or user GPU server are mounted through this conversation. Source audits and Python unit tests have been implemented; actual LLM baseline running is a future separate execution on an accessible machine. GitHub CI only validates code / synthetic fixture behavior, not experimental results.
-
-
-## Pinned-source GitHub Actions replay (2026-10-12, VERIFIED source-only)
-
-The external published-source audit job cloned and checked out:
-- Tanwar: 281a67eac6ddbe5445e1c10277e5833d40d72125; Task3 EN-DE/EN-FR/EN-ES each **280** rows (140 COGNATE + 140 FALSE COGNATE) and 0 rows with missing <MASK> across the four low/high language context fields.
-- Abuín Romance: a87b73e387a6ef86d0cef7ffe703150905e75d7a; 704 paired records, 69 R0 strict-context rows covering 58 language-pair+form units.
-
-[Source-data audit logs](https://github.com/Nhckdvrl/false-friend/actions/runs/38155507571) · [JSON output artifact](https://github.com/Nhckdvrl/false-friend/actions/runs/38155507571/artifacts/11707823643).
-
-These are validated **data structures and case-sensitive surface filters only**, not model-performance findings or independent reannotation of semantic labels. Baseline language-model runs and original paper metrics are pending access to a suitable model environment.
-
-
-### Pilot results and next measurement gate (2026-10-12)
-
-See [instrument pilot findings](PILOT_FINDINGS_2026-10-12.md): 0.5B generated 6 outputs on risky German lowercase noun, 1.5B scored 36 standard A/B gloss likelihoods on source adjectives. Large answer-order effects remain even with paired option swap (7/18 conditions changed single-order sign). Next **validate alternative answer labels and non-copy semantic inference** before fitting a gating function to this data. No historical 70/34 LLaMA3.1 replication is claimed.
+这些工具用于检查源数据对象，不证明模型能力。后续优先用能力合适的缓存模型和原任务建立可重复事实，再按问题设计交叉测量和反事实，不继续无限扩展源审计。

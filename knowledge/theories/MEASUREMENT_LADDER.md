@@ -1,28 +1,16 @@
-# 观测 → 构造 → 因果 → 预测：不混淆科学证据的类型
+# 构造、自然观察、因果干预与预测不是同一种证据
 
-| 层次 | 常用操作 | 最多能说什么 | 危险误读 |
-|---|---|---|---|
-| form | surprisal / token logp | 这个字串在前缀里较易预测 | “模型理解了它” |
-| behavior | fixed-answer MCQA logp / free translation | 此任务和候选集合下答案偏好 | “可以读到 P(latent_sense|context)” |
-| representation | ABX、probe、geometry | 某些信息在表示中可被某种方法解码 | “这些信息用于生成答案” |
-| constructive | filter/split embedding/context replacement | 某个机制**可以实现**此功能 | “未干预模型事实上在使用此机制” |
-| causal | 选择性 patch/ablation + reciprocal controls | 改变某些状态影响了输出 | “找到唯一干净模块或明确神经方向” |
-| predictive | frozen theory → unseen lexical items & tasks | 有一定独立推广与条件边界 | “没有遗漏的机制或永远普适” |
+**方法综合 INFERENCE**。来源见 [Cho完整实验推演](../notes/CHO_FULL_PAPER_RECONSTRUCTION_2026.md)、[ABX](../papers/de-seyssel-2025-abx.md)、[patching方法](../papers/zhang-nanda-2023-patching-methods.md)、[PriDe](../papers/zheng-2024-pride-selection-bias.md)。Cho2026完整原文已在前轮恢复并阅读；本卡不再沿用旧的“尚未取得全文”描述。
 
-## Cho 为什么有力量？
+| 证据 | 最多直接支持 | 不能自动支持 |
+|---|---|---|
+| form surprisal | 前缀下字串的可预测性 | 使用了正确sense |
+| 选项/生成任务行为 | 给定任务与格式下的回答 | 潜在真实词义后验 |
+| ABX/SAE/probe | 定义的属性在选定读出下可区分 | 后续解码自然使用该信息 |
+| 人工filter/steering/shortcut | 一个外部操作可以实现功能 | 原模型用相同算法完成它 |
+| selective patch/ablation | 改变指定状态会改变行为 | 只传了词义而没有答案/任务等信息；唯一机制 |
+| 词汇家族留出预测 | 当前解释对新实例有一定推广 | 已排除所有潜在替代机制 |
 
-Cho ICLR 2026（完整手稿本轮访问受限）的大致证据逻辑为：选择 label-absence 中已有解释困难的现象 → 人工低秩过滤说明信息去除可以支持任务 → 测 few-shot hidden states 是否出现类比的去除 → 进一步消融相关计算检验是否有必要。每一步回答前一步没有回答的事。
+设计应明确哪两种解释仍能产生同一观察，然后选择它们预测不同的最小操作。把量化指标、语义对象和概率分母先说清；配对与未见词留出避免伪重复。自然donor、同答案不同语义、同语义不同语言、相反方向与不相关行为保持是可选的高信息量对照，不必为每实验凑一个机械清单。
 
-但是其论文写法不能原样复制到别的领域。尤其不能先选“在神经元里找某种信息”再反推研究问题；我们应从 **存在 competing behavioral predictions 的关键反例** 开始。
-
-## 设计量化操作时的五个独立性检查
-
-1. 明确观测单位：lexeme/type、context family、model seed，而不是把所有模板重复看成独立。
-2. 真实条件不变：词形是否 exact match、POS、语言方向、原语境语义、答案语言、词频、长度；若不能全匹配，设计 factorial 或认定不可识别。
-3. **候选分母**：相同给定前缀下概率必须来自相同标准 softmax；禁止旧项目那种按 gold label 变 active vocabulary。
-4. patch 的任务标签/答案 token 污染：必须用相同答案但**不同语义**的源例子作控制（Ravisankar 2026 已提供良好先例）。
-5. Prefix versus final context：标准因果 Transformer 中后续 token 不会改写旧位置 state；在后文位置出现的解释更新，要与语言身份/recency/词序效应分开。
-
-## 最强的实验不是复杂，而是负结果的明确含义
-
-给每个 Figure 写一句：如果结果是 X，哪个解释被否决？如果结果是 Y，下一步为什么必须做？没有这种答案的实验就是附加 plot，应该删除。
+解释失败时可以保留较弱、真实的认识。一个简单共同机制解释得好并非实验失败；是否值得继续取决于它是否改变理解或预测，不是必须找出异常。

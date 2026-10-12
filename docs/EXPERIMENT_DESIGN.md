@@ -1,11 +1,9 @@
-# Experimental design — superseded by one active, adaptable program (2026-10-12)
+# 当前实验设计入口
 
-The previous fixed E0–E5 late-revision experiment sequence is **withdrawn from the active plan**. It was too committed to a favored explanation and too close to established Tanwar, Doppelganger, Körner and general garden-path effects.
+2026-10-12：旧E0–E5强制链和随后“必须有特异cue交互才继续”的门槛均已被修订。当前可自主重排的实验组合在 [experiments/EXPLORATION_PORTFOLIO.md](../experiments/EXPLORATION_PORTFOLIO.md)，资源和研究自主权在 [HANDOFF.md](../HANDOFF.md)。
 
-Active scientific logic: [RESEARCH_MAINLINE.md](../RESEARCH_MAINLINE.md), [knowledge/ideas/ACTIVE_QUESTION.md](../knowledge/ideas/ACTIVE_QUESTION.md), and the specific [baseline and exploratory preflight](../experiments/FIRST_PASS.md).
+实验应能区分已有解释：知识覆盖、语境实际使用、表达路径、测量效应；不是为了制造某个预选机制。单个效应消失或简单模型成功，应改变相应主张，不自动关闭整个研究空间。
 
-The project investigates whether **independently calibrated language-identity and semantic-context evidence jointly predicts contextual sense decisions** under false-friend competition, or whether identifiable additional conditional processing is necessary. Competitors include additive integration, lexical knowledge deficits, ordinary ambiguity and output-only copying. Further experiments follow observed failures of simpler accounts, NOT a mandatory implementation pipeline.
+原作者任务的忠实复现与我们新增的语义测量分开记录。材料修改、选样、prompt和model/tokenizer都应版本化。多词汇族和多种语义后果有助于判断跨任务关系；没有必要把每个新方法都同时加进来。
 
-**Standing invariant:** source annotation meaning/context provenance must correspond to the measured effect. All causal claims require matched controls, non-copy semantic consequences, type-level held-out prediction, and selective causal interventions whose conclusions are constrained by measured collateral change.
-
-Old 2026-10-11 program lives in Git history at commit 32155997 for traceability; do not resurrect the former A/B/C queues or treat archived experiments as valid negatives.
+历史的数据审计和试跑运行说明见 [FIRST_PASS.md](../experiments/FIRST_PASS.md)；原始流程不再作为当前agent的任务队列。

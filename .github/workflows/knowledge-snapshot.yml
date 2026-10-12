@@ -3,7 +3,7 @@ on:
   push:
     branches: [research/knowledge-foundation-2026-10-12]
 permissions:
-  contents: read
+  contents: write
 jobs:
   snapshot:
     runs-on: ubuntu-latest
@@ -28,3 +28,12 @@ jobs:
           name: false-friend-tracked-snapshot
           path: /tmp/false-friend-tracked.zip
           retention-days: 7
+      - name: Record generated navigation files only on isolated audit branch
+        run: |
+          test "$GITHUB_REF" = "refs/heads/research/knowledge-foundation-2026-10-12"
+          git add knowledge/PAPERS_INDEX.md knowledge/catalogue/SOURCE_CARDS.md
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Generate workbench paper index and bounded source cards from canonical registry'
+          git push origin HEAD:refs/heads/research/knowledge-foundation-2026-10-12

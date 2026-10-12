@@ -1,0 +1,68 @@
+[
+  {
+    "item_id": "180",
+    "word_language_index": "en",
+    "host_sentence_language": "de",
+    "word": "brand",
+    "semantic_constraint": "high",
+    "prompt_variant": "original",
+    "generated": "Q1. The language of the enclosed word is German.\nQ2. The enclosed word means \"The burning and roaring fire\" or more literally \"The blazing fire\".\nQ3. Yes, the given sentence makes sense in context with the meaning of the enclosed word.",
+    "prompt_sha256": "72e0711f3898c94c5dc9ff173e92334dd3881975c26f41668a177767fd187daf",
+    "context_sha256": "a37c9234cfb5e6a05aaed6a9c713c4f95972dccc2cea46337b81b1413cf945f4"
+  },
+  {
+    "item_id": "180",
+    "word_language_index": "en",
+    "host_sentence_language": "de",
+    "word": "brand",
+    "semantic_constraint": "high",
+    "prompt_variant": "meaning_first",
+    "generated": "Q1. Die Loderne\nQ2. Deutsch\nQ3. Ja, die Sätze passen zusammen und das Wort hat eine Bedeutung, die in der englischen Version übersetzt werden könnte.",
+    "prompt_sha256": "ddf1d59d3965045e497fd81d212bd8d066a9b1b2e33c8bea653ee09e24c9dfce",
+    "context_sha256": "a37c9234cfb5e6a05aaed6a9c713c4f95972dccc2cea46337b81b1413cf945f4"
+  },
+  {
+    "item_id": "180",
+    "word_language_index": "en",
+    "host_sentence_language": "de",
+    "word": "brand",
+    "semantic_constraint": "high",
+    "prompt_variant": "meaning_only",
+    "generated": "The enclosed word is \"Holz\".",
+    "prompt_sha256": "36af8f23680a911d3a15c106e516f4a2a1ddcbf4cfe0f8503a624cd0cc916709",
+    "context_sha256": "a37c9234cfb5e6a05aaed6a9c713c4f95972dccc2cea46337b81b1413cf945f4"
+  },
+  {
+    "item_id": "180",
+    "word_language_index": "de",
+    "host_sentence_language": "en",
+    "word": "brand",
+    "semantic_constraint": "high",
+    "prompt_variant": "original",
+    "generated": "The given sentence translates to: \"Recognized for quality, the 'brand' has become synonymous with luxury and indulgence.\" \n\nNow, let's answer the questions:\n\nQ1. The language of the enclosed word is German.\nQ2. The enclosed word means \"Brand.\"\nQ3. Yes, the given sentence makes sense in context with the meaning of the enclosed word.",
+    "prompt_sha256": "68281e78f45dee6b52acd78b62064528003aa2036d2b15d7c0278ce80cd612e3",
+    "context_sha256": "3ef870be791f7bc423874266aabb5a8f4b4669551eb31045769d7565da36989f"
+  },
+  {
+    "item_id": "180",
+    "word_language_index": "de",
+    "host_sentence_language": "en",
+    "word": "brand",
+    "semantic_constraint": "high",
+    "prompt_variant": "meaning_first",
+    "generated": "The enclosed word is \"brand\". The meaning of this word is \"brand\", which refers to a distinctive or recognizable product, service, or organization that stands out from its competitors. \n\nThe language of this word is German.\n\nThe given sentence makes sense in context with the meaning of the enclosed word.",
+    "prompt_sha256": "e8bf211132cdf0b3f66e94940e77402ff57e5bfdbd263f433483caa31c3006a5",
+    "context_sha256": "3ef870be791f7bc423874266aabb5a8f4b4669551eb31045769d7565da36989f"
+  },
+  {
+    "item_id": "180",
+    "word_language_index": "de",
+    "host_sentence_language": "en",
+    "word": "brand",
+    "semantic_constraint": "high",
+    "prompt_variant": "meaning_only",
+    "generated": "The enclosed word is \"brand\".",
+    "prompt_sha256": "f15464acc939153ce8fe9ea2e7865d0283f7b2f63d1e5ee0503542c17e5d58b5",
+    "context_sha256": "3ef870be791f7bc423874266aabb5a8f4b4669551eb31045769d7565da36989f"
+  }
+]

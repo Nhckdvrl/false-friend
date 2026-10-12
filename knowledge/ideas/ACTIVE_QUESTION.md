@@ -1,36 +1,21 @@
-# Current explanatory target: multilingual sense arbitration
+# 当前探索空间与具体问题
 
-This is the **only active question**, and its mechanism remains UNKNOWN (2026-10-12).
+正式主线：[RESEARCH_MAINLINE.md](../../RESEARCH_MAINLINE.md)。截至2026-10-12，**没有已经确定的词义门控机制或论文结论**。
 
-## New first falsifier from published asymmetric correction
+我们问：**同一模型对语言特定词义的可访问知识，在什么条件下无法变成当前语境/任务中的正确语义使用或表达？哪些最简单的解释足以预测，哪些还缺东西？** 这涵盖覆盖、语境选择/使用、最终表达和测量路径，但不假定它们在模型内形成四个独立模块。
 
-The nearest source actually reports ≈70% vs 34% opposite contextual-correction directions. But if a true word's *language source* is hidden for identical written forms and the prompt forces **language answer before meaning answer**, this directional difference may arise from **unidentifiable source labels or response self-conditioning**. Reproduce and falsify these simple accounts first, before interpreting a meaning-selection interaction as internal multilingual gating. See [Tanwar source audit](../notes/TANWAR_IDENTIFIABILITY_AUDIT.md). This result is published and has NOT been independently reproduced with a model in our repo.
+## 具体而非空白
 
-## Scientific origin (our INFERENCE, not an author quote)
+Tanwar、Stingray、Doppelganger提供已研究的词义/语境/翻译现象；Dumas、Körner、Ravisankar、Wang和Sun已经讨论概念、输出和访问。我们不宣称“知识与使用分离”首次被发现。下一步有价值的增量是对**语言特定义项、同一实例、多个语义任务**建立有反事实支撑的失败条件与预测，而非仅换语言对或模型。
 
-BIA+ distinguishes lexical identification and task decision. Stingray/Tanwar quantify cross-lingual sense errors and high/low semantic context effects. Doppelganger disambiguates word, context and translation copying. Kallini/Škrjanec show frequency/overlap changes form/global transfer, not item-level semantic fidelity. Dumas/Körner/Ravisankar causally manipulate multilingual content but their results can mix concept selection, answer strings and language output.
+## 应保持开放的分叉
 
-Each supplies a piece; together they suggest asking **whether several observed cues are sufficient to predict a lexical sense decision, or whether one cue conditionally controls the role of another**. This is NOT an empirical contradiction between their papers; those papers measure different outputs.
+若清楚上下文下也不知目标义项，覆盖/熟悉度是优先解释。若意义判断对而非复制语义后果错，需区分任务难度与实际使用。若语义后果稳定正确但翻译复制错，应探究表达路径而不是叫作语义混淆。若简单证据函数解释整个图谱，可检验它的跨词、跨任务边界；它可能有价值，不应为寻找门控而故意制造异常。
 
-## Rival generative accounts
+普通单语歧义参照可以揭示特殊条件，也可以支持共同机制。二者都允许。真正不够的是没有稳定测量、没有能改变认识的下一步，或只剩一个漂亮图。
 
-1. **M0 additive/graded evidence**: for a fixed instrument and meaning pair, signed correct-versus-competitor response preference is described by independently estimated lexical-language prior, language identification evidence and semantic-context evidence. No independently predictive extra interaction is required.
-2. **M1 conditional routing**: the amount of contextual semantic information used depends on language evidence (or conversely); on held-out lexemes a prespecified interaction improves prediction beyond M0. This is a functional behavioral model, not a literal observed hidden-state gate.
-3. **M2 output formatting/copy**: meaning inference is correct, translation/string or answer verbalizers are wrong.
-4. **M3 ordinary ambiguity/knowledge**: target meaning never reliably learned or generic monolingual polysemy accounts for the residual.
+## 自主实验的边界
 
-## Smallest useful discovery experiment
+当前推荐多个互补研究而非唯一路线：[EXPLORATION_PORTFOLIO](../../experiments/EXPLORATION_PORTFOLIO.md)。原70/34方向性分类、Q1顺序和选项偏置是可用起点，但不是必须永久保护的中心。可以用更好的源数据和能力合适的本地模型替换，记录偏离和理由。
 
-Start with authors' existing word/context/translation baselines. If same-item semantic errors remain, use separately validated single-cue conditions to predict congruent/conflicting-cue conditions. Compare M0 and M1 on lexeme-disjoint held-out families, with at least one independent semantic entailment target that **never requires repeating the source word**. Match grammaticality, lemma-vs-form, POS, relative target-language proficiency, answer-option prior, semantic plausibility, length, sentence direction, and frequency as far as feasible.
-
-Question to ask at each surprising item: why doesn't M0 predict it? First test simple alternative: cue was invalid; bilingual competence is insufficient; option is copied; sense frequency mismatched; ordinary ambiguity produces same interaction. Only after these are excluded does a causal intervention make sense.
-
-## When to stop
-
-If additive evidence with ordinary lexical competence predicts held-out choices within measurement noise, **do not invent a gate**. This may still improve understanding if it shows earlier complicated claims were unnecessary. If only translation differs from semantic entailment, focus on output copying *only if* a real residual novel to Körner exists. If all cues cannot be independently manipulated without unnatural text, causal identifiability fails. If effects do not generalize to unseen word families, narrow or terminate.
-
-## What makes it deeper than another context benchmark?
-
-Not the number of languages. A publishable scientific contribution would be a calibrated, intervention-supported explanation of when words with competing cross-language senses are resolved or misresolved, that predicts **unseen** cases and distinguishes representation, language evidence and output copying, or a convincing falsification of an over-strong alternative. It is okay if the parsimonious null wins.
-
-**Closely related / must beat**: Tanwar v2 2026 §4.1–4.3; Doppelganger-JC §§3–5; Dumas ACL 2025; Körner EACL 2026 §5.3; Ravisankar EACL 2026 same-answer different-semantics donor. Cf. knowledge/PAPERS_INDEX.md.
+原A/B/C只作为历史推测，见 [RETIRED_HYPOTHESES.md](RETIRED_HYPOTHESES.md)。撤销的是固定故事和预算，不是永久禁止由新证据重新提出其中某个变量。
