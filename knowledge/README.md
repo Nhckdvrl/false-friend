@@ -2,6 +2,8 @@
 
 **位置固定：Nhckdvrl/false-friend/knowledge/**。更新2026-10-13。
 
+最新实证：[第四轮Romance与目标范围](notes/ROMANCE_SCOPE_CYCLE_RESULTS_2026-10-13.md)，16运行、21,424生成，出现新词族上的范围不敏感预测；[四轮进展总览](notes/CURRENT_PROGRESS_2026-10-13.md)统一已知、未知与接续入口。此前为[AM2iCo第三轮](notes/AM2ICO_CYCLE_RESULTS_2026-10-13.md)、[输出语言第二轮](notes/OUTPUT_LANGUAGE_CYCLE_RESULTS_2026-10-13.md)及[第一轮本地研究](notes/LOCAL_RESEARCH_UPDATE_2026-10-13.md)。主会完成度与最近邻距离：[ACL主会对照](notes/MAIN_VENUE_COMPARISON_2026-10-13.md)。包含原协议复核、新观察及失败测量，尚无内部机制结论。
+
 ## 读什么、为什么
 
 先读 [领域画像](FIELD_GUIDE.md) 和 [实验设计的来源与尺度](EXPERIMENT_DESIGN_LESSONS.md)，再按 [分类论文索引](PAPERS_INDEX.md) 找到与下一实验最近的两三篇。机器可检索原始登记为 [sources.tsv](sources.tsv)，历史40条索引的不可静默漏收快照在 `history/INDEX_BASELINE_2026-10-12.txt`。
