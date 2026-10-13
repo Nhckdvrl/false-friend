@@ -1,0 +1,91 @@
+{
+  "groups": [
+    {
+      "task": "lexical_proposition",
+      "condition": "proposition",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 192,
+      "correct": 167,
+      "parsed": 192,
+      "yes": 121,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "lexical_proposition",
+      "condition": "proposition",
+      "language_pair": "zh-en",
+      "subset": "authored",
+      "n": 192,
+      "correct": 160,
+      "parsed": 192,
+      "yes": 128,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "lexical_proposition",
+      "condition": "word",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 192,
+      "correct": 106,
+      "parsed": 192,
+      "yes": 126,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "lexical_proposition",
+      "condition": "word",
+      "language_pair": "zh-en",
+      "subset": "authored",
+      "n": 192,
+      "correct": 113,
+      "parsed": 192,
+      "yes": 141,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    }
+  ],
+  "symmetry": [],
+  "factorial": [],
+  "run_status": "COMPLETE",
+  "family_metrics": [
+    {
+      "task": "lexical_proposition",
+      "condition": "proposition",
+      "split": "all",
+      "n_outputs": 384,
+      "correct": 327,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.8515625,
+        "ci95": [
+          0.828125,
+          0.8723958333333334
+        ]
+      }
+    },
+    {
+      "task": "lexical_proposition",
+      "condition": "word",
+      "split": "all",
+      "n_outputs": 384,
+      "correct": 219,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.5703125,
+        "ci95": [
+          0.5442708333333334,
+          0.5963541666666666
+        ]
+      }
+    }
+  ],
+  "generation_tasks": {
+    "lexical_proposition": 768
+  },
+  "hit_token_limit": 0
+}

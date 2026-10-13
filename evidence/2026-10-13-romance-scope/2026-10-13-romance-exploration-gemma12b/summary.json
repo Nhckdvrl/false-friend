@@ -1,0 +1,491 @@
+{
+  "groups": [
+    {
+      "task": "orthogonal_relation",
+      "condition": "meaning:different",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 96,
+      "parsed": 96,
+      "yes": 48,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "meaning:different",
+      "language_pair": "zh-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 95,
+      "parsed": 96,
+      "yes": 49,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "meaning:same",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 89,
+      "parsed": 96,
+      "yes": 55,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "meaning:same",
+      "language_pair": "zh-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 83,
+      "parsed": 96,
+      "yes": 61,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "person:different",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 35,
+      "parsed": 96,
+      "yes": 63,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "person:different",
+      "language_pair": "zh-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 54,
+      "parsed": 96,
+      "yes": 84,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "person:same",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 96,
+      "parsed": 96,
+      "yes": 48,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "person:same",
+      "language_pair": "zh-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 75,
+      "parsed": 96,
+      "yes": 69,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    }
+  ],
+  "symmetry": [],
+  "factorial": [
+    {
+      "language_pair": "en-en",
+      "relation": "meaning",
+      "polarity": "different",
+      "same_meaning": 0,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "meaning",
+      "polarity": "different",
+      "same_meaning": 0,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "meaning",
+      "polarity": "different",
+      "same_meaning": 1,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "meaning",
+      "polarity": "different",
+      "same_meaning": 1,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "meaning",
+      "polarity": "same",
+      "same_meaning": 0,
+      "same_person": 0,
+      "n": 24,
+      "correct": 17,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "meaning",
+      "polarity": "same",
+      "same_meaning": 0,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "meaning",
+      "polarity": "same",
+      "same_meaning": 1,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "meaning",
+      "polarity": "same",
+      "same_meaning": 1,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "person",
+      "polarity": "different",
+      "same_meaning": 0,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "person",
+      "polarity": "different",
+      "same_meaning": 0,
+      "same_person": 1,
+      "n": 24,
+      "correct": 0,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "person",
+      "polarity": "different",
+      "same_meaning": 1,
+      "same_person": 0,
+      "n": 24,
+      "correct": 1,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "person",
+      "polarity": "different",
+      "same_meaning": 1,
+      "same_person": 1,
+      "n": 24,
+      "correct": 10,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "person",
+      "polarity": "same",
+      "same_meaning": 0,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "person",
+      "polarity": "same",
+      "same_meaning": 0,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "person",
+      "polarity": "same",
+      "same_meaning": 1,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "en-en",
+      "relation": "person",
+      "polarity": "same",
+      "same_meaning": 1,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "meaning",
+      "polarity": "different",
+      "same_meaning": 0,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "meaning",
+      "polarity": "different",
+      "same_meaning": 0,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "meaning",
+      "polarity": "different",
+      "same_meaning": 1,
+      "same_person": 0,
+      "n": 24,
+      "correct": 23,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "meaning",
+      "polarity": "different",
+      "same_meaning": 1,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "meaning",
+      "polarity": "same",
+      "same_meaning": 0,
+      "same_person": 0,
+      "n": 24,
+      "correct": 14,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "meaning",
+      "polarity": "same",
+      "same_meaning": 0,
+      "same_person": 1,
+      "n": 24,
+      "correct": 21,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "meaning",
+      "polarity": "same",
+      "same_meaning": 1,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "meaning",
+      "polarity": "same",
+      "same_meaning": 1,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "person",
+      "polarity": "different",
+      "same_meaning": 0,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "person",
+      "polarity": "different",
+      "same_meaning": 0,
+      "same_person": 1,
+      "n": 24,
+      "correct": 0,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "person",
+      "polarity": "different",
+      "same_meaning": 1,
+      "same_person": 0,
+      "n": 24,
+      "correct": 21,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "person",
+      "polarity": "different",
+      "same_meaning": 1,
+      "same_person": 1,
+      "n": 24,
+      "correct": 9,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "person",
+      "polarity": "same",
+      "same_meaning": 0,
+      "same_person": 0,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "person",
+      "polarity": "same",
+      "same_meaning": 0,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "person",
+      "polarity": "same",
+      "same_meaning": 1,
+      "same_person": 0,
+      "n": 24,
+      "correct": 3,
+      "unparsed": 0
+    },
+    {
+      "language_pair": "zh-en",
+      "relation": "person",
+      "polarity": "same",
+      "same_meaning": 1,
+      "same_person": 1,
+      "n": 24,
+      "correct": 24,
+      "unparsed": 0
+    }
+  ],
+  "run_status": "COMPLETE",
+  "family_metrics": [
+    {
+      "task": "orthogonal_relation",
+      "condition": "meaning:different",
+      "split": "all",
+      "n_outputs": 192,
+      "correct": 191,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.9947916666666666,
+        "ci95": [
+          0.984375,
+          1.0
+        ]
+      }
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "meaning:same",
+      "split": "all",
+      "n_outputs": 192,
+      "correct": 172,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.8958333333333334,
+        "ci95": [
+          0.8385416666666666,
+          0.9479166666666666
+        ]
+      }
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "person:different",
+      "split": "all",
+      "n_outputs": 192,
+      "correct": 89,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.4635416666666667,
+        "ci95": [
+          0.4114583333333333,
+          0.5104166666666666
+        ]
+      }
+    },
+    {
+      "task": "orthogonal_relation",
+      "condition": "person:same",
+      "split": "all",
+      "n_outputs": 192,
+      "correct": 171,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.890625,
+        "ci95": [
+          0.875,
+          0.90625
+        ]
+      }
+    }
+  ],
+  "generation_tasks": {
+    "orthogonal_relation": 768,
+    "independent_gloss": 1700
+  },
+  "hit_token_limit": 0
+}

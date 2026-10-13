@@ -1,0 +1,58 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-output-language-qwen32b",
+  "files": {
+    "code_snapshot.py": {
+      "sha256": "815ec230b0a4d5811c17efb7e44e210e02c393ea9cf86ff617619e97040d4283",
+      "bytes": 9247
+    },
+    "decisions.jsonl": {
+      "sha256": "892c43a04da50cbdf55c349f8d217b5eb5edf3ac0bd172357905a8b919d0b9c0",
+      "bytes": 520039
+    },
+    "generation_agent_review.jsonl": {
+      "sha256": "73f16c8c6f714ada911c4baedd2b3003978227a09db27a5c1d558addf2f6d646",
+      "bytes": 55667
+    },
+    "generation_checks.jsonl": {
+      "sha256": "de93fb0fcef7a7aeeda84255913a40581bc3e3b2c45ee0d3ef5ba9b80dc8e672",
+      "bytes": 20144
+    },
+    "generations.jsonl": {
+      "sha256": "8bb44866963c5bd6c8f30a5c32f9e4bae8703a24d307d7c6885b9f0bceea2214",
+      "bytes": 272540
+    },
+    "items.jsonl": {
+      "sha256": "427cde72ae1f744e593907b67fb46bc929f040edb01d6960aba9e706671ac1eb",
+      "bytes": 35105
+    },
+    "language_flips.jsonl": {
+      "sha256": "6a8b8fc7870c720a9641ac498622fc745fdd45e3877ace116855122a79a9bb79",
+      "bytes": 1239
+    },
+    "manifest.json": {
+      "sha256": "39970d0f9aabe9d80281963e97cb8ec216dbf68be325be3c3e1c6b70b3f53d25",
+      "bytes": 1911
+    },
+    "mapping_checks.jsonl": {
+      "sha256": "649ba919f86185013b453dfb7b95f71a65f17b595e9a5a3ad33835d0d1e749c3",
+      "bytes": 101179
+    },
+    "scorer_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "summary.json": {
+      "sha256": "29644c6c4d68cb778c6c98ef1994b359d43089a3f80b89a4e49b5ba77a4cfa60",
+      "bytes": 38944
+    },
+    "trial_specs.jsonl": {
+      "sha256": "ac8499a461beb4dccdc3794d182dd26ff5cecd5032911a454923b8f4fa8da021",
+      "bytes": 3252024
+    },
+    "trials.jsonl": {
+      "sha256": "ad6d3bc7574fc02553e97582ea02fb6bdc891ac949703347cba99c3c4b71022a",
+      "bytes": 4788434
+    }
+  },
+  "policy": "Full locally authored stimuli and prompts preserved. Agent review is nonblind and is not independent human gold."
+}

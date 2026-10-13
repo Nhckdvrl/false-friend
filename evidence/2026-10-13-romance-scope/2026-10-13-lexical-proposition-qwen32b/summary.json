@@ -1,0 +1,91 @@
+{
+  "groups": [
+    {
+      "task": "lexical_proposition",
+      "condition": "proposition",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 192,
+      "correct": 154,
+      "parsed": 192,
+      "yes": 134,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "lexical_proposition",
+      "condition": "proposition",
+      "language_pair": "zh-en",
+      "subset": "authored",
+      "n": 192,
+      "correct": 177,
+      "parsed": 192,
+      "yes": 111,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "lexical_proposition",
+      "condition": "word",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 192,
+      "correct": 175,
+      "parsed": 192,
+      "yes": 113,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "lexical_proposition",
+      "condition": "word",
+      "language_pair": "zh-en",
+      "subset": "authored",
+      "n": 192,
+      "correct": 139,
+      "parsed": 192,
+      "yes": 57,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    }
+  ],
+  "symmetry": [],
+  "factorial": [],
+  "run_status": "COMPLETE",
+  "family_metrics": [
+    {
+      "task": "lexical_proposition",
+      "condition": "proposition",
+      "split": "all",
+      "n_outputs": 384,
+      "correct": 331,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.8619791666666666,
+        "ci95": [
+          0.8255208333333334,
+          0.8958333333333334
+        ]
+      }
+    },
+    {
+      "task": "lexical_proposition",
+      "condition": "word",
+      "split": "all",
+      "n_outputs": 384,
+      "correct": 314,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.8177083333333334,
+        "ci95": [
+          0.7916666666666666,
+          0.84375
+        ]
+      }
+    }
+  ],
+  "generation_tasks": {
+    "lexical_proposition": 768
+  },
+  "hit_token_limit": 0
+}

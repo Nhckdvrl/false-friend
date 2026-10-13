@@ -1,0 +1,50 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-doppelganger-qwen14b-v2",
+  "original_files": {
+    "chat_trials.jsonl": {
+      "sha256": "cb9d9dff5158b61ab1838f9e782b9c05dbd2433f8dd296fb877f9cd39692dd08",
+      "bytes": 6029348
+    },
+    "code_snapshot.py": {
+      "sha256": "4adba7904d69c7dd1398a2265517f022850b3659272b11806c8ef78fe3187c7a",
+      "bytes": 22840
+    },
+    "generations.jsonl": {
+      "sha256": "c151cbdf5e0edacd330ea65b1826cb300cd249d81a45822ce22e71f83fd7e1c4",
+      "bytes": 345940
+    },
+    "inputs.jsonl": {
+      "sha256": "7312b422782c2ca51675ddb5e39d4fb749fc0da39d1de5291cf9dab47b3528e8",
+      "bytes": 3911500
+    },
+    "manifest.json": {
+      "sha256": "7b2f08c146d0bef72b627874ef535b7aedacb2bd805b9bc011d31ff01f0ae132",
+      "bytes": 14457
+    },
+    "measurement_audit.json": {
+      "sha256": "59b230151993ce509ec79a855c6a1feda8c38a2bfac32bcc3b78c74cf98d732b",
+      "bytes": 6004
+    },
+    "numerical_audit.json": {
+      "sha256": "125aab14374af35ef3a3ed7095ba4e930485c1a0c2df9c58b404572d98daa4b6",
+      "bytes": 12117
+    },
+    "paired_predictions.jsonl": {
+      "sha256": "e71998e1bfbbbc703c2a872bead8a64f5a4adca0ee50a427ac988f06cc0bee52",
+      "bytes": 1093194
+    },
+    "summary.json": {
+      "sha256": "5f0d5b687558339a03f3639c79ea7440216bb0f6490c1c89970801f900096754",
+      "bytes": 25342
+    },
+    "translation_agent_review.jsonl": {
+      "sha256": "f155c3e233c4a2a625f54a205f804ff4749679aaf5f4b3da0b807e78e568b4a3",
+      "bytes": 82525
+    },
+    "trials.jsonl": {
+      "sha256": "16e9c892e143677ed0f5256f3412a261898cd17b9eb256b5b890798334e3b5b2",
+      "bytes": 10853201
+    }
+  },
+  "policy": "Raw source sentences/options/prompts remain in local run. This bundle keeps hashes, numerical scores, model outputs, code snapshots and non-human review. It is not an independent semantic annotation."
+}

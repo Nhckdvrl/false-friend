@@ -1,0 +1,383 @@
+{
+  "selection": "sha256(gloss-audit-before-outputs:family), 4 FF+2 COG per pair; 18 pairs, selected before B outputs; baseline partial outputs already seen",
+  "items": [
+    {
+      "W1": "valla",
+      "P1": "6",
+      "W2": "valha",
+      "P2": "4",
+      "R": "0",
+      "POS": "N",
+      "item_id": "human-es-pt:55",
+      "source_file": "human-es-pt.tsv",
+      "source_row": 57,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:valla|pt:valha",
+      "subset": "human",
+      "language_pair": "es-pt",
+      "languages": [
+        "es",
+        "pt"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "queso",
+      "P1": "2",
+      "W2": "queixo",
+      "P2": "3",
+      "R": "0",
+      "POS": "N",
+      "item_id": "human-es-pt:45",
+      "source_file": "human-es-pt.tsv",
+      "source_row": 47,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:queso|pt:queixo",
+      "subset": "human",
+      "language_pair": "es-pt",
+      "languages": [
+        "es",
+        "pt"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "billete",
+      "P1": "3",
+      "W2": "bilhete",
+      "P2": "5",
+      "R": "0",
+      "POS": "N",
+      "item_id": "human-es-pt:6",
+      "source_file": "human-es-pt.tsv",
+      "source_row": 8,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:billete|pt:bilhete",
+      "subset": "human",
+      "language_pair": "es-pt",
+      "languages": [
+        "es",
+        "pt"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "azar",
+      "P1": "7",
+      "W2": "azar",
+      "P2": "5",
+      "R": "0",
+      "POS": "N",
+      "item_id": "human-es-pt:4",
+      "source_file": "human-es-pt.tsv",
+      "source_row": 6,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:azar|pt:azar",
+      "subset": "human",
+      "language_pair": "es-pt",
+      "languages": [
+        "es",
+        "pt"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "apertura",
+      "P1": "3",
+      "W2": "abertura",
+      "P2": "3",
+      "R": "1",
+      "POS": "N",
+      "item_id": "human-es-pt:2",
+      "source_file": "human-es-pt.tsv",
+      "source_row": 4,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:apertura|pt:abertura",
+      "subset": "human",
+      "language_pair": "es-pt",
+      "languages": [
+        "es",
+        "pt"
+      ],
+      "gold_same": 1,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "indemnización",
+      "P1": "6",
+      "W2": "indenização",
+      "P2": "3",
+      "R": "1",
+      "POS": "N",
+      "item_id": "human-es-pt:32",
+      "source_file": "human-es-pt.tsv",
+      "source_row": 34,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:indemnización|pt:indenização",
+      "subset": "human",
+      "language_pair": "es-pt",
+      "languages": [
+        "es",
+        "pt"
+      ],
+      "gold_same": 1,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "sono",
+      "P1": "3",
+      "W2": "sueño",
+      "P2": "1",
+      "R": "0",
+      "POS": "N",
+      "item_id": "human-gl-es:22",
+      "source_file": "human-gl-es.tsv",
+      "source_row": 24,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:sueño|gl:sono",
+      "subset": "human",
+      "language_pair": "gl-es",
+      "languages": [
+        "gl",
+        "es"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "encosta",
+      "P1": "2",
+      "W2": "encuesta",
+      "P2": "3",
+      "R": "0",
+      "POS": "N",
+      "item_id": "human-gl-es:14",
+      "source_file": "human-gl-es.tsv",
+      "source_row": 16,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:encuesta|gl:encosta",
+      "subset": "human",
+      "language_pair": "gl-es",
+      "languages": [
+        "gl",
+        "es"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "alagar",
+      "P1": "4",
+      "W2": "halagar",
+      "P2": "3",
+      "R": "0",
+      "POS": "V",
+      "item_id": "human-gl-es:2",
+      "source_file": "human-gl-es.tsv",
+      "source_row": 4,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:halagar|gl:alagar",
+      "subset": "human",
+      "language_pair": "gl-es",
+      "languages": [
+        "gl",
+        "es"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "ano",
+      "P1": "7",
+      "W2": "ano",
+      "P2": "8",
+      "R": "0",
+      "POS": "N",
+      "item_id": "human-gl-es:7",
+      "source_file": "human-gl-es.tsv",
+      "source_row": 9,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:ano|gl:ano",
+      "subset": "human",
+      "language_pair": "gl-es",
+      "languages": [
+        "gl",
+        "es"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "Conclusión",
+      "P1": "6",
+      "W2": "conclusión",
+      "P2": "5",
+      "R": "1",
+      "POS": "N",
+      "item_id": "human-gl-es:26",
+      "source_file": "human-gl-es.tsv",
+      "source_row": 28,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:conclusión|gl:Conclusión",
+      "subset": "human",
+      "language_pair": "gl-es",
+      "languages": [
+        "gl",
+        "es"
+      ],
+      "gold_same": 1,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "maldade",
+      "P1": "2",
+      "W2": "maldad",
+      "P2": "6",
+      "R": "1",
+      "POS": "N",
+      "item_id": "human-gl-es:46",
+      "source_file": "human-gl-es.tsv",
+      "source_row": 48,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "es:maldad|gl:maldade",
+      "subset": "human",
+      "language_pair": "gl-es",
+      "languages": [
+        "gl",
+        "es"
+      ],
+      "gold_same": 1,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "reformado",
+      "P1": "3",
+      "W2": "reformado",
+      "P2": "2",
+      "R": "0",
+      "POS": "N/A",
+      "item_id": "human-gl-pt:49",
+      "source_file": "human-gl-pt.tsv",
+      "source_row": 51,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "gl:reformado|pt:reformado",
+      "subset": "human",
+      "language_pair": "gl-pt",
+      "languages": [
+        "gl",
+        "pt"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "presente",
+      "P1": "4",
+      "W2": "presente",
+      "P2": "7",
+      "R": "0",
+      "POS": "N/A",
+      "item_id": "human-gl-pt:46",
+      "source_file": "human-gl-pt.tsv",
+      "source_row": 48,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "gl:presente|pt:presente",
+      "subset": "human",
+      "language_pair": "gl-pt",
+      "languages": [
+        "gl",
+        "pt"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "cámara",
+      "P1": "2",
+      "W2": "câmara",
+      "P2": "1",
+      "R": "0",
+      "POS": "N",
+      "item_id": "human-gl-pt:18",
+      "source_file": "human-gl-pt.tsv",
+      "source_row": 20,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "gl:cámara|pt:câmara",
+      "subset": "human",
+      "language_pair": "gl-pt",
+      "languages": [
+        "gl",
+        "pt"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "bailado",
+      "P1": "10",
+      "W2": "bailado",
+      "P2": "7",
+      "R": "0",
+      "POS": "N/V",
+      "item_id": "human-gl-pt:7",
+      "source_file": "human-gl-pt.tsv",
+      "source_row": 9,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "gl:bailado|pt:bailado",
+      "subset": "human",
+      "language_pair": "gl-pt",
+      "languages": [
+        "gl",
+        "pt"
+      ],
+      "gold_same": 0,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "forma",
+      "P1": "7",
+      "W2": "forma",
+      "P2": "3",
+      "R": "1",
+      "POS": "N",
+      "item_id": "human-gl-pt:31",
+      "source_file": "human-gl-pt.tsv",
+      "source_row": 33,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "gl:forma|pt:forma",
+      "subset": "human",
+      "language_pair": "gl-pt",
+      "languages": [
+        "gl",
+        "pt"
+      ],
+      "gold_same": 1,
+      "label_provenance": "published contextual WiC R"
+    },
+    {
+      "W1": "experiencia",
+      "P1": "6",
+      "W2": "experiência",
+      "P2": "4",
+      "R": "1",
+      "POS": "N",
+      "item_id": "human-gl-pt:28",
+      "source_file": "human-gl-pt.tsv",
+      "source_row": 30,
+      "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+      "lexeme_family_id": "gl:experiencia|pt:experiência",
+      "subset": "human",
+      "language_pair": "gl-pt",
+      "languages": [
+        "gl",
+        "pt"
+      ],
+      "gold_same": 1,
+      "label_provenance": "published contextual WiC R"
+    }
+  ]
+}

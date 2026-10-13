@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-13",
+  "runs": [
+    {
+      "run": "2026-10-13-am2ico-criterion-llama8b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 1536,
+        "generations.jsonl": 192
+      },
+      "manifest_sha256": "01790571e3a922fa4557a2a8403cffb3a643dec95b9e7dec5ee70ddd104604d1"
+    },
+    {
+      "run": "2026-10-13-am2ico-criterion-qwen14b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 1536,
+        "generations.jsonl": 192
+      },
+      "manifest_sha256": "8c2c61f5ee01774e66788b30524b9d0201d631fd17b58a7c6ad5f03f09b3b015"
+    },
+    {
+      "run": "2026-10-13-am2ico-criterion-qwen32b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 1536,
+        "generations.jsonl": 192
+      },
+      "manifest_sha256": "e77788244a5c79f189cc07f11b3bc14190e5f0d7ad70e7ec23b71a5479decfb4"
+    },
+    {
+      "run": "2026-10-13-am2ico-gloss-qwen14b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 576,
+        "generations.jsonl": 288
+      },
+      "manifest_sha256": "ca9fd57347ae632bec0d7d1919aec62c5f06afbe6779d6df85bdf76dca031f27"
+    },
+    {
+      "run": "2026-10-13-am2ico-gloss-qwen32b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 576,
+        "generations.jsonl": 288
+      },
+      "manifest_sha256": "820aae0d8a64b5e395866291fb16281db841de1dd71dd7c13dffed4e3247987f"
+    },
+    {
+      "run": "2026-10-13-am2ico-llama8b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 1536,
+        "generations.jsonl": 240
+      },
+      "manifest_sha256": "6632934ee9eec0b62d64736421a644ffafc1c1dd573c3b550e163d0f43f51b88"
+    },
+    {
+      "run": "2026-10-13-am2ico-qwen14b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 1536,
+        "generations.jsonl": 240
+      },
+      "manifest_sha256": "cfc7caf7b9953475ddd4f03984eca0272dad9cda06c5f1107941e5ab9c62e49e"
+    },
+    {
+      "run": "2026-10-13-am2ico-qwen32b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 1536,
+        "generations.jsonl": 240
+      },
+      "manifest_sha256": "94f6bc8fa041640d3c948b7e65f7b998ca81554b3a925c6ab004afa95a8130cf"
+    },
+    {
+      "run": "2026-10-13-am2ico-target-qwen14b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 0,
+        "generations.jsonl": 192
+      },
+      "manifest_sha256": "f6f9d67324547bfb788854cdc01367533d56607b22e5efa3f697b36692c2d15a"
+    },
+    {
+      "run": "2026-10-13-am2ico-target-qwen32b",
+      "status": "COMPLETE",
+      "counts": {
+        "trials.jsonl": 0,
+        "generations.jsonl": 192
+      },
+      "manifest_sha256": "23ffa54d72f1e866038b195bf1f1fc6134acb165a67afc735d7031cd949df25c"
+    }
+  ],
+  "n_trials": 10368,
+  "n_generations": 2256,
+  "analysis_code_sha256": {
+    "analyze_am2ico_target_binding.py": "f37ee68b31f5011289a3ce39345159088b5f78cb49b8e5c7a3c257571c479b32",
+    "compare_am2ico_criteria.py": "888da6a1c8d92cf16d0f27d4fb68b542f48aa9ff9b7d9f1c94a39c56dc0f9749",
+    "analyze_gloss_addback.py": "d8145c91dabda9213fe16f6aac12db1f3eddcd65eef157caddbe56115eb4f679",
+    "analyze_target_restatement.py": "a50e428588f8d6c0820f4b1746a6104a9512c407d4f1c88a0c6a4f692cddd585",
+    "analyze_doppelganger_diagnostics.py": "320bf6ffc8ca86cc9595c06724574ea5404a9a9156e5345a8a30c83fd298d328",
+    "run_am2ico_target_binding.py": "72f682b9880b30e6f66627fa00c21702f7dbec4e6575b7875d3ba0d87eb8bd7c",
+    "package_am2ico_evidence.py": "77df41cc8c1dadc0ee50235b65bbac426bbc886b3abde0b8791f5283f33ae3ec"
+  },
+  "source_revision": "2003865050bc9a9e84f2bcb4979f03734bddab28",
+  "verification": "All archived data/metadata/code file hashes matched local raw copies; row counts matched COMPLETE manifests. Does not verify semantic correctness.",
+  "software_validation": {
+    "pytest": "57 passed",
+    "knowledge_check": "65 sources; 35 paper notes; 268 local links; 0 problems",
+    "git_diff_check": "passed",
+    "gpu_release": "All four local GPUs back to 15 MiB and 0% utilization after jobs completed",
+    "limits": "Software/structure and file-integrity checks only, not independent semantic validation"
+  }
+}

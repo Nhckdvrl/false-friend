@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE",
+  "started_utc": "2026-10-13T03:08:12.710531+00:00",
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "items_sha256": "74e4eb829dceb1081c8989f401763de8756eb55f8357d22bb5a360e3964a1616",
+  "code_sha256": "1eb6f0ca13fc5f1d087e47aba37498c848e0cd44fd76f77468852858d3c928a3",
+  "n_items": 6,
+  "n_families": 3,
+  "n_trials": 42,
+  "protocol": [
+    "doppelganger-downstream-v2"
+  ],
+  "seed": 20261013,
+  "sampling_status": "Exploratory: 24 families preselected; v1/v2 material reviewers blind to corresponding outputs. Root selected v2 contrast after seeing v1 aggregate limitation; not held-out confirmation.",
+  "cuda_visible_devices": "1",
+  "host": "fvcrc21",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "batch_size": 16,
+  "dependent_code_sha256": "06df31202a29bf8068f0f5362aff26141cbbaaca980f7d969473b28558e6715b",
+  "elapsed_seconds": 8.545592791982926,
+  "environment": {
+    "python": "3.12.0",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "peak_allocated_gb": 30.152596992,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "finished_utc": "2026-10-13T03:08:38.187898+00:00"
+}

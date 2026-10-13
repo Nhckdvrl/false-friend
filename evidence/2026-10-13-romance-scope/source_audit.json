@@ -1,0 +1,18 @@
+{
+  "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+  "source_files": {
+    "auto-es-pt.tsv": "6869940cfcd58610a57326176276062c372c3492bf8fd7311cb7334a2d223be9",
+    "auto-gl-es.tsv": "4084d74cc1888ca8483df87968de5f11c3614c866baf7731368241db7a444961",
+    "auto-gl-pt.tsv": "bf49b705309735425e257992a03648f010969a46e9a2852a6ca6a4652e5f961f",
+    "human-es-pt.tsv": "f910fe733a1f834f0118332816ec954489fe036852b8965fd7828f6ad8f09a60",
+    "human-gl-es.tsv": "1aa14fbec0469ce875d85e1a56a9408eeb25c1b4360ef929c180fea9d5b0e6b9",
+    "human-gl-pt.tsv": "df06160cd252354b069b57de720f451d57c573d822c6ad5e4f57ab29f360a67d"
+  },
+  "counts": {
+    "items": 704,
+    "baseline": 1598,
+    "gloss": 1700
+  },
+  "design": "knowledge/notes/ROMANCE_ORTHOGONAL_DESIGN_2026-10-13.md",
+  "builder_sha256": "52b0b34bfb573f712e81084aab41e007e71fcfe74d3265c6c3f7dfd3ecb3dbd4"
+}

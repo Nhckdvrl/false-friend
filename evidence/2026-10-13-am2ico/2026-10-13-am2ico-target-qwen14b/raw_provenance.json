@@ -1,0 +1,49 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-am2ico-target-qwen14b",
+  "files": {
+    "code_snapshot.py": {
+      "sha256": "6ed268572c168debf4b7e203a97f53402aba1ec33922c61bdf214a15022dd3ca",
+      "bytes": 5266
+    },
+    "combined_answer_audit.jsonl": {
+      "sha256": "dceab8edcac60cd9bec5e5906ada8a36ba85eb6df65bada627ce105c79cedf27",
+      "bytes": 206047
+    },
+    "generation_specs.jsonl": {
+      "sha256": "4466630f1c7b1922a4d792a1f640fc6f2f0791e155b8fd4d6675228f6523f157",
+      "bytes": 774858
+    },
+    "generations.jsonl": {
+      "sha256": "fc48ef92f03a17f7fb29967d197636cd2dd42005bef6c3d49bd6d0f807867f2b",
+      "bytes": 1331979
+    },
+    "items.jsonl": {
+      "sha256": "d2f9f2e8a1a99822b7738e8c1f04dbdb8604001179870102c277f0fc6f193dbd",
+      "bytes": 127246
+    },
+    "manifest.json": {
+      "sha256": "f6f9d67324547bfb788854cdc01367533d56607b22e5efa3f697b36692c2d15a",
+      "bytes": 4512
+    },
+    "natural_flips.jsonl": {
+      "sha256": "223a1e244d466a0aba0688c60bac2b36fc659306a0325835e610f2f195b3a457",
+      "bytes": 63174
+    },
+    "scorer_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "selected_case_agent_review.jsonl": {
+      "sha256": "c147f997017442626dadc4321a0d5b455b32dc7d787498933b1905815c85a033",
+      "bytes": 4675
+    },
+    "summary.json": {
+      "sha256": "cc19767b715de95dfa4a8f6a5aa48842a0376e5ac6e53f4a6557e4d54649849d",
+      "bytes": 14413
+    }
+  },
+  "source": "https://github.com/cambridgeltl/AM2iCo",
+  "source_revision": "2003865050bc9a9e84f2bcb4979f03734bddab28",
+  "attribution": "Qianchu Liu, Edoardo M. Ponti, Diana McCarthy, Ivan Vulić, Anna Korhonen. AM2iCo, EMNLP 2021.",
+  "policy": "Full selected source records and original labels retained with attribution. New sampling/prompts/model output/reviews identified in manifests. Source-repository CC BY 4.0 license copied at bundle root. Agent review is not independent human gold."
+}

@@ -1,0 +1,29 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-romance-baseline-gemma12b",
+  "original_files": {
+    "analysis.json": {
+      "sha256": "66c6a1b49be5d028cd43fdead58f051b84bbfa1431f909fe0f394125a1415ea2",
+      "bytes": 2444593
+    },
+    "code_snapshot.py": {
+      "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+      "bytes": 4740
+    },
+    "generation_code_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "generation_specs.jsonl": {
+      "sha256": "d3b6fa5f98a230ee46268172affee694092384ece8af9136b6849dd09b3b8d22",
+      "bytes": 2624786
+    },
+    "generations.jsonl": {
+      "sha256": "b5b5fd27d79a9accb0849e3a05e55d9c754fa53d34ae8f065fd25230be76bd32",
+      "bytes": 5044558
+    },
+    "manifest.json": {
+      "sha256": "8f6750878d4f6bbe9b0fb3c6a2b94c76d7a219fa9528a4e4f6f939fbe04db211",
+      "bytes": 3615
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-romance-exploration-llama8b",
+  "original_files": {
+    "analysis.json": {
+      "sha256": "df2a6a14b87b58086b033e9721eb1748e739d62d35e9a1fd039a3529729abe91",
+      "bytes": 760336
+    },
+    "code_snapshot.py": {
+      "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+      "bytes": 4740
+    },
+    "generation_code_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "generation_specs.jsonl": {
+      "sha256": "d56a05d1f4c172a589d89d3e0f0332f22b3595036d47720bab97df8bf8334224",
+      "bytes": 2623454
+    },
+    "generations.jsonl": {
+      "sha256": "3f6fd570f0932fd893778ceaa5a82ed2979637ed97e98ab39e0f1d43c755fdb1",
+      "bytes": 5078351
+    },
+    "gloss_agent_review.jsonl": {
+      "sha256": "627d410ae836b63655a136be7d67906d2ef66aa4b5579d6ef9b3d352c4523ad1",
+      "bytes": 93104
+    },
+    "manifest.json": {
+      "sha256": "046d707a898421dbbb5c67924e8a416ae16f12cd82242e2948afd5ac36826289",
+      "bytes": 3669
+    }
+  }
+}

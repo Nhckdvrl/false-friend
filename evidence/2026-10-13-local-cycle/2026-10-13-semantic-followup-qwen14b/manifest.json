@@ -1,0 +1,27 @@
+{
+  "status": "COMPLETE",
+  "started_utc": "2026-10-13T02:55:10.107625+00:00",
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "items_sha256": "680e3d7f07ef2279f8333da7427ce2a560aeb04ce7086b124698176dc7218209",
+  "code_sha256": "c392aeb7058f2893788466251790379eba5b604259d2beed726a0e9cd10ad26e",
+  "n_items": 18,
+  "n_families": 8,
+  "n_trials": 108,
+  "protocol": "semantic-application-original-paraphrase-masked-v1",
+  "seed": 20261013,
+  "sampling_status": "24 families selected before model outputs; semantic design agent blind to model outputs",
+  "cuda_visible_devices": "1",
+  "dependent_code_sha256": "06df31202a29bf8068f0f5362aff26141cbbaaca980f7d969473b28558e6715b",
+  "elapsed_seconds": 10.789788026013412,
+  "environment": {
+    "python": "3.12.0",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "peak_allocated_gb": 30.315135488,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "finished_utc": "2026-10-13T02:55:36.827684+00:00"
+}

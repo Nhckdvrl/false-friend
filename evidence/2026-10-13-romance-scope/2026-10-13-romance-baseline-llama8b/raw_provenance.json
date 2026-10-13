@@ -1,0 +1,29 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-romance-baseline-llama8b",
+  "original_files": {
+    "analysis.json": {
+      "sha256": "4f74b487e7e325f1baf2672d53ee6008a5b40617118e77117d4f66395917344c",
+      "bytes": 2545879
+    },
+    "code_snapshot.py": {
+      "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+      "bytes": 4740
+    },
+    "generation_code_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "generation_specs.jsonl": {
+      "sha256": "d3b6fa5f98a230ee46268172affee694092384ece8af9136b6849dd09b3b8d22",
+      "bytes": 2624786
+    },
+    "generations.jsonl": {
+      "sha256": "e40674ceb097811274a2e019582aa72103280a618b2f71482fb03d7665dc2e56",
+      "bytes": 5308654
+    },
+    "manifest.json": {
+      "sha256": "15529955cf9d8f940bf5e56d4fbdb309cc42cef662e8f79341591dcb3c3ff82c",
+      "bytes": 3667
+    }
+  }
+}

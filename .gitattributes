@@ -1,0 +1,2 @@
+# Preserve the published source README byte-for-byte, including its whitespace.
+evidence/2026-10-13-am2ico/SOURCE_README.md whitespace=-blank-at-eol,-blank-at-eof

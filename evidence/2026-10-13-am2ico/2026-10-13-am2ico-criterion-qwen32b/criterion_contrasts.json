@@ -1,0 +1,578 @@
+[
+  {
+    "language": "all",
+    "source_label": "all",
+    "contrast": "target_only minus full",
+    "n_items": 384,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": 0.2712765957446808,
+      "ci95": [
+        0.2300531914893617,
+        0.3098736702127661
+      ]
+    },
+    "rescued_source_agreement": 115,
+    "lost_source_agreement": 10
+  },
+  {
+    "language": "all",
+    "source_label": "all",
+    "contrast": "sense_basic minus full",
+    "n_items": 384,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": 0.047872340425531915,
+      "ci95": [
+        0.015957446808510637,
+        0.0797872340425532
+      ]
+    },
+    "rescued_source_agreement": 30,
+    "lost_source_agreement": 12
+  },
+  {
+    "language": "all",
+    "source_label": "all",
+    "contrast": "sense_explicit minus full",
+    "n_items": 384,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": 0.02526595744680851,
+      "ci95": [
+        -0.005319148936170213,
+        0.05319148936170213
+      ]
+    },
+    "rescued_source_agreement": 25,
+    "lost_source_agreement": 15
+  },
+  {
+    "language": "all",
+    "source_label": "T",
+    "contrast": "target_only minus full",
+    "n_items": 192,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": 0.526595744680851,
+      "ci95": [
+        0.449468085106383,
+        0.598404255319149
+      ]
+    },
+    "rescued_source_agreement": 105,
+    "lost_source_agreement": 3
+  },
+  {
+    "language": "all",
+    "source_label": "T",
+    "contrast": "sense_basic minus full",
+    "n_items": 192,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": 0.10638297872340426,
+      "ci95": [
+        0.05319148936170213,
+        0.16489361702127658
+      ]
+    },
+    "rescued_source_agreement": 26,
+    "lost_source_agreement": 6
+  },
+  {
+    "language": "all",
+    "source_label": "T",
+    "contrast": "sense_explicit minus full",
+    "n_items": 192,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": 0.05585106382978723,
+      "ci95": [
+        0.0026595744680851063,
+        0.10910904255319173
+      ]
+    },
+    "rescued_source_agreement": 21,
+    "lost_source_agreement": 10
+  },
+  {
+    "language": "all",
+    "source_label": "F",
+    "contrast": "target_only minus full",
+    "n_items": 192,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": 0.015957446808510637,
+      "ci95": [
+        -0.026595744680851064,
+        0.05851063829787234
+      ]
+    },
+    "rescued_source_agreement": 10,
+    "lost_source_agreement": 7
+  },
+  {
+    "language": "all",
+    "source_label": "F",
+    "contrast": "sense_basic minus full",
+    "n_items": 192,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": -0.010638297872340425,
+      "ci95": [
+        -0.0425531914893617,
+        0.02127659574468085
+      ]
+    },
+    "rescued_source_agreement": 4,
+    "lost_source_agreement": 6
+  },
+  {
+    "language": "all",
+    "source_label": "F",
+    "contrast": "sense_explicit minus full",
+    "n_items": 192,
+    "paired_delta": {
+      "n_families": 188,
+      "mean": -0.005319148936170213,
+      "ci95": [
+        -0.03723404255319149,
+        0.026595744680851064
+      ]
+    },
+    "rescued_source_agreement": 4,
+    "lost_source_agreement": 5
+  },
+  {
+    "language": "de",
+    "source_label": "all",
+    "contrast": "target_only minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.2578125,
+      "ci95": [
+        0.1875,
+        0.328125
+      ]
+    },
+    "rescued_source_agreement": 36,
+    "lost_source_agreement": 3
+  },
+  {
+    "language": "de",
+    "source_label": "all",
+    "contrast": "sense_basic minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.046875,
+      "ci95": [
+        -0.0078125,
+        0.1015625
+      ]
+    },
+    "rescued_source_agreement": 12,
+    "lost_source_agreement": 6
+  },
+  {
+    "language": "de",
+    "source_label": "all",
+    "contrast": "sense_explicit minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.0234375,
+      "ci95": [
+        -0.03125,
+        0.078125
+      ]
+    },
+    "rescued_source_agreement": 10,
+    "lost_source_agreement": 7
+  },
+  {
+    "language": "de",
+    "source_label": "T",
+    "contrast": "target_only minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.484375,
+      "ci95": [
+        0.359375,
+        0.609375
+      ]
+    },
+    "rescued_source_agreement": 32,
+    "lost_source_agreement": 1
+  },
+  {
+    "language": "de",
+    "source_label": "T",
+    "contrast": "sense_basic minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.125,
+      "ci95": [
+        0.015625,
+        0.234375
+      ]
+    },
+    "rescued_source_agreement": 11,
+    "lost_source_agreement": 3
+  },
+  {
+    "language": "de",
+    "source_label": "T",
+    "contrast": "sense_explicit minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.09375,
+      "ci95": [
+        -0.015625,
+        0.203125
+      ]
+    },
+    "rescued_source_agreement": 10,
+    "lost_source_agreement": 4
+  },
+  {
+    "language": "de",
+    "source_label": "F",
+    "contrast": "target_only minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.03125,
+      "ci95": [
+        -0.046875,
+        0.109375
+      ]
+    },
+    "rescued_source_agreement": 4,
+    "lost_source_agreement": 2
+  },
+  {
+    "language": "de",
+    "source_label": "F",
+    "contrast": "sense_basic minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": -0.03125,
+      "ci95": [
+        -0.09375,
+        0.03125
+      ]
+    },
+    "rescued_source_agreement": 1,
+    "lost_source_agreement": 3
+  },
+  {
+    "language": "de",
+    "source_label": "F",
+    "contrast": "sense_explicit minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": -0.046875,
+      "ci95": [
+        -0.109375,
+        0.0
+      ]
+    },
+    "rescued_source_agreement": 0,
+    "lost_source_agreement": 3
+  },
+  {
+    "language": "zh",
+    "source_label": "all",
+    "contrast": "target_only minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.3046875,
+      "ci95": [
+        0.2421875,
+        0.3671875
+      ]
+    },
+    "rescued_source_agreement": 43,
+    "lost_source_agreement": 4
+  },
+  {
+    "language": "zh",
+    "source_label": "all",
+    "contrast": "sense_basic minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.046875,
+      "ci95": [
+        0.0,
+        0.09375
+      ]
+    },
+    "rescued_source_agreement": 8,
+    "lost_source_agreement": 2
+  },
+  {
+    "language": "zh",
+    "source_label": "all",
+    "contrast": "sense_explicit minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.0390625,
+      "ci95": [
+        -0.015625,
+        0.09375
+      ]
+    },
+    "rescued_source_agreement": 9,
+    "lost_source_agreement": 4
+  },
+  {
+    "language": "zh",
+    "source_label": "T",
+    "contrast": "target_only minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.625,
+      "ci95": [
+        0.5,
+        0.734375
+      ]
+    },
+    "rescued_source_agreement": 40,
+    "lost_source_agreement": 0
+  },
+  {
+    "language": "zh",
+    "source_label": "T",
+    "contrast": "sense_basic minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.09375,
+      "ci95": [
+        0.015625,
+        0.171875
+      ]
+    },
+    "rescued_source_agreement": 7,
+    "lost_source_agreement": 1
+  },
+  {
+    "language": "zh",
+    "source_label": "T",
+    "contrast": "sense_explicit minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.0625,
+      "ci95": [
+        -0.03125,
+        0.15625
+      ]
+    },
+    "rescued_source_agreement": 7,
+    "lost_source_agreement": 3
+  },
+  {
+    "language": "zh",
+    "source_label": "F",
+    "contrast": "target_only minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": -0.015625,
+      "ci95": [
+        -0.09375,
+        0.0625
+      ]
+    },
+    "rescued_source_agreement": 3,
+    "lost_source_agreement": 4
+  },
+  {
+    "language": "zh",
+    "source_label": "F",
+    "contrast": "sense_basic minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.0,
+      "ci95": [
+        -0.046875,
+        0.046875
+      ]
+    },
+    "rescued_source_agreement": 1,
+    "lost_source_agreement": 1
+  },
+  {
+    "language": "zh",
+    "source_label": "F",
+    "contrast": "sense_explicit minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.015625,
+      "ci95": [
+        -0.03125,
+        0.078125
+      ]
+    },
+    "rescued_source_agreement": 2,
+    "lost_source_agreement": 1
+  },
+  {
+    "language": "ja",
+    "source_label": "all",
+    "contrast": "target_only minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.2578125,
+      "ci95": [
+        0.1875,
+        0.3203125
+      ]
+    },
+    "rescued_source_agreement": 36,
+    "lost_source_agreement": 3
+  },
+  {
+    "language": "ja",
+    "source_label": "all",
+    "contrast": "sense_basic minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.046875,
+      "ci95": [
+        -0.0078125,
+        0.1015625
+      ]
+    },
+    "rescued_source_agreement": 10,
+    "lost_source_agreement": 4
+  },
+  {
+    "language": "ja",
+    "source_label": "all",
+    "contrast": "sense_explicit minus full",
+    "n_items": 128,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.015625,
+      "ci95": [
+        -0.03125,
+        0.0625
+      ]
+    },
+    "rescued_source_agreement": 6,
+    "lost_source_agreement": 4
+  },
+  {
+    "language": "ja",
+    "source_label": "T",
+    "contrast": "target_only minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.484375,
+      "ci95": [
+        0.34375,
+        0.625
+      ]
+    },
+    "rescued_source_agreement": 33,
+    "lost_source_agreement": 2
+  },
+  {
+    "language": "ja",
+    "source_label": "T",
+    "contrast": "sense_basic minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.09375,
+      "ci95": [
+        0.0,
+        0.1875
+      ]
+    },
+    "rescued_source_agreement": 8,
+    "lost_source_agreement": 2
+  },
+  {
+    "language": "ja",
+    "source_label": "T",
+    "contrast": "sense_explicit minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.015625,
+      "ci95": [
+        -0.0625,
+        0.09375
+      ]
+    },
+    "rescued_source_agreement": 4,
+    "lost_source_agreement": 3
+  },
+  {
+    "language": "ja",
+    "source_label": "F",
+    "contrast": "target_only minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.03125,
+      "ci95": [
+        -0.03125,
+        0.09375
+      ]
+    },
+    "rescued_source_agreement": 3,
+    "lost_source_agreement": 1
+  },
+  {
+    "language": "ja",
+    "source_label": "F",
+    "contrast": "sense_basic minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.0,
+      "ci95": [
+        -0.0625,
+        0.0625
+      ]
+    },
+    "rescued_source_agreement": 2,
+    "lost_source_agreement": 2
+  },
+  {
+    "language": "ja",
+    "source_label": "F",
+    "contrast": "sense_explicit minus full",
+    "n_items": 64,
+    "paired_delta": {
+      "n_families": 64,
+      "mean": 0.015625,
+      "ci95": [
+        -0.03125,
+        0.0625
+      ]
+    },
+    "rescued_source_agreement": 2,
+    "lost_source_agreement": 1
+  }
+]

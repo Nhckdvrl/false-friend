@@ -1,0 +1,29 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-scope-gemma12b",
+  "original_files": {
+    "analysis.json": {
+      "sha256": "d3957199e0021af4439c51cbd896577215ae6f38b5baebd2cb8cc634dda66894",
+      "bytes": 828082
+    },
+    "code_snapshot.py": {
+      "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+      "bytes": 4740
+    },
+    "generation_code_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "generation_specs.jsonl": {
+      "sha256": "53188436437d3420340d787b4c27a3d0d5e97cec87c25e630f9ad61080186ead",
+      "bytes": 770432
+    },
+    "generations.jsonl": {
+      "sha256": "188f414830f3dbdca607013625326bbab7c6ccd052b5e10e5960710641f60f8a",
+      "bytes": 1690295
+    },
+    "manifest.json": {
+      "sha256": "5c4c104551c16f57b22ebecd42c057b0c38b37620fc2ddc5fb5a03ac92a120bc",
+      "bytes": 3611
+    }
+  }
+}

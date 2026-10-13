@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETE",
+  "started_utc": "2026-10-13T03:40:19.768391+00:00",
+  "protocol": "output-language-cycle-v1",
+  "host": "fvcrc21",
+  "model_id": "Qwen/Qwen3-32B",
+  "model_path": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-32B/snapshots/9216db5781bf21249d130ec9da846c4624c16137",
+  "model_revision": "9216db5781bf21249d130ec9da846c4624c16137",
+  "tokenizer_revision": "9216db5781bf21249d130ec9da846c4624c16137",
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "items_sha256": "427cde72ae1f744e593907b67fb46bc929f040edb01d6960aba9e706671ac1eb",
+  "code_sha256": "815ec230b0a4d5811c17efb7e44e210e02c393ea9cf86ff617619e97040d4283",
+  "scorer_sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+  "n_items": 32,
+  "n_families": 16,
+  "n_trials": 1728,
+  "n_generations": 96,
+  "generation_families": [
+    "cross_language:chef",
+    "cross_language:gift",
+    "cross_language:angel",
+    "cross_language:hut",
+    "within_english:bank",
+    "within_english:seal",
+    "within_english:bark",
+    "within_english:crane"
+  ],
+  "seed": 20261013,
+  "batch_size": 8,
+  "generation_batch_size": 4,
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "max_new_tokens": 96,
+  "cuda_visible_devices": "2",
+  "interpretation": "New exploratory locally authored materials; no human gold. Masked has no unique semantic gold; original-label agreement may be described separately. Language instruction contrast does not alone separate priming from production planning.",
+  "environment": {
+    "python": "3.12.0",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "finished_utc": "2026-10-13T03:55:10.748722+00:00",
+  "elapsed_seconds": 885.8515415590373,
+  "peak_allocated_gb": 65.902834176
+}

@@ -1,0 +1,61 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-am2ico-qwen14b",
+  "files": {
+    "code_snapshot.py": {
+      "sha256": "72f682b9880b30e6f66627fa00c21702f7dbec4e6575b7875d3ba0d87eb8bd7c",
+      "bytes": 11066
+    },
+    "decisions.jsonl": {
+      "sha256": "8893703aa9afd95e6c4e1cbd504f19756ec14bbb00da036ff90ef4a22d243788",
+      "bytes": 515995
+    },
+    "generation_checks.jsonl": {
+      "sha256": "8f290bde5c4c870678f21592be58310bf8f8018ceab6d4e13498d7d95f3bc5dd",
+      "bytes": 29054
+    },
+    "generation_specs.jsonl": {
+      "sha256": "75daf780487d80883919cff1d9b6d5f573ba37ea5393e91da5435cb4e91b388d",
+      "bytes": 540160
+    },
+    "generations.jsonl": {
+      "sha256": "ea873cbbb86e16f14087a26d16a065d725c1c7dbffbbd12c26b6c088646a3104",
+      "bytes": 1033327
+    },
+    "items.jsonl": {
+      "sha256": "636e383d68bbc5f02f99adb26509a5cd2ed29374d9db378016c8d3af8bff3915",
+      "bytes": 502617
+    },
+    "manifest.json": {
+      "sha256": "cfc7caf7b9953475ddd4f03984eca0272dad9cda06c5f1107941e5ab9c62e49e",
+      "bytes": 6100
+    },
+    "paired_predictions.jsonl": {
+      "sha256": "20df45fdaf154ef244a3ffea846ae8c7412094fcccea88c023d6484796669d6a",
+      "bytes": 159710
+    },
+    "scorer_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "selected_case_agent_review.jsonl": {
+      "sha256": "e667159a2dafaf38e50dcdb5e5d8ffbb04f0a949eb3e6baf00af86e8f2df3f5e",
+      "bytes": 9199
+    },
+    "summary.json": {
+      "sha256": "6bdf1abb9ce897ec6c3dce0c4eb8c42c78050ba0874740eeaa5c10873729ca05",
+      "bytes": 8122
+    },
+    "trial_specs.jsonl": {
+      "sha256": "79d9099542e53920413cb7f05f6dc251ff3e07345f717cfcf80a217188814cdd",
+      "bytes": 3402116
+    },
+    "trials.jsonl": {
+      "sha256": "8b3a10b31bb8bdeed700d78c42a96cd3664898b4d32a8be09a17093ac516babe",
+      "bytes": 5209268
+    }
+  },
+  "source": "https://github.com/cambridgeltl/AM2iCo",
+  "source_revision": "2003865050bc9a9e84f2bcb4979f03734bddab28",
+  "attribution": "Qianchu Liu, Edoardo M. Ponti, Diana McCarthy, Ivan Vulić, Anna Korhonen. AM2iCo, EMNLP 2021.",
+  "policy": "Full selected source records and original labels retained with attribution. New sampling/prompts/model output/reviews identified in manifests. Source-repository CC BY 4.0 license copied at bundle root. Agent review is not independent human gold."
+}

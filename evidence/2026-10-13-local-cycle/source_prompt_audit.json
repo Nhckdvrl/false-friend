@@ -1,0 +1,126 @@
+{
+  "source_prompt_comparisons": [
+    {
+      "task": "meaning",
+      "source_language": "jp",
+      "n_candidate_texts": 1856,
+      "exact_match": true,
+      "texts_sha256": "cf98d36007e1dafba55b48981aad9de9c7e77a758b51ac362b4ba681be79e8b6"
+    },
+    {
+      "task": "meaning",
+      "source_language": "zh",
+      "n_candidate_texts": 1856,
+      "exact_match": true,
+      "texts_sha256": "f929ce951f3f11bd7bacffb4e439d050065aa1e14da2fb2f843e21ad5efdf221"
+    },
+    {
+      "task": "context",
+      "source_language": "jp",
+      "n_candidate_texts": 1848,
+      "exact_match": true,
+      "texts_sha256": "9fdeb16de9cff0ec635b6e5375043f3a1ebe448457a50c58b6539dfb41cd049f"
+    },
+    {
+      "task": "context",
+      "source_language": "zh",
+      "n_candidate_texts": 1820,
+      "exact_match": true,
+      "texts_sha256": "628d42b6426788ac646641685666dd05fdefa130338169578fcff0c38b855cbd"
+    },
+    {
+      "task": "translation",
+      "source_language": "jp",
+      "n_candidate_texts": 1848,
+      "exact_match": true,
+      "texts_sha256": "c2740868eec1bff2f4303802b64effdd58c557de58eac02bb2f50a5a936cbd40"
+    },
+    {
+      "task": "translation",
+      "source_language": "zh",
+      "n_candidate_texts": 1820,
+      "exact_match": true,
+      "texts_sha256": "3e1bc50e24dce192dd5dce4904a8757c5f404673d7c2b89f9141f83c2fe2959f"
+    }
+  ],
+  "copy_rule_checks": [
+    {
+      "source_language": "jp",
+      "n": 462,
+      "correct_contains_target": [
+        "type1:jp:translation:809039dd8b5dde1ddac5",
+        "type1:jp:translation:444c4dfb517567b55117",
+        "type1:jp:translation:55a8254ba895109d904e",
+        "type1:jp:translation:c13d8e926e366e05b6bb",
+        "type1:jp:translation:5eb1a75da846c5144411",
+        "type1:jp:translation:4acaad1906a4e7322599",
+        "type1:jp:translation:9276a2bec7e9ae14e1fd",
+        "type1:jp:translation:791d803b4b8d21f062c5",
+        "type1:jp:translation:a582a6e2a2578c316d91",
+        "type1:jp:translation:68e5b89e5f4b80f69dd6",
+        "type1:jp:translation:9c8d63e03ad58617e6d9",
+        "type1:jp:translation:b93781c8c418d405f434",
+        "type1:jp:translation:9e5e70d595d6f1e031a4",
+        "type1:jp:translation:86648407a41119553cbf",
+        "type1:jp:translation:e88822460e3711f930eb",
+        "type1:jp:translation:03fcd90331860b8eebf6",
+        "type1:jp:translation:8170faba5d43cf012089",
+        "type1:jp:translation:940328b1599630086bf7",
+        "type1:jp:translation:c86e0671f2da8e1be63b",
+        "type1:jp:translation:d8f3fda5b6b51a97743f",
+        "type1:jp:translation:b1092e6e392fbb3d0e53",
+        "type1:jp:translation:e1ec83241ae85b9f88ea",
+        "type1:jp:translation:4d237d42ead7c5b926ec",
+        "type1:jp:translation:0ad8e86d1c71e70359b0",
+        "type1:jp:translation:2d37d482422f890a51f6",
+        "type1:jp:translation:54351591e61613884ac1",
+        "type1:jp:translation:770d0bafd59a06803efb",
+        "type1:jp:translation:c5b71431198f9a6a5c93",
+        "type1:jp:translation:7dc694f95675e105f95c",
+        "type1:jp:translation:18785586e4b49938185c",
+        "type1:jp:translation:d731de7740a0943e818a",
+        "type1:jp:translation:0ec60bd393e88ea69d5d"
+      ],
+      "wrong1_lacks_target": [
+        "type1:jp:translation:56a46bfd6ae3a059e39e",
+        "type1:jp:translation:b305b2e85d0eca651842"
+      ]
+    },
+    {
+      "source_language": "zh",
+      "n": 455,
+      "correct_contains_target": [
+        "type1:zh:translation:4effac314c64606edd6d",
+        "type1:zh:translation:b74cf09788ff80d86c18",
+        "type1:zh:translation:c37c3dae6b644b1c104d",
+        "type1:zh:translation:9b470a686da07ad86c28",
+        "type1:zh:translation:862e3a8bb64f0b38f5cc",
+        "type1:zh:translation:e2332e643dd01587f63c",
+        "type1:zh:translation:5ca254fedc3c027a5c75",
+        "type1:zh:translation:d8f3fda5b6b51a97743f",
+        "type1:zh:translation:6f5ec0d4acd4349f666d",
+        "type1:zh:translation:91ddb3e61f8afbf3870c",
+        "type1:zh:translation:7e24d4d12065d44bac3f",
+        "type1:zh:translation:6e1037719cb7b90c7c50",
+        "type1:zh:translation:54b4af619c9416ddec49",
+        "type1:zh:translation:dbffa1d326ec696ba474",
+        "type1:zh:translation:e1ec83241ae85b9f88ea",
+        "type1:zh:translation:4d237d42ead7c5b926ec",
+        "type1:zh:translation:33738e2fdb57e3342d21",
+        "type1:zh:translation:0ad8e86d1c71e70359b0",
+        "type1:zh:translation:d630b71627d3f492385d",
+        "type1:zh:translation:7d259202a168010a2a4b",
+        "type1:zh:translation:2bb2b84cf7d6396f0709",
+        "type1:zh:translation:d0cc81d7f80c7312b1c8",
+        "type1:zh:translation:18785586e4b49938185c",
+        "type1:zh:translation:cb660c1ef00282af821a"
+      ],
+      "wrong1_lacks_target": [
+        "type1:zh:translation:6f5ec0d4acd4349f666d",
+        "type1:zh:translation:d630b71627d3f492385d"
+      ]
+    }
+  ],
+  "n_lexical_families": 464,
+  "checks_only": "Exact source text equivalence with disclosed WM key repair; no model or semantic validation."
+}

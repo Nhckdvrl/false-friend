@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE",
+  "started_utc": "2026-10-13T03:08:12.724913+00:00",
+  "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "tokenizer_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "items_sha256": "74e4eb829dceb1081c8989f401763de8756eb55f8357d22bb5a360e3964a1616",
+  "code_sha256": "1eb6f0ca13fc5f1d087e47aba37498c848e0cd44fd76f77468852858d3c928a3",
+  "n_items": 6,
+  "n_families": 3,
+  "n_trials": 42,
+  "protocol": [
+    "doppelganger-downstream-v2"
+  ],
+  "seed": 20261013,
+  "sampling_status": "Exploratory: 24 families preselected; v1/v2 material reviewers blind to corresponding outputs. Root selected v2 contrast after seeing v1 aggregate limitation; not held-out confirmation.",
+  "cuda_visible_devices": "0",
+  "host": "fvcrc21",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "batch_size": 16,
+  "dependent_code_sha256": "06df31202a29bf8068f0f5362aff26141cbbaaca980f7d969473b28558e6715b",
+  "elapsed_seconds": 5.563321149966214,
+  "environment": {
+    "python": "3.12.0",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "peak_allocated_gb": 16.581212672,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "chat_template_sha256": "b48c47f6443892716176eb200bf4ef108f64e06ca26ed0fa8ebc0a4b3992fcb2",
+  "finished_utc": "2026-10-13T03:08:35.205335+00:00"
+}

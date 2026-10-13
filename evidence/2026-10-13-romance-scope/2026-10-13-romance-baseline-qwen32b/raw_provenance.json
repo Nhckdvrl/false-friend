@@ -1,0 +1,29 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-romance-baseline-qwen32b",
+  "original_files": {
+    "analysis.json": {
+      "sha256": "ef143af985045c9fd6c1ef7f208b09899570516fc1cbf280cb9072ff7279e7a7",
+      "bytes": 2536775
+    },
+    "code_snapshot.py": {
+      "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+      "bytes": 4740
+    },
+    "generation_code_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "generation_specs.jsonl": {
+      "sha256": "11fe2fc1db4751f844fa669879bad0bfd4b2fcd3a26da9b230ccb44f51cb2ff6",
+      "bytes": 2663138
+    },
+    "generations.jsonl": {
+      "sha256": "5dbfa0f8f4a58f46aa0d3e7176c975689acbc528c5a44c8096e2587545adaa7b",
+      "bytes": 5119975
+    },
+    "manifest.json": {
+      "sha256": "86bbe06ed24f53a42f6fdf89dae8848f6cfb14d0563d9474ffe09639799cceed",
+      "bytes": 3636
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-am2ico-gloss-qwen32b",
+  "files": {
+    "addback_flips.jsonl": {
+      "sha256": "02f6a703b18d3bdb2262cb0261040cc41282a2acbdb58abdda446eec01576917",
+      "bytes": 22141
+    },
+    "code_snapshot.py": {
+      "sha256": "0dd2d94ca40f003931e13fea6a9e9cd191e7f78ee18f630d13f9e62abfcf40cb",
+      "bytes": 7136
+    },
+    "decisions.jsonl": {
+      "sha256": "be503750decaa7690d30a1f72e01356c7a05b0bac82be8d96a3860e96b434de4",
+      "bytes": 207363
+    },
+    "generation_checks.jsonl": {
+      "sha256": "7fc4978488a1466c87cd36a47898567a8ed00a3d387ad7a2d8399c3a2d236681",
+      "bytes": 120506
+    },
+    "generation_specs.jsonl": {
+      "sha256": "f3e9b413b049c698fb4c78a1379810a88dbb0a4fcd55e31c6bd3b7cbdc1a0c84",
+      "bytes": 1003556
+    },
+    "generations.jsonl": {
+      "sha256": "ec59100fb3b44c93e5a4721a8c46ca0c9c5c5e622d89cba6a748072ede25a786",
+      "bytes": 1752115
+    },
+    "items.jsonl": {
+      "sha256": "d2f9f2e8a1a99822b7738e8c1f04dbdb8604001179870102c277f0fc6f193dbd",
+      "bytes": 127246
+    },
+    "manifest.json": {
+      "sha256": "820aae0d8a64b5e395866291fb16281db841de1dd71dd7c13dffed4e3247987f",
+      "bytes": 4510
+    },
+    "scorer_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "summary.json": {
+      "sha256": "0f34214dce7083283bacfbd4b35a22e509f68102fb28227c905785ae442133ff",
+      "bytes": 9085
+    },
+    "trial_specs.jsonl": {
+      "sha256": "73a3effdfa71e90e7e7cfd295b69b3541235128d635a176465caa7adfe9fd233",
+      "bytes": 1982592
+    },
+    "trials.jsonl": {
+      "sha256": "d47981d01368e8a18216fbef6344aadf1aca13de26f51767d2835429e01b6130",
+      "bytes": 2867175
+    }
+  },
+  "source": "https://github.com/cambridgeltl/AM2iCo",
+  "source_revision": "2003865050bc9a9e84f2bcb4979f03734bddab28",
+  "attribution": "Qianchu Liu, Edoardo M. Ponti, Diana McCarthy, Ivan Vulić, Anna Korhonen. AM2iCo, EMNLP 2021.",
+  "policy": "Full selected source records and original labels retained with attribution. New sampling/prompts/model output/reviews identified in manifests. Source-repository CC BY 4.0 license copied at bundle root. Agent review is not independent human gold."
+}

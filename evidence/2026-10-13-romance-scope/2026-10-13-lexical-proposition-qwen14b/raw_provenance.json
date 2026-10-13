@@ -1,0 +1,29 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-lexical-proposition-qwen14b",
+  "original_files": {
+    "analysis.json": {
+      "sha256": "acc2611c080a9548e46f85aef21c771f6e2d3f2e7e7400b298ab4ddb08cf0283",
+      "bytes": 790484
+    },
+    "code_snapshot.py": {
+      "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+      "bytes": 4740
+    },
+    "generation_code_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "generation_specs.jsonl": {
+      "sha256": "cf74af4a563a2fe8d3a7a5bfd9b85ab9c2284c3c8bf67a0a7bcf0f42c53e90bd",
+      "bytes": 752576
+    },
+    "generations.jsonl": {
+      "sha256": "776f92981144fc7ec8d3489a0e7dd26b5e45434405282f0b08f7b21b136e89e3",
+      "bytes": 1682113
+    },
+    "manifest.json": {
+      "sha256": "304fff91947c88bf815d6b0031cd6e7679882bf3f141add703192e11321062db",
+      "bytes": 3628
+    }
+  }
+}

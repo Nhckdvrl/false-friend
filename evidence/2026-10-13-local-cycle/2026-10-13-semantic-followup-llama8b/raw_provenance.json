@@ -1,0 +1,30 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-semantic-followup-llama8b",
+  "original_files": {
+    "code_snapshot.py": {
+      "sha256": "c392aeb7058f2893788466251790379eba5b604259d2beed726a0e9cd10ad26e",
+      "bytes": 7326
+    },
+    "items.jsonl": {
+      "sha256": "680e3d7f07ef2279f8333da7427ce2a560aeb04ce7086b124698176dc7218209",
+      "bytes": 58929
+    },
+    "manifest.json": {
+      "sha256": "10a1c571fc12040e80273688e6c58d1cfdfd75bde712b73076171f449a432cc3",
+      "bytes": 1218
+    },
+    "scorer_snapshot.py": {
+      "sha256": "06df31202a29bf8068f0f5362aff26141cbbaaca980f7d969473b28558e6715b",
+      "bytes": 22939
+    },
+    "summary.json": {
+      "sha256": "35fa0ba9d537fbbf88c1e3eec1281b7c062f49a4ca0a69be0e22d326f648f374",
+      "bytes": 29450
+    },
+    "trials.jsonl": {
+      "sha256": "18b693b8aa5bd064b12d895cab479e58768174c49eea75d5a04b829422cd238c",
+      "bytes": 495403
+    }
+  },
+  "policy": "Raw source sentences/options/prompts remain in local run. This bundle keeps hashes, numerical scores, model outputs, code snapshots and non-human review. It is not an independent semantic annotation."
+}

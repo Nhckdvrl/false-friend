@@ -1,0 +1,22 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-doppelganger-qwen14b",
+  "original_files": {
+    "code_snapshot.py": {
+      "sha256": "6a0b5a9e9178f2dc28e47aa044c914df6449d0804f17363b8b12bb0dff211db9",
+      "bytes": 21837
+    },
+    "inputs.jsonl": {
+      "sha256": "7312b422782c2ca51675ddb5e39d4fb749fc0da39d1de5291cf9dab47b3528e8",
+      "bytes": 3911500
+    },
+    "manifest.json": {
+      "sha256": "ae20df629bb63120871417847f25d1e86dd8a89120d387e35a58b28682f3a724",
+      "bytes": 6472
+    },
+    "measurement_audit.json": {
+      "sha256": "3f4419c019565ad776d7f9e9726ebee4c4c5ccd2a61ae3d3172e67ea41c2225f",
+      "bytes": 3823
+    }
+  },
+  "policy": "Raw source sentences/options/prompts remain in local run. This bundle keeps hashes, numerical scores, model outputs, code snapshots and non-human review. It is not an independent semantic annotation."
+}

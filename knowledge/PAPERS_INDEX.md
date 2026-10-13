@@ -2,7 +2,7 @@
 
 <!-- GENERATED: edit knowledge/sources.tsv then run scripts/build_knowledge_index.py -->
 
-共 **56** 个来源条目。S0: 2 / S1: 27 / S2: 4 / S3: 23。
+共 **71** 个来源条目。S0: 2 / S1: 26 / S2: 16 / S3: 27。
 
 **登记齐全不等于全部精读。** S1为有主方法/结果阅读记录，S2为定向正文，S3仅摘要/元数据，S0仅题名。
 `current` 是本轮补读或新读；`inherited` 保留前轮已有笔记，不假称本轮全部重读；`catalogue` 是有边界的导航。
@@ -26,10 +26,13 @@
 |---|---|---|---|
 | P003 · [Cahyawijaya et al. — StingrayBench (Findings NAACL 2025)](https://aclanthology.org/2025.findings-naacl.178/) | S1 / inherited | [记录](papers/cahyawijaya-2025-stingray.md) | 原任务标签/人工错误语句/语言偏差；不等同自然完整sense分布 |
 | P004 · [Tanwar et al. — Multilingual LLMs Struggle to Link Orthography and Semantics (arXiv v2)](https://arxiv.org/abs/2501.09127) | S1 / inherited | [记录](papers/tanwar-2026-orthography-semantics.md) | 继承正文与源码审计；Q1级联、来源标签与语法风险不是已证实内部机制 |
-| P005 · [Kitamura et al. — Doppelganger-JC (IJCNLP 2025)](https://aclanthology.org/2025.ijcnlp-long.96/) | S1 / inherited | [记录](papers/kitamura-2025-doppelganger-jc.md) | 继承三任务、同形复制与数据方法分析；原分数和我们的改编读出分开 |
-| P006 · [Vázquez Abuín et al. — False Friends or Cognates? (ACL 2026)](https://aclanthology.org/2026.acl-long.1818/) | S1 / inherited | [记录](papers/abuin-2026-romance-wic.md) | 继承正文和六TSV审计；R标签只对应给定上下文，不是总体词典分布 |
+| P005 · [Kitamura et al. — Doppelganger-JC (IJCNLP 2025)](https://aclanthology.org/2025.ijcnlp-long.96/) | S1 / current | [记录](papers/kitamura-2025-doppelganger-jc.md) | 正文既有阅读；2026-10-13补读H/M/N、Tables21–24并审计Type-1源码；两模型原任务数值复核，不把copy与错义等同 |
+| P006 · [Vázquez Abuín et al. — False Friends or Cognates? (ACL 2026)](https://aclanthology.org/2026.acl-long.1818/) | S2 / inherited | [记录](papers/abuin-2026-romance-wic.md) | 2026-10-13定向重读§§2–6及Appendix E/F，六个源TSV704行与prompt复核；主表two-shot、方向与公开字段边界已订正 |
 | P007 · [SemCog Bench (arXiv 2026)](https://arxiv.org/abs/2606.13218) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p007) | 已知公开数据入口和阿拉伯语—希伯来语任务；本轮未可靠获取全文，不据此提出机制结论 |
 | P008 · [Uban et al. — Friend or Foe? Semantic False Friends across Romance Languages (EMNLP 2025)](https://aclanthology.org/2025.emnlp-main.773/) | S1 / current | [记录](papers/uban-2025-semantic-false-friends.md) | 本轮阅读数据/标注层级、静态和上下文分布方法、主要结果；非所有附录 |
+| P060 · [Liu et al. — AM2iCo (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.571/) | S2 / current | [记录](papers/liu-2021-am2ico.md) | 定向§2–3及§4对抗分析Table7/8；源仓库README许可和三语言TSV；非聊天模型原结果复现 |
+| P061 · [Meconi et al. — Do Large Language Models Understand Word Senses? (EMNLP 2025)](https://aclanthology.org/2025.emnlp-main.1720/) | S2 / current | [记录](papers/meconi-2025-word-senses.md) | 定向§3误例、§4生成评估Table8–11及Limitations；自由释义与下游使用不等同，未审计代码 |
+| P064 · [Zhou et al. — WiC is Not WSD (arXiv 2026; author-reported AACL acceptance)](https://arxiv.org/abs/2609.20593) | S2 / current | [记录](papers/zhou-2026-wic-not-wsd.md) | 定向§4–6与Table1–5/Limitations；未核代码或正式会录；候选信息、粒度和外部比较的解释边界 |
 
 ## human-theory
 
@@ -98,6 +101,11 @@
 | P038 · [Yang, Cho et al. — Task Vectors, Learned Not Extracted (ICLR 2026)](https://proceedings.iclr.cc/paper_files/paper/2026/hash/79ada0f9bc4e41192ad5a80d13c8ca7e-Abstract-Conference.html) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p038) | 任务向量构造与提取的概念背景；本轮未读完整实验，不能充当TO或TVS细节证明 |
 | P039 · [Yang, Cho et al. — Localizing Task Recognition and Task Learning (ICLR 2026)](https://proceedings.iclr.cc/paper_files/paper/2026/hash/974726d56a6ddfac48486e57d5e798e4-Abstract-Conference.html) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p039) | 任务识别与学习分解的背景入口，不自动套用到语言/词义模块 |
 | P043 · [Xiong et al. — Capturing In-Context Learning Dynamics with Task Operators](https://arxiv.org/abs/2610.01054) | S1 / current | [记录](papers/xiong-2026-task-operators.md) | NeurIPS2026官方目录+作者发表列表核验；§3–4.5、Table1–3、Fig2–3；无oral/award断言 |
+| P066 · [Ohmer et al. — From Form(s) to Meaning (Computational Linguistics 2024)](https://aclanthology.org/2024.cl-4.10/) | S2 / current | [记录](papers/ohmer-2024-multisense-consistency.md) | §§3.1–3.4/5.1/7.1–7.4与Tables3–4；操作化意义一致性及指令/输入分离，不把作者sense混为词义 |
+| P067 · [Hwang et al. — Instructional Distractions (ACL 2025 main)](https://aclanthology.org/2025.acl-long.957/) | S2 / current | [记录](papers/hwang-2025-instructional-distractions.md) | §§3–5/Tables3–6/AppendixA.3–A.4；区分任务切换与质量失败，长度启发式不是语义证据 |
+| P068 · [Hossain et al. — Negation in NLU Corpora (ACL 2022 main short)](https://aclanthology.org/2022.acl-short.81/) | S2 / current | [记录](papers/hossain-2022-negation-nlu.md) | §3 Q1–Q3及Tables1–4；任务决定否定是否应改变gold，不推广样本结论到所有词义 |
+| P069 · [Zhou et al. — How Language Models Process Negation (2026, author-reported ICML)](https://arxiv.org/abs/2605.03052) | S2 / current | [记录](papers/zhou-2026-negation-mechanisms.md) | v2 §§3–5.4及部分5.5/Limitations/A.2–A.3；作者称ICML26，正式录用未独立核验；base logit干预不可借作本项目因果证据 |
+| P070 · [Tversky — Features of Similarity (1977)](https://cogsci.ucsd.edu/~coulson/203/tversky-features.pdf) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p070) | 只核原文333页Asymmetry and Focus相关段落；区分定向相似性与词义等价，不声称完整理论精读或复现 |
 
 ## learning-history
 
@@ -121,6 +129,11 @@
 | P046 · [Zheng et al. — Large Language Models Are Not Robust Multiple Choice Selectors (ICLR 2024)](https://arxiv.org/abs/2309.03882) | S1 / current | [记录](papers/zheng-2024-pride-selection-bias.md) | §2.4–4、Fig3–4/Table2和PriDe假设；双顺序偏置可能相消，不把单序翻转当新发现 |
 | P047 · [Zhang & Nanda — Towards Best Practices of Activation Patching: Metrics and Methods](https://arxiv.org/abs/2309.16042) | S1 / current | [记录](papers/zhang-nanda-2023-patching-methods.md) | §3–6/8与Fig3–5：corruption/metrics/window改变估计对象；不外推所有模型架构 |
 | P048 · [Heimersheim & Nanda — How to use and interpret activation patching](https://arxiv.org/abs/2404.15255) | S2 / current | [记录](papers/heimersheim-nanda-2024-patching-interpretation.md) | v1方法解释定向阅读；教程/预印本，不作新的多语实证结论 |
+| P057 · [Holtzman et al. — Surface Form Competition (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.564/) | S2 / current | [记录](papers/holtzman-2021-surface-form-competition.md) | 定向§2–7及Table1–5文本；PMI/AVG/UNC与COPA Flipped；未审计代码或穷尽图像附录 |
+| P058 · [Wiegreffe et al. — Increasing Probability Mass on Answer Choices Does Not Always Improve Accuracy (EMNLP 2023)](https://aclanthology.org/2023.emnlp-main.522/) | S2 / current | [记录](papers/wiegreffe-2023-answer-choice-probability.md) | v2§3–7、Limitations及Table8/部分Table9；正式venue核验；PMA排序界不等于知识或自然使用证明 |
+| P063 · [Artifacts or Abduction: How Do LLMs Answer Multiple-Choice Questions Without the Question? (ACL 2024)](https://aclanthology.org/2024.acl-long.555/) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p063) | 已检索并下载原文，方法尚未定向读完；不据题名把本地masked正确解释成伪影 |
+| P065 · [Liu et al. — Measuring Context-Word Biases in Lexical Semantic Datasets (EMNLP 2022)](https://aclanthology.org/2022.emnlp-main.173/) | S2 / current | [记录](papers/liu-2022-context-word-bias.md) | 定向§2及§3.1/Table1–3；删减输入分别训练、人类判断与语境损害的既有证据，未复现训练 |
+| P071 · [MCL at IITK — Sentence Reversal in Multilingual WiC (SemEval 2021)](https://aclanthology.org/2021.semeval-1.62/) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p071) | 只核原文Sentence Reversal Augmentation段落；顺序敏感早有方法先例，不以shared-task论文证明我们的机制或限制探索 |
 
 ## conference-navigation
 
@@ -135,6 +148,13 @@
 |---|---|---|---|
 | P054 · [MCL-WiC — Multilingual and Cross-lingual Word-in-Context resources](https://github.com/SapienzaNLP/mcl-wic) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p054) | 公开来源入口及上下文词义关系任务；不是严格同形/时序修正匹配集，使用许可另核验 |
 | P055 · [XL-WiC — Multilingual Word-in-Context resources](https://pilehvar.github.io/xlwic/) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p055) | 公开基准入口；普通WSD能力参照，不自动匹配false-friend分布 |
+
+## language-control
+
+| ID / 来源 | 阅读 / 产生轮次 | 资产 | 阅读与使用范围 |
+|---|---|---|---|
+| P059 · [Marchisio et al. — Understanding and Mitigating Language Confusion in LLMs (EMNLP 2024)](https://aclanthology.org/2024.emnlp-main.380/) | S2 / current | [记录](papers/marchisio-2024-language-confusion.md) | 定向§2.2–2.4、3–6和Limitations及Table5/7/8/11文本；短答LID边界、语言遵循不等于语义正确；未审计代码 |
+| P062 · [Oh et al. — OLA: Output Language Alignment in Code-Switched LLM Interactions (ACL 2026)](https://aclanthology.org/2026.acl-long.2162/) | S3 / catalogue | [记录](catalogue/SOURCE_CARDS.md#p062) | 核验正式venue、摘要及引言；隐式输出语言期望，与当前显式词义使用任务有别；方法细节尚未完成阅读 |
 
 ## 历史与范围
 

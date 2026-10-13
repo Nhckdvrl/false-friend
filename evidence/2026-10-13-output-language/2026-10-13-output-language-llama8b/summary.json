@@ -1,0 +1,1852 @@
+{
+  "manifest_status": "COMPLETE",
+  "n_trials": 1728,
+  "n_families": 16,
+  "groups": [
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "task": "sense",
+      "explanation_language": "none",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 6.89843749871352,
+          "ci95": [
+            5.46083983476467,
+            7.8476562277788044
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "task": "sense",
+      "explanation_language": "English",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.875,
+          "ci95": [
+            0.6875,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.875,
+          "ci95": [
+            0.6875,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 5.7695312336145435,
+          "ci95": [
+            4.558496078151802,
+            6.58203122549603
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "task": "sense",
+      "explanation_language": "German",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 3.6484374846331775,
+          "ci95": [
+            2.933593746193219,
+            4.144628917123192
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "task": "rule",
+      "explanation_language": "none",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.875,
+          "ci95": [
+            0.6875,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.875,
+          "ci95": [
+            0.6875,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 3.281249999985448,
+          "ci95": [
+            2.44897460748216,
+            3.9434081962834173
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "task": "rule",
+      "explanation_language": "English",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 0.96875,
+          "ci95": [
+            0.90625,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.96875,
+          "ci95": [
+            0.90625,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.5722656264842954,
+          "ci95": [
+            1.951123045560962,
+            3.076171865075594
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "task": "rule",
+      "explanation_language": "German",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.65625,
+          "ci95": [
+            0.53125,
+            0.8125
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.65625,
+          "ci95": [
+            0.53125,
+            0.8125
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.037109380355105,
+          "ci95": [
+            1.6367187523283064,
+            2.3750000048894435
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "task": "sense",
+      "explanation_language": "none",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 7.195312562358595,
+          "ci95": [
+            6.183593839073683,
+            7.875000089146942
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "task": "sense",
+      "explanation_language": "English",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 6.410156225814717,
+          "ci95": [
+            5.484375009901851,
+            7.0117187253672455
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "task": "sense",
+      "explanation_language": "German",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 4.000000000698492,
+          "ci95": [
+            3.4570312411524355,
+            4.3593750016298145
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "task": "rule",
+      "explanation_language": "none",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 3.730468764086254,
+          "ci95": [
+            3.0957031187019313,
+            4.269628929642204
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "task": "rule",
+      "explanation_language": "English",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.958984368786332,
+          "ci95": [
+            2.3925292915322642,
+            3.4961425704765134
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "task": "rule",
+      "explanation_language": "German",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.6875,
+          "ci95": [
+            0.5625,
+            0.875
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.6875,
+          "ci95": [
+            0.5625,
+            0.875
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.2714843584690243,
+          "ci95": [
+            1.8828124792780727,
+            2.654296857921872
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "masked",
+      "task": "sense",
+      "explanation_language": "none",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.875,
+          "ci95": [
+            0.6875,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.3125,
+          "ci95": [
+            0.125,
+            0.4375
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.457031258396455,
+          "ci95": [
+            1.5390624855510395,
+            3.3049805115786524
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "masked",
+      "task": "sense",
+      "explanation_language": "English",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.875,
+          "ci95": [
+            0.6875,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.1875,
+          "ci95": [
+            0.06093750000000053,
+            0.375
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.1679687409778126,
+          "ci95": [
+            1.3046875091211405,
+            2.9101562355805073
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "masked",
+      "task": "sense",
+      "explanation_language": "German",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.875,
+          "ci95": [
+            0.6875,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.5,
+          "ci95": [
+            0.3125,
+            0.6875
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 1.4531250172294676,
+          "ci95": [
+            0.9218750145751983,
+            1.9375000244006515
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "masked",
+      "task": "rule",
+      "explanation_language": "none",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.8125,
+          "ci95": [
+            0.65625,
+            0.9375
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.78125,
+          "ci95": [
+            0.625,
+            0.9375
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 0.8378906256984919,
+          "ci95": [
+            0.4023437516298145,
+            1.3320800914079884
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "masked",
+      "task": "rule",
+      "explanation_language": "English",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.75,
+          "ci95": [
+            0.5625,
+            0.9375
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.78125,
+          "ci95": [
+            0.65625,
+            0.90625
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 0.5468749990686774,
+          "ci95": [
+            0.253906243480742,
+            0.8359374941675923
+          ]
+        }
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "masked",
+      "task": "rule",
+      "explanation_language": "German",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.78125,
+          "ci95": [
+            0.625,
+            0.9375
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.40625,
+          "ci95": [
+            0.28125,
+            0.5
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 0.478515631519258,
+          "ci95": [
+            0.31049804985523227,
+            0.6484375060535967
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "task": "sense",
+      "explanation_language": "none",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 7.652343741599907,
+          "ci95": [
+            6.187499957972795,
+            9.0665039118182
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "task": "sense",
+      "explanation_language": "English",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 6.749999978259439,
+          "ci95": [
+            5.550781236637704,
+            7.855468682626816
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "task": "sense",
+      "explanation_language": "German",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 3.601562541909516,
+          "ci95": [
+            2.9217774094780906,
+            4.261816449032631
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "task": "rule",
+      "explanation_language": "none",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 3.935546887892997,
+          "ci95": [
+            3.3066406362631824,
+            4.531445321157663
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "task": "rule",
+      "explanation_language": "English",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 3.476562491443474,
+          "ci95": [
+            2.910156224302773,
+            4.070312501570152
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "task": "rule",
+      "explanation_language": "German",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.5,
+          "ci95": [
+            0.25,
+            0.75
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.5,
+          "ci95": [
+            0.25,
+            0.75
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.4472656408324838,
+          "ci95": [
+            2.06440431883093,
+            2.8222656488534996
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "task": "sense",
+      "explanation_language": "none",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 8.582031304040356,
+          "ci95": [
+            8.128906312371328,
+            9.14453127136403
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "task": "sense",
+      "explanation_language": "English",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 8.019531249563443,
+          "ci95": [
+            7.636718659719918,
+            8.417968786830897
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "task": "sense",
+      "explanation_language": "German",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 4.109375001862645,
+          "ci95": [
+            3.7890625221654775,
+            4.4765624983352605
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "task": "rule",
+      "explanation_language": "none",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 4.234374982799636,
+          "ci95": [
+            3.8007812095747795,
+            4.7089843615249265
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "task": "rule",
+      "explanation_language": "English",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 3.7597656266007107,
+          "ci95": [
+            3.3066406292993635,
+            4.222753915446811
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "task": "rule",
+      "explanation_language": "German",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "all_orders_correct": {
+          "n_families": 8,
+          "mean": 0.625,
+          "ci95": [
+            0.46875,
+            0.7820312500000028
+          ]
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.625,
+          "ci95": [
+            0.46875,
+            0.7820312500000028
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.4785156189464033,
+          "ci95": [
+            2.185546876792796,
+            2.7675781129160897
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "masked",
+      "task": "sense",
+      "explanation_language": "none",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 6.1757812469986675,
+          "ci95": [
+            5.593749995767302,
+            6.773437475105584
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "masked",
+      "task": "sense",
+      "explanation_language": "English",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.875,
+          "ci95": [
+            0.6875,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 5.660156233381713,
+          "ci95": [
+            5.187499974184902,
+            6.164160176088626
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "masked",
+      "task": "sense",
+      "explanation_language": "German",
+      "n_decisions": 16,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 3.0976562588475645,
+          "ci95": [
+            2.8046874995343387,
+            3.4335937471012583
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "masked",
+      "task": "rule",
+      "explanation_language": "none",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 2.2675781170255505,
+          "ci95": [
+            1.8456054710841272,
+            2.6933593781432137
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "masked",
+      "task": "rule",
+      "explanation_language": "English",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.90625,
+          "ci95": [
+            0.78125,
+            1.0
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 1.8730468821013346,
+          "ci95": [
+            1.4804687581490725,
+            2.2773437516298145
+          ]
+        }
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "masked",
+      "task": "rule",
+      "explanation_language": "German",
+      "n_decisions": 32,
+      "metrics": {
+        "correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "all_orders_correct": {
+          "n_families": 0,
+          "mean": null,
+          "ci95": null
+        },
+        "original_label_agreement": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.8125,
+            1.0
+          ]
+        },
+        "stable": {
+          "n_families": 8,
+          "mean": 0.1875,
+          "ci95": [
+            0.09375,
+            0.3125
+          ]
+        },
+        "original_label_margin": {
+          "n_families": 8,
+          "mean": 1.4609375135041773,
+          "ci95": [
+            1.2031250018626451,
+            1.7265625158324838
+          ]
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "task": "sense",
+      "German_minus_English": {
+        "n_families": 8,
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "task": "rule",
+      "German_minus_English": {
+        "n_families": 8,
+        "mean": 0.03125,
+        "ci95": [
+          0.0,
+          0.09375
+        ]
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "task": "sense",
+      "German_minus_English": {
+        "n_families": 8,
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "task": "rule",
+      "German_minus_English": {
+        "n_families": 8,
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "masked",
+      "task": "sense",
+      "German_minus_English": {
+        "n_families": 0,
+        "mean": null,
+        "ci95": null
+      }
+    },
+    {
+      "group": "cross_language",
+      "representation": "masked",
+      "task": "rule",
+      "German_minus_English": {
+        "n_families": 0,
+        "mean": null,
+        "ci95": null
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "task": "sense",
+      "German_minus_English": {
+        "n_families": 8,
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "task": "rule",
+      "German_minus_English": {
+        "n_families": 8,
+        "mean": -0.0625,
+        "ci95": [
+          -0.1875,
+          0.0
+        ]
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "task": "sense",
+      "German_minus_English": {
+        "n_families": 8,
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "task": "rule",
+      "German_minus_English": {
+        "n_families": 8,
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "masked",
+      "task": "sense",
+      "German_minus_English": {
+        "n_families": 0,
+        "mean": null,
+        "ci95": null
+      }
+    },
+    {
+      "group": "within_english",
+      "representation": "masked",
+      "task": "rule",
+      "German_minus_English": {
+        "n_families": 0,
+        "mean": null,
+        "ci95": null
+      }
+    }
+  ],
+  "n_language_choice_flips": 8,
+  "format_audit": {
+    "mean_label_mass": 0.7967842103082661,
+    "min_label_mass": 0.13039333635937125,
+    "off_label_argmax": 211
+  },
+  "interpretation": "Family-level exploratory comparisons. Masked agreement is recoverability of original labels, not semantic correctness. Conditional answer scores are not hidden-state posteriors."
+}

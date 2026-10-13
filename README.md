@@ -14,9 +14,15 @@
 | [实验构思来源](knowledge/EXPERIMENT_DESIGN_LESSONS.md) | Cho、Task Operators、ABX、跨语言负结果等工作的 idea 来源与实验逻辑 |
 | [本地 Agent 交接](HANDOFF.md) | 工作边界、资源使用、自主探索、数据和复现入口 |
 | [初始实验组合](experiments/EXPLORATION_PORTFOLIO.md) | 多个互补的高信息量实验；可重排、替换，不是机械闯关 |
-| [既有试跑证据](evidence/README.md) | 持久化的小模型数值、出处和局限；不能冒充原论文复现 |
+| [研究证据](evidence/README.md) | 原任务复核、新诊断、自由输出与历史smoke；分别保留来源和解释边界 |
 
 ## 目前真正知道什么
+
+四轮工作与接续入口见[当前进展总览](knowledge/notes/CURRENT_PROGRESS_2026-10-13.md)。最新[第四轮](knowledge/notes/ROMANCE_SCOPE_CYCLE_RESULTS_2026-10-13.md)已完成四模型、16个运行、21,424条自然生成：Romance原任务复核、旁例干预、词义/指称/命题区分及目标范围检验。在新12词族上，Qwen32B的孤立词级47/48、谓词级190/192正确，但上下文词级101/192正确；仅移动目标范围时常继续判断完整谓词。这是需要独立语义读出验证的行为线索，尚无内部机制结论。[完整证据](evidence/2026-10-13-romance-scope/README.md)保留失败、读出修正、未全量审核的输出及来源边界。
+
+此前[AM2iCo第三轮](knowledge/notes/AM2ICO_CYCLE_RESULTS_2026-10-13.md)三个模型、192文本对、10个运行已归档。固定目标列表和独立释义后，加回原文未支持稳定总体损害；目标误认、关系粒度和问题极性不一致必须分开。[输出语言第二轮](knowledge/notes/OUTPUT_LANGUAGE_CYCLE_RESULTS_2026-10-13.md)在明确语境中两个Qwen稳定，Llama大部分表面干扰来自首token漏掉自然答案路径。
+
+**2026-10-13**：已完成Llama8B/Qwen14B的Doppelganger Type-1数值复核，及独立问答、自由翻译、空输入、两轮语义应用和普通对象对照。结果迫使我们分开“评分失败、知识访问、词义依赖、表达失败”：原评分错仍可稳定答出正确义；遮词后的应用题仍可全对；明确普通词也可出现原先怀疑的词义使用失败。尚未发现足以支持统一机制的稳定差距。见[完整研究更新](knowledge/notes/LOCAL_RESEARCH_UPDATE_2026-10-13.md)与[ACL主会文献对照](knowledge/notes/MAIN_VENUE_COMPARISON_2026-10-13.md)。
 
 旧的自然 EN–DE shared/split 训练实验因对照对象无法识别而结束；旧十次运行不能用作有效阴性结果，见 [历史记录](docs/LEGACY_RECORD.md)。后来的数据与程序审计暴露了词条/屈折词形混淆、隐含来源语言不可观察、问答顺序可能自我条件化，以及选择项偏好等测量风险。它们是**解释数据前应排查的问题**，不是已经证明的模型内部机制。
 

@@ -1,0 +1,206 @@
+{
+  "groups": [
+    {
+      "task": "scope_followup",
+      "condition": "isolated",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 93,
+      "parsed": 96,
+      "yes": 45,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "scope_followup",
+      "condition": "predicate",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 384,
+      "correct": 345,
+      "parsed": 384,
+      "yes": 215,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "scope_followup",
+      "condition": "word",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 384,
+      "correct": 230,
+      "parsed": 384,
+      "yes": 158,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    }
+  ],
+  "symmetry": [],
+  "factorial": [],
+  "scope_pair_groups": [
+    {
+      "split": "explored",
+      "discordant_gold": false,
+      "n_pairs": 96,
+      "same_prediction": 87,
+      "word_correct": 96,
+      "predicate_correct": 87,
+      "same_prediction_by_family": {
+        "n_families": 12,
+        "mean": 0.90625,
+        "ci95": [
+          0.875,
+          0.9375
+        ]
+      }
+    },
+    {
+      "split": "explored",
+      "discordant_gold": true,
+      "n_pairs": 96,
+      "same_prediction": 75,
+      "word_correct": 20,
+      "predicate_correct": 85,
+      "same_prediction_by_family": {
+        "n_families": 12,
+        "mean": 0.78125,
+        "ci95": [
+          0.7083333333333334,
+          0.8645833333333334
+        ]
+      }
+    },
+    {
+      "split": "new_family",
+      "discordant_gold": false,
+      "n_pairs": 96,
+      "same_prediction": 88,
+      "word_correct": 94,
+      "predicate_correct": 86,
+      "same_prediction_by_family": {
+        "n_families": 12,
+        "mean": 0.9166666666666666,
+        "ci95": [
+          0.875,
+          0.9583333333333334
+        ]
+      }
+    },
+    {
+      "split": "new_family",
+      "discordant_gold": true,
+      "n_pairs": 96,
+      "same_prediction": 77,
+      "word_correct": 20,
+      "predicate_correct": 87,
+      "same_prediction_by_family": {
+        "n_families": 12,
+        "mean": 0.8020833333333334,
+        "ci95": [
+          0.7395833333333334,
+          0.8645833333333334
+        ]
+      }
+    }
+  ],
+  "identical_prompt_answer_mismatches": 0,
+  "run_status": "COMPLETE",
+  "family_metrics": [
+    {
+      "task": "scope_followup",
+      "condition": "isolated",
+      "split": "explored",
+      "n_outputs": 48,
+      "correct": 45,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.9375,
+        "ci95": [
+          0.8333333333333334,
+          1.0
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "isolated",
+      "split": "new_family",
+      "n_outputs": 48,
+      "correct": 48,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "predicate",
+      "split": "explored",
+      "n_outputs": 192,
+      "correct": 172,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.8958333333333334,
+        "ci95": [
+          0.8802083333333334,
+          0.9114583333333334
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "predicate",
+      "split": "new_family",
+      "n_outputs": 192,
+      "correct": 173,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.9010416666666666,
+        "ci95": [
+          0.8854166666666666,
+          0.9166666666666666
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "word",
+      "split": "explored",
+      "n_outputs": 192,
+      "correct": 116,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.6041666666666666,
+        "ci95": [
+          0.5729166666666666,
+          0.6354166666666666
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "word",
+      "split": "new_family",
+      "n_outputs": 192,
+      "correct": 114,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.59375,
+        "ci95": [
+          0.578125,
+          0.609375
+        ]
+      }
+    }
+  ],
+  "generation_tasks": {
+    "scope_followup": 864
+  },
+  "hit_token_limit": 0
+}

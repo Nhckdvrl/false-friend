@@ -1,0 +1,38 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-output-readout-qwen14b",
+  "files": {
+    "answer_audit.jsonl": {
+      "sha256": "bbd1fd854ef5ea215e8393d5206ea7269161b3c444ae9f766bfa34969487efed",
+      "bytes": 464250
+    },
+    "code_snapshot.py": {
+      "sha256": "6d58f632c715d5fdeacd113f66160263350f2604682dc0e11c56f3bf68541f14",
+      "bytes": 4279
+    },
+    "generation_specs.jsonl": {
+      "sha256": "95f333a7081bece2d88017142e8fa59069bbb6ab233f690fa8a66e36ba5907a3",
+      "bytes": 1493428
+    },
+    "generations.jsonl": {
+      "sha256": "6bab2cb3d1c265818b04c184af76454ae4e382f393f7a57002dade0fdcccb0ad",
+      "bytes": 2399368
+    },
+    "items.jsonl": {
+      "sha256": "427cde72ae1f744e593907b67fb46bc929f040edb01d6960aba9e706671ac1eb",
+      "bytes": 35105
+    },
+    "manifest.json": {
+      "sha256": "ac41a549402b765e4cede168e26fa58f53b10468c2642cd6c2914cda7c08b0d6",
+      "bytes": 1648
+    },
+    "scorer_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "summary.json": {
+      "sha256": "627164345e0abf94f6836497d253302f5fd96e718ad848aea742591e1364139f",
+      "bytes": 9031
+    }
+  },
+  "policy": "Full locally authored stimuli and prompts preserved. Agent review is nonblind and is not independent human gold."
+}

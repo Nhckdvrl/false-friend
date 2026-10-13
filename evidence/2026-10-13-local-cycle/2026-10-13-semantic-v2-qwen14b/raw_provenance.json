@@ -1,0 +1,34 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-semantic-v2-qwen14b",
+  "original_files": {
+    "code_snapshot.py": {
+      "sha256": "1eb6f0ca13fc5f1d087e47aba37498c848e0cd44fd76f77468852858d3c928a3",
+      "bytes": 8148
+    },
+    "items.jsonl": {
+      "sha256": "74e4eb829dceb1081c8989f401763de8756eb55f8357d22bb5a360e3964a1616",
+      "bytes": 25980
+    },
+    "manifest.json": {
+      "sha256": "a1cf5889d2dd6a0d5ccc1c91bccef656d71799e4ae344392de83e2ad62bf906d",
+      "bytes": 1373
+    },
+    "pair_summary.json": {
+      "sha256": "8fa1c293f3d1ddce52af0f845eee1ade39c0bc2585bb0ba65f6f4c5179426382",
+      "bytes": 1246
+    },
+    "scorer_snapshot.py": {
+      "sha256": "06df31202a29bf8068f0f5362aff26141cbbaaca980f7d969473b28558e6715b",
+      "bytes": 22939
+    },
+    "summary.json": {
+      "sha256": "b82cf678383b0df46f23f77ed638d3e404a776bd7375b0f77c747a39f2897988",
+      "bytes": 14652
+    },
+    "trials.jsonl": {
+      "sha256": "70c704be89ef44c5bcfd12e071dc3e3cf251d4ed0433507bac37d5530649a3e2",
+      "bytes": 234188
+    }
+  },
+  "policy": "Raw source sentences/options/prompts remain in local run. This bundle keeps hashes, numerical scores, model outputs, code snapshots and non-human review. It is not an independent semantic annotation."
+}

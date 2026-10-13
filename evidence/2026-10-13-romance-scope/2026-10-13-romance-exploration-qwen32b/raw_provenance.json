@@ -1,0 +1,29 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-romance-exploration-qwen32b",
+  "original_files": {
+    "analysis.json": {
+      "sha256": "2608fb34544b99c0878b24d05536fc3e207db42dd490f976310c1da34e279f19",
+      "bytes": 795464
+    },
+    "code_snapshot.py": {
+      "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+      "bytes": 4740
+    },
+    "generation_code_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "generation_specs.jsonl": {
+      "sha256": "444b566f987e73c8c61bfa48633e5f07ec1a27a01b86b59010e93ea88a2e0495",
+      "bytes": 2682686
+    },
+    "generations.jsonl": {
+      "sha256": "c697d6172888f40069035f2d67f32d21f7faacd0c1a06d747ac376dd2b5c8e82",
+      "bytes": 5002860
+    },
+    "manifest.json": {
+      "sha256": "1d65627dbaaca611a33a9f7d5c67a1c619ce012ffa4d6509420710d450e16ce5",
+      "bytes": 3639
+    }
+  }
+}

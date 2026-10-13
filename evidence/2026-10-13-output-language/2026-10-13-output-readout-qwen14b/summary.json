@@ -1,0 +1,440 @@
+{
+  "n_generations": 768,
+  "groups": [
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "explanation_language": "none",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 0.96875,
+          "ci95": [
+            0.921875,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 0
+    },
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "explanation_language": "English",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 0.96875,
+          "ci95": [
+            0.90625,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 2,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 2
+    },
+    {
+      "group": "cross_language",
+      "representation": "original",
+      "explanation_language": "German",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 0
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "explanation_language": "none",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 0
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "explanation_language": "English",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 0.9375,
+          "ci95": [
+            0.875,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 4,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 4
+    },
+    {
+      "group": "cross_language",
+      "representation": "paraphrase",
+      "explanation_language": "German",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 0
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "explanation_language": "none",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 0.953125,
+          "ci95": [
+            0.90625,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 0
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "explanation_language": "English",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 0
+    },
+    {
+      "group": "within_english",
+      "representation": "original",
+      "explanation_language": "German",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 2
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "explanation_language": "none",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 0.953125,
+          "ci95": [
+            0.90625,
+            0.984375
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 0
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "explanation_language": "English",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 0.984375,
+          "ci95": [
+            0.953125,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 1,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 1
+    },
+    {
+      "group": "within_english",
+      "representation": "paraphrase",
+      "explanation_language": "German",
+      "n": 64,
+      "metrics": {
+        "natural_answer_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "restricted_correct": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        "first_token_allowed": {
+          "n_families": 8,
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "unparsed": 0,
+      "rescued": 0,
+      "lost": 0,
+      "token_limit": 0
+    }
+  ],
+  "unparsed": 7,
+  "first_token_argmax_disagreements": 6,
+  "interpretation": "Initial explicit answer parser, not semantic explanation grading; all output retained. Off-label paths and batch-dependent near-ties can change decisions."
+}

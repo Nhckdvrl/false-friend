@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE",
+  "protocol": "frozen-prompts-complete-rule-generation-v1",
+  "started_utc": "2026-10-13T03:47:41.023893+00:00",
+  "host": "fvcrc21",
+  "parent_run": "/home/xiang/false-friend/runs/2026-10-13-output-language-llama8b",
+  "parent_manifest_sha256": "e8e77c5c8ffbb7dbc58cc65209a84256d44f44f4b131d915192b7be7e8f613f3",
+  "parent_specs_sha256": "8a5953bed5e2dbca46082124d06b9e7d2750259cdc8a28c879f0f48db0a89669",
+  "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "model_path": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "tokenizer_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "chat_template_kwargs": {},
+  "items_sha256": "427cde72ae1f744e593907b67fb46bc929f040edb01d6960aba9e706671ac1eb",
+  "n_generations": 768,
+  "seed": 20261013,
+  "batch_size": 16,
+  "max_new_tokens": 96,
+  "dtype": "bfloat16",
+  "code_sha256": "6d58f632c715d5fdeacd113f66160263350f2604682dc0e11c56f3bf68541f14",
+  "scorer_sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+  "cuda_visible_devices": "0",
+  "interpretation": "Post-observation measurement follow-up. All nonmasked rule trials, no error-based item selection. Same prompts. Not independent confirmation.",
+  "environment": {
+    "python": "3.12.0",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "finished_utc": "2026-10-13T03:50:08.396868+00:00",
+  "elapsed_seconds": 80.27570060797734,
+  "peak_allocated_gb": 16.642708992
+}

@@ -279,3 +279,47 @@
 
 **如何使用**：它是进一步检索的有界入口，不是本文机制结论的证据。若下一实验直接依赖该工作的具体方法或对照，先读对应原文，再升级并写结构化笔记。
 **不能使用**：不把题名或摘要补成实验链，不以它证明独创性或判死一个领域；不把已有论文的存在误解为问题已充分解释。
+
+<a id="p062"></a>
+
+## P062 · Oh et al. — OLA: Output Language Alignment in Code-Switched LLM Interactions (ACL 2026)
+
+**原始入口**：[来源](https://aclanthology.org/2026.acl-long.2162/)。**范围**：S3，language-control。
+
+核验正式venue、摘要及引言；隐式输出语言期望，与当前显式词义使用任务有别；方法细节尚未完成阅读。
+
+**如何使用**：它是进一步检索的有界入口，不是本文机制结论的证据。若下一实验直接依赖该工作的具体方法或对照，先读对应原文，再升级并写结构化笔记。
+**不能使用**：不把题名或摘要补成实验链，不以它证明独创性或判死一个领域；不把已有论文的存在误解为问题已充分解释。
+
+<a id="p063"></a>
+
+## P063 · Artifacts or Abduction: How Do LLMs Answer Multiple-Choice Questions Without the Question? (ACL 2024)
+
+**原始入口**：[来源](https://aclanthology.org/2024.acl-long.555/)。**范围**：S3，measurement-methods。
+
+已检索并下载原文，方法尚未定向读完；不据题名把本地masked正确解释成伪影。
+
+**如何使用**：它是进一步检索的有界入口，不是本文机制结论的证据。若下一实验直接依赖该工作的具体方法或对照，先读对应原文，再升级并写结构化笔记。
+**不能使用**：不把题名或摘要补成实验链，不以它证明独创性或判死一个领域；不把已有论文的存在误解为问题已充分解释。
+
+<a id="p070"></a>
+
+## P070 · Tversky — Features of Similarity (1977)
+
+**原始入口**：[来源](https://cogsci.ucsd.edu/~coulson/203/tversky-features.pdf)。**范围**：S3，experiment-design。
+
+只核原文333页Asymmetry and Focus相关段落；区分定向相似性与词义等价，不声称完整理论精读或复现。
+
+**如何使用**：它是进一步检索的有界入口，不是本文机制结论的证据。若下一实验直接依赖该工作的具体方法或对照，先读对应原文，再升级并写结构化笔记。
+**不能使用**：不把题名或摘要补成实验链，不以它证明独创性或判死一个领域；不把已有论文的存在误解为问题已充分解释。
+
+<a id="p071"></a>
+
+## P071 · MCL at IITK — Sentence Reversal in Multilingual WiC (SemEval 2021)
+
+**原始入口**：[来源](https://aclanthology.org/2021.semeval-1.62/)。**范围**：S3，measurement-methods。
+
+只核原文Sentence Reversal Augmentation段落；顺序敏感早有方法先例，不以shared-task论文证明我们的机制或限制探索。
+
+**如何使用**：它是进一步检索的有界入口，不是本文机制结论的证据。若下一实验直接依赖该工作的具体方法或对照，先读对应原文，再升级并写结构化笔记。
+**不能使用**：不把题名或摘要补成实验链，不以它证明独创性或判死一个领域；不把已有论文的存在误解为问题已充分解释。

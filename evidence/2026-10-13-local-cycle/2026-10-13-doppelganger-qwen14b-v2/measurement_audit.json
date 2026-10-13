@@ -1,0 +1,219 @@
+{
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "run_status_at_audit": "COMPLETE",
+  "duplicate_candidate_rows": [
+    {
+      "item_id": "type1:jp:translation:9ae80d0386fe13aa23d7",
+      "source_key": "果子",
+      "duplicate_index_groups": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "item_id": "type1:jp:translation:9c8d63e03ad58617e6d9",
+      "source_key": "前年",
+      "duplicate_index_groups": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "item_id": "type1:jp:translation:9e5e70d595d6f1e031a4",
+      "source_key": "顾客",
+      "duplicate_index_groups": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "item_id": "type1:zh:translation:a71eeaf4c7b3dc163e09",
+      "source_key": "老眼",
+      "duplicate_index_groups": [
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  ],
+  "token_boundaries": {
+    "source:jp:meaning": {
+      "candidate_sequences": 1856,
+      "prefix_crossing_sequences": 0,
+      "suffix_crossing_sequences": 0
+    },
+    "null:jp:meaning": {
+      "candidate_sequences": 1856,
+      "prefix_crossing_sequences": 0,
+      "suffix_crossing_sequences": 0
+    },
+    "source:jp:context": {
+      "candidate_sequences": 1848,
+      "prefix_crossing_sequences": 0,
+      "suffix_crossing_sequences": 0
+    },
+    "null:jp:context": {
+      "candidate_sequences": 1848,
+      "prefix_crossing_sequences": 0,
+      "suffix_crossing_sequences": 0
+    },
+    "source:jp:translation": {
+      "candidate_sequences": 1848,
+      "prefix_crossing_sequences": 0,
+      "suffix_crossing_sequences": 0
+    },
+    "null:jp:translation": {
+      "candidate_sequences": 1848,
+      "prefix_crossing_sequences": 0,
+      "suffix_crossing_sequences": 0
+    },
+    "source:zh:meaning": {
+      "candidate_sequences": 1856,
+      "prefix_crossing_sequences": 4,
+      "suffix_crossing_sequences": 10
+    },
+    "null:zh:meaning": {
+      "candidate_sequences": 1856,
+      "prefix_crossing_sequences": 4,
+      "suffix_crossing_sequences": 10
+    },
+    "source:zh:context": {
+      "candidate_sequences": 1820,
+      "prefix_crossing_sequences": 4,
+      "suffix_crossing_sequences": 10
+    },
+    "null:zh:context": {
+      "candidate_sequences": 1820,
+      "prefix_crossing_sequences": 4,
+      "suffix_crossing_sequences": 10
+    },
+    "source:zh:translation": {
+      "candidate_sequences": 1820,
+      "prefix_crossing_sequences": 0,
+      "suffix_crossing_sequences": 62
+    },
+    "null:zh:translation": {
+      "candidate_sequences": 1820,
+      "prefix_crossing_sequences": 0,
+      "suffix_crossing_sequences": 62
+    }
+  },
+  "source_null_candidate_token_stream_mismatches": [],
+  "meaning_context_distractor_changes": [
+    "type1:jp:context:d4df3b320ca683cb49da",
+    "type1:jp:context:5ecf80eb21375c1d8e0a",
+    "type1:zh:context:8878fe492d461c03987c",
+    "type1:zh:context:610e753638cc706814a0",
+    "type1:zh:context:850621cc61707e5d6d37",
+    "type1:zh:context:69604dfe67c12fb9e7ad",
+    "type1:zh:context:8a62441cdbd3c8249574",
+    "type1:zh:context:4b8c92c444111986b462",
+    "type1:zh:context:8db549b8ea28e307e963",
+    "type1:zh:context:0bb3bb010a57573caa90",
+    "type1:zh:context:23beee18d28d4828f010",
+    "type1:zh:context:d630b71627d3f492385d",
+    "type1:zh:context:6bd7b4060153c98235ce",
+    "type1:zh:context:92c6ae2a53000ab57248",
+    "type1:zh:context:d0cc81d7f80c7312b1c8",
+    "type1:zh:context:237cf41ca69b7297f566"
+  ],
+  "chat_full_vocabulary_audit": {
+    "jp:meaning": {
+      "n_rotations": 384,
+      "mean_label_probability_mass": 0.9998421779650767,
+      "min_label_probability_mass": 0.974676982199765,
+      "off_label_argmax_count": 0,
+      "off_label_argmax_tokens": {},
+      "restricted_position_choices": {
+        "A": 95,
+        "D": 97,
+        "C": 96,
+        "B": 96
+      }
+    },
+    "jp:context": {
+      "n_rotations": 384,
+      "mean_label_probability_mass": 0.9999223462648499,
+      "min_label_probability_mass": 0.9862140143637306,
+      "off_label_argmax_count": 0,
+      "off_label_argmax_tokens": {},
+      "restricted_position_choices": {
+        "A": 96,
+        "D": 96,
+        "C": 95,
+        "B": 97
+      }
+    },
+    "jp:translation": {
+      "n_rotations": 384,
+      "mean_label_probability_mass": 0.9998889214682807,
+      "min_label_probability_mass": 0.988254784841962,
+      "off_label_argmax_count": 0,
+      "off_label_argmax_tokens": {},
+      "restricted_position_choices": {
+        "A": 85,
+        "D": 106,
+        "C": 98,
+        "B": 95
+      }
+    },
+    "zh:meaning": {
+      "n_rotations": 384,
+      "mean_label_probability_mass": 0.9999816674260936,
+      "min_label_probability_mass": 0.9964129765110444,
+      "off_label_argmax_count": 0,
+      "off_label_argmax_tokens": {},
+      "restricted_position_choices": {
+        "A": 102,
+        "D": 93,
+        "C": 96,
+        "B": 93
+      }
+    },
+    "zh:context": {
+      "n_rotations": 376,
+      "mean_label_probability_mass": 0.9999999027834907,
+      "min_label_probability_mass": 0.9999914007182882,
+      "off_label_argmax_count": 0,
+      "off_label_argmax_tokens": {},
+      "restricted_position_choices": {
+        "A": 92,
+        "D": 98,
+        "C": 95,
+        "B": 91
+      }
+    },
+    "zh:translation": {
+      "n_rotations": 376,
+      "mean_label_probability_mass": 0.9999695279522194,
+      "min_label_probability_mass": 0.9938677551095431,
+      "off_label_argmax_count": 0,
+      "off_label_argmax_tokens": {},
+      "restricted_position_choices": {
+        "A": 90,
+        "D": 88,
+        "C": 97,
+        "B": 101
+      }
+    }
+  },
+  "generation": {
+    "n": 144,
+    "eos_ids": [
+      151645,
+      151643
+    ],
+    "hit_token_limit": [
+      "type1:zh:translation:cc47878ebc54a641f614"
+    ],
+    "inconsistent_stops": []
+  },
+  "interpretation": "Token/format audit only; no new semantic labels or causal conclusions. PMA uses full-vocabulary label log probabilities without ABCD renormalization."
+}

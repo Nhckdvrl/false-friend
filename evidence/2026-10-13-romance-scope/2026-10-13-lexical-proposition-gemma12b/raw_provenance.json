@@ -1,0 +1,29 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-lexical-proposition-gemma12b",
+  "original_files": {
+    "analysis.json": {
+      "sha256": "3b28e2c89fce4f7e7156f7d88495598055d80b125757bdae3ef091d9332865f2",
+      "bytes": 786007
+    },
+    "code_snapshot.py": {
+      "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+      "bytes": 4740
+    },
+    "generation_code_snapshot.py": {
+      "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+      "bytes": 23113
+    },
+    "generation_specs.jsonl": {
+      "sha256": "cf74af4a563a2fe8d3a7a5bfd9b85ab9c2284c3c8bf67a0a7bcf0f42c53e90bd",
+      "bytes": 752576
+    },
+    "generations.jsonl": {
+      "sha256": "b1ac17414963faf019444b28a9b9f5d105d81babae880e8c83ec24c2e795aecc",
+      "bytes": 1620345
+    },
+    "manifest.json": {
+      "sha256": "01d5d5eb89b61d469bccb34f584e4879de95b716a314680a3cef9a35ef736a09",
+      "bytes": 3615
+    }
+  }
+}

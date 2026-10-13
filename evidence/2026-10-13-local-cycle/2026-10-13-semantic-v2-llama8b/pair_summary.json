@@ -1,0 +1,36 @@
+{
+  "n_pairs": 3,
+  "n_families": 3,
+  "n_both_correct": 2,
+  "n_both_correct_all_orders": 2,
+  "pairs": [
+    {
+      "item_id": "followup-v2:33861c5bf75a9ad1579c:zh:new_low_cue_v2",
+      "lexeme_family_id": "33861c5bf75a9ad1579c",
+      "both_correct": true,
+      "both_correct_all_orders": true,
+      "option0_response_logp_difference": 9.437499998079147
+    },
+    {
+      "item_id": "followup-v2:cb5de2a6219e4772816b:zh:new_low_cue_v2",
+      "lexeme_family_id": "cb5de2a6219e4772816b",
+      "both_correct": true,
+      "both_correct_all_orders": true,
+      "option0_response_logp_difference": 7.812500108761014
+    },
+    {
+      "item_id": "followup-v2:c558d337e51f5f1e6ea3:zh:new_low_cue_v2",
+      "lexeme_family_id": "c558d337e51f5f1e6ea3",
+      "both_correct": false,
+      "both_correct_all_orders": false,
+      "option0_response_logp_difference": 3.062500069383532
+    }
+  ],
+  "format_audit": {
+    "n_trials": 42,
+    "min_label_probability_mass": 0.9951837580507595,
+    "mean_label_probability_mass": 0.9996677579450081,
+    "off_label_argmax_count": 0
+  },
+  "interpretation": "Explicit input sense substitutions, exploratory items. Ambiguous/null-gold conditions excluded from agreement. No natural internal mechanism inferred."
+}

@@ -1,0 +1,62 @@
+{
+  "threshold": 0.04,
+  "threshold_status": "posthoc engineering sensitivity flag, not a guaranteed numerical error bound",
+  "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "run_status": "COMPLETE",
+  "scalar_loss_verification": {
+    "library_loss": 2.738596200942993,
+    "batched_loss": 2.7395646737084816,
+    "abs_error": 0.0009684727654883929
+  },
+  "sentinel_rankings": [],
+  "groups": {
+    "jp:meaning": {
+      "n": 464,
+      "near_boundary_count": 44,
+      "exact_top_ties": 0,
+      "source_wrong_chat_all_correct": 30,
+      "source_wrong_chat_all_correct_outside_flag": 27,
+      "n_chat": 96
+    },
+    "jp:context": {
+      "n": 462,
+      "near_boundary_count": 53,
+      "exact_top_ties": 0,
+      "source_wrong_chat_all_correct": 19,
+      "source_wrong_chat_all_correct_outside_flag": 15,
+      "n_chat": 96
+    },
+    "jp:translation": {
+      "n": 462,
+      "near_boundary_count": 69,
+      "exact_top_ties": 1,
+      "source_wrong_chat_all_correct": 3,
+      "source_wrong_chat_all_correct_outside_flag": 2,
+      "n_chat": 96
+    },
+    "zh:meaning": {
+      "n": 464,
+      "near_boundary_count": 36,
+      "exact_top_ties": 0,
+      "source_wrong_chat_all_correct": 14,
+      "source_wrong_chat_all_correct_outside_flag": 12,
+      "n_chat": 96
+    },
+    "zh:context": {
+      "n": 455,
+      "near_boundary_count": 52,
+      "exact_top_ties": 0,
+      "source_wrong_chat_all_correct": 21,
+      "source_wrong_chat_all_correct_outside_flag": 18,
+      "n_chat": 94
+    },
+    "zh:translation": {
+      "n": 455,
+      "near_boundary_count": 110,
+      "exact_top_ties": 0,
+      "source_wrong_chat_all_correct": 4,
+      "source_wrong_chat_all_correct_outside_flag": 1,
+      "n_chat": 94
+    }
+  }
+}

@@ -1,6 +1,8 @@
 # 当前工作空间的研究知识库
 
-**位置固定：Nhckdvrl/false-friend/knowledge/**。没有向外部Library或别的workbench写入这些资产。更新2026-10-12。
+**位置固定：Nhckdvrl/false-friend/knowledge/**。没有向外部Library或别的workbench写入这些资产。更新2026-10-13。
+
+最新实证：[第四轮Romance与目标范围](notes/ROMANCE_SCOPE_CYCLE_RESULTS_2026-10-13.md)，16运行、21,424生成，出现新词族上的范围不敏感预测；[四轮进展总览](notes/CURRENT_PROGRESS_2026-10-13.md)统一已知、未知与接续入口。此前为[AM2iCo第三轮](notes/AM2ICO_CYCLE_RESULTS_2026-10-13.md)、[输出语言第二轮](notes/OUTPUT_LANGUAGE_CYCLE_RESULTS_2026-10-13.md)及[第一轮本地研究](notes/LOCAL_RESEARCH_UPDATE_2026-10-13.md)。主会完成度与最近邻距离：[ACL主会对照](notes/MAIN_VENUE_COMPARISON_2026-10-13.md)。包含原协议复核、新观察及失败测量，尚无内部机制结论。
 
 ## 读什么、为什么
 

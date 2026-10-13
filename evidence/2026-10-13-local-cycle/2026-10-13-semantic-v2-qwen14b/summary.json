@@ -1,0 +1,509 @@
+{
+  "decisions": [
+    {
+      "item_id": "followup-v2:33861c5bf75a9ad1579c:zh:source_original",
+      "lexeme_family_id": "33861c5bf75a9ad1579c",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "original",
+      "correct_index": 0,
+      "prediction": 0,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 35.4375,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 35.4375,
+      "mean_label_probability_mass": 1.0000000000000004
+    },
+    {
+      "item_id": "followup-v2:33861c5bf75a9ad1579c:zh:source_original",
+      "lexeme_family_id": "33861c5bf75a9ad1579c",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "paraphrase",
+      "correct_index": 0,
+      "prediction": 0,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 35.125,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 35.125,
+      "mean_label_probability_mass": 1.0000000000000007
+    },
+    {
+      "item_id": "followup-v2:33861c5bf75a9ad1579c:zh:source_original",
+      "lexeme_family_id": "33861c5bf75a9ad1579c",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "masked",
+      "correct_index": null,
+      "prediction": 0,
+      "correct": null,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 28.843750540775545,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9999299732094175
+    },
+    {
+      "item_id": "followup-v2:33861c5bf75a9ad1579c:zh:new_low_cue_v2",
+      "lexeme_family_id": "33861c5bf75a9ad1579c",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "original",
+      "correct_index": null,
+      "prediction": 1,
+      "correct": null,
+      "rotation_stable": true,
+      "rotation_choices": [
+        1,
+        1
+      ],
+      "option0_minus_option1_logp": -26.24999910606107,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9999857547591764
+    },
+    {
+      "item_id": "followup-v2:33861c5bf75a9ad1579c:zh:new_low_cue_v2",
+      "lexeme_family_id": "33861c5bf75a9ad1579c",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "paraphrase",
+      "correct_index": 0,
+      "prediction": 0,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 32.0,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 32.0,
+      "mean_label_probability_mass": 1.0000000000000129
+    },
+    {
+      "item_id": "followup-v2:33861c5bf75a9ad1579c:zh:new_low_cue_v2",
+      "lexeme_family_id": "33861c5bf75a9ad1579c",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "foil_paraphrase",
+      "correct_index": 1,
+      "prediction": 1,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        1,
+        1
+      ],
+      "option0_minus_option1_logp": -29.625000238425176,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 29.625000238425176,
+      "mean_label_probability_mass": 0.9999973774095379
+    },
+    {
+      "item_id": "followup-v2:33861c5bf75a9ad1579c:zh:new_low_cue_v2",
+      "lexeme_family_id": "33861c5bf75a9ad1579c",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "masked",
+      "correct_index": null,
+      "prediction": 0,
+      "correct": null,
+      "rotation_stable": false,
+      "rotation_choices": [
+        1,
+        0
+      ],
+      "option0_minus_option1_logp": 5.093750238418579,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.014783279714761857
+    },
+    {
+      "item_id": "followup-v2:cb5de2a6219e4772816b:zh:source_original",
+      "lexeme_family_id": "cb5de2a6219e4772816b",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "original",
+      "correct_index": null,
+      "prediction": 0,
+      "correct": null,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 22.68749946355838,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9999994641191143
+    },
+    {
+      "item_id": "followup-v2:cb5de2a6219e4772816b:zh:source_original",
+      "lexeme_family_id": "cb5de2a6219e4772816b",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "paraphrase",
+      "correct_index": 0,
+      "prediction": 0,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 26.93749976158145,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 26.93749976158145,
+      "mean_label_probability_mass": 0.999999761594528
+    },
+    {
+      "item_id": "followup-v2:cb5de2a6219e4772816b:zh:source_original",
+      "lexeme_family_id": "cb5de2a6219e4772816b",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "masked",
+      "correct_index": null,
+      "prediction": 0,
+      "correct": null,
+      "rotation_stable": false,
+      "rotation_choices": [
+        1,
+        0
+      ],
+      "option0_minus_option1_logp": 6.437500132247806,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9488768041562599
+    },
+    {
+      "item_id": "followup-v2:cb5de2a6219e4772816b:zh:new_low_cue_v2",
+      "lexeme_family_id": "cb5de2a6219e4772816b",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "original",
+      "correct_index": null,
+      "prediction": 0,
+      "correct": null,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 19.31249976158802,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9999979112661277
+    },
+    {
+      "item_id": "followup-v2:cb5de2a6219e4772816b:zh:new_low_cue_v2",
+      "lexeme_family_id": "cb5de2a6219e4772816b",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "paraphrase",
+      "correct_index": 0,
+      "prediction": 0,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 30.4375,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 30.4375,
+      "mean_label_probability_mass": 1.0000000000000815
+    },
+    {
+      "item_id": "followup-v2:cb5de2a6219e4772816b:zh:new_low_cue_v2",
+      "lexeme_family_id": "cb5de2a6219e4772816b",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "foil_paraphrase",
+      "correct_index": 1,
+      "prediction": 1,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        1,
+        1
+      ],
+      "option0_minus_option1_logp": -34.8125,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 34.8125,
+      "mean_label_probability_mass": 1.0000000000000009
+    },
+    {
+      "item_id": "followup-v2:cb5de2a6219e4772816b:zh:new_low_cue_v2",
+      "lexeme_family_id": "cb5de2a6219e4772816b",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "masked",
+      "correct_index": null,
+      "prediction": 1,
+      "correct": null,
+      "rotation_stable": false,
+      "rotation_choices": [
+        1,
+        0
+      ],
+      "option0_minus_option1_logp": -3.500000413507223,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.4831764537639692
+    },
+    {
+      "item_id": "followup-v2:c558d337e51f5f1e6ea3:zh:source_original",
+      "lexeme_family_id": "c558d337e51f5f1e6ea3",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "original",
+      "correct_index": null,
+      "prediction": 0,
+      "correct": null,
+      "rotation_stable": false,
+      "rotation_choices": [
+        0,
+        1
+      ],
+      "option0_minus_option1_logp": 13.1875,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9999967208047191
+    },
+    {
+      "item_id": "followup-v2:c558d337e51f5f1e6ea3:zh:source_original",
+      "lexeme_family_id": "c558d337e51f5f1e6ea3",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "paraphrase",
+      "correct_index": 0,
+      "prediction": 0,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 26.1875,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 26.1875,
+      "mean_label_probability_mass": 1.0000000008026195
+    },
+    {
+      "item_id": "followup-v2:c558d337e51f5f1e6ea3:zh:source_original",
+      "lexeme_family_id": "c558d337e51f5f1e6ea3",
+      "source_language": "zh",
+      "context_revision": "source_original",
+      "variant": "masked",
+      "correct_index": null,
+      "prediction": 1,
+      "correct": null,
+      "rotation_stable": false,
+      "rotation_choices": [
+        0,
+        1
+      ],
+      "option0_minus_option1_logp": -3.874999819265213,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9973939694021257
+    },
+    {
+      "item_id": "followup-v2:c558d337e51f5f1e6ea3:zh:new_low_cue_v2",
+      "lexeme_family_id": "c558d337e51f5f1e6ea3",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "original",
+      "correct_index": null,
+      "prediction": 1,
+      "correct": null,
+      "rotation_stable": true,
+      "rotation_choices": [
+        1,
+        1
+      ],
+      "option0_minus_option1_logp": -20.874999701976837,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9999997048441778
+    },
+    {
+      "item_id": "followup-v2:c558d337e51f5f1e6ea3:zh:new_low_cue_v2",
+      "lexeme_family_id": "c558d337e51f5f1e6ea3",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "paraphrase",
+      "correct_index": 0,
+      "prediction": 0,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        0,
+        0
+      ],
+      "option0_minus_option1_logp": 26.3125,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 26.3125,
+      "mean_label_probability_mass": 1.0000000000659357
+    },
+    {
+      "item_id": "followup-v2:c558d337e51f5f1e6ea3:zh:new_low_cue_v2",
+      "lexeme_family_id": "c558d337e51f5f1e6ea3",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "foil_paraphrase",
+      "correct_index": 1,
+      "prediction": 1,
+      "correct": true,
+      "rotation_stable": true,
+      "rotation_choices": [
+        1,
+        1
+      ],
+      "option0_minus_option1_logp": -27.74999994039536,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": 27.74999994039536,
+      "mean_label_probability_mass": 0.9999999403963133
+    },
+    {
+      "item_id": "followup-v2:c558d337e51f5f1e6ea3:zh:new_low_cue_v2",
+      "lexeme_family_id": "c558d337e51f5f1e6ea3",
+      "source_language": "zh",
+      "context_revision": "new_low_cue_v2",
+      "variant": "masked",
+      "correct_index": null,
+      "prediction": 1,
+      "correct": null,
+      "rotation_stable": true,
+      "rotation_choices": [
+        1,
+        1
+      ],
+      "option0_minus_option1_logp": -18.999999468830538,
+      "exact_score_tie": false,
+      "correct_minus_foil_logp": null,
+      "mean_label_probability_mass": 0.9999184235755342
+    }
+  ],
+  "groups": [
+    {
+      "context_revision": "source_original",
+      "variant": "original",
+      "n_instances": 3,
+      "n_labeled": 1,
+      "n_correct": 1,
+      "family_agreement": {
+        "n_families": 1,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "rotation_stable": 2
+    },
+    {
+      "context_revision": "source_original",
+      "variant": "paraphrase",
+      "n_instances": 3,
+      "n_labeled": 3,
+      "n_correct": 3,
+      "family_agreement": {
+        "n_families": 3,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "rotation_stable": 3
+    },
+    {
+      "context_revision": "source_original",
+      "variant": "masked",
+      "n_instances": 3,
+      "n_labeled": 0,
+      "n_correct": 0,
+      "family_agreement": {
+        "n_families": 0,
+        "mean": null,
+        "ci95": null
+      },
+      "rotation_stable": 1
+    },
+    {
+      "context_revision": "new_low_cue_v2",
+      "variant": "original",
+      "n_instances": 3,
+      "n_labeled": 0,
+      "n_correct": 0,
+      "family_agreement": {
+        "n_families": 0,
+        "mean": null,
+        "ci95": null
+      },
+      "rotation_stable": 3
+    },
+    {
+      "context_revision": "new_low_cue_v2",
+      "variant": "paraphrase",
+      "n_instances": 3,
+      "n_labeled": 3,
+      "n_correct": 3,
+      "family_agreement": {
+        "n_families": 3,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "rotation_stable": 3
+    },
+    {
+      "context_revision": "new_low_cue_v2",
+      "variant": "foil_paraphrase",
+      "n_instances": 3,
+      "n_labeled": 3,
+      "n_correct": 3,
+      "family_agreement": {
+        "n_families": 3,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "rotation_stable": 3
+    },
+    {
+      "context_revision": "new_low_cue_v2",
+      "variant": "masked",
+      "n_instances": 3,
+      "n_labeled": 0,
+      "n_correct": 0,
+      "family_agreement": {
+        "n_families": 0,
+        "mean": null,
+        "ci95": null
+      },
+      "rotation_stable": 1
+    }
+  ],
+  "interpretation": "Exploratory agent-reviewed labels. Masked agreement measures residual cues, not knowledge. Paraphrase repair is constructive sufficiency, not a natural internal mechanism."
+}

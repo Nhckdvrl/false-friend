@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE",
+  "started_utc": "2026-10-13T03:10:57.951294+00:00",
+  "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "tokenizer_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "items_sha256": "d482dfcb4e54365da5cb8a019f57466b2e51b72f1496fa1324b2e2e704f5a830",
+  "code_sha256": "212ac0d105bf7f2aa559933ce6aef5cf9a8333cae4c9d6c47a5514d48936fba3",
+  "n_items": 8,
+  "n_families": 4,
+  "n_trials": 16,
+  "protocol": [
+    "semantic-category-control-posthoc-v1"
+  ],
+  "seed": 20261013,
+  "sampling_status": "Exploratory, not held-out. See each item provenance: v1/v2 use preselected lexical pool and output-blind material review; category controls are root-authored post-hoc after v2 failures.",
+  "cuda_visible_devices": "0",
+  "host": "fvcrc21",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "batch_size": 16,
+  "dependent_code_sha256": "06df31202a29bf8068f0f5362aff26141cbbaaca980f7d969473b28558e6715b",
+  "elapsed_seconds": 5.128966345975641,
+  "environment": {
+    "python": "3.12.0",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "peak_allocated_gb": 16.532985344,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "chat_template_sha256": "b48c47f6443892716176eb200bf4ef108f64e06ca26ed0fa8ebc0a4b3992fcb2",
+  "finished_utc": "2026-10-13T03:11:17.567105+00:00"
+}

@@ -1,0 +1,701 @@
+{
+  "protocol": "romance-relation-scope-cycle-archive-v1",
+  "source_repository": "https://github.com/mrtva/false-friends-vs-cognates",
+  "source_sha": "a87b73e387a6ef86d0cef7ffe703150905e75d7a",
+  "source_license_status": "No LICENSE found; original corpus and source-containing prompts remain in ignored local runs.",
+  "policy": "Keep model outputs, tokens, source IDs, raw hashes and code. Retain full authored prompts. Agent reviews are single nonblind reviews.",
+  "analysis_repetitions": 4000,
+  "analysis_seed": 20261013,
+  "runs": [
+    {
+      "name": "2026-10-13-romance-baseline-llama8b",
+      "generations": 1598,
+      "tasks": {
+        "romance_wic": 1598
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "9a15d55a8106688890c4bbd2f62b418f3469344af3f91f9570644619d266076e",
+          "bytes": 241599
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "af38cb70b111aa0206c3fa11e2f17c89e0404a6f943c3cb1805e6b739adab3bd",
+          "bytes": 158419
+        },
+        "generations.jsonl.gz": {
+          "sha256": "c840f280323c2420a6513f2ad62e7a79d02ebb071f09a585e5c9df5805739787",
+          "bytes": 386504
+        },
+        "manifest.json": {
+          "sha256": "15529955cf9d8f940bf5e56d4fbdb309cc42cef662e8f79341591dcb3c3ff82c",
+          "bytes": 3667
+        },
+        "raw_provenance.json": {
+          "sha256": "d9294f43e479e9873bfb02943d3597cf97b9a5e2846281ebce9af30b1c869966",
+          "bytes": 960
+        },
+        "summary.json": {
+          "sha256": "fdd1dab05acfcb9fdb7b96949d8e49be21791278de93c86e06daea5af9cfde2e",
+          "bytes": 233569
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-romance-baseline-qwen14b",
+      "generations": 1598,
+      "tasks": {
+        "romance_wic": 1598
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "a976b4d3f5c74d6c51198198de3b10021a6f34c35250ef62eab7b0c6f654dc21",
+          "bytes": 222302
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "af38cb70b111aa0206c3fa11e2f17c89e0404a6f943c3cb1805e6b739adab3bd",
+          "bytes": 158419
+        },
+        "generations.jsonl.gz": {
+          "sha256": "7da49a58f69e41af2e5704cd4e89a4e7bcbc5efc5b2c493556948cfdd43cf5e7",
+          "bytes": 345707
+        },
+        "manifest.json": {
+          "sha256": "1178c9e2188da303da5694a6ebf9365f3e46a000c9f78c3c95940b40c2311bbb",
+          "bytes": 3627
+        },
+        "raw_provenance.json": {
+          "sha256": "9734aaf5624791091d346c56e128eb2a2cfa4da60ba9f2af70097299eef53679",
+          "bytes": 960
+        },
+        "summary.json": {
+          "sha256": "8708f0344611224b6ac4436f1cecaddeea719928b20e81ae6ecbc6135df83bd3",
+          "bytes": 233412
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-romance-baseline-qwen32b",
+      "generations": 1598,
+      "tasks": {
+        "romance_wic": 1598
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "96c86bd9f7a933ccf5bb6a43b2bde0e12a7f2e7a60b8e3107e3d70a5099ebaed",
+          "bytes": 221617
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "1f306698f1c3414aa91113cfe36c40ffdea78707144f1e60d56a96b77010d81f",
+          "bytes": 157874
+        },
+        "generations.jsonl.gz": {
+          "sha256": "0f24adc0968b22bff9473318615aff8853bd081c6ad9e13836119f37ac8be226",
+          "bytes": 344299
+        },
+        "manifest.json": {
+          "sha256": "86bbe06ed24f53a42f6fdf89dae8848f6cfb14d0563d9474ffe09639799cceed",
+          "bytes": 3636
+        },
+        "raw_provenance.json": {
+          "sha256": "c25d5d23519f1c758f0a48b442ebe2147ffec785eab98a7d3f1f812275f7053e",
+          "bytes": 960
+        },
+        "summary.json": {
+          "sha256": "650ad9c37d54eadd158230518ae263cac9a8ca9260a1b0cb2c704685216760a7",
+          "bytes": 233348
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-romance-baseline-gemma12b",
+      "generations": 1598,
+      "tasks": {
+        "romance_wic": 1598
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "e74bc55102d53663cac9506d37ba13229c583593fdf507a69e2bbfc356f48a06",
+          "bytes": 214846
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "af38cb70b111aa0206c3fa11e2f17c89e0404a6f943c3cb1805e6b739adab3bd",
+          "bytes": 158419
+        },
+        "generations.jsonl.gz": {
+          "sha256": "dd76b3898e691baa18ff34a258ffc51401644f7811709ac7ea4105a5fd0f00af",
+          "bytes": 332333
+        },
+        "manifest.json": {
+          "sha256": "8f6750878d4f6bbe9b0fb3c6a2b94c76d7a219fa9528a4e4f6f939fbe04db211",
+          "bytes": 3615
+        },
+        "raw_provenance.json": {
+          "sha256": "5ccb9ae215d2a5ceb9398737109ddee41a6e6b4fa76b1604215664e0bfb94e93",
+          "bytes": 961
+        },
+        "summary.json": {
+          "sha256": "6af623bce542d9097c9ecbd33e33a424f29e42a5825714a31f5bc2b155dce7e6",
+          "bytes": 233460
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-romance-exploration-llama8b",
+      "generations": 2468,
+      "tasks": {
+        "orthogonal_relation": 768,
+        "independent_gloss": 1700
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "e05e5007b078076289caa8e584bbc71c5faf9c1de3c069dd30ec80fe5b2ddc49",
+          "bytes": 53951
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "4bc67e1e864d2f981ebaccb8738058a73d5ca572af27cd2467b65126945943e7",
+          "bytes": 117377
+        },
+        "generations.jsonl.gz": {
+          "sha256": "efb009d82dea9bef7d43e1f67377d8aa04ae0bb4116abc211acda2893fc34cab",
+          "bytes": 349188
+        },
+        "gloss_agent_review.jsonl": {
+          "sha256": "627d410ae836b63655a136be7d67906d2ef66aa4b5579d6ef9b3d352c4523ad1",
+          "bytes": 93104
+        },
+        "manifest.json": {
+          "sha256": "046d707a898421dbbb5c67924e8a416ae16f12cd82242e2948afd5ac36826289",
+          "bytes": 3669
+        },
+        "raw_provenance.json": {
+          "sha256": "63db7cff9c3dc2818412c90e177185862cd15b0108797b70ada7e084b0bbe669",
+          "bytes": 1108
+        },
+        "summary.json": {
+          "sha256": "7030d506be7b37813a8b602ae725793948f6afe08ee1128d0b572f4bcfd08bc4",
+          "bytes": 10314
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-romance-exploration-qwen14b",
+      "generations": 2468,
+      "tasks": {
+        "orthogonal_relation": 768,
+        "independent_gloss": 1700
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "e0766685aad6a50a3f7e5ca0d3dbe5c47c980399ac87006f442c3364284f943f",
+          "bytes": 55765
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "4bc67e1e864d2f981ebaccb8738058a73d5ca572af27cd2467b65126945943e7",
+          "bytes": 117377
+        },
+        "generations.jsonl.gz": {
+          "sha256": "e3aebd836a9c37ae0229534d550e26e8532d1f85fc268ef6863f69b02cd6b9c5",
+          "bytes": 419106
+        },
+        "gloss_agent_review.jsonl": {
+          "sha256": "acb8ef50ecf735a7d66c7b9dd73add114880bf15b98424326f1d124777f86288",
+          "bytes": 123801
+        },
+        "manifest.json": {
+          "sha256": "e0916b0dcd0de7e72dfb019af7ef19546d70cea340c27674af86c67fef21e58e",
+          "bytes": 3630
+        },
+        "raw_provenance.json": {
+          "sha256": "2a81f1c709052de6409ea83cf54069455e040f546e8a14cd07a0a2e5f5e377b0",
+          "bytes": 1109
+        },
+        "summary.json": {
+          "sha256": "f6a6e99455f41e2641a34e0fbd27a9a74cba831a67e22e7590e0ef49fa78ff26",
+          "bytes": 10320
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-romance-exploration-qwen32b",
+      "generations": 2468,
+      "tasks": {
+        "orthogonal_relation": 768,
+        "independent_gloss": 1700
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "e51c56bcb3e94a329e1a001b5c69d7008bc7f3ee1658d361e969116cb949aa1c",
+          "bytes": 55547
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "032d808180ea0a4a80ab40a1c7cf702e9a55a78b39cb18d0d77773de28673519",
+          "bytes": 117869
+        },
+        "generations.jsonl.gz": {
+          "sha256": "9484eb499019d0e9efb396b4a1dfc11157ffae0de4a679d18fc2332acce9164c",
+          "bytes": 371344
+        },
+        "manifest.json": {
+          "sha256": "1d65627dbaaca611a33a9f7d5c67a1c619ce012ffa4d6509420710d450e16ce5",
+          "bytes": 3639
+        },
+        "raw_provenance.json": {
+          "sha256": "9286e807e601e4ec3702cd3c19936232ed636bca27da1657f3be7dd4b7b27e49",
+          "bytes": 962
+        },
+        "summary.json": {
+          "sha256": "c609be1604abc6d614fe991356da6331df699e25754248e088d6c48661b6d854",
+          "bytes": 10374
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-romance-exploration-gemma12b",
+      "generations": 2468,
+      "tasks": {
+        "orthogonal_relation": 768,
+        "independent_gloss": 1700
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "ad052c3d5d3c61e51ef49a875067f762ba69eaf63e4eb2f76a89df33e02ffc27",
+          "bytes": 57601
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "4bc67e1e864d2f981ebaccb8738058a73d5ca572af27cd2467b65126945943e7",
+          "bytes": 117377
+        },
+        "generations.jsonl.gz": {
+          "sha256": "9773d98d21149d8dcd5c93fc3c04325fd1ba5f97b583e07f1df536c792dd0c18",
+          "bytes": 282628
+        },
+        "manifest.json": {
+          "sha256": "11cfe36b33b8421e32ae2c9aaab2e06b31dfc1b756cb0ec767160f13601341b5",
+          "bytes": 3620
+        },
+        "raw_provenance.json": {
+          "sha256": "ec56ad9cc4dc2027c70c4a4cf1a8db8bd85c0ebd5d6e151c4fdfc5979cac1abd",
+          "bytes": 963
+        },
+        "summary.json": {
+          "sha256": "db31d0bfd9c90d91a69f5c5e912a5f84840089d9542e000e883cec5fad663dc5",
+          "bytes": 10391
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-lexical-proposition-llama8b",
+      "generations": 768,
+      "tasks": {
+        "lexical_proposition": 768
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "6d57b4759153152341091134569ea0f78171c7e4e45b72058c1461a0657be905",
+          "bytes": 54879
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "4d29fb28b61e0c74d6ad6ad4322dac8f285c58c0c9673ae437f801a3234e8297",
+          "bytes": 13521
+        },
+        "generations.jsonl.gz": {
+          "sha256": "1fc7a859ff501e74925b33f47a8862288941a1309357ad14b5a741ea92a38aa0",
+          "bytes": 81496
+        },
+        "manifest.json": {
+          "sha256": "b16c5ec2796cc2005384efa4d463106832067cd977af2f41eac2ef2aedb2b01d",
+          "bytes": 3667
+        },
+        "raw_provenance.json": {
+          "sha256": "8c215808afe4b08109f4db4bc343a993b41873bb4e184ccb95b45beef75c255e",
+          "bytes": 961
+        },
+        "summary.json": {
+          "sha256": "985d088aa618384881ef4808abe6b533f0382ee9cafec9fe2fc660ef8270083a",
+          "bytes": 1893
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-lexical-proposition-qwen14b",
+      "generations": 768,
+      "tasks": {
+        "lexical_proposition": 768
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "7fbeba34dd088067656b51d95359a98e4418224635dc19600d6edc47fd92a47a",
+          "bytes": 66282
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "4d29fb28b61e0c74d6ad6ad4322dac8f285c58c0c9673ae437f801a3234e8297",
+          "bytes": 13521
+        },
+        "generations.jsonl.gz": {
+          "sha256": "d977095817483e61720b6dfff82a5f9dae67769d152e5a0a253ab1c83d878bf9",
+          "bytes": 110425
+        },
+        "manifest.json": {
+          "sha256": "304fff91947c88bf815d6b0031cd6e7679882bf3f141add703192e11321062db",
+          "bytes": 3628
+        },
+        "raw_provenance.json": {
+          "sha256": "e571ab31a4dc3327cd0ba551b4dfb281c6df1021f57c5ba65762df4fc0b0aad3",
+          "bytes": 961
+        },
+        "summary.json": {
+          "sha256": "ed098e1b4fb69bbdd0e0b0b14bdaafebe9a5491d73171a786ea98d00da3c87d4",
+          "bytes": 1951
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-lexical-proposition-qwen32b",
+      "generations": 768,
+      "tasks": {
+        "lexical_proposition": 768
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "28d562fac3ba5cb1bc664471fe9ac9530166bd4ae306661b16a6ee320fe20c9b",
+          "bytes": 61512
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "00c77ebd28e777b121d2932dcb3a132051d7db0a542799ea954eac307ec03f14",
+          "bytes": 13795
+        },
+        "generations.jsonl.gz": {
+          "sha256": "2289ba4dd62471c03e8a3fafed05b5176e0ce88772ec2c9d30c55b2d80a80ef2",
+          "bytes": 98669
+        },
+        "manifest.json": {
+          "sha256": "95ff04a035c4f8b5f203a2910bc8072cf6b92f3aab8d6310dd2e5608dad4809b",
+          "bytes": 3634
+        },
+        "raw_provenance.json": {
+          "sha256": "ac4826058e96ada47fc0bf773e156768c481c8c45dc30a5dc7feec025389df09",
+          "bytes": 961
+        },
+        "summary.json": {
+          "sha256": "36143d1727a03e44370a555543c426465288cee175e661a5bfcb6cf46083f96b",
+          "bytes": 1962
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-lexical-proposition-gemma12b",
+      "generations": 768,
+      "tasks": {
+        "lexical_proposition": 768
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "3e3b28411d1d37929abaf1055e35a7449b7fb51af0e0441ae96977cb3242af96",
+          "bytes": 65742
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "4d29fb28b61e0c74d6ad6ad4322dac8f285c58c0c9673ae437f801a3234e8297",
+          "bytes": 13521
+        },
+        "generations.jsonl.gz": {
+          "sha256": "877a6db8c457f5370d17ba53de43f121ee3f7bd746b03a3e671a63a50cd26a3c",
+          "bytes": 110366
+        },
+        "manifest.json": {
+          "sha256": "01d5d5eb89b61d469bccb34f584e4879de95b716a314680a3cef9a35ef736a09",
+          "bytes": 3615
+        },
+        "raw_provenance.json": {
+          "sha256": "aa4aec4b5a5d43c97d0e945a8a8631dc780d64d32f285935dc57ca94655a0f9f",
+          "bytes": 962
+        },
+        "summary.json": {
+          "sha256": "66629919ba8c126101b40543bb233f0d8d700b73f3437535e158adfcdea6443f",
+          "bytes": 1946
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-gloss-binding-llama8b",
+      "generations": 180,
+      "tasks": {
+        "independent_gloss": 180
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+          "bytes": 20
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "d1023fa36f0ce5b3dcb4ed1c1f3c21aa7afe0a457592d7890329f3317d61f28d",
+          "bytes": 12228
+        },
+        "generations.jsonl.gz": {
+          "sha256": "a24c3419c066a3b49fe3b09ba6e4a4024ff6c426ac239893118e1f3e31054af4",
+          "bytes": 23848
+        },
+        "manifest.json": {
+          "sha256": "fa580a1ffc78719aebeb7570b8e002a0bfb33940c00d7a9f9cc8b697c694953b",
+          "bytes": 3678
+        },
+        "raw_provenance.json": {
+          "sha256": "1d1ee0e1e8d43272743309b67be2de709de9d7b894b40d8a06d6b1a0831f412e",
+          "bytes": 818
+        },
+        "summary.json": {
+          "sha256": "7acc0b1ae5e4277df06a2ff591f3638ce49d6499460ede7422613eef996a77ec",
+          "bytes": 189
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-gloss-binding-qwen14b",
+      "generations": 180,
+      "tasks": {
+        "independent_gloss": 180
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+          "bytes": 20
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "d1023fa36f0ce5b3dcb4ed1c1f3c21aa7afe0a457592d7890329f3317d61f28d",
+          "bytes": 12228
+        },
+        "generations.jsonl.gz": {
+          "sha256": "f12ee6a8bd4fb64c7b7bf01525b62660455d078cfb3d47837ba2a886c0fff9d5",
+          "bytes": 29360
+        },
+        "manifest.json": {
+          "sha256": "68279dedb85da7719b37a910e2ecfefe4e2bb1f5bb9427637c4fd64315ca2afa",
+          "bytes": 3639
+        },
+        "raw_provenance.json": {
+          "sha256": "142767195c2af2a8fd9b87f91b3f5c4ddf8302ddb8c28aa8a17972e89cb61c0f",
+          "bytes": 818
+        },
+        "summary.json": {
+          "sha256": "081501e94e07a9902720fe6e4d63d9bc52bf2db9009a06411857159db104cbfe",
+          "bytes": 189
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-scope-qwen32b",
+      "generations": 864,
+      "tasks": {
+        "scope_followup": 864
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "f1fa944407519f2db695c5816e25d15470f4a66651365a6c91c21ddaca0f3c25",
+          "bytes": 62264
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "587b1b5a0ae9f4255c04d1fb4255c7f59aaed0858e6c5c342c604a0a1958710a",
+          "bytes": 15470
+        },
+        "generations.jsonl.gz": {
+          "sha256": "60888ea902e9a1fee3857ab867ffccad6cf843299b86e56bfe289ed83ddcdfb1",
+          "bytes": 105117
+        },
+        "manifest.json": {
+          "sha256": "2e4bc4f2b9a2d77fd701a74b74e7688eaa234e2f0e0b6fa1858c1b0c502ed9b7",
+          "bytes": 3631
+        },
+        "raw_provenance.json": {
+          "sha256": "085919a2ebf74d039f81fbbf2a175a501351f4a74b47e3541da788dcba6fcfe0",
+          "bytes": 947
+        },
+        "scope_pairs.jsonl.gz": {
+          "sha256": "299a0948c1c9e9575ae428cee33415aee65e19a836802f2788c6ee789dd813cf",
+          "bytes": 1781
+        },
+        "summary.json": {
+          "sha256": "1f1fac029182fc373337e80a050a307ebe56b4ce91d3fca6faad1315a2a86ace",
+          "bytes": 4215
+        }
+      }
+    },
+    {
+      "name": "2026-10-13-scope-gemma12b",
+      "generations": 864,
+      "tasks": {
+        "scope_followup": 864
+      },
+      "archive_files": {
+        "code_snapshot.py": {
+          "sha256": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+          "bytes": 4740
+        },
+        "decisions.jsonl.gz": {
+          "sha256": "10de55be77e24c9ecd424891134781e76cfed165098a1955a42622ed03cf9bb3",
+          "bytes": 65728
+        },
+        "generation_code_snapshot.py": {
+          "sha256": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+          "bytes": 23113
+        },
+        "generation_specs.jsonl.gz": {
+          "sha256": "ddc203cbdb400ea6986077230a6b46d98c99b1d1d52b15d7ea5d15e5e1f8d4ed",
+          "bytes": 15163
+        },
+        "generations.jsonl.gz": {
+          "sha256": "731fe510686fe1b8cfcee1878048dc3d0cdf054c02de3f32a6b8f5d71356f78a",
+          "bytes": 110692
+        },
+        "manifest.json": {
+          "sha256": "5c4c104551c16f57b22ebecd42c057b0c38b37620fc2ddc5fb5a03ac92a120bc",
+          "bytes": 3611
+        },
+        "raw_provenance.json": {
+          "sha256": "3a1776ca8308323fc74670e1fed264de366c71a54e694a205d62eb73e0f0471e",
+          "bytes": 948
+        },
+        "scope_pairs.jsonl.gz": {
+          "sha256": "8f02fa3b9d40f482606469e14422a5df527cdc7301b7bfa76154d1d9a347599a",
+          "bytes": 2203
+        },
+        "summary.json": {
+          "sha256": "8dc28dcb038b4f839a2989e6153de744b0cd88116bffddf7b5b40a585adb8ba4",
+          "bytes": 4402
+        }
+      }
+    }
+  ],
+  "total_generations": 21424,
+  "analysis_code_sha256": {
+    "analyze_doppelganger_diagnostics.py": "320bf6ffc8ca86cc9595c06724574ea5404a9a9156e5345a8a30c83fd298d328",
+    "analyze_romance_cycle.py": "c41161060b04505f91355ddf581fd8864f36f17a369350695d8d61fd398d8de2",
+    "build_lexical_proposition.py": "337e728dc63df2d5b0ee05b9ced0dd2581c3922dcf7bee4e8598416468a120cb",
+    "build_relation_orthogonal.py": "955bd106b7f01cdf99ba9b50011245f0335d10cfdae96e48e676b8be1fe51e0c",
+    "build_romance_cycle.py": "52b0b34bfb573f712e81084aab41e007e71fcfe74d3265c6c3f7dfd3ecb3dbd4",
+    "build_scope_followup.py": "90acc7d5f2f092049bc35cdab5652cabdc6307425ebf029ca9c766ac5f984341",
+    "package_romance_evidence.py": "41886201f1f2070471ca7a92c0cbc7386ee3df91c9203597e5d1c01ecf5b79a9",
+    "run_doppelganger_diagnostics.py": "69773ffc658abbca4b3ac4818c855733ea8818796ad7076dfbe390b08c307729",
+    "run_research_generations.py": "e29a350bc322c6505b0f0a5d025363a0fd0ae4f30aed0d7761ac9d51814baba4",
+    "build_gloss_explicit_binding.py": "3fa02897a5c8fec02e5e54052cee9a581233cbcd7f3bc565915851dcfc19195d"
+  },
+  "reconstruction_note": "Explicit-binding helper added after runs; output verified byte-for-byte against original frozen 180 specs. Original model execution snapshots unchanged."
+}

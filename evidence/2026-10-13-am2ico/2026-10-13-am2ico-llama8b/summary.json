@@ -1,0 +1,368 @@
+{
+  "status": "COMPLETE",
+  "n_trials": 1536,
+  "n_pairs": 192,
+  "n_lexeme_families": 188,
+  "groups": [
+    {
+      "language": "de",
+      "representation": "full",
+      "n_pairs": 64,
+      "metrics": {
+        "source_label_agreement": {
+          "n_families": 64,
+          "mean": 0.5234375,
+          "ci95": [
+            0.5,
+            0.5546875
+          ]
+        },
+        "all_orders_agree_source": {
+          "n_families": 64,
+          "mean": 0.4765625,
+          "ci95": [
+            0.4453125,
+            0.5
+          ]
+        },
+        "stable": {
+          "n_families": 64,
+          "mean": 0.921875,
+          "ci95": [
+            0.859375,
+            0.96875
+          ]
+        },
+        "both_source_labels_matched": {
+          "n_families": 64,
+          "mean": 0.046875,
+          "ci95": [
+            0.0,
+            0.109375
+          ]
+        },
+        "both_labels_all_orders_matched": {
+          "n_families": 64,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "prediction_changes_with_target": {
+          "n_families": 64,
+          "mean": 0.046875,
+          "ci95": [
+            0.0,
+            0.109375
+          ]
+        }
+      },
+      "agreement_by_source_label": {
+        "T": 0.046875,
+        "F": 1.0
+      }
+    },
+    {
+      "language": "de",
+      "representation": "target_only",
+      "n_pairs": 64,
+      "metrics": {
+        "source_label_agreement": {
+          "n_families": 64,
+          "mean": 0.7109375,
+          "ci95": [
+            0.6484375,
+            0.7734375
+          ]
+        },
+        "all_orders_agree_source": {
+          "n_families": 64,
+          "mean": 0.6015625,
+          "ci95": [
+            0.546875,
+            0.65625
+          ]
+        },
+        "stable": {
+          "n_families": 64,
+          "mean": 0.828125,
+          "ci95": [
+            0.7578125,
+            0.890625
+          ]
+        },
+        "both_source_labels_matched": {
+          "n_families": 64,
+          "mean": 0.421875,
+          "ci95": [
+            0.296875,
+            0.546875
+          ]
+        },
+        "both_labels_all_orders_matched": {
+          "n_families": 64,
+          "mean": 0.234375,
+          "ci95": [
+            0.140625,
+            0.34375
+          ]
+        },
+        "prediction_changes_with_target": {
+          "n_families": 64,
+          "mean": 0.421875,
+          "ci95": [
+            0.296875,
+            0.546875
+          ]
+        }
+      },
+      "agreement_by_source_label": {
+        "T": 0.4375,
+        "F": 0.984375
+      }
+    },
+    {
+      "language": "zh",
+      "representation": "full",
+      "n_pairs": 64,
+      "metrics": {
+        "source_label_agreement": {
+          "n_families": 64,
+          "mean": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ]
+        },
+        "all_orders_agree_source": {
+          "n_families": 64,
+          "mean": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ]
+        },
+        "stable": {
+          "n_families": 64,
+          "mean": 0.984375,
+          "ci95": [
+            0.9609375,
+            1.0
+          ]
+        },
+        "both_source_labels_matched": {
+          "n_families": 64,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "both_labels_all_orders_matched": {
+          "n_families": 64,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "prediction_changes_with_target": {
+          "n_families": 64,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "agreement_by_source_label": {
+        "T": 0.0,
+        "F": 1.0
+      }
+    },
+    {
+      "language": "zh",
+      "representation": "target_only",
+      "n_pairs": 64,
+      "metrics": {
+        "source_label_agreement": {
+          "n_families": 64,
+          "mean": 0.578125,
+          "ci95": [
+            0.5390625,
+            0.625
+          ]
+        },
+        "all_orders_agree_source": {
+          "n_families": 64,
+          "mean": 0.5390625,
+          "ci95": [
+            0.5078125,
+            0.578125
+          ]
+        },
+        "stable": {
+          "n_families": 64,
+          "mean": 0.9140625,
+          "ci95": [
+            0.8671875,
+            0.9609375
+          ]
+        },
+        "both_source_labels_matched": {
+          "n_families": 64,
+          "mean": 0.15625,
+          "ci95": [
+            0.078125,
+            0.25
+          ]
+        },
+        "both_labels_all_orders_matched": {
+          "n_families": 64,
+          "mean": 0.078125,
+          "ci95": [
+            0.015625,
+            0.15625
+          ]
+        },
+        "prediction_changes_with_target": {
+          "n_families": 64,
+          "mean": 0.15625,
+          "ci95": [
+            0.078125,
+            0.25
+          ]
+        }
+      },
+      "agreement_by_source_label": {
+        "T": 0.15625,
+        "F": 1.0
+      }
+    },
+    {
+      "language": "ja",
+      "representation": "full",
+      "n_pairs": 64,
+      "metrics": {
+        "source_label_agreement": {
+          "n_families": 64,
+          "mean": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ]
+        },
+        "all_orders_agree_source": {
+          "n_families": 64,
+          "mean": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ]
+        },
+        "stable": {
+          "n_families": 64,
+          "mean": 0.9921875,
+          "ci95": [
+            0.9765625,
+            1.0
+          ]
+        },
+        "both_source_labels_matched": {
+          "n_families": 64,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "both_labels_all_orders_matched": {
+          "n_families": 64,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "prediction_changes_with_target": {
+          "n_families": 64,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "agreement_by_source_label": {
+        "T": 0.0,
+        "F": 1.0
+      }
+    },
+    {
+      "language": "ja",
+      "representation": "target_only",
+      "n_pairs": 64,
+      "metrics": {
+        "source_label_agreement": {
+          "n_families": 64,
+          "mean": 0.578125,
+          "ci95": [
+            0.5390625,
+            0.625
+          ]
+        },
+        "all_orders_agree_source": {
+          "n_families": 64,
+          "mean": 0.546875,
+          "ci95": [
+            0.5078125,
+            0.5859375
+          ]
+        },
+        "stable": {
+          "n_families": 64,
+          "mean": 0.9453125,
+          "ci95": [
+            0.90625,
+            0.9765625
+          ]
+        },
+        "both_source_labels_matched": {
+          "n_families": 64,
+          "mean": 0.15625,
+          "ci95": [
+            0.078125,
+            0.25
+          ]
+        },
+        "both_labels_all_orders_matched": {
+          "n_families": 64,
+          "mean": 0.109375,
+          "ci95": [
+            0.046875,
+            0.1875
+          ]
+        },
+        "prediction_changes_with_target": {
+          "n_families": 64,
+          "mean": 0.15625,
+          "ci95": [
+            0.078125,
+            0.25
+          ]
+        }
+      },
+      "agreement_by_source_label": {
+        "T": 0.15625,
+        "F": 1.0
+      }
+    }
+  ],
+  "format_audit": {
+    "min_label_mass": 0.18272902150951698,
+    "mean_label_mass": 0.7348775191976386,
+    "off_label_argmax": 160
+  },
+  "interpretation": "Adaptation on original labelled source pairs, not faithful encoder replication. Agreement is not independently validated semantic accuracy; source span and granularity require review."
+}

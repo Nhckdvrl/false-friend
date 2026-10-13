@@ -1,0 +1,14 @@
+{
+  "n_pairs": 0,
+  "n_families": 0,
+  "n_both_correct": 0,
+  "n_both_correct_all_orders": 0,
+  "pairs": [],
+  "format_audit": {
+    "n_trials": 16,
+    "min_label_probability_mass": 0.9999534352141197,
+    "mean_label_probability_mass": 0.9999819266387011,
+    "off_label_argmax_count": 0
+  },
+  "interpretation": "Explicit input sense substitutions, exploratory items. Ambiguous/null-gold conditions excluded from agreement. No natural internal mechanism inferred."
+}

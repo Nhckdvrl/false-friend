@@ -1,0 +1,111 @@
+{
+  "recorded_utc": "2026-10-13T03:14:35.912321+00:00",
+  "host": "fvcrc21",
+  "python_executable": "/home/xiang/miniconda3/envs/verl-clean/bin/python",
+  "gpu_limit_authorized": 8,
+  "peak_concurrent_gpus_this_cycle": 2,
+  "resource_policy": "Only idle GPUs, reused verl-clean, no training, paid API or weight downloads",
+  "gpu_state_after_completion": "0, 15 MiB, 0 %\n1, 15 MiB, 0 %\n2, 15 MiB, 0 %\n3, 15 MiB, 0 %\n",
+  "final_source_code_hashes": {
+    "scripts/analyze_doppelganger_diagnostics.py": "320bf6ffc8ca86cc9595c06724574ea5404a9a9156e5345a8a30c83fd298d328",
+    "scripts/analyze_semantic_followup.py": "c344004df60c47cbf660cac6dd1a4a155a631afbd4af4052808795dee62c45c4",
+    "scripts/audit_doppelganger_measurements.py": "a3f840d995d8284976a266ad8d485432974b9012f0583332368276e7bbe2301a",
+    "scripts/audit_doppelganger_source.py": "72517dabd5f3dbc0e5ae9fb1197ae35ca561a02d04e5fb5186758c7436a80f5c",
+    "scripts/build_doppelganger_followup_v1.py": "0c5e2dc76a9520ffc512e5a03630c336f542a154649493efb52f5736a610a2eb",
+    "scripts/build_doppelganger_followup_v2.py": "79b77f3621c618f12fa09f8f59a8c9266b34806f4e070e3c7d5d86cb38669c88",
+    "scripts/build_semantic_category_controls.py": "5b59e537c1a8bef5d6d2a9993543d399f7c6ee62991ff93ae13738de1388422b",
+    "scripts/package_local_evidence.py": "d7e9bfea43f398e06bc225a04c5c8242eec11c3db0f14d047c90ecce625d50c3",
+    "scripts/run_doppelganger_diagnostics.py": "06df31202a29bf8068f0f5362aff26141cbbaaca980f7d969473b28558e6715b",
+    "scripts/run_semantic_followup.py": "d4553e72e0a0fb5763f2610863e4f1ef4ba165bb28aa2bcd971e3ef02f6428c8"
+  },
+  "evidence_verification": [
+    {
+      "run": "2026-10-13-category-control-llama8b",
+      "status": "COMPLETE",
+      "row_counts": {
+        "trials.jsonl": 16
+      },
+      "raw_file_hashes_verified": 7,
+      "executed_code_hash_verified": true
+    },
+    {
+      "run": "2026-10-13-category-control-qwen14b",
+      "status": "COMPLETE",
+      "row_counts": {
+        "trials.jsonl": 16
+      },
+      "raw_file_hashes_verified": 7,
+      "executed_code_hash_verified": true
+    },
+    {
+      "run": "2026-10-13-doppelganger-llama8b",
+      "status": "COMPLETE",
+      "row_counts": {
+        "trials.jsonl": 2762,
+        "chat_trials.jsonl": 2288,
+        "generations.jsonl": 144,
+        "paired_predictions.jsonl": 2762,
+        "translation_agent_review.jsonl": 48
+      },
+      "raw_file_hashes_verified": 11,
+      "executed_code_hash_verified": true
+    },
+    {
+      "run": "2026-10-13-doppelganger-qwen14b",
+      "status": "FAILED_VERIFICATION_BEFORE_SCORE_WRITE",
+      "row_counts": {},
+      "raw_file_hashes_verified": 4,
+      "executed_code_hash_verified": true
+    },
+    {
+      "run": "2026-10-13-doppelganger-qwen14b-v2",
+      "status": "COMPLETE",
+      "row_counts": {
+        "trials.jsonl": 2762,
+        "chat_trials.jsonl": 2288,
+        "generations.jsonl": 144,
+        "paired_predictions.jsonl": 2762,
+        "translation_agent_review.jsonl": 48
+      },
+      "raw_file_hashes_verified": 11,
+      "executed_code_hash_verified": true
+    },
+    {
+      "run": "2026-10-13-semantic-followup-llama8b",
+      "status": "COMPLETE",
+      "row_counts": {
+        "trials.jsonl": 108
+      },
+      "raw_file_hashes_verified": 6,
+      "executed_code_hash_verified": true
+    },
+    {
+      "run": "2026-10-13-semantic-followup-qwen14b",
+      "status": "COMPLETE",
+      "row_counts": {
+        "trials.jsonl": 108
+      },
+      "raw_file_hashes_verified": 6,
+      "executed_code_hash_verified": true
+    },
+    {
+      "run": "2026-10-13-semantic-v2-llama8b",
+      "status": "COMPLETE",
+      "row_counts": {
+        "trials.jsonl": 42
+      },
+      "raw_file_hashes_verified": 7,
+      "executed_code_hash_verified": true
+    },
+    {
+      "run": "2026-10-13-semantic-v2-qwen14b",
+      "status": "COMPLETE",
+      "row_counts": {
+        "trials.jsonl": 42
+      },
+      "raw_file_hashes_verified": 7,
+      "executed_code_hash_verified": true
+    }
+  ],
+  "limitations": "Hash/code/schema verification only; does not validate semantic truth or causal explanations."
+}

@@ -2,8 +2,8 @@
 
 - **Paper**: https://aclanthology.org/2025.ijcnlp-long.96/
 - **Code/data**: https://github.com/0017-alt/Doppelganger-JC
-- **Depth**: **S1** (PDF §§1–5 and Fig. 2, repo README/questions sampled; not all appendices)
-- **Role**: route A output-copy rival + reusable multiple-choice cases.
+- **Depth**: **S1** (原有 §§1–5/Fig.2；2026-10-13 定向补读 Appendix H/M/N、Tables 21–24，审计并本地复核 Type-1 源码；非全附录精读)
+- **Role**: 可复核的词义/语境/翻译地基；其标签和 shortcut 解释均不限制我们的研究对象。
 
 ## 1. 关注的自然问题
 
@@ -21,7 +21,7 @@
 
 ## 4. 逆向实验链（INFERENCE）
 
-从真实翻译例子中的直接复制出发，先区分 model 对词义是否知道（isolated）→ 在句子下会不会更好（context）→ 真实翻译时是否仍犯错（generation）。错误不完全随机，而与 token form 和共享词性有关 → 提出“捷径”式解释。*但是这些任务并不直接定位造成捷径的层与操作*。
+从实际复制例子出发，比较孤立词义、语境意义、候选翻译，并补充自由生成；再检查 POS 等相关因素。主表的 translation 是候选评分，不能把三任务排序直接重建为生成时的知识→使用流水线。*这些任务并不直接定位造成捷径的层与操作*。
 
 ## 5. 证据边界
 
@@ -31,12 +31,16 @@
 
 ## 6. 最近邻
 
-Körner 2026 在 activation patching 中也明确发现“修复”只是避免复制 homograph。因此 **再做一个修复 shortcut 的 patch 已被双重占据**。如果新研究只把翻译和意义识别行为并列对比，贡献与此文章更近 than novel mechanism.
+Körner 2026 也讨论 patch 后避免复制而非理解改善。仅并列翻译和意义准确率、或增加一次 patch，增量不充分；这不意味着该对象已经解释完毕。质量与完成度对齐 ACL/EMNLP/NAACL 主会，尤其 Dumas/Wang 的干预链，同时独立检查它们的控制与泛化证据。
 
 ## 7. 下一步
 
 使用真实的 word-in-context 与 translation 题对比；另加 **和 copy 不相关的下游语义推断**，并匹配无歧义翻译、普通多义、答案长度和词形复制偏向。若所有看似“意义竞争”的效应都只来自自由翻译/候选字串，则路线 A 的内部词义冲突叙事不成立。
 
-## 8. 待核查
+## 8. 2026-10-13 原文与源码纠正
 
-实际 GitHub questions Python dict 的每个语对条目数量、许可证、样本来源和 potential duplicate；不是把每种 question variant 当独立 lexical evidence。
+Appendix H 已有独立 MCQA 与循环轮换；本项目不能以此自称新设计。Appendix M 是去掉定义换行的结果，匹配当前公开源码；Appendix N 已含 Qwen2.5-14B，因此本轮两个模型都是既有模型的本地复核。
+
+Type-1 共464词族，WM各464，JP语境/翻译462、ZH455。公开 WM loader 缺自身词字段，本地仅用字典键补齐；其余11048个原评分字符串逐项与源 runner 一致。整段 token 平均 NLL、候选条件 NLL、显式 chat 与自由生成不是同一测量。
+
+两模型六项分数均接近对应附录（Llama最大差0.65pp、Qwen0.45pp），但使用 Llama 镜像、批量 bf16 等差异，不能称逐 bit 忠实复现。新词义问答更好不证明内部知识完全存在；生成同形不证明错义；源“完全异义”分类也不可直接升格为句级互斥 gold。详见[方法审核](../notes/DOPPELGANGER_METHODS_AUDIT_2026-10-13.md)、[自由翻译评读](../notes/FREE_TRANSLATION_REVIEW_2026-10-13.md)与[本轮研究更新](../notes/LOCAL_RESEARCH_UPDATE_2026-10-13.md)。

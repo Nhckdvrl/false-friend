@@ -1,0 +1,206 @@
+{
+  "groups": [
+    {
+      "task": "scope_followup",
+      "condition": "isolated",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 96,
+      "correct": 95,
+      "parsed": 96,
+      "yes": 47,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "scope_followup",
+      "condition": "predicate",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 384,
+      "correct": 382,
+      "parsed": 384,
+      "yes": 194,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    },
+    {
+      "task": "scope_followup",
+      "condition": "word",
+      "language_pair": "en-en",
+      "subset": "authored",
+      "n": 384,
+      "correct": 197,
+      "parsed": 384,
+      "yes": 199,
+      "token_limit": 0,
+      "explicit_label_correct": null
+    }
+  ],
+  "symmetry": [],
+  "factorial": [],
+  "scope_pair_groups": [
+    {
+      "split": "explored",
+      "discordant_gold": false,
+      "n_pairs": 96,
+      "same_prediction": 96,
+      "word_correct": 96,
+      "predicate_correct": 96,
+      "same_prediction_by_family": {
+        "n_families": 12,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "split": "explored",
+      "discordant_gold": true,
+      "n_pairs": 96,
+      "same_prediction": 96,
+      "word_correct": 0,
+      "predicate_correct": 96,
+      "same_prediction_by_family": {
+        "n_families": 12,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "split": "new_family",
+      "discordant_gold": false,
+      "n_pairs": 96,
+      "same_prediction": 93,
+      "word_correct": 95,
+      "predicate_correct": 94,
+      "same_prediction_by_family": {
+        "n_families": 12,
+        "mean": 0.96875,
+        "ci95": [
+          0.9375,
+          1.0
+        ]
+      }
+    },
+    {
+      "split": "new_family",
+      "discordant_gold": true,
+      "n_pairs": 96,
+      "same_prediction": 90,
+      "word_correct": 6,
+      "predicate_correct": 96,
+      "same_prediction_by_family": {
+        "n_families": 12,
+        "mean": 0.9375,
+        "ci95": [
+          0.8645833333333334,
+          1.0
+        ]
+      }
+    }
+  ],
+  "identical_prompt_answer_mismatches": 0,
+  "run_status": "COMPLETE",
+  "family_metrics": [
+    {
+      "task": "scope_followup",
+      "condition": "isolated",
+      "split": "explored",
+      "n_outputs": 48,
+      "correct": 48,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "isolated",
+      "split": "new_family",
+      "n_outputs": 48,
+      "correct": 47,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.9791666666666666,
+        "ci95": [
+          0.9375,
+          1.0
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "predicate",
+      "split": "explored",
+      "n_outputs": 192,
+      "correct": 192,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "predicate",
+      "split": "new_family",
+      "n_outputs": 192,
+      "correct": 190,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.9895833333333334,
+        "ci95": [
+          0.9739583333333334,
+          1.0
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "word",
+      "split": "explored",
+      "n_outputs": 192,
+      "correct": 96,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.5,
+        "ci95": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "task": "scope_followup",
+      "condition": "word",
+      "split": "new_family",
+      "n_outputs": 192,
+      "correct": 101,
+      "family_accuracy": {
+        "n_families": 12,
+        "mean": 0.5260416666666666,
+        "ci95": [
+          0.5,
+          0.5572916666666666
+        ]
+      }
+    }
+  ],
+  "generation_tasks": {
+    "scope_followup": 864
+  },
+  "hit_token_limit": 0
+}

@@ -1,0 +1,50 @@
+{
+  "local_raw_run": "/home/xiang/false-friend/runs/2026-10-13-doppelganger-llama8b",
+  "original_files": {
+    "chat_trials.jsonl": {
+      "sha256": "1d363b3fd2ab7c0fffd829fc472a62a4198af1f672d0066b71e779eb95fb509a",
+      "bytes": 6020667
+    },
+    "code_snapshot.py": {
+      "sha256": "6a0b5a9e9178f2dc28e47aa044c914df6449d0804f17363b8b12bb0dff211db9",
+      "bytes": 21837
+    },
+    "generations.jsonl": {
+      "sha256": "b44206c8a496bf41f1c7d83b16d6a374f0216af4fe061e63e2646700ceb32536",
+      "bytes": 314827
+    },
+    "inputs.jsonl": {
+      "sha256": "7312b422782c2ca51675ddb5e39d4fb749fc0da39d1de5291cf9dab47b3528e8",
+      "bytes": 3911500
+    },
+    "manifest.json": {
+      "sha256": "3bd217a6c3e3d19cacd94f744c668d239f7245ecf2990d646560a5aefb1f8840",
+      "bytes": 6541
+    },
+    "measurement_audit.json": {
+      "sha256": "0d778290c429d6ee0ee34a62efb5a18c8100f7a8ba1d533630b7eed94f44c989",
+      "bytes": 6151
+    },
+    "numerical_audit.json": {
+      "sha256": "5ab1fbb2e7edb943f5a3bcad0fb32c618c9f9533f1084d5d6c3270f5faa110a3",
+      "bytes": 1741
+    },
+    "paired_predictions.jsonl": {
+      "sha256": "fea4a47ac78d4ef60148d96704954925506f6beea824702a2425e7fbd2b18be1",
+      "bytes": 1102925
+    },
+    "summary.json": {
+      "sha256": "59626c813874f38c7e284481b26f9d7e31c541147ac1c17e268085a5e3f8e0ea",
+      "bytes": 25601
+    },
+    "translation_agent_review.jsonl": {
+      "sha256": "061a4e511f5dee654de8349f4d63448516a9a0d747a93407cec91f9aa98d4fb7",
+      "bytes": 84116
+    },
+    "trials.jsonl": {
+      "sha256": "07dd1e100581ac836600247853f68beb220164bf1180ef488791ccb8a95f294f",
+      "bytes": 10861194
+    }
+  },
+  "policy": "Raw source sentences/options/prompts remain in local run. This bundle keeps hashes, numerical scores, model outputs, code snapshots and non-human review. It is not an independent semantic annotation."
+}
