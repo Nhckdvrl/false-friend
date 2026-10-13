@@ -1,6 +1,6 @@
 # 当前工作空间的研究知识库
 
-**位置固定：Nhckdvrl/false-friend/knowledge/**。没有向外部Library或别的workbench写入这些资产。更新2026-10-12。
+**位置固定：Nhckdvrl/false-friend/knowledge/**。更新2026-10-12。
 
 ## 读什么、为什么
 
