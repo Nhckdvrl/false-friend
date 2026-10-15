@@ -1,6 +1,8 @@
 # 当前工作空间的研究知识库
 
-**位置固定：Nhckdvrl/false-friend/knowledge/**。更新2026-10-13。
+**位置固定：Nhckdvrl/false-friend/knowledge/**。入口更新2026-10-15；下列实证仍截至2026-10-13。
+
+新增[方向审阅：单题救援与可复用语义](notes/DIRECTION_REVIEW_2026-10-15.md)：结合用户不希望过度语言学化或抽象化的要求，审阅四轮证据、补读近邻原文，提出可供选择的具体问题。**这是待确认提案，不覆盖现有主线、不宣称新实验或机制结果。** 本次定向阅读及新检索旁支的真实范围保存在该笔记，未把它们自动升级为独立S1卡，也未改写原sources.tsv阅读状态。
 
 最新实证：[第四轮Romance与目标范围](notes/ROMANCE_SCOPE_CYCLE_RESULTS_2026-10-13.md)，16运行、21,424生成，出现新词族上的范围不敏感预测；[四轮进展总览](notes/CURRENT_PROGRESS_2026-10-13.md)统一已知、未知与接续入口。此前为[AM2iCo第三轮](notes/AM2ICO_CYCLE_RESULTS_2026-10-13.md)、[输出语言第二轮](notes/OUTPUT_LANGUAGE_CYCLE_RESULTS_2026-10-13.md)及[第一轮本地研究](notes/LOCAL_RESEARCH_UPDATE_2026-10-13.md)。主会完成度与最近邻距离：[ACL主会对照](notes/MAIN_VENUE_COMPARISON_2026-10-13.md)。包含原协议复核、新观察及失败测量，尚无内部机制结论。
 
@@ -32,7 +34,6 @@
 ```bash
 python scripts/build_knowledge_index.py
 python scripts/check_knowledge.py
-python scripts/query_knowledge.py --query 'word sense' --limit 8
 ```
 
 新增/改读一篇后更新 sources.tsv、笔记和必要的领域画像；生成索引与受限来源卡。自动检查只保证条目覆盖、路径/来源/状态一致，不宣称文章真实或idea好。严肃的质量判断仍需对照原文和实验。
